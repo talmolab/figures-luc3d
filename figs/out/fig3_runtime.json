@@ -1,0 +1,256 @@
+{
+  "generated_by": "figs/fig3_scale_runtime.py",
+  "dataset": "both",
+  "detection_pool": "/root/vast/eric/luc3d-bench/outputs/keeptrack_h5s (SLAP-2M), /root/vast/eric/luc3d-bench/outputs/bmimica/det_h5 (BMimica)",
+  "sessions": [
+    "10072022131531",
+    "10072022142111",
+    "10072022145420",
+    "20250827_141755"
+  ],
+  "metric": "wall-clock seconds/frame (association only, fixed detection pool)",
+  "caveats": [
+    "Each cell measured over a fixed leading window of up to 3000 frames (>= the handoff's 500-frame minimum); seconds_per_frame is runCrossViewTracker's own wall-clock, excluding H5 loading/slicing IO, so it isolates association cost from decoding as instructed.",
+    "Detection pool is identical across all camera-subset cells for a given animal count (progressive real subsets of the same 6-camera pool), so seconds_per_frame differences reflect C alone, not detector/data differences."
+  ],
+  "blocked": [
+    "Camera axis capped at C=6 (not the requested C up to 8): SLAP-2M's shared, pool-fed aggregated detection H5s (outputs/keeptrack_h5s, outputs/detections_only_h5s) only cover 6 cameras (back/backL/mid/midL/top/topL). side/sideL exist only as raw per-session .slp files in a separate, non-overlapping session subset (outputs/side_detections/), not as an aggregated tracks H5 in the shared pool used by the champion-config benchmark \u2014 converting them would mean scoring on a DIFFERENT detection pool than every other point in this grid, breaking the 'same detections everywhere' fairness rule this whole benchmark rests on. C=7,8 are not measured rather than approximated from a mismatched pool."
+  ],
+  "measured": [
+    {
+      "cameras": 5,
+      "animals": 2,
+      "seconds_per_frame": 0.0011243333333333333,
+      "frames": 3000,
+      "session": "20250827_141755",
+      "status": "ok"
+    },
+    {
+      "cameras": 2,
+      "animals": 2,
+      "seconds_per_frame": 0.00035,
+      "frames": 3000,
+      "session": "10072022131531",
+      "status": "ok"
+    },
+    {
+      "cameras": 3,
+      "animals": 2,
+      "seconds_per_frame": 0.0005913333333333334,
+      "frames": 3000,
+      "session": "10072022131531",
+      "status": "ok"
+    },
+    {
+      "cameras": 4,
+      "animals": 2,
+      "seconds_per_frame": 0.000793,
+      "frames": 3000,
+      "session": "10072022131531",
+      "status": "ok"
+    },
+    {
+      "cameras": 5,
+      "animals": 2,
+      "seconds_per_frame": 0.0009589999999999999,
+      "frames": 3000,
+      "session": "10072022131531",
+      "status": "ok"
+    },
+    {
+      "cameras": 6,
+      "animals": 2,
+      "seconds_per_frame": 0.0011956666666666667,
+      "frames": 3000,
+      "session": "10072022131531",
+      "status": "ok"
+    },
+    {
+      "cameras": 2,
+      "animals": 3,
+      "seconds_per_frame": 0.0005386666666666667,
+      "frames": 3000,
+      "session": "10072022142111",
+      "status": "ok"
+    },
+    {
+      "cameras": 3,
+      "animals": 3,
+      "seconds_per_frame": 0.0009026666666666667,
+      "frames": 3000,
+      "session": "10072022142111",
+      "status": "ok"
+    },
+    {
+      "cameras": 4,
+      "animals": 3,
+      "seconds_per_frame": 0.001189,
+      "frames": 3000,
+      "session": "10072022142111",
+      "status": "ok"
+    },
+    {
+      "cameras": 5,
+      "animals": 3,
+      "seconds_per_frame": 0.0015016666666666666,
+      "frames": 3000,
+      "session": "10072022142111",
+      "status": "ok"
+    },
+    {
+      "cameras": 6,
+      "animals": 3,
+      "seconds_per_frame": 0.0019093333333333332,
+      "frames": 3000,
+      "session": "10072022142111",
+      "status": "ok"
+    },
+    {
+      "cameras": 2,
+      "animals": 4,
+      "seconds_per_frame": 0.0007360000000000001,
+      "frames": 3000,
+      "session": "10072022145420",
+      "status": "ok"
+    },
+    {
+      "cameras": 3,
+      "animals": 4,
+      "seconds_per_frame": 0.0011706666666666666,
+      "frames": 3000,
+      "session": "10072022145420",
+      "status": "ok"
+    },
+    {
+      "cameras": 4,
+      "animals": 4,
+      "seconds_per_frame": 0.001572,
+      "frames": 3000,
+      "session": "10072022145420",
+      "status": "ok"
+    },
+    {
+      "cameras": 5,
+      "animals": 4,
+      "seconds_per_frame": 0.002115,
+      "frames": 3000,
+      "session": "10072022145420",
+      "status": "ok"
+    },
+    {
+      "cameras": 6,
+      "animals": 4,
+      "seconds_per_frame": 0.0024416666666666666,
+      "frames": 3000,
+      "session": "10072022145420",
+      "status": "ok"
+    }
+  ],
+  "analytic_exhaustive": [
+    {
+      "cameras": 2,
+      "animals": 2,
+      "hypotheses": 4
+    },
+    {
+      "cameras": 3,
+      "animals": 2,
+      "hypotheses": 8
+    },
+    {
+      "cameras": 4,
+      "animals": 2,
+      "hypotheses": 16
+    },
+    {
+      "cameras": 5,
+      "animals": 2,
+      "hypotheses": 32
+    },
+    {
+      "cameras": 6,
+      "animals": 2,
+      "hypotheses": 64
+    },
+    {
+      "cameras": 7,
+      "animals": 2,
+      "hypotheses": 128
+    },
+    {
+      "cameras": 8,
+      "animals": 2,
+      "hypotheses": 256
+    },
+    {
+      "cameras": 2,
+      "animals": 3,
+      "hypotheses": 36
+    },
+    {
+      "cameras": 3,
+      "animals": 3,
+      "hypotheses": 216
+    },
+    {
+      "cameras": 4,
+      "animals": 3,
+      "hypotheses": 1296
+    },
+    {
+      "cameras": 5,
+      "animals": 3,
+      "hypotheses": 7776
+    },
+    {
+      "cameras": 6,
+      "animals": 3,
+      "hypotheses": 46656
+    },
+    {
+      "cameras": 7,
+      "animals": 3,
+      "hypotheses": 279936
+    },
+    {
+      "cameras": 8,
+      "animals": 3,
+      "hypotheses": 1679616
+    },
+    {
+      "cameras": 2,
+      "animals": 4,
+      "hypotheses": 576
+    },
+    {
+      "cameras": 3,
+      "animals": 4,
+      "hypotheses": 13824
+    },
+    {
+      "cameras": 4,
+      "animals": 4,
+      "hypotheses": 331776
+    },
+    {
+      "cameras": 5,
+      "animals": 4,
+      "hypotheses": 7962624
+    },
+    {
+      "cameras": 6,
+      "animals": 4,
+      "hypotheses": 191102976
+    },
+    {
+      "cameras": 7,
+      "animals": 4,
+      "hypotheses": 4586471424
+    },
+    {
+      "cameras": 8,
+      "animals": 4,
+      "hypotheses": 110075314176
+    }
+  ]
+}

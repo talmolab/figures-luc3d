@@ -1,0 +1,753 @@
+{
+  "session": {
+    "hasSession": true,
+    "cameras": [
+      "back",
+      "backL",
+      "mid",
+      "midL",
+      "side",
+      "sideL",
+      "top",
+      "topL"
+    ],
+    "totalFrames": 240,
+    "tracks": 4
+  },
+  "sessionRel": "figs/session-slap-10072022145420",
+  "frame": 20,
+  "nAnimals": 4,
+  "cameras": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "top",
+    "topL"
+  ],
+  "brightness": 1.9,
+  "overlayStyle": {
+    "predNodeSize": 5,
+    "predEdgeWeight": 3,
+    "userNodeSize": 5,
+    "userEdgeWeight": 3,
+    "userLabelSize": 1,
+    "reprojNodeSize": 5,
+    "reprojEdgeWeight": 3,
+    "reprojLabelSize": 0
+  },
+  "tracked": {
+    "identities": 4,
+    "fim": 5546
+  },
+  "triangulated": {
+    "groups": 934,
+    "with3d": 934
+  },
+  "palette": [
+    {
+      "name": "id_0",
+      "color": "#2CA02C"
+    },
+    {
+      "name": "id_1",
+      "color": "#D62728"
+    },
+    {
+      "name": "id_2",
+      "color": "#FF7F0E"
+    },
+    {
+      "name": "id_3",
+      "color": "#1F77B4"
+    }
+  ],
+  "scale": {
+    "L": 50,
+    "centroid3d": [
+      -49.6,
+      106.4,
+      1115.7
+    ],
+    "nKeypoints3d": 55,
+    "bodyMm": {
+      "Nose-TailTip": {
+        "median": 248,
+        "n": 723
+      },
+      "TTI-TailTip": {
+        "median": 130.2,
+        "n": 730
+      },
+      "Nose-TTI": {
+        "median": 136.7,
+        "n": 914
+      },
+      "animalExtent": {
+        "n": 930,
+        "p10": 144.2,
+        "median": 233.6,
+        "p90": 288.7
+      }
+    },
+    "perView": {
+      "back": {
+        "pxPerUnit": 1.1737751406464707,
+        "anisotropy": 0.0032,
+        "projCentroidPx": [
+          764.8,
+          586.2
+        ]
+      },
+      "backL": {
+        "pxPerUnit": 1.1896790709980953,
+        "anisotropy": 0.0038,
+        "projCentroidPx": [
+          582.2,
+          643.2
+        ]
+      },
+      "mid": {
+        "pxPerUnit": 1.1865450269908748,
+        "anisotropy": 0.0022,
+        "projCentroidPx": [
+          725.1,
+          694.5
+        ]
+      },
+      "midL": {
+        "pxPerUnit": 1.1966786681112778,
+        "anisotropy": 0,
+        "projCentroidPx": [
+          648.9,
+          517.4
+        ]
+      },
+      "top": {
+        "pxPerUnit": 1.2233947146760789,
+        "anisotropy": 0.0004,
+        "projCentroidPx": [
+          729.3,
+          613.8
+        ]
+      },
+      "topL": {
+        "pxPerUnit": 1.1129236064857042,
+        "anisotropy": 0.0006,
+        "projCentroidPx": [
+          749.1,
+          594.9
+        ]
+      }
+    }
+  },
+  "skeletonEdges": {
+    "ok": true,
+    "nNodes": 15,
+    "edgesBefore": 14,
+    "edgesAfter": 26
+  },
+  "threeD": {
+    "rig": "fig6-rig.png",
+    "framing": {
+      "n": 55,
+      "nCams": 8,
+      "zsign": -1,
+      "radius": 714.8,
+      "dist": 1759.1,
+      "azimuth_deg": -97.4,
+      "elevation_deg": 18,
+      "startCam": "topL",
+      "startCamElevation_deg": 57.7,
+      "pane": [
+        1599,
+        1280
+      ],
+      "camScreen": [
+        {
+          "name": "back",
+          "x": 381.4,
+          "y": 475.1,
+          "behind": false
+        },
+        {
+          "name": "backL",
+          "x": 625.1,
+          "y": 166,
+          "behind": false
+        },
+        {
+          "name": "mid",
+          "x": 1012.1,
+          "y": 286.7,
+          "behind": false
+        },
+        {
+          "name": "midL",
+          "x": 557.5,
+          "y": 485.2,
+          "behind": false
+        },
+        {
+          "name": "side",
+          "x": 1227.7,
+          "y": 881.7,
+          "behind": false
+        },
+        {
+          "name": "sideL",
+          "x": 1190.7,
+          "y": 1136.6,
+          "behind": false
+        },
+        {
+          "name": "top",
+          "x": 620.2,
+          "y": 78.2,
+          "behind": false
+        },
+        {
+          "name": "topL",
+          "x": 660.5,
+          "y": 212.2,
+          "behind": false
+        }
+      ],
+      "animalsScreen": {
+        "x": 727.6,
+        "y": 969.6,
+        "behind": false
+      }
+    },
+    "rigBBox": {
+      "x0": 752,
+      "y0": 143,
+      "x1": 2465,
+      "y1": 2414,
+      "width": 3200,
+      "height": 2560,
+      "bg": [
+        26,
+        26,
+        26
+      ],
+      "tol": 30,
+      "margin": 12
+    },
+    "animals": "fig6-3d-animals.png",
+    "animalsFraming": {
+      "n": 55,
+      "centroid": [
+        -49.6,
+        106.4,
+        1115.7
+      ],
+      "span": 332.1,
+      "dist": 797
+    },
+    "animalsBBox": {
+      "x0": 809,
+      "y0": 866,
+      "x1": 2099,
+      "y1": 1894,
+      "width": 3200,
+      "height": 2560,
+      "bg": [
+        26,
+        26,
+        26
+      ],
+      "tol": 30,
+      "margin": 12
+    }
+  },
+  "views": [
+    {
+      "name": "back",
+      "width": 1280,
+      "height": 1024,
+      "bbox": {
+        "x0": 404,
+        "y0": 262,
+        "x1": 1132,
+        "y1": 917
+      },
+      "nInstances": 3,
+      "details": [
+        {
+          "track": "global_2",
+          "identity": "id_0",
+          "type": "predicted",
+          "color": "#2CA02C",
+          "centroid": [
+            733,
+            485
+          ],
+          "box": [
+            655,
+            397,
+            783,
+            569
+          ],
+          "nVisible": 15
+        },
+        {
+          "track": "global_1",
+          "identity": "id_2",
+          "type": "predicted",
+          "color": "#FF7F0E",
+          "centroid": [
+            653,
+            671
+          ],
+          "box": [
+            554,
+            612,
+            778,
+            728
+          ],
+          "nVisible": 15
+        },
+        {
+          "track": "global_0",
+          "identity": "id_3",
+          "type": "predicted",
+          "color": "#1F77B4",
+          "centroid": [
+            860,
+            627
+          ],
+          "box": [
+            735,
+            562,
+            982,
+            782
+          ],
+          "nVisible": 15
+        }
+      ],
+      "frame": 20,
+      "file": "/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/out/fig6-view-f20-back.png"
+    },
+    {
+      "name": "backL",
+      "width": 1280,
+      "height": 1024,
+      "bbox": {
+        "x0": 257,
+        "y0": 250,
+        "x1": 934,
+        "y1": 951
+      },
+      "nInstances": 4,
+      "details": [
+        {
+          "track": "global_2",
+          "identity": "id_0",
+          "type": "predicted",
+          "color": "#2CA02C",
+          "centroid": [
+            485,
+            714
+          ],
+          "box": [
+            397,
+            678,
+            573,
+            774
+          ],
+          "nVisible": 15
+        },
+        {
+          "track": "global_3",
+          "identity": "id_1",
+          "type": "predicted",
+          "color": "#D62728",
+          "centroid": [
+            529,
+            535
+          ],
+          "box": [
+            499,
+            394,
+            583,
+            632
+          ],
+          "nVisible": 12
+        },
+        {
+          "track": "global_1",
+          "identity": "id_2",
+          "type": "predicted",
+          "color": "#FF7F0E",
+          "centroid": [
+            706,
+            721
+          ],
+          "box": [
+            623,
+            574,
+            795,
+            806
+          ],
+          "nVisible": 15
+        },
+        {
+          "track": "global_0",
+          "identity": "id_3",
+          "type": "predicted",
+          "color": "#1F77B4",
+          "centroid": [
+            598,
+            552
+          ],
+          "box": [
+            537,
+            419,
+            701,
+            678
+          ],
+          "nVisible": 15
+        }
+      ],
+      "frame": 20,
+      "file": "/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/out/fig6-view-f20-backL.png"
+    },
+    {
+      "name": "mid",
+      "width": 1280,
+      "height": 1024,
+      "bbox": {
+        "x0": 370,
+        "y0": 402,
+        "x1": 1094,
+        "y1": 1024
+      },
+      "nInstances": 4,
+      "details": [
+        {
+          "track": "global_2",
+          "identity": "id_0",
+          "type": "predicted",
+          "color": "#2CA02C",
+          "centroid": [
+            746,
+            809
+          ],
+          "box": [
+            695,
+            717,
+            801,
+            896
+          ],
+          "nVisible": 15
+        },
+        {
+          "track": "global_3",
+          "identity": "id_1",
+          "type": "predicted",
+          "color": "#D62728",
+          "centroid": [
+            643,
+            726
+          ],
+          "box": [
+            519,
+            680,
+            726,
+            756
+          ],
+          "nVisible": 9
+        },
+        {
+          "track": "global_1",
+          "identity": "id_2",
+          "type": "predicted",
+          "color": "#FF7F0E",
+          "centroid": [
+            843,
+            618
+          ],
+          "box": [
+            693,
+            580,
+            945,
+            678
+          ],
+          "nVisible": 15
+        },
+        {
+          "track": "global_0",
+          "identity": "id_3",
+          "type": "predicted",
+          "color": "#1F77B4",
+          "centroid": [
+            647,
+            647
+          ],
+          "box": [
+            563,
+            530,
+            755,
+            707
+          ],
+          "nVisible": 15
+        }
+      ],
+      "frame": 20,
+      "file": "/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/out/fig6-view-f20-mid.png"
+    },
+    {
+      "name": "midL",
+      "width": 1280,
+      "height": 1024,
+      "bbox": {
+        "x0": 318,
+        "y0": 184,
+        "x1": 979,
+        "y1": 893
+      },
+      "nInstances": 4,
+      "details": [
+        {
+          "track": "global_2",
+          "identity": "id_0",
+          "type": "predicted",
+          "color": "#2CA02C",
+          "centroid": [
+            756,
+            479
+          ],
+          "box": [
+            665,
+            382,
+            843,
+            534
+          ],
+          "nVisible": 15
+        },
+        {
+          "track": "global_3",
+          "identity": "id_1",
+          "type": "predicted",
+          "color": "#D62728",
+          "centroid": [
+            700,
+            560
+          ],
+          "box": [
+            680,
+            513,
+            726,
+            610
+          ],
+          "nVisible": 7
+        },
+        {
+          "track": "global_1",
+          "identity": "id_2",
+          "type": "predicted",
+          "color": "#FF7F0E",
+          "centroid": [
+            551,
+            410
+          ],
+          "box": [
+            499,
+            330,
+            602,
+            510
+          ],
+          "nVisible": 14
+        },
+        {
+          "track": "global_0",
+          "identity": "id_3",
+          "type": "predicted",
+          "color": "#1F77B4",
+          "centroid": [
+            608,
+            614
+          ],
+          "box": [
+            454,
+            487,
+            672,
+            747
+          ],
+          "nVisible": 15
+        }
+      ],
+      "frame": 20,
+      "file": "/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/out/fig6-view-f20-midL.png"
+    },
+    {
+      "name": "top",
+      "width": 1280,
+      "height": 1024,
+      "bbox": {
+        "x0": 310,
+        "y0": 265,
+        "x1": 1040,
+        "y1": 935
+      },
+      "nInstances": 4,
+      "details": [
+        {
+          "track": "global_2",
+          "identity": "id_0",
+          "type": "predicted",
+          "color": "#2CA02C",
+          "centroid": [
+            802,
+            710
+          ],
+          "box": [
+            752,
+            621,
+            890,
+            797
+          ],
+          "nVisible": 15
+        },
+        {
+          "track": "global_3",
+          "identity": "id_1",
+          "type": "predicted",
+          "color": "#D62728",
+          "centroid": [
+            663,
+            681
+          ],
+          "box": [
+            513,
+            655,
+            748,
+            709
+          ],
+          "nVisible": 10
+        },
+        {
+          "track": "global_1",
+          "identity": "id_2",
+          "type": "predicted",
+          "color": "#FF7F0E",
+          "centroid": [
+            804,
+            484
+          ],
+          "box": [
+            680,
+            403,
+            889,
+            563
+          ],
+          "nVisible": 14
+        },
+        {
+          "track": "global_0",
+          "identity": "id_3",
+          "type": "predicted",
+          "color": "#1F77B4",
+          "centroid": [
+            621,
+            599
+          ],
+          "box": [
+            460,
+            490,
+            762,
+            666
+          ],
+          "nVisible": 15
+        }
+      ],
+      "frame": 20,
+      "file": "/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/out/fig6-view-f20-top.png"
+    },
+    {
+      "name": "topL",
+      "width": 1280,
+      "height": 1024,
+      "bbox": {
+        "x0": 353,
+        "y0": 285,
+        "x1": 1050,
+        "y1": 876
+      },
+      "nInstances": 4,
+      "details": [
+        {
+          "track": "global_2",
+          "identity": "id_0",
+          "type": "predicted",
+          "color": "#2CA02C",
+          "centroid": [
+            815,
+            684
+          ],
+          "box": [
+            767,
+            600,
+            906,
+            754
+          ],
+          "nVisible": 14
+        },
+        {
+          "track": "global_3",
+          "identity": "id_1",
+          "type": "predicted",
+          "color": "#D62728",
+          "centroid": [
+            720,
+            652
+          ],
+          "box": [
+            668,
+            634,
+            768,
+            672
+          ],
+          "nVisible": 7
+        },
+        {
+          "track": "global_1",
+          "identity": "id_2",
+          "type": "predicted",
+          "color": "#FF7F0E",
+          "centroid": [
+            812,
+            476
+          ],
+          "box": [
+            713,
+            407,
+            881,
+            543
+          ],
+          "nVisible": 14
+        },
+        {
+          "track": "global_0",
+          "identity": "id_3",
+          "type": "predicted",
+          "color": "#1F77B4",
+          "centroid": [
+            649,
+            583
+          ],
+          "box": [
+            496,
+            486,
+            777,
+            644
+          ],
+          "nVisible": 15
+        }
+      ],
+      "frame": 20,
+      "file": "/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/out/fig6-view-f20-topL.png"
+    }
+  ]
+}

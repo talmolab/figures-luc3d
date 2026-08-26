@@ -1,0 +1,3684 @@
+{
+ "corpora": [
+  {
+   "name": "BMimica",
+   "sessions_total": 56,
+   "sessions_with_3d": 56,
+   "frames_total": 10084734,
+   "fps": 150.1054,
+   "hours": 18.66,
+   "animals_range": [
+    2
+   ],
+   "cameras_range": [
+    5
+   ],
+   "fully_complete_3d": 56,
+   "median_nan_frac": 0.0
+  },
+  {
+   "name": "SLAP-2M",
+   "sessions_total": 74,
+   "sessions_with_3d": 74,
+   "frames_total": 1954440,
+   "fps": 30.0,
+   "hours": 18.1,
+   "animals_range": [
+    1,
+    2,
+    3,
+    4
+   ],
+   "cameras_range": [
+    8
+   ],
+   "fully_complete_3d": 74,
+   "median_nan_frac": 0.0
+  }
+ ],
+ "rigs": {
+  "BMimica": {
+   "21241563": {
+    "pos": [
+     4.514711191709655,
+     -0.5392596918913554,
+     9.285814011110777
+    ],
+    "axis": [
+     -0.0034849829294680418,
+     0.0005915675990340664,
+     0.9999937524513627
+    ],
+    "fx": 1315.987186829743,
+    "fy": 1315.987186829743
+   },
+   "21369048": {
+    "pos": [
+     18.808208491069067,
+     -502.55526141926583,
+     256.39533392460004
+    ],
+    "axis": [
+     -0.03815581429135277,
+     0.5901798362542757,
+     0.8063695770021586
+    ],
+    "fx": 1309.7093584861054,
+    "fy": 1309.7093584861054
+   },
+   "21372315": {
+    "pos": [
+     19.28206793131021,
+     -413.00108643200474,
+     -162.06135781528434
+    ],
+    "axis": [
+     -0.02810261980337041,
+     0.3406955153183985,
+     0.9397535892999388
+    ],
+    "fx": 1728.489977925418,
+    "fy": 1728.489977925418
+   },
+   "21372316": {
+    "pos": [
+     288.1654685925296,
+     -273.9436741846897,
+     103.25233353746658
+    ],
+    "axis": [
+     -0.32205773402347965,
+     0.29755511337797863,
+     0.8987434397303158
+    ],
+    "fx": 1300.6749201813384,
+    "fy": 1300.6749201813384
+   },
+   "22085397": {
+    "pos": [
+     -263.7880647680938,
+     -286.0923457846754,
+     104.48046151310562
+    ],
+    "axis": [
+     0.27333847302873304,
+     0.3563697185268002,
+     0.8934689154522666
+    ],
+    "fx": 1304.9464781478384,
+    "fy": 1304.9464781478384
+   }
+  },
+  "SLAP-2M": {
+   "back": {
+    "pos": [
+     59.79743412174976,
+     -272.22990236816617,
+     594.9398784365956
+    ],
+    "axis": [
+     -0.2106223851857659,
+     0.7134062784728488,
+     0.6683484814781724
+    ],
+    "fx": 762.513822135494,
+    "fy": 762.513822135494
+   },
+   "backL": {
+    "pos": [
+     -5.92065416101892,
+     15.13506505726798,
+     434.7716324607193
+    ],
+    "axis": [
+     0.01073298468850342,
+     -0.026135691918357892,
+     0.9996007846373597
+    ],
+    "fx": 817.6484736604496,
+    "fy": 817.6484736604496
+   },
+   "mid": {
+    "pos": [
+     -272.93748109800833,
+     41.459981331399526,
+     514.5966345802126
+    ],
+    "axis": [
+     0.4859131592683739,
+     -0.11493375082608703,
+     0.8664171250447874
+    ],
+    "fx": 757.8876636778425,
+    "fy": 757.8876636778425
+   },
+   "midL": {
+    "pos": [
+     -68.67639855802224,
+     -374.14087785546315,
+     576.2981912698687
+    ],
+    "axis": [
+     0.03847678436285796,
+     0.6679256923457794,
+     0.7432326732386737
+    ],
+    "fx": 865.1641815534884,
+    "fy": 865.1641815534884
+   },
+   "side": {
+    "pos": [
+     -470.0706447676331,
+     83.10152877739509,
+     986.5399340731469
+    ],
+    "axis": [
+     0.9823969329313837,
+     -0.015222581766825949,
+     0.18618415392122567
+    ],
+    "fx": 754.7093944045533,
+    "fy": 754.7093944045533
+   },
+   "sideL": {
+    "pos": [
+     -415.385913252593,
+     -149.16382042608262,
+     1060.6213753269524
+    ],
+    "axis": [
+     0.9162979551106485,
+     0.39936097015703276,
+     0.030147520217710694
+    ],
+    "fx": 754.8402306632529,
+    "fy": 754.8402306632529
+   },
+   "top": {
+    "pos": [
+     -62.163304636600316,
+     -209.50881976766,
+     395.991560369564
+    ],
+    "axis": [
+     0.12615882381126803,
+     0.3162057117883551,
+     0.9402648025992343
+    ],
+    "fx": 958.8409001521982,
+    "fy": 958.8409001521982
+   },
+   "topL": {
+    "pos": [
+     -102.92292530288009,
+     -303.280631567015,
+     461.106223261946
+    ],
+    "axis": [
+     0.17383498326474084,
+     0.41771462335012705,
+     0.8917936375826017
+    ],
+    "fx": 860.8004120100271,
+    "fy": 860.8004120100271
+   }
+  }
+ },
+ "skeleton": {
+  "nodes": [
+   "TailTip",
+   "Neck",
+   "Ear_L",
+   "Haunch_left",
+   "Head",
+   "Shoulder_right",
+   "TTI",
+   "Nose",
+   "Trunk",
+   "Tail_1",
+   "Ear_R",
+   "Tail_0",
+   "Shoulder_left",
+   "Haunch_right",
+   "Tail_2"
+  ],
+  "edges": [
+   [
+    0,
+    6
+   ],
+   [
+    1,
+    4
+   ],
+   [
+    2,
+    4
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    4,
+    5
+   ],
+   [
+    4,
+    6
+   ],
+   [
+    4,
+    7
+   ],
+   [
+    4,
+    10
+   ],
+   [
+    4,
+    12
+   ],
+   [
+    6,
+    8
+   ],
+   [
+    6,
+    9
+   ],
+   [
+    6,
+    11
+   ],
+   [
+    6,
+    13
+   ],
+   [
+    6,
+    14
+   ]
+  ]
+ },
+ "bmimica": [
+  {
+   "session": "20250827_141755",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180199,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1054,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250827_145223",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180197,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1052,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250827_152238",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1051,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250827_155244",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180054,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.105,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250827_162428",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180057,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.105,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250827_165542",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250827_172440",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180058,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_124351",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.105,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_134647",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180194,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1053,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_141847",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180054,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.105,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_144840",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180045,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_151905",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180057,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1048,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_155407",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180195,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_162253",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180058,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1047,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_164919",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1046,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250829_171625",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1046,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250903_141046",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1032,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250903_143938",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180059,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1037,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250903_150657",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1041,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250903_153433",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180057,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1042,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_131913",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180203,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1059,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_140306",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180199,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1054,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_143552",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180193,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1051,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_150414",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180053,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_153332",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_160014",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180053,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_165017",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180197,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1055,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_174232",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180201,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1052,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_181215",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180058,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250904_183921",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180058,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1047,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_165151",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1044,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_171829",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1041,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_174513",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180057,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1043,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_181402",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180054,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1043,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_191445",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180057,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1046,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_194049",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1043,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_200953",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180053,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1042,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_203607",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180060,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1042,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_210254",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180052,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1042,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250905_213215",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180053,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1043,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_143021",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180252,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1064,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_151901",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180198,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1058,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_154801",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180053,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1051,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_161657",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180058,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1048,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_164826",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1049,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_171538",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180057,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1046,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_174343",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1045,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_181225",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180057,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1045,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_183823",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1044,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250907_190610",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1045,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250908_152229",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": false,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1047,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250908_154926",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": false,
+   "has_proofread_3d": true,
+   "frames": 180056,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1046,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250908_161812",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": false,
+   "has_proofread_3d": true,
+   "frames": 180057,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1046,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250908_164528",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": false,
+   "has_proofread_3d": true,
+   "frames": 180055,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1045,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250908_171240",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": false,
+   "has_proofread_3d": true,
+   "frames": 180059,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1044,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "20250908_173928",
+   "cameras": 5,
+   "camera_names": [
+    "21241563",
+    "21369048",
+    "21372315",
+    "21372316",
+    "22085397"
+   ],
+   "has_calibration": false,
+   "has_proofread_3d": true,
+   "frames": 180059,
+   "animals": 2,
+   "nodes": 15,
+   "fps": 150.1044,
+   "nan_frac": 0.0
+  }
+ ],
+ "slap2m": [
+  {
+   "session": "10072022120554",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18050,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022121750",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18217,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022122913",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 19730,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022124146",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18085,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022125259",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18102,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022130420",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18125,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022131531",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18036,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022132603",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 19164,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022133702",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18010,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022134804",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18150,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022135851",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18017,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022140918",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18510,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022142111",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18219,
+   "animals": 3,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022143153",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18058,
+   "animals": 3,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022144215",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18082,
+   "animals": 3,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022145420",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18255,
+   "animals": 4,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022150448",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 19142,
+   "animals": 4,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022151549",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18200,
+   "animals": 4,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022161055",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18249,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022162233",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18086,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022163346",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18182,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022164619",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 39266,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022170913",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18099,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022172040",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18046,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022173152",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 30691,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022175009",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18221,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022180149",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18247,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022181300",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18179,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022183527",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18029,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022184618",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18223,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022190807",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18221,
+   "animals": 3,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022193448",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18081,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022194521",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 38410,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022200754",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 81052,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10072022205445",
+   "date": "2022-10-07",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 81453,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022174304",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 4125,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022174609",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 5371,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022174949",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 7229,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022175248",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 7237,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022175658",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9665,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022180019",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 7265,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022180303",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 7786,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022180545",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18115,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022181152",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18334,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022181735",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 18127,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022183334",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 10867,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022183808",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 10844,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10192022184226",
+   "date": "2022-10-19",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 15602,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10202022145302",
+   "date": "2022-10-20",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 54768,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10202022152641",
+   "date": "2022-10-20",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 55728,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10202022155850",
+   "date": "2022-10-20",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 54516,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10202022163211",
+   "date": "2022-10-20",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 59742,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10202022170717",
+   "date": "2022-10-20",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 54228,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10212022155401",
+   "date": "2022-10-21",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 108035,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10212022165516",
+   "date": "2022-10-21",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 108133,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10212022175626",
+   "date": "2022-10-21",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 27105,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10212022181154",
+   "date": "2022-10-21",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 41568,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022010116",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 54133,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022013209",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 56412,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022020456",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 54417,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022023536",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 54018,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022030623",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9492,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022031312",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9037,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022031841",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9013,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022032406",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 10606,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022033021",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9842,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022033652",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9132,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022034217",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9758,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022034810",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9187,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022035407",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9042,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022035936",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9009,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022040455",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 9660,
+   "animals": 2,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022041220",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 54110,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  },
+  {
+   "session": "10302022044354",
+   "date": "2022-10-30",
+   "cameras": 8,
+   "camera_names": [
+    "back",
+    "backL",
+    "mid",
+    "midL",
+    "side",
+    "sideL",
+    "top",
+    "topL"
+   ],
+   "has_calibration": true,
+   "has_proofread_3d": true,
+   "proofread_camera_files": 6,
+   "frames": 54295,
+   "animals": 1,
+   "nodes": 15,
+   "nan_frac": 0.0
+  }
+ ],
+ "roots": {
+  "bmimica": "/root/vast/eric/BMimica",
+  "slap2m": "/root/talmolab-smb/eric/slap_2m"
+ },
+ "slap_master_sheet": "/root/talmolab-smb/eric/slap_2m/master_sheet.xlsx",
+ "mean_pose": {
+  "session": "20250827_141755",
+  "poses_used": 1802,
+  "stride": 200,
+  "node_names": [
+   "Nose",
+   "Ear_R",
+   "Ear_L",
+   "TTI",
+   "TailTip",
+   "Head",
+   "Trunk",
+   "Tail_0",
+   "Tail_1",
+   "Tail_2",
+   "Shoulder_left",
+   "Shoulder_right",
+   "Haunch_left",
+   "Haunch_right",
+   "Neck"
+  ],
+  "xyz_mm": [
+   [
+    -67.4037839264167,
+    6.144946868668739,
+    5.179910309852356
+   ],
+   [
+    -41.94859540027875,
+    15.137127731741366,
+    12.557637946211774
+   ],
+   [
+    -45.51401264341965,
+    -5.474853076956113,
+    16.687460493343043
+   ],
+   [
+    17.468339465623036,
+    -7.855204586245293,
+    -16.089284345390446
+   ],
+   [
+    105.60989993488766,
+    6.1449468686687485,
+    5.1799103098523585
+   ],
+   [
+    -44.55999963173814,
+    5.354360921358182,
+    14.30309182388478
+   ],
+   [
+    -4.3604766756689655,
+    -3.2150761838182396,
+    -4.763304327634384
+   ],
+   [
+    42.22242021188699,
+    -7.840739137082567,
+    -13.406802995298792
+   ],
+   [
+    63.69373564849404,
+    -5.053766006571912,
+    -6.847935722596637
+   ],
+   [
+    85.44017828895251,
+    -0.26969984739850955,
+    -0.37394538905287267
+   ],
+   [
+    -38.26260917768858,
+    -8.14799687387316,
+    1.5428495350986586
+   ],
+   [
+    -35.28402730724244,
+    10.410988461349199,
+    -1.8138818963427292
+   ],
+   [
+    -3.597537263831485,
+    -16.898854017318722,
+    -8.898541548907739
+   ],
+   [
+    -0.4403211199009569,
+    6.405835168714252,
+    -14.380284929235529
+   ],
+   [
+    -36.09365781965611,
+    3.0374252963208805,
+    11.093445408644994
+   ]
+  ],
+  "nose_to_trunk_mm": 64.50531867979879,
+  "note": "Generalised-Procrustes median over complete proofread poses; +x = nose->tail, +z = up. Node order matches node_names.",
+  "edges": [
+   [
+    4,
+    3
+   ],
+   [
+    14,
+    5
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    12,
+    3
+   ],
+   [
+    5,
+    11
+   ],
+   [
+    5,
+    3
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    5,
+    10
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    13
+   ],
+   [
+    3,
+    9
+   ]
+  ]
+ },
+ "examples_3d": {
+  "session": "20250827_141755",
+  "node_names": [
+   "Nose",
+   "Ear_R",
+   "Ear_L",
+   "TTI",
+   "TailTip",
+   "Head",
+   "Trunk",
+   "Tail_0",
+   "Tail_1",
+   "Tail_2",
+   "Shoulder_left",
+   "Shoulder_right",
+   "Haunch_left",
+   "Haunch_right",
+   "Neck"
+  ],
+  "edges": [
+   [
+    4,
+    3
+   ],
+   [
+    14,
+    5
+   ],
+   [
+    2,
+    5
+   ],
+   [
+    12,
+    3
+   ],
+   [
+    5,
+    11
+   ],
+   [
+    5,
+    3
+   ],
+   [
+    5,
+    0
+   ],
+   [
+    5,
+    1
+   ],
+   [
+    5,
+    10
+   ],
+   [
+    3,
+    6
+   ],
+   [
+    3,
+    8
+   ],
+   [
+    3,
+    7
+   ],
+   [
+    3,
+    13
+   ],
+   [
+    3,
+    9
+   ]
+  ],
+  "picks": [
+   {
+    "frame_index": 49000,
+    "trunk_distance_mm": 80.95363899817869,
+    "body_axis_angle_deg": 65.6136580808659,
+    "percentile": 2,
+    "animals": [
+     [
+      [
+       -239.12719529133471,
+       282.1577503914819,
+       35.32206732372716
+      ],
+      [
+       -233.68324665100917,
+       252.19559912360822,
+       40.013520737711545
+      ],
+      [
+       -257.60815705454604,
+       261.7203870039993,
+       42.54690594989498
+      ],
+      [
+       -279.00418245384395,
+       206.60090249633413,
+       19.372557443158353
+      ],
+      [
+       -278.9264656323429,
+       116.83042971081379,
+       42.87981404066044
+      ],
+      [
+       -245.0794508543189,
+       258.9454594525749,
+       40.7889402589392
+      ],
+      [
+       -264.7337429570088,
+       227.4153169070065,
+       27.431474364514543
+      ],
+      [
+       -287.10701004653214,
+       185.05511452413708,
+       22.56959696448931
+      ],
+      [
+       -287.01640349712613,
+       163.25385253474712,
+       29.25435286215089
+      ],
+      [
+       -284.710162065607,
+       140.9019036458545,
+       35.716362377510634
+      ],
+      [
+       -260.16609984210834,
+       256.7265549318651,
+       29.683615220697437
+      ],
+      [
+       -239.11501861420368,
+       249.26471605929527,
+       22.24488170117882
+      ],
+      [
+       -279.9129376900021,
+       233.43202477857426,
+       23.779269953553392
+      ],
+      [
+       -253.8507397661866,
+       218.8729170096566,
+       17.46570792049591
+      ],
+      [
+       -248.79582720617245,
+       250.22525898636988,
+       37.6145509063839
+      ]
+     ],
+     [
+      [
+       -235.56814743983335,
+       313.2551484846899,
+       110.96744611681031
+      ],
+      [
+       -220.79181428229774,
+       294.079361550421,
+       93.15955001093134
+      ],
+      [
+       -242.99688884631345,
+       286.27529911154045,
+       95.11111120043125
+      ],
+      [
+       -228.1452530921651,
+       295.62671034171535,
+       20.089082580210516
+      ],
+      [
+       -164.5659189763139,
+       224.828979027886,
+       3.4859187816909873
+      ],
+      [
+       -232.39731223638267,
+       293.93167641875914,
+       98.9426710774699
+      ],
+      [
+       -232.1364865723485,
+       300.91456931314974,
+       36.853280931102894
+      ],
+      [
+       -214.20424133922305,
+       274.87482375977663,
+       14.077674283177842
+      ],
+      [
+       -201.15749024183748,
+       255.9501532818179,
+       12.323121868682053
+      ],
+      [
+       -185.03938435254543,
+       238.33876640104629,
+       9.663520058648759
+      ],
+      [
+       -250.29586239170965,
+       308.31683626334313,
+       70.43608357992306
+      ],
+      [
+       -226.72015363658386,
+       312.3174718194752,
+       74.61888399854577
+      ],
+      [
+       -245.8440495378937,
+       296.01603379479974,
+       28.039035312403
+      ],
+      [
+       -225.80337350369373,
+       309.8891000310796,
+       27.368766402750484
+      ],
+      [
+       -232.85314282773578,
+       293.97906824490536,
+       85.25203775163762
+      ]
+     ]
+    ]
+   },
+   {
+    "frame_index": 122800,
+    "trunk_distance_mm": 259.4546618433628,
+    "body_axis_angle_deg": 16.073072242847697,
+    "percentile": 25,
+    "animals": [
+     [
+      [
+       -297.0027789328543,
+       50.416569522795,
+       24.71508842068978
+      ],
+      [
+       -305.6214976440116,
+       75.62687533305721,
+       37.804399180822955
+      ],
+      [
+       -279.02259875413455,
+       71.3985457960058,
+       40.485843169354716
+      ],
+      [
+       -289.062714019011,
+       151.25341867987498,
+       22.95104035506131
+      ],
+      [
+       -285.5108860993357,
+       226.3524593873482,
+       60.363286314517865
+      ],
+      [
+       -292.7378907254747,
+       72.96397582260667,
+       38.13507218278458
+      ],
+      [
+       -289.6032283954717,
+       125.67539065637234,
+       29.11044684062921
+      ],
+      [
+       -285.85083201434435,
+       173.84618283803016,
+       24.569507728226018
+      ],
+      [
+       -286.7265702499868,
+       192.44174388345897,
+       32.52898852328455
+      ],
+      [
+       -288.15238186981867,
+       210.2376372129308,
+       43.13574800122056
+      ],
+      [
+       -281.6771066903876,
+       83.49679405430065,
+       23.582126593789116
+      ],
+      [
+       -301.52181783737075,
+       86.19755578167307,
+       29.742918297330263
+      ],
+      [
+       -275.48895359221257,
+       131.81593528029327,
+       20.663678014881548
+      ],
+      [
+       -303.06028405388207,
+       129.96845582983042,
+       25.025288959450055
+      ],
+      [
+       -291.31218363553046,
+       84.2141701901848,
+       38.218242316334
+      ]
+     ],
+     [
+      [
+       -259.30147015102654,
+       -208.68215827692703,
+       22.145416299977562
+      ],
+      [
+       -279.4195365586568,
+       -185.1485877422639,
+       37.106636883713904
+      ],
+      [
+       -251.8722467269185,
+       -178.0541880381219,
+       31.691393212142323
+      ],
+      [
+       -291.7388703451308,
+       -112.09724080406777,
+       33.36803536898095
+      ],
+      [
+       -297.05827117046726,
+       -16.75380675872591,
+       39.063701534687794
+      ],
+      [
+       -265.1851540316972,
+       -184.4979312173913,
+       36.992223464597394
+      ],
+      [
+       -283.46242088165843,
+       -133.69438810112158,
+       31.62637661324401
+      ],
+      [
+       -297.48157785645094,
+       -85.65357666449844,
+       43.6656568270027
+      ],
+      [
+       -297.1502070529124,
+       -62.12630982669598,
+       50.11273541486649
+      ],
+      [
+       -297.90311203923164,
+       -39.708750154026745,
+       47.20478096273344
+      ],
+      [
+       -262.3752370916851,
+       -169.242565947806,
+       23.468536298228347
+      ],
+      [
+       -281.10164760239115,
+       -175.32862602429722,
+       29.742314019899922
+      ],
+      [
+       -274.22823887712696,
+       -119.85737931653489,
+       23.375008710825195
+      ],
+      [
+       -295.6850364760029,
+       -134.7528156480663,
+       33.43341403871068
+      ],
+      [
+       -269.7807488901594,
+       -172.66550329418163,
+       34.472421691342866
+      ]
+     ]
+    ]
+   },
+   {
+    "frame_index": 40400,
+    "trunk_distance_mm": 602.5754023379297,
+    "body_axis_angle_deg": 129.40226686074314,
+    "percentile": 80,
+    "animals": [
+     [
+      [
+       -270.7047615883641,
+       251.79347379611,
+       15.045831431772594
+      ],
+      [
+       -270.55546506804933,
+       235.70601690474825,
+       29.815671662426933
+      ],
+      [
+       -253.68861398796437,
+       251.52603446338827,
+       30.473857406082953
+      ],
+      [
+       -307.78251741555255,
+       265.233485232088,
+       10.834350565819884
+      ],
+      [
+       -315.49420864674937,
+       176.927667719443,
+       4.035580295413302
+      ],
+      [
+       -264.24394956169715,
+       246.02884716675712,
+       28.398095480607942
+      ],
+      [
+       -291.7699523519678,
+       277.787024886774,
+       42.02392001111082
+      ],
+      [
+       -313.6194754426418,
+       245.77286894507358,
+       7.359213362097052
+      ],
+      [
+       -314.284608617528,
+       223.74657000910454,
+       4.3728112089039755
+      ],
+      [
+       -314.43470973622027,
+       200.76918046315336,
+       2.0630588363456965
+      ],
+      [
+       -264.78260131779246,
+       265.64380433660625,
+       22.892442325211913
+      ],
+      [
+       -282.13819071944897,
+       247.7723017561765,
+       22.583515620344084
+      ],
+      [
+       -277.8617071704,
+       285.4810658064281,
+       28.578350893100936
+      ],
+      [
+       -298.68631454669594,
+       260.1549648438741,
+       19.242699258031653
+      ],
+      [
+       -270.02630801706124,
+       252.3154888527006,
+       32.200961142975515
+      ]
+     ],
+     [
+      [
+       267.2489141404252,
+       239.6205673103122,
+       23.159434474323948
+      ],
+      [
+       273.6383895506613,
+       256.4124735849905,
+       51.153624335380115
+      ],
+      [
+       283.81897265830094,
+       229.70495089786567,
+       50.26867120522384
+      ],
+      [
+       307.33547414701223,
+       277.8289408634692,
+       16.285604992254992
+      ],
+      [
+       237.30189050738312,
+       325.48437422330574,
+       22.168623707608788
+      ],
+      [
+       278.1532152816925,
+       242.9345296539386,
+       50.206250821829066
+      ],
+      [
+       310.5707996949672,
+       260.9788362611389,
+       42.491596582752415
+      ],
+      [
+       295.5930960148294,
+       298.45604392440674,
+       7.964969056873245
+      ],
+      [
+       279.6059774831686,
+       312.1307821529152,
+       12.10078864912396
+      ],
+      [
+       260.21215526596114,
+       323.17742542553475,
+       18.00708712635625
+      ],
+      [
+       291.769337409945,
+       236.42145932468506,
+       32.64789033048409
+      ],
+      [
+       283.0982149788508,
+       259.0572601551044,
+       27.756940143899634
+      ],
+      [
+       312.2338666535662,
+       242.1535784819217,
+       26.09937377749387
+      ],
+      [
+       293.5274783702287,
+       269.96259383693956,
+       21.770098066655045
+      ],
+      [
+       286.0296882454898,
+       245.40768321164532,
+       53.37606235295109
+      ]
+     ]
+    ]
+   }
+  ],
+  "trunk_distance_mm_percentiles": {
+   "1": 70.6990104437718,
+   "5": 97.04189308443382,
+   "25": 259.4546618433628,
+   "50": 487.8019510281386,
+   "75": 589.1348133515326,
+   "95": 725.0967350843566,
+   "99": 761.0874938505077
+  },
+  "note": "Frames selected by measured trunk-to-trunk distance percentile. NO behaviour labels exist for this corpus -- the panel must not assert 'mounting'/'sniffing' without annotation."
+ }
+}

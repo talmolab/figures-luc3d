@@ -1,0 +1,3060 @@
+{
+  "generated_by": "figs/fig7_sleap_scoped.py",
+  "claim": "The per-camera SLEAP baseline for BMimica scored from the TRACKED .slp files in luc3d-bench/outputs/bmimica/retracked/, every track, under BOTH cross-view pooling conventions; plus the per-camera-session track counts and the fraction of instances that survive the reference builder's two-track cut.",
+  "why": "Fig 7a's SLEAP series is scored from outputs/bmimica/sleap_h5/, which scripts/bartul/bmimica_build_sleap_ref.py builds from these same .slp files but truncates to SLEAP's first two tracks (N_ANIMALS = 2; `if ti is not None and ti < N_ANIMALS`). The files hold a median 47 tracks per camera-session, and a median 3.7% of scored instances survive that cut, so the plotted series was a top-two-track fragment of SLEAP scored as all of it.",
+  "conventions": {
+    "within": "per-camera MOT IDF1 with the camera's own optimal id remap, averaged over the 5 cameras. Convention-free: no pooling.",
+    "cross_scoped": "all 5 cameras pooled into ONE accumulator with the hypothesis id keyed on (camera, track name). This is the convention scripts/bartul/bmimica_eval_crossview_all.py uses for every per-camera baseline in fig3_trackers.json (`ci * 10 + slot` for SLEAP, `ci * 100000 + tid` for ByteTrack), and it is the one comparable to that deposit's numbers.",
+    "cross_unscoped": "the same pooling with the hypothesis id keyed on the track NAME alone, so the same name in two cameras is one identity. This is what figs/fig7_sleap_retracked.py measured. It can only ADD cross-view matches a scoped pooling would refuse, so it is an UPPER BOUND on cross_scoped and is NOT comparable to fig3_trackers.json.",
+    "matching": "IoU >= 0.5, as fig3_score.py and the bench scorer both use."
+  },
+  "fig7a_currently_reports": {
+    "within": 0.1154,
+    "cross": 0.0616,
+    "cross_convention": "camera-scoped, on the truncated two-track reference"
+  },
+  "corrected": {
+    "within_mean": 0.20624982550478183,
+    "within_median": 0.18816207987003714,
+    "cross_scoped_mean": 0.06174218392038999,
+    "cross_scoped_median": 0.05190908346783121,
+    "cross_unscoped_mean": 0.08355525341198042,
+    "cross_unscoped_median": 0.07414667058635363,
+    "switches_2d_total": 31606,
+    "fragmentations_2d_total": 1111431,
+    "n_sessions": 50
+  },
+  "truncation_evidence": {
+    "builder": "luc3d-bench/scripts/bartul/bmimica_build_sleap_ref.py",
+    "builder_n_animals": 2,
+    "tracks_per_camera_session": {
+      "median": 47.5,
+      "mean": 64.796,
+      "min": 5,
+      "max": 309,
+      "n_camera_sessions": 250
+    },
+    "frac_instances_surviving_cut": {
+      "median": 0.03664978322641384,
+      "mean": 0.09756172678205945,
+      "min": 0.00010423724396726951,
+      "max": 0.9902696699769752
+    }
+  },
+  "coherence_check": {
+    "mean_track_jump_p95_px": 4.757532529796185,
+    "note": "The retracked tracks are temporally coherent and always were. This is NOT the defect being corrected -- the truncation is. The 498 px figure quoted by the first diagnosis was measured on the DETECTION pool, which is not what this series is scored from."
+  },
+  "gate": {
+    "reference": "fig7_sleap_retracked.json",
+    "n_sessions": 50,
+    "max_abs_diff_within_idf1": 0.0,
+    "max_abs_diff_cross_idf1_unscoped": 0.0,
+    "max_abs_diff_within_switches": 0,
+    "tolerance": 1e-12,
+    "passed": true
+  },
+  "per_session": [
+    {
+      "session": "20250827_141755",
+      "within_idf1": 0.3350416031576702,
+      "within_idp": 0.34624175136420227,
+      "within_idr": 0.324569503715337,
+      "within_switches": 292,
+      "within_fragmentations": 15342,
+      "cross_idf1_scoped": 0.08202047172734248,
+      "cross_idp_scoped": 0.0848153871597026,
+      "cross_idr_scoped": 0.0794038812646019,
+      "cross_switches_scoped": 300,
+      "cross_idf1_unscoped": 0.1718574941236862,
+      "cross_switches_unscoped": 300,
+      "track_jump_p95_px": 5.369913790480163,
+      "n_jump_samples": 1671720,
+      "per_camera_idf1": [
+        0.1853859857142039,
+        0.29368887342221833,
+        0.40740002562532923,
+        0.39212314535381937,
+        0.39660998567278
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 21,
+          "n_scored_instances": 337918,
+          "n_in_first_2_tracks": 81867,
+          "frac_surviving_builder_cut": 0.24226883445096148,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 38,
+          "n_scored_instances": 329257,
+          "n_in_first_2_tracks": 75186,
+          "frac_surviving_builder_cut": 0.22835049824301382,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 17,
+          "n_scored_instances": 342032,
+          "n_in_first_2_tracks": 78622,
+          "frac_surviving_builder_cut": 0.22986738082986388,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 7,
+          "n_scored_instances": 337444,
+          "n_in_first_2_tracks": 80235,
+          "frac_surviving_builder_cut": 0.23777278600301088,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 9,
+          "n_scored_instances": 340366,
+          "n_in_first_2_tracks": 210920,
+          "frac_surviving_builder_cut": 0.6196858675660906,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250827_145223",
+      "within_idf1": 0.32395720987987814,
+      "within_idp": 0.3344026177841758,
+      "within_idr": 0.3142149980299339,
+      "within_switches": 338,
+      "within_fragmentations": 21593,
+      "cross_idf1_scoped": 0.10937520177160129,
+      "cross_idp_scoped": 0.1132484384535892,
+      "cross_idr_scoped": 0.10575814247739973,
+      "cross_switches_scoped": 346,
+      "cross_idf1_unscoped": 0.11160950390515034,
+      "cross_switches_unscoped": 346,
+      "track_jump_p95_px": 6.352965730685149,
+      "n_jump_samples": 1661297,
+      "per_camera_idf1": [
+        0.17135341893642014,
+        0.21635291221333458,
+        0.5381099949880348,
+        0.4038530842908852,
+        0.29011663897071605
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 16,
+          "n_scored_instances": 336855,
+          "n_in_first_2_tracks": 10362,
+          "frac_surviving_builder_cut": 0.030761009930088613,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 19,
+          "n_scored_instances": 326077,
+          "n_in_first_2_tracks": 27207,
+          "frac_surviving_builder_cut": 0.08343734762034734,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 8,
+          "n_scored_instances": 347911,
+          "n_in_first_2_tracks": 10814,
+          "frac_surviving_builder_cut": 0.03108266194515264,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 20,
+          "n_scored_instances": 336087,
+          "n_in_first_2_tracks": 485,
+          "frac_surviving_builder_cut": 0.0014430787266392334,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 18,
+          "n_scored_instances": 335857,
+          "n_in_first_2_tracks": 12896,
+          "frac_surviving_builder_cut": 0.03839729408647133,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250827_152238",
+      "within_idf1": 0.27290060696534113,
+      "within_idp": 0.28346598306883136,
+      "within_idr": 0.263123694850491,
+      "within_switches": 224,
+      "within_fragmentations": 16923,
+      "cross_idf1_scoped": 0.07528902133779541,
+      "cross_idp_scoped": 0.07822078177081337,
+      "cross_idr_scoped": 0.07256908961656373,
+      "cross_switches_scoped": 232,
+      "cross_idf1_unscoped": 0.14011369555497166,
+      "cross_switches_unscoped": 232,
+      "track_jump_p95_px": 3.403776168098928,
+      "n_jump_samples": 1653578,
+      "per_camera_idf1": [
+        0.2598088075060972,
+        0.22456821875854843,
+        0.37234292651025214,
+        0.35909327624117576,
+        0.14868980581063204
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 25,
+          "n_scored_instances": 329141,
+          "n_in_first_2_tracks": 36600,
+          "frac_surviving_builder_cut": 0.11119854408900745,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 34,
+          "n_scored_instances": 330805,
+          "n_in_first_2_tracks": 128558,
+          "frac_surviving_builder_cut": 0.3886216955608289,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 10,
+          "n_scored_instances": 341741,
+          "n_in_first_2_tracks": 130665,
+          "frac_surviving_builder_cut": 0.3823509616932121,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 22,
+          "n_scored_instances": 331168,
+          "n_in_first_2_tracks": 553,
+          "frac_surviving_builder_cut": 0.0016698473282442748,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 33,
+          "n_scored_instances": 337609,
+          "n_in_first_2_tracks": 51872,
+          "frac_surviving_builder_cut": 0.15364519310800365,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250827_155244",
+      "within_idf1": 0.17043719369480242,
+      "within_idp": 0.18094638906036814,
+      "within_idr": 0.1611327712797272,
+      "within_switches": 585,
+      "within_fragmentations": 17583,
+      "cross_idf1_scoped": 0.04312398093040043,
+      "cross_idp_scoped": 0.045841575427749845,
+      "cross_idr_scoped": 0.04071056460839526,
+      "cross_switches_scoped": 593,
+      "cross_idf1_unscoped": 0.0942213771423075,
+      "cross_switches_unscoped": 593,
+      "track_jump_p95_px": 5.913957874085652,
+      "n_jump_samples": 1581590,
+      "per_camera_idf1": [
+        0.17435189731204911,
+        0.1341386524732413,
+        0.21525594698844006,
+        0.19153625426385176,
+        0.1369032174364297
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 42,
+          "n_scored_instances": 318141,
+          "n_in_first_2_tracks": 12005,
+          "frac_surviving_builder_cut": 0.037734840841010746,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 81,
+          "n_scored_instances": 307619,
+          "n_in_first_2_tracks": 4630,
+          "frac_surviving_builder_cut": 0.01505108592122073,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 26,
+          "n_scored_instances": 320951,
+          "n_in_first_2_tracks": 108515,
+          "frac_surviving_builder_cut": 0.3381045704796059,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 16,
+          "n_scored_instances": 334100,
+          "n_in_first_2_tracks": 110632,
+          "frac_surviving_builder_cut": 0.3311343909009279,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 48,
+          "n_scored_instances": 318196,
+          "n_in_first_2_tracks": 47853,
+          "frac_surviving_builder_cut": 0.15038843982953903,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250827_162428",
+      "within_idf1": 0.20695716543211015,
+      "within_idp": 0.21935608670948997,
+      "within_idr": 0.1958940779864154,
+      "within_switches": 337,
+      "within_fragmentations": 17416,
+      "cross_idf1_scoped": 0.06410373165327757,
+      "cross_idp_scoped": 0.06804415994571685,
+      "cross_idr_scoped": 0.06059470056704266,
+      "cross_switches_scoped": 345,
+      "cross_idf1_unscoped": 0.06410373165327757,
+      "cross_switches_unscoped": 345,
+      "track_jump_p95_px": 3.762927360692481,
+      "n_jump_samples": 1586060,
+      "per_camera_idf1": [
+        0.19467152493622056,
+        0.11572367319046496,
+        0.31866360187275655,
+        0.21048958770399487,
+        0.1952374394571138
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 47,
+          "n_scored_instances": 322708,
+          "n_in_first_2_tracks": 18910,
+          "frac_surviving_builder_cut": 0.058597865562675856,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 48,
+          "n_scored_instances": 314493,
+          "n_in_first_2_tracks": 37249,
+          "frac_surviving_builder_cut": 0.11844142794911175,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 22,
+          "n_scored_instances": 324652,
+          "n_in_first_2_tracks": 19093,
+          "frac_surviving_builder_cut": 0.0588106649581706,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 44,
+          "n_scored_instances": 319131,
+          "n_in_first_2_tracks": 28929,
+          "frac_surviving_builder_cut": 0.09064929449035036,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 41,
+          "n_scored_instances": 322460,
+          "n_in_first_2_tracks": 1468,
+          "frac_surviving_builder_cut": 0.0045525026359858585,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250827_165542",
+      "within_idf1": 0.188606743772299,
+      "within_idp": 0.20201618277992428,
+      "within_idr": 0.17696426092027434,
+      "within_switches": 293,
+      "within_fragmentations": 15147,
+      "cross_idf1_scoped": 0.049132650259232705,
+      "cross_idp_scoped": 0.05277527111785695,
+      "cross_idr_scoped": 0.04596040098858682,
+      "cross_switches_scoped": 301,
+      "cross_idf1_unscoped": 0.08923601679632012,
+      "cross_switches_unscoped": 301,
+      "track_jump_p95_px": 3.6816373561193307,
+      "n_jump_samples": 1552919,
+      "per_camera_idf1": [
+        0.19257959100871874,
+        0.1196647679465372,
+        0.21491089163821903,
+        0.24236442525798482,
+        0.17351404301003526
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 52,
+          "n_scored_instances": 320149,
+          "n_in_first_2_tracks": 76318,
+          "frac_surviving_builder_cut": 0.23838275303062012,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 47,
+          "n_scored_instances": 300686,
+          "n_in_first_2_tracks": 6910,
+          "frac_surviving_builder_cut": 0.022980783940722217,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 19,
+          "n_scored_instances": 325067,
+          "n_in_first_2_tracks": 57396,
+          "frac_surviving_builder_cut": 0.17656667702350592,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 26,
+          "n_scored_instances": 322779,
+          "n_in_first_2_tracks": 18591,
+          "frac_surviving_builder_cut": 0.057596683799131916,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 26,
+          "n_scored_instances": 299364,
+          "n_in_first_2_tracks": 1901,
+          "frac_surviving_builder_cut": 0.0063501289400195084,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250827_172440",
+      "within_idf1": 0.32404130916327795,
+      "within_idp": 0.3356745893481583,
+      "within_idr": 0.313220739983783,
+      "within_switches": 687,
+      "within_fragmentations": 23962,
+      "cross_idf1_scoped": 0.0836307792326384,
+      "cross_idp_scoped": 0.08658283814332585,
+      "cross_idr_scoped": 0.08087338524253296,
+      "cross_switches_scoped": 695,
+      "cross_idf1_unscoped": 0.12334160151572496,
+      "cross_switches_unscoped": 695,
+      "track_jump_p95_px": 6.809078572791731,
+      "n_jump_samples": 1658235,
+      "per_camera_idf1": [
+        0.3234183089463284,
+        0.42199048616755996,
+        0.3594053171210844,
+        0.19904549939196475,
+        0.31634693418945203
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 10,
+          "n_scored_instances": 332671,
+          "n_in_first_2_tracks": 161230,
+          "frac_surviving_builder_cut": 0.48465300552197216,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 6,
+          "n_scored_instances": 330037,
+          "n_in_first_2_tracks": 1105,
+          "frac_surviving_builder_cut": 0.0033481094543945074,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 6,
+          "n_scored_instances": 343385,
+          "n_in_first_2_tracks": 97348,
+          "frac_surviving_builder_cut": 0.283495202178313,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 19,
+          "n_scored_instances": 337212,
+          "n_in_first_2_tracks": 24533,
+          "frac_surviving_builder_cut": 0.07275245246313891,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 16,
+          "n_scored_instances": 338541,
+          "n_in_first_2_tracks": 79319,
+          "frac_surviving_builder_cut": 0.23429658446096632,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_124351",
+      "within_idf1": 0.3996035722164935,
+      "within_idp": 0.410873930984184,
+      "within_idr": 0.38894510596703247,
+      "within_switches": 167,
+      "within_fragmentations": 11423,
+      "cross_idf1_scoped": 0.16434567743349898,
+      "cross_idp_scoped": 0.16907639391404863,
+      "cross_idr_scoped": 0.1598724841160528,
+      "cross_switches_scoped": 175,
+      "cross_idf1_unscoped": 0.22369247387459806,
+      "cross_switches_unscoped": 175,
+      "track_jump_p95_px": 3.374065890789653,
+      "n_jump_samples": 1691122,
+      "per_camera_idf1": [
+        0.8217715505920775,
+        0.1855018811741746,
+        0.3583244268425096,
+        0.26205312234691475,
+        0.37036688012679103
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 17,
+          "n_scored_instances": 340472,
+          "n_in_first_2_tracks": 287861,
+          "frac_surviving_builder_cut": 0.8454762799877816,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 28,
+          "n_scored_instances": 335730,
+          "n_in_first_2_tracks": 39353,
+          "frac_surviving_builder_cut": 0.11721621541119352,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 24,
+          "n_scored_instances": 345366,
+          "n_in_first_2_tracks": 36,
+          "frac_surviving_builder_cut": 0.00010423724396726951,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 25,
+          "n_scored_instances": 340723,
+          "n_in_first_2_tracks": 84923,
+          "frac_surviving_builder_cut": 0.24924352039633368,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 17,
+          "n_scored_instances": 340253,
+          "n_in_first_2_tracks": 37612,
+          "frac_surviving_builder_cut": 0.11054127369927672,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_134647",
+      "within_idf1": 0.1010005380083256,
+      "within_idp": 0.11681486911140553,
+      "within_idr": 0.08903237621674417,
+      "within_switches": 1122,
+      "within_fragmentations": 28279,
+      "cross_idf1_scoped": 0.025891787741498723,
+      "cross_idp_scoped": 0.030016354994859336,
+      "cross_idr_scoped": 0.022763799016615426,
+      "cross_switches_scoped": 1130,
+      "cross_idf1_unscoped": 0.03967435643736222,
+      "cross_switches_unscoped": 1130,
+      "track_jump_p95_px": 3.9105110348248844,
+      "n_jump_samples": 1338371,
+      "per_camera_idf1": [
+        0.12703766160764474,
+        0.08160562045075288,
+        0.10868230768504324,
+        0.08565300874720684,
+        0.10202409155098041
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 126,
+          "n_scored_instances": 285389,
+          "n_in_first_2_tracks": 53509,
+          "frac_surviving_builder_cut": 0.18749496301539303,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 261,
+          "n_scored_instances": 255648,
+          "n_in_first_2_tracks": 20998,
+          "frac_surviving_builder_cut": 0.08213637501564651,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 90,
+          "n_scored_instances": 274950,
+          "n_in_first_2_tracks": 5798,
+          "frac_surviving_builder_cut": 0.021087470449172578,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 169,
+          "n_scored_instances": 263011,
+          "n_in_first_2_tracks": 15898,
+          "frac_surviving_builder_cut": 0.06044614103592626,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 84,
+          "n_scored_instances": 287557,
+          "n_in_first_2_tracks": 612,
+          "frac_surviving_builder_cut": 0.0021282736987797203,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_141847",
+      "within_idf1": 0.10517492933204556,
+      "within_idp": 0.1152466156481641,
+      "within_idr": 0.09675708398591533,
+      "within_switches": 1138,
+      "within_fragmentations": 32120,
+      "cross_idf1_scoped": 0.028293957535523627,
+      "cross_idp_scoped": 0.03098299425166181,
+      "cross_idr_scoped": 0.026034411898652625,
+      "cross_switches_scoped": 1146,
+      "cross_idf1_unscoped": 0.03151351486751618,
+      "cross_switches_unscoped": 1146,
+      "track_jump_p95_px": 5.887953640638246,
+      "n_jump_samples": 1481063,
+      "per_camera_idf1": [
+        0.14006612474060307,
+        0.12271386430678466,
+        0.09557590648499739,
+        0.08011945816330063,
+        0.08739929296454202
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 73,
+          "n_scored_instances": 309233,
+          "n_in_first_2_tracks": 3284,
+          "frac_surviving_builder_cut": 0.010619823886842607,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 135,
+          "n_scored_instances": 289077,
+          "n_in_first_2_tracks": 5275,
+          "frac_surviving_builder_cut": 0.018247733302891617,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 54,
+          "n_scored_instances": 311442,
+          "n_in_first_2_tracks": 13525,
+          "frac_surviving_builder_cut": 0.0434270265410574,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 92,
+          "n_scored_instances": 304225,
+          "n_in_first_2_tracks": 4492,
+          "frac_surviving_builder_cut": 0.01476538745993919,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 131,
+          "n_scored_instances": 298982,
+          "n_in_first_2_tracks": 13542,
+          "frac_surviving_builder_cut": 0.04529369661049829,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_144840",
+      "within_idf1": 0.24438514507015974,
+      "within_idp": 0.2557240346581334,
+      "within_idr": 0.23410258546474488,
+      "within_switches": 410,
+      "within_fragmentations": 17810,
+      "cross_idf1_scoped": 0.09662817616613853,
+      "cross_idp_scoped": 0.10171706834323686,
+      "cross_idr_scoped": 0.09202421616818018,
+      "cross_switches_scoped": 418,
+      "cross_idf1_unscoped": 0.10357122132567548,
+      "cross_switches_unscoped": 418,
+      "track_jump_p95_px": 3.790701679909945,
+      "n_jump_samples": 1611162,
+      "per_camera_idf1": [
+        0.21678339019989118,
+        0.12696853498190863,
+        0.47521461166259865,
+        0.12763250205894017,
+        0.27532668644746006
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 39,
+          "n_scored_instances": 325433,
+          "n_in_first_2_tracks": 82422,
+          "frac_surviving_builder_cut": 0.25326872197963946,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 98,
+          "n_scored_instances": 305697,
+          "n_in_first_2_tracks": 41617,
+          "frac_surviving_builder_cut": 0.13613807135824035,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 15,
+          "n_scored_instances": 337216,
+          "n_in_first_2_tracks": 46310,
+          "frac_surviving_builder_cut": 0.13733037578288101,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 21,
+          "n_scored_instances": 328371,
+          "n_in_first_2_tracks": 28409,
+          "frac_surviving_builder_cut": 0.0865149480313426,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 22,
+          "n_scored_instances": 332164,
+          "n_in_first_2_tracks": 39196,
+          "frac_surviving_builder_cut": 0.1180019508435592,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_151905",
+      "within_idf1": 0.34094957875017534,
+      "within_idp": 0.35539923283809094,
+      "within_idr": 0.32766957130242086,
+      "within_switches": 399,
+      "within_fragmentations": 18432,
+      "cross_idf1_scoped": 0.08284574349014484,
+      "cross_idp_scoped": 0.08631216946820605,
+      "cross_idr_scoped": 0.07964700067200942,
+      "cross_switches_scoped": 407,
+      "cross_idf1_unscoped": 0.09230128445274641,
+      "cross_switches_unscoped": 407,
+      "track_jump_p95_px": 4.89401778548919,
+      "n_jump_samples": 1643158,
+      "per_camera_idf1": [
+        0.3286611583576446,
+        0.41948203139168233,
+        0.39353177410778745,
+        0.21448610232956528,
+        0.34858682756419707
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 33,
+          "n_scored_instances": 334352,
+          "n_in_first_2_tracks": 3329,
+          "frac_surviving_builder_cut": 0.009956572713786667,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 64,
+          "n_scored_instances": 323634,
+          "n_in_first_2_tracks": 3098,
+          "frac_surviving_builder_cut": 0.009572541821934654,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 31,
+          "n_scored_instances": 333863,
+          "n_in_first_2_tracks": 3496,
+          "frac_surviving_builder_cut": 0.010471361007359306,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 28,
+          "n_scored_instances": 331045,
+          "n_in_first_2_tracks": 2427,
+          "frac_surviving_builder_cut": 0.00733132957754988,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 28,
+          "n_scored_instances": 338633,
+          "n_in_first_2_tracks": 3462,
+          "frac_surviving_builder_cut": 0.010223457253132447,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_155407",
+      "within_idf1": 0.2660677607445647,
+      "within_idp": 0.2750020712850859,
+      "within_idr": 0.2577374510946474,
+      "within_switches": 284,
+      "within_fragmentations": 21128,
+      "cross_idf1_scoped": 0.0636673523159582,
+      "cross_idp_scoped": 0.06584222340005479,
+      "cross_idr_scoped": 0.061631565803712644,
+      "cross_switches_scoped": 292,
+      "cross_idf1_unscoped": 0.06894272420617176,
+      "cross_switches_unscoped": 292,
+      "track_jump_p95_px": 6.905590039910708,
+      "n_jump_samples": 1665646,
+      "per_camera_idf1": [
+        0.2598956867385448,
+        0.23413151003782368,
+        0.267630036495005,
+        0.2528108118974524,
+        0.31587075855399754
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 25,
+          "n_scored_instances": 335974,
+          "n_in_first_2_tracks": 1884,
+          "frac_surviving_builder_cut": 0.0056075767767743935,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 25,
+          "n_scored_instances": 327010,
+          "n_in_first_2_tracks": 2293,
+          "frac_surviving_builder_cut": 0.007012017981101496,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 12,
+          "n_scored_instances": 344912,
+          "n_in_first_2_tracks": 8327,
+          "frac_surviving_builder_cut": 0.024142389942941968,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 24,
+          "n_scored_instances": 336028,
+          "n_in_first_2_tracks": 8335,
+          "frac_surviving_builder_cut": 0.02480448057899937,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 8,
+          "n_scored_instances": 342790,
+          "n_in_first_2_tracks": 8336,
+          "frac_surviving_builder_cut": 0.0243180956270603,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_162253",
+      "within_idf1": 0.10460712985426672,
+      "within_idp": 0.11145933611266041,
+      "within_idr": 0.09856546223994492,
+      "within_switches": 980,
+      "within_fragmentations": 27608,
+      "cross_idf1_scoped": 0.028819188333357417,
+      "cross_idp_scoped": 0.03072609010361935,
+      "cross_idr_scoped": 0.02713514534205645,
+      "cross_switches_scoped": 988,
+      "cross_idf1_unscoped": 0.04857660318863772,
+      "cross_switches_unscoped": 988,
+      "track_jump_p95_px": 5.794711107111412,
+      "n_jump_samples": 1562746,
+      "per_camera_idf1": [
+        0.10352444683817942,
+        0.09383569238699468,
+        0.14275342099535004,
+        0.09854352242999066,
+        0.08437856662081883
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 68,
+          "n_scored_instances": 317579,
+          "n_in_first_2_tracks": 8424,
+          "frac_surviving_builder_cut": 0.0265256833732709,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 93,
+          "n_scored_instances": 307242,
+          "n_in_first_2_tracks": 17958,
+          "frac_surviving_builder_cut": 0.05844904017028922,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 40,
+          "n_scored_instances": 324407,
+          "n_in_first_2_tracks": 24643,
+          "frac_surviving_builder_cut": 0.07596321904274568,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 93,
+          "n_scored_instances": 317615,
+          "n_in_first_2_tracks": 25336,
+          "frac_surviving_builder_cut": 0.07976953229538908,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 60,
+          "n_scored_instances": 323304,
+          "n_in_first_2_tracks": 40992,
+          "frac_surviving_builder_cut": 0.12679088412144607,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_164919",
+      "within_idf1": 0.2914058911068139,
+      "within_idp": 0.29929421189294675,
+      "within_idr": 0.2839316657040032,
+      "within_switches": 200,
+      "within_fragmentations": 13593,
+      "cross_idf1_scoped": 0.06416898276820455,
+      "cross_idp_scoped": 0.06591780918189857,
+      "cross_idr_scoped": 0.0625105522726263,
+      "cross_switches_scoped": 208,
+      "cross_idf1_unscoped": 0.1048936018585824,
+      "cross_switches_unscoped": 208,
+      "track_jump_p95_px": 5.048162525786273,
+      "n_jump_samples": 1693941,
+      "per_camera_idf1": [
+        0.26758412395058356,
+        0.26251027784992403,
+        0.3195731982589487,
+        0.2963585194074201,
+        0.31100333606719327
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 10,
+          "n_scored_instances": 343136,
+          "n_in_first_2_tracks": 2990,
+          "frac_surviving_builder_cut": 0.008713746153128789,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 10,
+          "n_scored_instances": 336775,
+          "n_in_first_2_tracks": 101683,
+          "frac_surviving_builder_cut": 0.3019315566773068,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 12,
+          "n_scored_instances": 344290,
+          "n_in_first_2_tracks": 104598,
+          "frac_surviving_builder_cut": 0.30380783641697406,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 16,
+          "n_scored_instances": 339878,
+          "n_in_first_2_tracks": 1868,
+          "frac_surviving_builder_cut": 0.005496089773389275,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 8,
+          "n_scored_instances": 343411,
+          "n_in_first_2_tracks": 103772,
+          "frac_surviving_builder_cut": 0.3021801864238478,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250829_171625",
+      "within_idf1": 0.15897553760601274,
+      "within_idp": 0.17452158893268907,
+      "within_idr": 0.14610732216643713,
+      "within_switches": 711,
+      "within_fragmentations": 18985,
+      "cross_idf1_scoped": 0.06698814054802527,
+      "cross_idp_scoped": 0.0737420682696081,
+      "cross_idr_scoped": 0.06136757453236771,
+      "cross_switches_scoped": 719,
+      "cross_idf1_unscoped": 0.0693003759959163,
+      "cross_switches_unscoped": 719,
+      "track_jump_p95_px": 4.249662065186419,
+      "n_jump_samples": 1479520,
+      "per_camera_idf1": [
+        0.08420366797520569,
+        0.14958419424302488,
+        0.1703906218978274,
+        0.05702513827295829,
+        0.33367406564104735
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 83,
+          "n_scored_instances": 312139,
+          "n_in_first_2_tracks": 3857,
+          "frac_surviving_builder_cut": 0.012356674430301884,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 125,
+          "n_scored_instances": 282135,
+          "n_in_first_2_tracks": 17847,
+          "frac_surviving_builder_cut": 0.06325695145940773,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 36,
+          "n_scored_instances": 319855,
+          "n_in_first_2_tracks": 36089,
+          "frac_surviving_builder_cut": 0.11282925075424802,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 131,
+          "n_scored_instances": 282096,
+          "n_in_first_2_tracks": 3216,
+          "frac_surviving_builder_cut": 0.011400374340649992,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 43,
+          "n_scored_instances": 302187,
+          "n_in_first_2_tracks": 2162,
+          "frac_surviving_builder_cut": 0.007154510286676793,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250903_141046",
+      "within_idf1": 0.11387331753699348,
+      "within_idp": 0.1268003229452555,
+      "within_idr": 0.10348502688052605,
+      "within_switches": 1325,
+      "within_fragmentations": 28056,
+      "cross_idf1_scoped": 0.03550086491586728,
+      "cross_idp_scoped": 0.03971281870856377,
+      "cross_idr_scoped": 0.032096681032567645,
+      "cross_switches_scoped": 1333,
+      "cross_idf1_unscoped": 0.05665198930649473,
+      "cross_switches_unscoped": 1333,
+      "track_jump_p95_px": 6.068681070667813,
+      "n_jump_samples": 1427412,
+      "per_camera_idf1": [
+        0.08927385601403671,
+        0.06692249476358407,
+        0.1703336703145125,
+        0.12939918791436528,
+        0.11343737867846883
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 136,
+          "n_scored_instances": 296452,
+          "n_in_first_2_tracks": 8006,
+          "frac_surviving_builder_cut": 0.027006058316354754,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 212,
+          "n_scored_instances": 276774,
+          "n_in_first_2_tracks": 21840,
+          "frac_surviving_builder_cut": 0.07890914609031195,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 52,
+          "n_scored_instances": 318462,
+          "n_in_first_2_tracks": 39604,
+          "frac_surviving_builder_cut": 0.124360206241247,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 176,
+          "n_scored_instances": 279722,
+          "n_in_first_2_tracks": 7837,
+          "frac_surviving_builder_cut": 0.028017102694818427,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 121,
+          "n_scored_instances": 283838,
+          "n_in_first_2_tracks": 36527,
+          "frac_surviving_builder_cut": 0.12868960463362905,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250903_143938",
+      "within_idf1": 0.4563584477698467,
+      "within_idp": 0.47102098132905584,
+      "within_idr": 0.44261158842379444,
+      "within_switches": 193,
+      "within_fragmentations": 16970,
+      "cross_idf1_scoped": 0.14166169931160777,
+      "cross_idp_scoped": 0.14649802077004861,
+      "cross_idr_scoped": 0.13713449480448076,
+      "cross_switches_scoped": 201,
+      "cross_idf1_unscoped": 0.17870487714903843,
+      "cross_switches_unscoped": 201,
+      "track_jump_p95_px": 4.0405262070869625,
+      "n_jump_samples": 1668565,
+      "per_camera_idf1": [
+        0.41101338081007915,
+        0.3047280748988206,
+        0.7039315576562888,
+        0.2922237961971231,
+        0.569895429286922
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 16,
+          "n_scored_instances": 336925,
+          "n_in_first_2_tracks": 11937,
+          "frac_surviving_builder_cut": 0.0354292498330489,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 27,
+          "n_scored_instances": 330734,
+          "n_in_first_2_tracks": 15584,
+          "frac_surviving_builder_cut": 0.04711943737263178,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 10,
+          "n_scored_instances": 341436,
+          "n_in_first_2_tracks": 313593,
+          "frac_surviving_builder_cut": 0.918453238674305,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 22,
+          "n_scored_instances": 334514,
+          "n_in_first_2_tracks": 11676,
+          "frac_surviving_builder_cut": 0.03490436872597261,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 13,
+          "n_scored_instances": 341895,
+          "n_in_first_2_tracks": 72026,
+          "frac_surviving_builder_cut": 0.2106670176516182,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250903_150657",
+      "within_idf1": 0.20650250013516053,
+      "within_idp": 0.21862465500227768,
+      "within_idr": 0.19579408628426712,
+      "within_switches": 498,
+      "within_fragmentations": 25694,
+      "cross_idf1_scoped": 0.10702344304716105,
+      "cross_idp_scoped": 0.11456532029181206,
+      "cross_idr_scoped": 0.10041320478073489,
+      "cross_switches_scoped": 506,
+      "cross_idf1_unscoped": 0.1080054778481303,
+      "cross_switches_unscoped": 506,
+      "track_jump_p95_px": 5.370281009445607,
+      "n_jump_samples": 1552517,
+      "per_camera_idf1": [
+        0.12194568201184723,
+        0.15030020724128978,
+        0.52037836803242,
+        0.1120569977468712,
+        0.1278312456433745
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 56,
+          "n_scored_instances": 318190,
+          "n_in_first_2_tracks": 18678,
+          "frac_surviving_builder_cut": 0.058700776265753166,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 39,
+          "n_scored_instances": 306261,
+          "n_in_first_2_tracks": 161,
+          "frac_surviving_builder_cut": 0.0005256954035936668,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 12,
+          "n_scored_instances": 334767,
+          "n_in_first_2_tracks": 34295,
+          "frac_surviving_builder_cut": 0.10244438669283412,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 66,
+          "n_scored_instances": 310511,
+          "n_in_first_2_tracks": 55,
+          "frac_surviving_builder_cut": 0.00017712738035045457,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 49,
+          "n_scored_instances": 308410,
+          "n_in_first_2_tracks": 190,
+          "frac_surviving_builder_cut": 0.0006160630329755844,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250903_153433",
+      "within_idf1": 0.18724409578275322,
+      "within_idp": 0.19692484723662945,
+      "within_idr": 0.17848514637031604,
+      "within_switches": 557,
+      "within_fragmentations": 22819,
+      "cross_idf1_scoped": 0.052428802515397596,
+      "cross_idp_scoped": 0.055186455076338736,
+      "cross_idr_scoped": 0.04993363212760404,
+      "cross_switches_scoped": 565,
+      "cross_idf1_unscoped": 0.07184417783655747,
+      "cross_switches_unscoped": 565,
+      "track_jump_p95_px": 5.208681313538411,
+      "n_jump_samples": 1606566,
+      "per_camera_idf1": [
+        0.2272394388754213,
+        0.1699360074228444,
+        0.2599326093147168,
+        0.12191559174471593,
+        0.15719683155606776
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 29,
+          "n_scored_instances": 326721,
+          "n_in_first_2_tracks": 8567,
+          "frac_surviving_builder_cut": 0.026221148931351215,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 32,
+          "n_scored_instances": 318871,
+          "n_in_first_2_tracks": 45511,
+          "frac_surviving_builder_cut": 0.14272542815119593,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 13,
+          "n_scored_instances": 331673,
+          "n_in_first_2_tracks": 87597,
+          "frac_surviving_builder_cut": 0.2641065145489684,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 45,
+          "n_scored_instances": 326525,
+          "n_in_first_2_tracks": 157,
+          "frac_surviving_builder_cut": 0.0004808207641068831,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 23,
+          "n_scored_instances": 325396,
+          "n_in_first_2_tracks": 47868,
+          "frac_surviving_builder_cut": 0.1471069097346003,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_131913",
+      "within_idf1": 0.15035700901338384,
+      "within_idp": 0.16518947068892204,
+      "within_idr": 0.1382052463055554,
+      "within_switches": 1078,
+      "within_fragmentations": 24395,
+      "cross_idf1_scoped": 0.04497391927709707,
+      "cross_idp_scoped": 0.049783866184977134,
+      "cross_idr_scoped": 0.041011525890246,
+      "cross_switches_scoped": 1086,
+      "cross_idf1_unscoped": 0.10893992351196263,
+      "cross_switches_unscoped": 1086,
+      "track_jump_p95_px": 5.179510419490139,
+      "n_jump_samples": 1460169,
+      "per_camera_idf1": [
+        0.1878521804402615,
+        0.11747930298552968,
+        0.21761784664219702,
+        0.10269939480320485,
+        0.12613632019572613
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 71,
+          "n_scored_instances": 317691,
+          "n_in_first_2_tracks": 51036,
+          "frac_surviving_builder_cut": 0.16064666610007838,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 192,
+          "n_scored_instances": 279179,
+          "n_in_first_2_tracks": 9489,
+          "frac_surviving_builder_cut": 0.03398894615999054,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 100,
+          "n_scored_instances": 318803,
+          "n_in_first_2_tracks": 95656,
+          "frac_surviving_builder_cut": 0.30004736467348175,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 222,
+          "n_scored_instances": 275255,
+          "n_in_first_2_tracks": 42638,
+          "frac_surviving_builder_cut": 0.15490363481135674,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 140,
+          "n_scored_instances": 293569,
+          "n_in_first_2_tracks": 56979,
+          "frac_surviving_builder_cut": 0.19409065671102876,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_140306",
+      "within_idf1": 0.11241373765590941,
+      "within_idp": 0.12147821603829265,
+      "within_idr": 0.10463543082924989,
+      "within_switches": 802,
+      "within_fragmentations": 29238,
+      "cross_idf1_scoped": 0.03350390777326399,
+      "cross_idp_scoped": 0.03629612604359213,
+      "cross_idr_scoped": 0.031110605497255812,
+      "cross_switches_scoped": 810,
+      "cross_idf1_unscoped": 0.034593392867548076,
+      "cross_switches_unscoped": 810,
+      "track_jump_p95_px": 4.313713012605044,
+      "n_jump_samples": 1515462,
+      "per_camera_idf1": [
+        0.09954040727942734,
+        0.0949577152574283,
+        0.16516826622080477,
+        0.06671710944777212,
+        0.1356851900741145
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 77,
+          "n_scored_instances": 314765,
+          "n_in_first_2_tracks": 3944,
+          "frac_surviving_builder_cut": 0.012529982685495529,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 130,
+          "n_scored_instances": 298232,
+          "n_in_first_2_tracks": 2012,
+          "frac_surviving_builder_cut": 0.006746425601545106,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 48,
+          "n_scored_instances": 318437,
+          "n_in_first_2_tracks": 22500,
+          "frac_surviving_builder_cut": 0.07065761830440558,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 132,
+          "n_scored_instances": 303060,
+          "n_in_first_2_tracks": 291,
+          "frac_surviving_builder_cut": 0.0009602058998218174,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 94,
+          "n_scored_instances": 310051,
+          "n_in_first_2_tracks": 25103,
+          "frac_surviving_builder_cut": 0.08096409945460585,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_143552",
+      "within_idf1": 0.2477022741760174,
+      "within_idp": 0.2620779691147691,
+      "within_idr": 0.23487982330057214,
+      "within_switches": 336,
+      "within_fragmentations": 18614,
+      "cross_idf1_scoped": 0.05980239438009781,
+      "cross_idp_scoped": 0.06331197923416688,
+      "cross_idr_scoped": 0.056661468536513625,
+      "cross_switches_scoped": 344,
+      "cross_idf1_unscoped": 0.07699924353778313,
+      "cross_switches_unscoped": 344,
+      "track_jump_p95_px": 5.550320286839563,
+      "n_jump_samples": 1594089,
+      "per_camera_idf1": [
+        0.29613430169153304,
+        0.19791857181730182,
+        0.25732504032398434,
+        0.26196263855744717,
+        0.22517081848982065
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 21,
+          "n_scored_instances": 329166,
+          "n_in_first_2_tracks": 65609,
+          "frac_surviving_builder_cut": 0.19931888469647532,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 38,
+          "n_scored_instances": 312133,
+          "n_in_first_2_tracks": 88058,
+          "frac_surviving_builder_cut": 0.28211691810862677,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 41,
+          "n_scored_instances": 329030,
+          "n_in_first_2_tracks": 18877,
+          "frac_surviving_builder_cut": 0.05737166823693888,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 30,
+          "n_scored_instances": 314695,
+          "n_in_first_2_tracks": 4146,
+          "frac_surviving_builder_cut": 0.013174661179872576,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 31,
+          "n_scored_instances": 327625,
+          "n_in_first_2_tracks": 24848,
+          "frac_surviving_builder_cut": 0.07584280808851583,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_150414",
+      "within_idf1": 0.15056696895451152,
+      "within_idp": 0.15758978555030914,
+      "within_idr": 0.14417199380182505,
+      "within_switches": 349,
+      "within_fragmentations": 20285,
+      "cross_idf1_scoped": 0.03905646446377733,
+      "cross_idp_scoped": 0.04084977724091636,
+      "cross_idr_scoped": 0.03741398366036667,
+      "cross_switches_scoped": 357,
+      "cross_idf1_unscoped": 0.05821856951821664,
+      "cross_switches_unscoped": 357,
+      "track_jump_p95_px": 4.379914798195471,
+      "n_jump_samples": 1628885,
+      "per_camera_idf1": [
+        0.14723576228045648,
+        0.17576158041764134,
+        0.19394988080568448,
+        0.1207078619089063,
+        0.115179759359869
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 25,
+          "n_scored_instances": 333720,
+          "n_in_first_2_tracks": 2596,
+          "frac_surviving_builder_cut": 0.0077789763873906265,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 32,
+          "n_scored_instances": 317892,
+          "n_in_first_2_tracks": 2486,
+          "frac_surviving_builder_cut": 0.007820266002290086,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 25,
+          "n_scored_instances": 334558,
+          "n_in_first_2_tracks": 88373,
+          "frac_surviving_builder_cut": 0.2641485183436056,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 39,
+          "n_scored_instances": 329294,
+          "n_in_first_2_tracks": 32199,
+          "frac_surviving_builder_cut": 0.0977819213225871,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 42,
+          "n_scored_instances": 333627,
+          "n_in_first_2_tracks": 2512,
+          "frac_surviving_builder_cut": 0.007529366628000731,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_153332",
+      "within_idf1": 0.35630096780216497,
+      "within_idp": 0.36590715043825617,
+      "within_idr": 0.34720113298714284,
+      "within_switches": 156,
+      "within_fragmentations": 15672,
+      "cross_idf1_scoped": 0.08890414798765724,
+      "cross_idp_scoped": 0.09135999127928954,
+      "cross_idr_scoped": 0.08657687928688457,
+      "cross_switches_scoped": 164,
+      "cross_idf1_unscoped": 0.09771380616071539,
+      "cross_switches_unscoped": 164,
+      "track_jump_p95_px": 4.413541613090539,
+      "n_jump_samples": 1690628,
+      "per_camera_idf1": [
+        0.3351279769321135,
+        0.2702589122519177,
+        0.39115282984345545,
+        0.3415346109880587,
+        0.4434305089952794
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 11,
+          "n_scored_instances": 342165,
+          "n_in_first_2_tracks": 38762,
+          "frac_surviving_builder_cut": 0.11328452647114697,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 20,
+          "n_scored_instances": 334720,
+          "n_in_first_2_tracks": 38206,
+          "frac_surviving_builder_cut": 0.11414316443594646,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 13,
+          "n_scored_instances": 344929,
+          "n_in_first_2_tracks": 8091,
+          "frac_surviving_builder_cut": 0.02345700129591887,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 9,
+          "n_scored_instances": 341488,
+          "n_in_first_2_tracks": 61698,
+          "frac_surviving_builder_cut": 0.18067399147261398,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 16,
+          "n_scored_instances": 342981,
+          "n_in_first_2_tracks": 16651,
+          "frac_surviving_builder_cut": 0.04854787874546987,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_160014",
+      "within_idf1": 0.20855856822074167,
+      "within_idp": 0.22196138858843587,
+      "within_idr": 0.19672429784563433,
+      "within_switches": 582,
+      "within_fragmentations": 20961,
+      "cross_idf1_scoped": 0.05248776094892928,
+      "cross_idp_scoped": 0.05582491603569539,
+      "cross_idr_scoped": 0.049527083692024014,
+      "cross_switches_scoped": 590,
+      "cross_idf1_unscoped": 0.07167411972271394,
+      "cross_switches_unscoped": 590,
+      "track_jump_p95_px": 4.583985199152974,
+      "n_jump_samples": 1576515,
+      "per_camera_idf1": [
+        0.21222743152126247,
+        0.13115643465638332,
+        0.23353672401482486,
+        0.2651051204604371,
+        0.20076713045080055
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 90,
+          "n_scored_instances": 319448,
+          "n_in_first_2_tracks": 39955,
+          "frac_surviving_builder_cut": 0.12507512959855752,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 55,
+          "n_scored_instances": 321904,
+          "n_in_first_2_tracks": 6247,
+          "frac_surviving_builder_cut": 0.019406406879069537,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 40,
+          "n_scored_instances": 330355,
+          "n_in_first_2_tracks": 69938,
+          "frac_surviving_builder_cut": 0.21170558944166123,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 43,
+          "n_scored_instances": 312646,
+          "n_in_first_2_tracks": 5876,
+          "frac_surviving_builder_cut": 0.018794419247327648,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 68,
+          "n_scored_instances": 313052,
+          "n_in_first_2_tracks": 8342,
+          "frac_surviving_builder_cut": 0.02664733015601242,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_165017",
+      "within_idf1": 0.36645828056933005,
+      "within_idp": 0.37815695691489076,
+      "within_idr": 0.35550536357431034,
+      "within_switches": 235,
+      "within_fragmentations": 16015,
+      "cross_idf1_scoped": 0.13632627321545845,
+      "cross_idp_scoped": 0.14112399516001703,
+      "cross_idr_scoped": 0.13184403735911251,
+      "cross_switches_scoped": 243,
+      "cross_idf1_unscoped": 0.1664773557021524,
+      "cross_switches_unscoped": 243,
+      "track_jump_p95_px": 4.422527052801134,
+      "n_jump_samples": 1667508,
+      "per_camera_idf1": [
+        0.26845851116582636,
+        0.21963913898300166,
+        0.6745858000766642,
+        0.26181091850592514,
+        0.4077970341152328
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 23,
+          "n_scored_instances": 337360,
+          "n_in_first_2_tracks": 14092,
+          "frac_surviving_builder_cut": 0.04177140147023951,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 29,
+          "n_scored_instances": 328791,
+          "n_in_first_2_tracks": 8929,
+          "frac_surviving_builder_cut": 0.027157069384502616,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 5,
+          "n_scored_instances": 343976,
+          "n_in_first_2_tracks": 340629,
+          "frac_surviving_builder_cut": 0.9902696699769752,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 30,
+          "n_scored_instances": 332503,
+          "n_in_first_2_tracks": 40396,
+          "frac_surviving_builder_cut": 0.12149063316721954,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 6,
+          "n_scored_instances": 340847,
+          "n_in_first_2_tracks": 49268,
+          "frac_surviving_builder_cut": 0.14454579327381495,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_174232",
+      "within_idf1": 0.22291898248803504,
+      "within_idp": 0.23543957393917392,
+      "within_idr": 0.21170970194394037,
+      "within_switches": 404,
+      "within_fragmentations": 22856,
+      "cross_idf1_scoped": 0.07292855602831887,
+      "cross_idp_scoped": 0.07735287254398655,
+      "cross_idr_scoped": 0.06898296901792998,
+      "cross_switches_scoped": 412,
+      "cross_idf1_unscoped": 0.0780320530590035,
+      "cross_switches_unscoped": 412,
+      "track_jump_p95_px": 4.41424465723606,
+      "n_jump_samples": 1584247,
+      "per_camera_idf1": [
+        0.3629001534125162,
+        0.10110587833239902,
+        0.25271074408840927,
+        0.14329069379537154,
+        0.25458744281147927
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 27,
+          "n_scored_instances": 324679,
+          "n_in_first_2_tracks": 5658,
+          "frac_surviving_builder_cut": 0.017426442732668267,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 97,
+          "n_scored_instances": 306760,
+          "n_in_first_2_tracks": 2332,
+          "frac_surviving_builder_cut": 0.007602034163515452,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 21,
+          "n_scored_instances": 331290,
+          "n_in_first_2_tracks": 107012,
+          "frac_surviving_builder_cut": 0.3230160886232606,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 32,
+          "n_scored_instances": 317060,
+          "n_in_first_2_tracks": 6833,
+          "frac_surviving_builder_cut": 0.021551125969847977,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 18,
+          "n_scored_instances": 327236,
+          "n_in_first_2_tracks": 28209,
+          "frac_surviving_builder_cut": 0.08620384065322886,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_181215",
+      "within_idf1": 0.15942546995292414,
+      "within_idp": 0.1664761760524885,
+      "within_idr": 0.15297459707427605,
+      "within_switches": 659,
+      "within_fragmentations": 19956,
+      "cross_idf1_scoped": 0.04358701688227079,
+      "cross_idp_scoped": 0.04555426178456836,
+      "cross_idr_scoped": 0.04178264781348232,
+      "cross_switches_scoped": 667,
+      "cross_idf1_unscoped": 0.04358701688227079,
+      "cross_switches_unscoped": 667,
+      "track_jump_p95_px": 6.0875714515350206,
+      "n_jump_samples": 1631751,
+      "per_camera_idf1": [
+        0.14237550065982915,
+        0.1302630421395267,
+        0.12852886443538888,
+        0.180855174988443,
+        0.2151047675414331
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 45,
+          "n_scored_instances": 330972,
+          "n_in_first_2_tracks": 1568,
+          "frac_surviving_builder_cut": 0.004737560881283008,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 60,
+          "n_scored_instances": 321904,
+          "n_in_first_2_tracks": 10195,
+          "frac_surviving_builder_cut": 0.03167093294895373,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 27,
+          "n_scored_instances": 333627,
+          "n_in_first_2_tracks": 10490,
+          "frac_surviving_builder_cut": 0.031442299334286494,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 29,
+          "n_scored_instances": 325615,
+          "n_in_first_2_tracks": 9516,
+          "frac_surviving_builder_cut": 0.029224697879397448,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 22,
+          "n_scored_instances": 339385,
+          "n_in_first_2_tracks": 10842,
+          "frac_surviving_builder_cut": 0.031946020006776966,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250904_183921",
+      "within_idf1": 0.09135453434148258,
+      "within_idp": 0.09840923383005329,
+      "within_idr": 0.08532472869853047,
+      "within_switches": 1086,
+      "within_fragmentations": 32041,
+      "cross_idf1_scoped": 0.03523872797429733,
+      "cross_idp_scoped": 0.038248111393024024,
+      "cross_idr_scoped": 0.032668362416554665,
+      "cross_switches_scoped": 1094,
+      "cross_idf1_unscoped": 0.03559098345777098,
+      "cross_switches_unscoped": 1094,
+      "track_jump_p95_px": 3.473867054462334,
+      "n_jump_samples": 1505963,
+      "per_camera_idf1": [
+        0.06319610568577036,
+        0.05104876647673462,
+        0.08942364606542713,
+        0.08120524950960446,
+        0.17189890396987634
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 147,
+          "n_scored_instances": 310400,
+          "n_in_first_2_tracks": 1382,
+          "frac_surviving_builder_cut": 0.004452319587628866,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 245,
+          "n_scored_instances": 283974,
+          "n_in_first_2_tracks": 3102,
+          "frac_surviving_builder_cut": 0.010923535253227408,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 84,
+          "n_scored_instances": 320733,
+          "n_in_first_2_tracks": 23949,
+          "frac_surviving_builder_cut": 0.07466958498190084,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 220,
+          "n_scored_instances": 298536,
+          "n_in_first_2_tracks": 22085,
+          "frac_surviving_builder_cut": 0.07397767773400862,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 69,
+          "n_scored_instances": 324263,
+          "n_in_first_2_tracks": 6622,
+          "frac_surviving_builder_cut": 0.02042169473544623,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_165151",
+      "within_idf1": 0.19614409179354617,
+      "within_idp": 0.20492818539260083,
+      "within_idr": 0.18809030573991278,
+      "within_switches": 394,
+      "within_fragmentations": 23022,
+      "cross_idf1_scoped": 0.06487552775818958,
+      "cross_idp_scoped": 0.06784258788342061,
+      "cross_idr_scoped": 0.06215711865818778,
+      "cross_switches_scoped": 402,
+      "cross_idf1_unscoped": 0.07144788703982109,
+      "cross_switches_unscoped": 402,
+      "track_jump_p95_px": 3.83366993394361,
+      "n_jump_samples": 1626703,
+      "per_camera_idf1": [
+        0.11212478356395594,
+        0.16125651087286572,
+        0.19825840479558005,
+        0.3236489563978918,
+        0.18543180333743722
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 44,
+          "n_scored_instances": 327160,
+          "n_in_first_2_tracks": 7201,
+          "frac_surviving_builder_cut": 0.02201063699718792,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 39,
+          "n_scored_instances": 324898,
+          "n_in_first_2_tracks": 7464,
+          "frac_surviving_builder_cut": 0.022973363948069855,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 48,
+          "n_scored_instances": 334196,
+          "n_in_first_2_tracks": 3087,
+          "frac_surviving_builder_cut": 0.009237094399693594,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 19,
+          "n_scored_instances": 331485,
+          "n_in_first_2_tracks": 7424,
+          "frac_surviving_builder_cut": 0.02239618685611717,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 37,
+          "n_scored_instances": 331918,
+          "n_in_first_2_tracks": 36664,
+          "frac_surviving_builder_cut": 0.11046101748022102,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_171829",
+      "within_idf1": 0.25945504875486336,
+      "within_idp": 0.27038360804771966,
+      "within_idr": 0.2494110133014912,
+      "within_switches": 276,
+      "within_fragmentations": 17754,
+      "cross_idf1_scoped": 0.07736016303675368,
+      "cross_idp_scoped": 0.08087789337581061,
+      "cross_idr_scoped": 0.07413568076421094,
+      "cross_switches_scoped": 284,
+      "cross_idf1_unscoped": 0.10588464042751654,
+      "cross_switches_unscoped": 284,
+      "track_jump_p95_px": 3.9711728291009907,
+      "n_jump_samples": 1632738,
+      "per_camera_idf1": [
+        0.28242467336748517,
+        0.1195016347088451,
+        0.3832213445259938,
+        0.22218625182100157,
+        0.28994133935099103
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 31,
+          "n_scored_instances": 334631,
+          "n_in_first_2_tracks": 17694,
+          "frac_surviving_builder_cut": 0.052876153135842166,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 49,
+          "n_scored_instances": 318910,
+          "n_in_first_2_tracks": 3200,
+          "frac_surviving_builder_cut": 0.010034178921952902,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 10,
+          "n_scored_instances": 336537,
+          "n_in_first_2_tracks": 161104,
+          "frac_surviving_builder_cut": 0.4787111075453813,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 32,
+          "n_scored_instances": 325639,
+          "n_in_first_2_tracks": 16907,
+          "frac_surviving_builder_cut": 0.051919456821818026,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 12,
+          "n_scored_instances": 334734,
+          "n_in_first_2_tracks": 23459,
+          "frac_surviving_builder_cut": 0.0700825132792008,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_174513",
+      "within_idf1": 0.16078745937371466,
+      "within_idp": 0.17094866918726748,
+      "within_idr": 0.15179859711091487,
+      "within_switches": 617,
+      "within_fragmentations": 27417,
+      "cross_idf1_scoped": 0.05083438702364888,
+      "cross_idp_scoped": 0.05421671583483523,
+      "cross_idr_scoped": 0.04784929216859106,
+      "cross_switches_scoped": 625,
+      "cross_idf1_unscoped": 0.060256532044084474,
+      "cross_switches_unscoped": 625,
+      "track_jump_p95_px": 3.92494222714888,
+      "n_jump_samples": 1561795,
+      "per_camera_idf1": [
+        0.11127071332316486,
+        0.12222119206486402,
+        0.25035851225043987,
+        0.11357278464168062,
+        0.20651409458842393
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 96,
+          "n_scored_instances": 315176,
+          "n_in_first_2_tracks": 4247,
+          "frac_surviving_builder_cut": 0.013475010787623424,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 87,
+          "n_scored_instances": 308608,
+          "n_in_first_2_tracks": 162,
+          "frac_surviving_builder_cut": 0.0005249377851513895,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 43,
+          "n_scored_instances": 328147,
+          "n_in_first_2_tracks": 11127,
+          "frac_surviving_builder_cut": 0.033908583653057926,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 73,
+          "n_scored_instances": 316210,
+          "n_in_first_2_tracks": 3297,
+          "frac_surviving_builder_cut": 0.01042661522405996,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 62,
+          "n_scored_instances": 320963,
+          "n_in_first_2_tracks": 7243,
+          "frac_surviving_builder_cut": 0.022566464047257782,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_181402",
+      "within_idf1": 0.18771741596777528,
+      "within_idp": 0.20335100410852514,
+      "within_idr": 0.17435324958068135,
+      "within_switches": 951,
+      "within_fragmentations": 24563,
+      "cross_idf1_scoped": 0.051232686143951045,
+      "cross_idp_scoped": 0.05549940458373341,
+      "cross_idr_scoped": 0.047575171892876585,
+      "cross_switches_scoped": 959,
+      "cross_idf1_unscoped": 0.0750556668993223,
+      "cross_switches_unscoped": 959,
+      "track_jump_p95_px": 6.252589858397815,
+      "n_jump_samples": 1519100,
+      "per_camera_idf1": [
+        0.2554452197769428,
+        0.21528461868529677,
+        0.17407218965453675,
+        0.13609484497951302,
+        0.15769020674258707
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 72,
+          "n_scored_instances": 310572,
+          "n_in_first_2_tracks": 2285,
+          "frac_surviving_builder_cut": 0.007357392166711745,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 91,
+          "n_scored_instances": 301760,
+          "n_in_first_2_tracks": 23474,
+          "frac_surviving_builder_cut": 0.07779029692470837,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 69,
+          "n_scored_instances": 317967,
+          "n_in_first_2_tracks": 23738,
+          "frac_surviving_builder_cut": 0.07465554601578152,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 103,
+          "n_scored_instances": 299579,
+          "n_in_first_2_tracks": 2023,
+          "frac_surviving_builder_cut": 0.006752809776386195,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 78,
+          "n_scored_instances": 313580,
+          "n_in_first_2_tracks": 3448,
+          "frac_surviving_builder_cut": 0.010995599209133235,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_191445",
+      "within_idf1": 0.15639795378028887,
+      "within_idp": 0.16693429904865725,
+      "within_idr": 0.14711785712302217,
+      "within_switches": 485,
+      "within_fragmentations": 20973,
+      "cross_idf1_scoped": 0.05066457183668583,
+      "cross_idp_scoped": 0.05400795656580135,
+      "cross_idr_scoped": 0.047711002626945914,
+      "cross_switches_scoped": 493,
+      "cross_idf1_unscoped": 0.11960877634682175,
+      "cross_switches_unscoped": 493,
+      "track_jump_p95_px": 4.066573722816435,
+      "n_jump_samples": 1569742,
+      "per_camera_idf1": [
+        0.1063044106118744,
+        0.2550614740104926,
+        0.134865864286219,
+        0.17642866818618183,
+        0.10932935180667651
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 59,
+          "n_scored_instances": 318522,
+          "n_in_first_2_tracks": 21972,
+          "frac_surviving_builder_cut": 0.06898110648558027,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 60,
+          "n_scored_instances": 313504,
+          "n_in_first_2_tracks": 86814,
+          "frac_surviving_builder_cut": 0.27691512707971827,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 63,
+          "n_scored_instances": 319198,
+          "n_in_first_2_tracks": 17423,
+          "frac_surviving_builder_cut": 0.05458367533631163,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 27,
+          "n_scored_instances": 319050,
+          "n_in_first_2_tracks": 85945,
+          "frac_surviving_builder_cut": 0.26937784046387714,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 58,
+          "n_scored_instances": 320362,
+          "n_in_first_2_tracks": 18296,
+          "frac_surviving_builder_cut": 0.057110393866938024,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_194049",
+      "within_idf1": 0.12700190056670618,
+      "within_idp": 0.13641570978103715,
+      "within_idr": 0.11882591430396268,
+      "within_switches": 1051,
+      "within_fragmentations": 25588,
+      "cross_idf1_scoped": 0.030769495848571873,
+      "cross_idp_scoped": 0.03307782563180193,
+      "cross_idr_scoped": 0.028762322623642776,
+      "cross_switches_scoped": 1059,
+      "cross_idf1_unscoped": 0.07323767427338496,
+      "cross_switches_unscoped": 1059,
+      "track_jump_p95_px": 6.433341773401098,
+      "n_jump_samples": 1540350,
+      "per_camera_idf1": [
+        0.13038809313520333,
+        0.11083336341431133,
+        0.13390026809337438,
+        0.10705341613421872,
+        0.15283436205642312
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 103,
+          "n_scored_instances": 311301,
+          "n_in_first_2_tracks": 6884,
+          "frac_surviving_builder_cut": 0.022113645635574573,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 146,
+          "n_scored_instances": 304762,
+          "n_in_first_2_tracks": 35898,
+          "frac_surviving_builder_cut": 0.11779027569053885,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 85,
+          "n_scored_instances": 322861,
+          "n_in_first_2_tracks": 56007,
+          "frac_surviving_builder_cut": 0.1734709364091668,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 84,
+          "n_scored_instances": 309126,
+          "n_in_first_2_tracks": 7091,
+          "frac_surviving_builder_cut": 0.022938866352231777,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 68,
+          "n_scored_instances": 317591,
+          "n_in_first_2_tracks": 41675,
+          "frac_surviving_builder_cut": 0.1312222323680457,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_200953",
+      "within_idf1": 0.17873235457244097,
+      "within_idp": 0.18560665993716444,
+      "within_idr": 0.17235591742431394,
+      "within_switches": 362,
+      "within_fragmentations": 20304,
+      "cross_idf1_scoped": 0.04805871300796119,
+      "cross_idp_scoped": 0.04993404914311785,
+      "cross_idr_scoped": 0.046319139364520444,
+      "cross_switches_scoped": 370,
+      "cross_idf1_unscoped": 0.07871350929909791,
+      "cross_switches_unscoped": 370,
+      "track_jump_p95_px": 3.778494881214449,
+      "n_jump_samples": 1649961,
+      "per_camera_idf1": [
+        0.15089967913944738,
+        0.17879773437454707,
+        0.2387535426984627,
+        0.1328329870987367,
+        0.19237782955101101
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 25,
+          "n_scored_instances": 333030,
+          "n_in_first_2_tracks": 73010,
+          "frac_surviving_builder_cut": 0.219229498843948,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 57,
+          "n_scored_instances": 329858,
+          "n_in_first_2_tracks": 10453,
+          "frac_surviving_builder_cut": 0.03168939361785981,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 27,
+          "n_scored_instances": 338514,
+          "n_in_first_2_tracks": 13010,
+          "frac_surviving_builder_cut": 0.03843267929834512,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 40,
+          "n_scored_instances": 333547,
+          "n_in_first_2_tracks": 7678,
+          "frac_surviving_builder_cut": 0.023019244664170265,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 29,
+          "n_scored_instances": 335234,
+          "n_in_first_2_tracks": 83046,
+          "frac_surviving_builder_cut": 0.24772546937363155,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_203607",
+      "within_idf1": 0.23782417543212714,
+      "within_idp": 0.2544919758736631,
+      "within_idr": 0.2232378096190159,
+      "within_switches": 703,
+      "within_fragmentations": 21813,
+      "cross_idf1_scoped": 0.07407363456718191,
+      "cross_idp_scoped": 0.07950866810896323,
+      "cross_idr_scoped": 0.06933411085193825,
+      "cross_switches_scoped": 711,
+      "cross_idf1_unscoped": 0.13004285950348005,
+      "cross_switches_unscoped": 711,
+      "track_jump_p95_px": 4.449959049285643,
+      "n_jump_samples": 1548396,
+      "per_camera_idf1": [
+        0.1707057213460907,
+        0.12176106640371559,
+        0.30928023248795383,
+        0.36855817331323887,
+        0.21881568360963657
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 107,
+          "n_scored_instances": 312851,
+          "n_in_first_2_tracks": 70207,
+          "frac_surviving_builder_cut": 0.2244103423035247,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 125,
+          "n_scored_instances": 301093,
+          "n_in_first_2_tracks": 44568,
+          "frac_surviving_builder_cut": 0.14802071120882918,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 89,
+          "n_scored_instances": 319141,
+          "n_in_first_2_tracks": 7052,
+          "frac_surviving_builder_cut": 0.022096816140828035,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 52,
+          "n_scored_instances": 317347,
+          "n_in_first_2_tracks": 205746,
+          "frac_surviving_builder_cut": 0.6483313218653398,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 71,
+          "n_scored_instances": 319749,
+          "n_in_first_2_tracks": 5259,
+          "frac_surviving_builder_cut": 0.01644727583198071,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_210254",
+      "within_idf1": 0.12408042126093939,
+      "within_idp": 0.13053434606803144,
+      "within_idr": 0.1182480616710728,
+      "within_switches": 552,
+      "within_fragmentations": 22536,
+      "cross_idf1_scoped": 0.03894459204508557,
+      "cross_idp_scoped": 0.041017702622731404,
+      "cross_idr_scoped": 0.03707095727900828,
+      "cross_switches_scoped": 560,
+      "cross_idf1_unscoped": 0.050364184768450136,
+      "cross_switches_unscoped": 560,
+      "track_jump_p95_px": 3.7339520606726078,
+      "n_jump_samples": 1604817,
+      "per_camera_idf1": [
+        0.11658467728425527,
+        0.104210680382437,
+        0.19326817417792186,
+        0.09803428891979385,
+        0.10830428554028895
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 77,
+          "n_scored_instances": 326367,
+          "n_in_first_2_tracks": 1734,
+          "frac_surviving_builder_cut": 0.005313037163683828,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 78,
+          "n_scored_instances": 316295,
+          "n_in_first_2_tracks": 950,
+          "frac_surviving_builder_cut": 0.0030035251900915284,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 38,
+          "n_scored_instances": 330615,
+          "n_in_first_2_tracks": 21769,
+          "frac_surviving_builder_cut": 0.0658439574731939,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 63,
+          "n_scored_instances": 324432,
+          "n_in_first_2_tracks": 25735,
+          "frac_surviving_builder_cut": 0.07932324801499235,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 65,
+          "n_scored_instances": 329564,
+          "n_in_first_2_tracks": 25398,
+          "frac_surviving_builder_cut": 0.0770654561784661,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250905_213215",
+      "within_idf1": 0.20912540461110324,
+      "within_idp": 0.2244448644617519,
+      "within_idr": 0.19577457748551813,
+      "within_switches": 623,
+      "within_fragmentations": 18946,
+      "cross_idf1_scoped": 0.053557328444497745,
+      "cross_idp_scoped": 0.0575239409424869,
+      "cross_idr_scoped": 0.050102469828328326,
+      "cross_switches_scoped": 631,
+      "cross_idf1_unscoped": 0.08733588936476405,
+      "cross_switches_unscoped": 631,
+      "track_jump_p95_px": 4.386431440925135,
+      "n_jump_samples": 1549341,
+      "per_camera_idf1": [
+        0.18571965214499206,
+        0.17250087951076745,
+        0.18245480822135185,
+        0.2391565532360506,
+        0.2657951299423542
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 68,
+          "n_scored_instances": 313393,
+          "n_in_first_2_tracks": 306,
+          "frac_surviving_builder_cut": 0.000976409811323163,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 134,
+          "n_scored_instances": 307879,
+          "n_in_first_2_tracks": 491,
+          "frac_surviving_builder_cut": 0.0015947823657995511,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 81,
+          "n_scored_instances": 314187,
+          "n_in_first_2_tracks": 10944,
+          "frac_surviving_builder_cut": 0.03483275883470672,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 94,
+          "n_scored_instances": 314080,
+          "n_in_first_2_tracks": 47701,
+          "frac_surviving_builder_cut": 0.15187531839021906,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 62,
+          "n_scored_instances": 318695,
+          "n_in_first_2_tracks": 129135,
+          "frac_surviving_builder_cut": 0.4051993285115863,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_143021",
+      "within_idf1": 0.12240091245194851,
+      "within_idp": 0.13601903920067288,
+      "within_idr": 0.11128198300157557,
+      "within_switches": 1153,
+      "within_fragmentations": 28786,
+      "cross_idf1_scoped": 0.04089110433566297,
+      "cross_idp_scoped": 0.04543654453329283,
+      "cross_idr_scoped": 0.03717240308013226,
+      "cross_switches_scoped": 1161,
+      "cross_idf1_unscoped": 0.05105224228546878,
+      "cross_switches_unscoped": 1161,
+      "track_jump_p95_px": 5.964675576872782,
+      "n_jump_samples": 1446180,
+      "per_camera_idf1": [
+        0.08714796667476421,
+        0.11357427283443737,
+        0.12601160148692953,
+        0.08207682520776373,
+        0.2031938960558477
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 132,
+          "n_scored_instances": 294015,
+          "n_in_first_2_tracks": 4820,
+          "frac_surviving_builder_cut": 0.016393721408771662,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 151,
+          "n_scored_instances": 285910,
+          "n_in_first_2_tracks": 17124,
+          "frac_surviving_builder_cut": 0.059892973313280404,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 128,
+          "n_scored_instances": 291309,
+          "n_in_first_2_tracks": 16649,
+          "frac_surviving_builder_cut": 0.05715237085019687,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 128,
+          "n_scored_instances": 304434,
+          "n_in_first_2_tracks": 24097,
+          "frac_surviving_builder_cut": 0.07915344541017101,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 99,
+          "n_scored_instances": 299004,
+          "n_in_first_2_tracks": 38828,
+          "frac_surviving_builder_cut": 0.1298577945445546,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_151901",
+      "within_idf1": 0.16583911116686106,
+      "within_idp": 0.18583424230848106,
+      "within_idr": 0.14983629119080122,
+      "within_switches": 1246,
+      "within_fragmentations": 24960,
+      "cross_idf1_scoped": 0.04541375220972749,
+      "cross_idp_scoped": 0.051067257015007306,
+      "cross_idr_scoped": 0.040887246251345745,
+      "cross_switches_scoped": 1254,
+      "cross_idf1_unscoped": 0.04541375220972749,
+      "cross_switches_unscoped": 1254,
+      "track_jump_p95_px": 4.174868167345624,
+      "n_jump_samples": 1417915,
+      "per_camera_idf1": [
+        0.14191892252300306,
+        0.09950498312698251,
+        0.18013673058444063,
+        0.18156984128191284,
+        0.22606507831796635
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 111,
+          "n_scored_instances": 299516,
+          "n_in_first_2_tracks": 275,
+          "frac_surviving_builder_cut": 0.0009181479453518343,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 309,
+          "n_scored_instances": 261603,
+          "n_in_first_2_tracks": 878,
+          "frac_surviving_builder_cut": 0.003356230624266541,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 135,
+          "n_scored_instances": 293152,
+          "n_in_first_2_tracks": 7578,
+          "frac_surviving_builder_cut": 0.025850070952952733,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 88,
+          "n_scored_instances": 297059,
+          "n_in_first_2_tracks": 5535,
+          "frac_surviving_builder_cut": 0.018632662198418495,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 149,
+          "n_scored_instances": 291434,
+          "n_in_first_2_tracks": 92,
+          "frac_surviving_builder_cut": 0.0003156803941887357,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_154801",
+      "within_idf1": 0.14107395841641307,
+      "within_idp": 0.15386799889735223,
+      "within_idr": 0.13028386086319027,
+      "within_switches": 806,
+      "within_fragmentations": 27569,
+      "cross_idf1_scoped": 0.04275254125495959,
+      "cross_idp_scoped": 0.04665070513544537,
+      "cross_idr_scoped": 0.039455604738604745,
+      "cross_switches_scoped": 814,
+      "cross_idf1_unscoped": 0.042878919454359114,
+      "cross_switches_unscoped": 814,
+      "track_jump_p95_px": 3.961880307573346,
+      "n_jump_samples": 1495374,
+      "per_camera_idf1": [
+        0.11443103116583302,
+        0.12191297289319625,
+        0.10857647732023257,
+        0.1485005070749022,
+        0.21194880362790142
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 113,
+          "n_scored_instances": 305238,
+          "n_in_first_2_tracks": 1091,
+          "frac_surviving_builder_cut": 0.0035742600855725695,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 139,
+          "n_scored_instances": 290358,
+          "n_in_first_2_tracks": 743,
+          "frac_surviving_builder_cut": 0.002558910035197928,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 82,
+          "n_scored_instances": 314460,
+          "n_in_first_2_tracks": 1109,
+          "frac_surviving_builder_cut": 0.003526680658907333,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 99,
+          "n_scored_instances": 302518,
+          "n_in_first_2_tracks": 1552,
+          "frac_surviving_builder_cut": 0.005130273239939442,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 99,
+          "n_scored_instances": 310254,
+          "n_in_first_2_tracks": 695,
+          "frac_surviving_builder_cut": 0.0022401000470582168,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_161657",
+      "within_idf1": 0.20594507475913204,
+      "within_idp": 0.2191669864577852,
+      "within_idr": 0.1942424107787491,
+      "within_switches": 470,
+      "within_fragmentations": 24101,
+      "cross_idf1_scoped": 0.05585624134705663,
+      "cross_idp_scoped": 0.05949996672472052,
+      "cross_idr_scoped": 0.05263304046473914,
+      "cross_switches_scoped": 478,
+      "cross_idf1_unscoped": 0.05585624134705663,
+      "cross_switches_unscoped": 478,
+      "track_jump_p95_px": 4.780127440440933,
+      "n_jump_samples": 1568749,
+      "per_camera_idf1": [
+        0.27243868683948286,
+        0.10240848590665025,
+        0.12277358330876967,
+        0.25285805602113826,
+        0.27924656171961904
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 35,
+          "n_scored_instances": 321263,
+          "n_in_first_2_tracks": 48,
+          "frac_surviving_builder_cut": 0.00014941029623703942,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 64,
+          "n_scored_instances": 308852,
+          "n_in_first_2_tracks": 591,
+          "frac_surviving_builder_cut": 0.0019135378757463122,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 22,
+          "n_scored_instances": 325178,
+          "n_in_first_2_tracks": 426,
+          "frac_surviving_builder_cut": 0.0013100517255164863,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 33,
+          "n_scored_instances": 318842,
+          "n_in_first_2_tracks": 102,
+          "frac_surviving_builder_cut": 0.00031990766586585207,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 32,
+          "n_scored_instances": 318639,
+          "n_in_first_2_tracks": 395,
+          "frac_surviving_builder_cut": 0.0012396473752428296,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_164826",
+      "within_idf1": 0.1484359410779495,
+      "within_idp": 0.16167441394560333,
+      "within_idr": 0.13725674234682544,
+      "within_switches": 855,
+      "within_fragmentations": 27547,
+      "cross_idf1_scoped": 0.05138936442026482,
+      "cross_idp_scoped": 0.05624370644031312,
+      "cross_idr_scoped": 0.047306393566445996,
+      "cross_switches_scoped": 863,
+      "cross_idf1_unscoped": 0.05138936442026482,
+      "cross_switches_unscoped": 863,
+      "track_jump_p95_px": 3.508604570053494,
+      "n_jump_samples": 1487020,
+      "per_camera_idf1": [
+        0.2522660198459062,
+        0.12114666707633694,
+        0.185835963134494,
+        0.09978083174504744,
+        0.083150223587963
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 41,
+          "n_scored_instances": 315191,
+          "n_in_first_2_tracks": 198,
+          "frac_surviving_builder_cut": 0.0006281905257447071,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 120,
+          "n_scored_instances": 290818,
+          "n_in_first_2_tracks": 57,
+          "frac_surviving_builder_cut": 0.00019599887214684098,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 81,
+          "n_scored_instances": 309457,
+          "n_in_first_2_tracks": 1894,
+          "frac_surviving_builder_cut": 0.006120397987442521,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 116,
+          "n_scored_instances": 297830,
+          "n_in_first_2_tracks": 1827,
+          "frac_surviving_builder_cut": 0.0061343719571567675,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 90,
+          "n_scored_instances": 301149,
+          "n_in_first_2_tracks": 288,
+          "frac_surviving_builder_cut": 0.0009563372284151699,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_171538",
+      "within_idf1": 0.18615480398420026,
+      "within_idp": 0.20312446765797207,
+      "within_idr": 0.17189501102428678,
+      "within_switches": 624,
+      "within_fragmentations": 25658,
+      "cross_idf1_scoped": 0.03913023484933414,
+      "cross_idp_scoped": 0.04264106425472627,
+      "cross_idr_scoped": 0.03615355137539779,
+      "cross_switches_scoped": 632,
+      "cross_idf1_unscoped": 0.042810810420903844,
+      "cross_switches_unscoped": 632,
+      "track_jump_p95_px": 3.7898793544696305,
+      "n_jump_samples": 1501117,
+      "per_camera_idf1": [
+        0.1749765640213573,
+        0.19543948228514696,
+        0.18516401332839688,
+        0.198841974508699,
+        0.17635198577740102
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 88,
+          "n_scored_instances": 302329,
+          "n_in_first_2_tracks": 19265,
+          "frac_surviving_builder_cut": 0.06372197175924242,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 69,
+          "n_scored_instances": 298627,
+          "n_in_first_2_tracks": 8529,
+          "frac_surviving_builder_cut": 0.0285607128625342,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 35,
+          "n_scored_instances": 315136,
+          "n_in_first_2_tracks": 5697,
+          "frac_surviving_builder_cut": 0.018077909220146224,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 75,
+          "n_scored_instances": 291167,
+          "n_in_first_2_tracks": 9535,
+          "frac_surviving_builder_cut": 0.03274752976813993,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 37,
+          "n_scored_instances": 319368,
+          "n_in_first_2_tracks": 1322,
+          "frac_surviving_builder_cut": 0.004139425365096065,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_174343",
+      "within_idf1": 0.09334143050470337,
+      "within_idp": 0.10561806461714233,
+      "within_idr": 0.08365499430729499,
+      "within_switches": 1599,
+      "within_fragmentations": 33382,
+      "cross_idf1_scoped": 0.03431922868918188,
+      "cross_idp_scoped": 0.038966566207660765,
+      "cross_idr_scoped": 0.030662297631279332,
+      "cross_switches_scoped": 1607,
+      "cross_idf1_unscoped": 0.03431922868918188,
+      "cross_switches_unscoped": 1607,
+      "track_jump_p95_px": 6.576616049469115,
+      "n_jump_samples": 1383737,
+      "per_camera_idf1": [
+        0.08127589128187591,
+        0.05643154574530697,
+        0.16868397534315635,
+        0.09832916924462329,
+        0.061986570908554285
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 171,
+          "n_scored_instances": 283205,
+          "n_in_first_2_tracks": 3174,
+          "frac_surviving_builder_cut": 0.011207429247364982,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 188,
+          "n_scored_instances": 273649,
+          "n_in_first_2_tracks": 7629,
+          "frac_surviving_builder_cut": 0.027878779019839282,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 75,
+          "n_scored_instances": 294475,
+          "n_in_first_2_tracks": 18110,
+          "frac_surviving_builder_cut": 0.06149927837677222,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 172,
+          "n_scored_instances": 275083,
+          "n_in_first_2_tracks": 3108,
+          "frac_surviving_builder_cut": 0.011298408116822922,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 124,
+          "n_scored_instances": 290418,
+          "n_in_first_2_tracks": 20673,
+          "frac_surviving_builder_cut": 0.07118360432204615,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_181225",
+      "within_idf1": 0.24918227945382246,
+      "within_idp": 0.26958648540059993,
+      "within_idr": 0.23170662623502558,
+      "within_switches": 600,
+      "within_fragmentations": 21796,
+      "cross_idf1_scoped": 0.0937314823542408,
+      "cross_idp_scoped": 0.10199371272976236,
+      "cross_idr_scoped": 0.08670754261150636,
+      "cross_switches_scoped": 608,
+      "cross_idf1_unscoped": 0.11827578691927011,
+      "cross_switches_unscoped": 608,
+      "track_jump_p95_px": 4.772533289613838,
+      "n_jump_samples": 1509057,
+      "per_camera_idf1": [
+        0.09820388349514562,
+        0.15521228266370873,
+        0.3636957613085471,
+        0.16849183736851345,
+        0.4603076324331974
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 106,
+          "n_scored_instances": 299086,
+          "n_in_first_2_tracks": 32368,
+          "frac_surviving_builder_cut": 0.10822305290117223,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 80,
+          "n_scored_instances": 299808,
+          "n_in_first_2_tracks": 24585,
+          "frac_surviving_builder_cut": 0.08200248158821646,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 64,
+          "n_scored_instances": 307191,
+          "n_in_first_2_tracks": 9794,
+          "frac_surviving_builder_cut": 0.031882444472657076,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 98,
+          "n_scored_instances": 306399,
+          "n_in_first_2_tracks": 9428,
+          "frac_surviving_builder_cut": 0.030770335412321843,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 40,
+          "n_scored_instances": 318228,
+          "n_in_first_2_tracks": 179485,
+          "frac_surviving_builder_cut": 0.5640138517038098,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_183823",
+      "within_idf1": 0.087600388330751,
+      "within_idp": 0.09713024676365305,
+      "within_idr": 0.07978117797339701,
+      "within_switches": 1321,
+      "within_fragmentations": 25763,
+      "cross_idf1_scoped": 0.022909454286882326,
+      "cross_idp_scoped": 0.02543974385314681,
+      "cross_idr_scoped": 0.020836966482463692,
+      "cross_switches_scoped": 1329,
+      "cross_idf1_unscoped": 0.02291006491256298,
+      "cross_switches_unscoped": 1329,
+      "track_jump_p95_px": 4.740639166934129,
+      "n_jump_samples": 1448732,
+      "per_camera_idf1": [
+        0.11337089397654802,
+        0.05785330462517968,
+        0.10350241601069654,
+        0.09373669557014172,
+        0.06953863147118906
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 145,
+          "n_scored_instances": 301753,
+          "n_in_first_2_tracks": 9017,
+          "frac_surviving_builder_cut": 0.02988205585362863,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 171,
+          "n_scored_instances": 288254,
+          "n_in_first_2_tracks": 8803,
+          "frac_surviving_builder_cut": 0.030539038486890033,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 143,
+          "n_scored_instances": 296551,
+          "n_in_first_2_tracks": 8902,
+          "frac_surviving_builder_cut": 0.03001844539387829,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 168,
+          "n_scored_instances": 292868,
+          "n_in_first_2_tracks": 9050,
+          "frac_surviving_builder_cut": 0.03090129341546362,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 158,
+          "n_scored_instances": 295353,
+          "n_in_first_2_tracks": 8606,
+          "frac_surviving_builder_cut": 0.029138014511449012,
+          "camera": "22085397"
+        }
+      ]
+    },
+    {
+      "session": "20250907_190610",
+      "within_idf1": 0.21110407982631388,
+      "within_idp": 0.23479021806402942,
+      "within_idr": 0.19184915720196608,
+      "within_switches": 491,
+      "within_fragmentations": 18037,
+      "cross_idf1_scoped": 0.048595870593821616,
+      "cross_idp_scoped": 0.05397370197150425,
+      "cross_idr_scoped": 0.04419260781427897,
+      "cross_switches_scoped": 499,
+      "cross_idf1_unscoped": 0.09692607651447949,
+      "cross_switches_unscoped": 499,
+      "track_jump_p95_px": 4.118677021382459,
+      "n_jump_samples": 1456282,
+      "per_camera_idf1": [
+        0.22515680618585113,
+        0.19994524167139743,
+        0.24277929616305663,
+        0.1814710395235108,
+        0.2061680155877534
+      ],
+      "per_camera_tracks": [
+        {
+          "n_tracks": 89,
+          "n_scored_instances": 285751,
+          "n_in_first_2_tracks": 11256,
+          "frac_surviving_builder_cut": 0.03939093826443302,
+          "camera": "21241563"
+        },
+        {
+          "n_tracks": 40,
+          "n_scored_instances": 286367,
+          "n_in_first_2_tracks": 105416,
+          "frac_surviving_builder_cut": 0.3681150411884051,
+          "camera": "21369048"
+        },
+        {
+          "n_tracks": 36,
+          "n_scored_instances": 290069,
+          "n_in_first_2_tracks": 100945,
+          "frac_surviving_builder_cut": 0.3480034060861381,
+          "camera": "21372315"
+        },
+        {
+          "n_tracks": 111,
+          "n_scored_instances": 301395,
+          "n_in_first_2_tracks": 3242,
+          "frac_surviving_builder_cut": 0.010756648252293503,
+          "camera": "21372316"
+        },
+        {
+          "n_tracks": 44,
+          "n_scored_instances": 310673,
+          "n_in_first_2_tracks": 11049,
+          "frac_surviving_builder_cut": 0.03556472561181693,
+          "camera": "22085397"
+        }
+      ]
+    }
+  ],
+  "seconds": 2437.3
+}
