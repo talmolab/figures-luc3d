@@ -145,7 +145,7 @@ one animal is carrying two identities.
 E) Grouping accuracy: frames misgrouped against proofread ground truth per
 100,000 clean frames, pooled across the animals-x-cameras configurations; boxes,
 the per-session distribution on a symlog axis, every session a dot, the white
-line the median. The shipped fresh-anchor greedy misgroups 926 frames against
+line the median. LUC3D's greedy assignment misgroups 926 frames against
 exhaustive's 1,309 over 4,572,172 clean frames (20.3 against 28.6 per 100,000);
 at 4 animals in 3 cameras the per-session medians are 0 against 880 per 100,000.
 
@@ -247,8 +247,8 @@ each view cropped to the app's bounding box, with scale bars of 50 mm. An animal
 carries the same colour in the inset as in the cage the inset expands.
 
 B) Cross-view IDF1 by difficulty over the 42 multi-animal sessions; boxes, stratum
-median and IQR, whiskers 1.5x IQR, one dot per session: 0.989 to 0.923 at ratings 2 to
-5, then 0.829 and 0.649.
+median and IQR, whiskers 1.5x IQR, one dot per session: medians 0.989, 0.917, 0.969, 0.675,
+0.877 and 0.654 at ratings 2 to 7.
 
 C) Keypoints missing per view after reprojection recovery, by difficulty and rig
 size: at rating 7, 57.1% at two cameras falls to 37.7% at six.
@@ -278,25 +278,25 @@ Cross-view identity, and the fresh-anchor staleness horizon. (Assembled as
 figures/fig6.)
 
 A) Within-view against cross-view IDF1, mean +- 95% bootstrap CI over sessions: LUC3D
-0.861 to 0.861 (the shipped fresh-anchor configuration: sync, stale 20, distThresh
-25), SLEAP 0.642 to 0.146, ByteTrack 0.676 to 0.157. The dashed rule at 1/C = 0.20 is
+0.861 to 0.861 (stale 20, distThresh
+25, synchronous scoring), SLEAP 0.642 to 0.146, ByteTrack 0.676 to 0.157. The dashed rule at 1/C = 0.20 is
 the camera-scoped pooling convention for a per-camera tracker, not a chance level.
 3D-MuPPET is not drawn: its 0.011 to 0.011 is a coverage number (its assignments
 cover a median 1.3% of a session, and unlabelled frames score as misses), not an
 identity score on the same footing.
 
 B) Within-view IDF1 as a survival curve, one step per session, each session's IDF1
-the mean over its 6 cameras; at 0.9 or above, 39, 22 and 10 of 74 (LUC3D, SLEAP,
+the mean over its 6 cameras; at 0.9 or above, 40, 22 and 10 of 74 (LUC3D, SLEAP,
 ByteTrack).
 
 C) Paired within-view difference, LUC3D minus SLEAP, by animal count. Boxes, the
 per-session differences (median, IQR, whiskers 1.5x IQR; every session also a dot):
-medians +0.142, +0.060, -0.058, -0.066 at 1 to 4 animals (paired means +0.142,
-+0.075, -0.052, -0.080), LUC3D winning 25/32, 30/35, 0/4 and 0/3 sessions; over 2
-animals, mean +0.052 (n = 42, 30/42, P = 0.01).
+medians +0.143, +0.068, -0.039, -0.028 at 1 to 4 animals (paired means +0.142,
++0.089, -0.043, -0.041), LUC3D winning 25/32, 31/35, 0/4 and 0/3 sessions; over 2
+animals, mean +0.067 (n = 42, 31/42, P = 0.003).
 
 D) False positives and ID switches as percentages of camera-frames: 0.317, 0.531,
-0.435% and 0.0264, 0.0308, 0.105%. False negatives (98.8-99.3% of each budget) are
+0.435% and 0.0112, 0.0308, 0.105%. False negatives (98.8-99.3% of each budget) are
 not plotted.
 
 E) The tracker's two association cost terms on one real frame (drawn in the style of
@@ -317,8 +317,8 @@ percentages are 2,071 (no eviction), 677, 511, 413 and 487 (stale 1, 10, 20, 30)
 no eviction 0.00460% against stale 20 at 0.00092%, 80% lower, with median cross-view
 IDF1 0.7604 to 0.9153.
 
-A, 50 Mouse-Dyad-10M sessions (shipped config); B to D, all 74 SLAP-2M sessions,
-11,726,640 camera-frames (previous default); E is one frame of a two-animal SLAP-2M
+A, 50 Mouse-Dyad-10M sessions; B to D, all 74 SLAP-2M sessions,
+11,726,640 camera-frames; E is one frame of a two-animal SLAP-2M
 session; F, the 50 proofread Mouse-Dyad-10M sessions. The tracker key under panels
 A to D (LUC3D teal, SLEAP periwinkle, ByteTrack orange) names the three colours
 once for all four panels; F's parameter-set key is the strip along its own bottom.
@@ -330,8 +330,8 @@ falling from 1.00, 1.00 and 0.95 at rating 1 to 0.36, 0.31 and 0.18 at rating 7.
 
 fig6s4) Supplementary, not placed in the composite (deposited under the old fig7s4
 name). ID accuracy on the 50 Mouse-Dyad-10M
-sessions (IDA = idtp / num_matches): the shipped configuration pools to 92.46% with a
-session median of 100.0%, against the previous default's 80.56% and 84.0%.
+sessions (IDA = idtp / num_matches): LUC3D pools to 92.46% with a
+session median of 100.0%.
 
 ---
 
