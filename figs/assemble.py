@@ -141,6 +141,16 @@ TITLES = {
     (6, "d"): "Error composition",
     (6, "e"): "The tracker's 2D and 3D anchor correspondence",
     (6, "f"): "Staleness horizon sweep on Mouse-Dyad-10M sessions",
+    # Fig 7 (calibration benchmark; calibrat3 vs Anipose on two real rigs).
+    (7, "a"): "Reprojection error, SLAP-2M rig",
+    (7, "b"): "Per camera, SLAP-2M rig",
+    (7, "c"): "Reprojection error, Mouse-Dyad-10M rig",
+    (7, "d"): "Per camera, Mouse-Dyad-10M rig",
+    (7, "e"): "Reprojection error, 18-camera rig",
+    (7, "f"): "Per camera, 18-camera rig",
+    (7, "g"): "Solver ablation, 18-camera rig",
+    (7, "h"): "Time to calibrate",
+    (7, "i"): "Recovered vs known cameras",
 }
 TITLE_PT = 7.5            # panel titles, below the 9 pt letter
 
@@ -264,6 +274,20 @@ LAYOUTS = {
     # diagram spans both of a's rows; the sweep closes the rectangle full width.
     6: [[("a", "block"), ("e", "chen_style")],
         [("f", "pr_switches")]],
+    # Fig 7 (calibration benchmark, added 2026-09-15). Rows 1 and 2 are the SAME
+    # two panels on two rigs -- pooled distribution at a third, per-camera boxes at
+    # two-thirds -- so the reader can read straight down a camera column from the
+    # 8-camera rig to the 18-camera one. Row 3 answers "why" and "how long".
+    #
+    # fig7s1 (frame budget) and fig7s2 (scoring set) are DEPOSITED BUT NOT PLACED. g
+    # went to the synthetic ground-truth panel instead: it is the only measurement here
+    # that can ask whether the CAMERA was recovered rather than whether the corners were
+    # fitted, which is what answers the "richer model just absorbs board error" objection
+    # that reprojection error cannot.
+    7: [[("a", "error_cdf_slap8"), ("b", "per_camera_slap8")],
+        [("c", "error_cdf_md10"), ("d", "per_camera_md10")],
+        [("e", "error_cdf_calib18"), ("f", "per_camera_calib18")],
+        [("g", "mechanism"), ("h", "runtime"), ("i", "ground_truth")]],
 }
 
 

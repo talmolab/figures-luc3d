@@ -1,87 +1,75 @@
 # figures-luc3d
 
-The figures of the LUC3D manuscript ("LUC3D: Browser-based 3D annotation and
-proofreading GUI for pose estimation and multi-animal tracking"), with every
-generation script, plot-ready table, and measurement deposit needed to rebuild
-them identically. Mirrored from `talmolab/luc3d` branch `eric/figs` (commit
-`b7aece1`, 2026-08-26), plus the `figs/out/` deposit subset the panel scripts
-read, which the source repo keeps machine-local.
+The figures of the LUC3D manuscript, with every generation script, plot-ready
+table, and measurement deposit needed to rebuild them. Mirrored from
+`talmolab/luc3d` branch `eric/figs`, plus the `figs/out/` deposit subset the panel
+scripts read, which the source repo keeps machine-local.
 
-## The six figures
+## The seven figures
 
-Figure numbering here matches the manuscript exactly. The final composites are:
+Five main figures and two supplementary ones. The numbering in this repo is the
+**figs tree** numbering, which is not the manuscript's supplementary numbering.
 
-| Figure | File | Content |
+| This repo | Manuscript | Content |
 |---|---|---|
-| 1 | `figs/figures/fig1/fig1.pdf` | LUC3D overview — rigs, pipeline, re-identification, triangulation, tool table |
-| 2 | `figs/figures/fig2/fig2.pdf` | Reprojection-aided labeling protocol + triangulation solvers (e–g) |
-| 3 | `figs/figures/fig3/fig3.pdf` | Cross-view tracking — greedy vs exhaustive, accuracy, sweep |
-| 4 | `figs/figures/fig4/fig4.pdf` | Social rearing — female-led leader–follower dynamics |
-| 5 | `figs/figures/fig5/fig5.pdf` | SLAP-2M datasets — difficulty, IDF1, recovery |
-| 6 | `figs/figures/fig6/fig6.pdf` | Supplementary — cross-view identity comparison + fresh-anchor sweep |
+| `figs/figures/fig1/fig1.pdf` | Figure 1 | LUC3D overview: rigs, pipeline, re-identification, triangulation, tool table |
+| `figs/figures/fig2/fig2.pdf` | Figure 2 | Reprojection-aided labeling protocol and triangulation solvers |
+| `figs/figures/fig3/fig3.pdf` | Figure 3 | Cross-view tracking: greedy and exhaustive, accuracy, sweep |
+| `figs/figures/fig4/fig4.pdf` | Figure 4 | Social rearing, female-led leader-follower dynamics |
+| `figs/figures/fig5/fig5.pdf` | Figure 5 | SLAP-2M datasets: difficulty, IDF1, recovery |
+| `figs/figures/fig6/fig6.pdf` | Supplementary Figure 1 | Cross-view identity comparison and the fresh-anchor sweep |
+| `figs/figures/fig7/fig7.pdf` | Supplementary Figure 3 | Calibration accuracy of calibrat3 and Anipose on three camera rigs |
 
-Each `figs/figures/figN/` also holds the per-panel PDFs/PNGs and a 300 dpi PNG
-proof of the composite. The supplementary datasheet table is
-`figs/figures/datasheets/datasheet_combined.pdf` (built by
-`figs/dataset_sheets.py`).
+Supplementary Figure 2 in the manuscript is a GUI screenshot and is not built by
+this pipeline. The supplementary datasheet table is
+`figs/figures/datasheets/datasheet_combined.pdf`.
 
-Before 2026-08-26 the source repo numbered these directories 1, 2, 13, 5, 6,
-11; everything (panel scripts, `data/` CSVs, syncs, assembler config) was
-renamed to the manuscript's 1–6. **One deliberate exception:** the
-`figs/out/*.json` measurement deposits keep their historical names
-(`fig5_upright.json` backs Figure 4, `fig7_variant_best.json` and
-`fig8_methods_50.json` back Figure 6, `fig9_slap2m.json` backs Figure 5b, the
-`fig4_*.json` solver deposits back Figure 2e–g) — they key ~100 GB of raw
-measurement records on the lab machine and are named by the harnesses that
-wrote them. `figs/PANEL-SOURCES.md` maps every panel to its deposit.
+Each `figs/figures/figN/` also holds the per-panel PDFs and PNGs, and a 300 dpi
+PNG proof of the composite.
 
-## Rebuilding the figures
-
-The plotting pass is self-contained in this repo:
+## Rebuilding
 
 ```bash
 cd figs
-python3 -m venv .venv
-.venv/bin/pip install numpy pandas scipy matplotlib pymupdf pillow
-.venv/bin/python make_figures.py          # every panel, both syncs, assemble 1-6
-.venv/bin/python make_figures.py 4        # just Figure 4
+python make_figures.py            # every figure
+python make_figures.py 3 7        # only these
+python make_figures.py --panels   # panels only, no assembly
+python lint_text.py 7             # check one figure for clipped or overlapping text
 ```
 
-`make_figures.py` runs each panel script in its own subprocess, then the two
-pre-merge syncs (`fig3_sync.py` builds Figure 3's a/b stack and column
-composites; `fig6_sync.py` builds Figure 6's 2×2 tracker block, including the
-`--variant` arm of `panels/fig6_05_within_vs_cross.py`), then
-`assemble.py 1 2 3 4 5 6`. Rebuilt composites are pixel-identical to the
-committed ones (verified at 100/300 dpi with PyMuPDF).
+Each panel script runs in its own subprocess, because they set rcParams globally
+through `src/style.py` and a panel that leaves state behind must not be able to
+change how the next one renders. One broken panel reports and the rest still build.
 
-Per-panel provenance — which script draws each panel, which deposit it reads,
-which measurement script wrote that deposit, and which `data/figN/*.csv`
-plot-ready table it re-deposits — is generated into `figs/PANEL-SOURCES.md`
-(`.venv/bin/python figs/make_docs.py`). Do not edit that file by hand.
+Needs Python 3.12 with numpy, pandas, scipy, matplotlib, seaborn and PyMuPDF.
 
-## What is here and what is not
+This has been verified: a clean build of all seven figures from the contents of
+this repo alone produces 54 panels with 0 failures.
 
-- `figs/panels/` — one script per panel (plus `_src`-suffixed code donors the
-  merged panels import).
-- `figs/data/` — the small plot-ready CSVs each panel deposits, committed so
-  every number on the artwork is auditable against a table.
-- `figs/out/` — the measurement deposits (JSON) and app-export frames (PNG)
-  the panel scripts read. This is the replication boundary: with these files,
-  every panel rebuilds bit-identically without the corpora.
-- `figs/fig*_*.py`, `figs/*.mjs` — the measurement pass that produced
-  `figs/out/`. These need the raw corpora (Mouse-Dyad-10M, SLAP-2M,
-  HardFight), the LUC3D app checkout, and in places a Playwright/bench
-  environment; they are included for provenance, not as part of the rebuild.
-- `figs/blender-images/` — Blender scene scripts and their rendered PNGs
-  (fig1a rigs, fig1d/fig2a pose renders, fig3c/fig3d illustrations, fig4a
-  display render, fig5a difficulty grid). Re-rendering needs the `bpy`
-  environment described in each script; the committed renders are what the
-  panels consume.
-- `figs/figures/drafts/` — the manuscript tex (`new_luc3d.tex` is the current
-  six-figure draft) and the diagram assets (`figs/` PNGs) some panels embed.
-- The raw video corpora and the full `out/` measurement records are **not**
-  here — see the Data Availability statement in the manuscript
-  (huggingface.co/datasets/talmolab/slap-2m and .../mouse-dyad-10M).
+## What is here
 
-Everything was produced by driving the real LUC3D app over real data — no
-mock-ups; see `figs/README.md` for the house style and per-figure history.
+| Path | What it is |
+|---|---|
+| `figs/figures/figN/` | the composites and every panel, PDF and PNG |
+| `figs/panels/` | one script per panel, the only things that draw |
+| `figs/src/` | shared style, palette, layout grid and the deposit loader |
+| `figs/out/` | the measurement deposits the panels read, plus the app screenshots and exported frames they place |
+| `figs/data/figN/` | the plot-ready numbers each panel deposits as it draws, one CSV per panel |
+| `figs/assemble.py` | lays panels out into composites; holds the layout grid and the panel titles |
+| `figs/*.py`, `*.mjs`, `*.sh` | the measurement pipeline that produced `figs/out/` |
+| `figs/DATA-LOCATIONS.md` | where the raw corpora live |
+| `figs/PANEL-SOURCES.md` | which script produced which panel |
+
+`figs/out/` holds only the deposits the panels actually read. The measurement
+scripts at the top level are kept for provenance: they document how those deposits
+were produced, but they cannot be re-run from this repo because they need the raw
+video corpora described in `DATA-LOCATIONS.md`.
+
+## A note on the calibration figure
+
+Supplementary Figure 3 compares calibrat3 with Anipose. Both tools are run on
+**OpenCV 4.13.0**, which is forced: calibrat3 vendors OpenCV.js 4.13.0 and cannot
+run another version, and OpenCV 5 moved the ChArUco corner origin by half a pixel
+in both axes. A calibration scored across the two conventions pays a penalty it
+does not owe. Anything that re-runs this benchmark must keep both detectors on one
+OpenCV or the comparison is invalid.
