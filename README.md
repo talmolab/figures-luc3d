@@ -43,8 +43,18 @@ change how the next one renders. One broken panel reports and the rest still bui
 
 Needs Python 3.12 with numpy, pandas, scipy, matplotlib, seaborn and PyMuPDF.
 
+No fonts need installing. The figures are set in Liberation Sans 2.1.5, which is
+bundled in `figs/src/fonts/` (SIL Open Font License 1.1) and registered by
+`src/style.py`. It has the same advance widths as Arial, which the panels were
+designed in, so layout is identical. It is loaded explicitly, not left to the
+system, because a fallback to DejaVu Sans is wider and fails the label-fit checks,
+and a machine-local Arial would produce slightly different glyphs.
+
 This has been verified: a clean build of all seven figures from the contents of
-this repo alone produces 54 panels with 0 failures.
+this repo alone produces 54 panels with 0 failures, and all seven composites are
+pixel-identical to the committed PDFs. The datasheets (`python dataset_sheets.py`)
+also reproduce pixel-identically, but read the Mouse-Dyad-10M corpus described in
+`DATA-LOCATIONS.md` to measure its values.
 
 ## What is here
 
