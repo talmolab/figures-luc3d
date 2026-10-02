@@ -119,7 +119,7 @@ TITLES = {
     (4, "a"): "3D pose and 2D camera views for social rearing behavior",
     (4, "b"): "Both rise, noses converge — female reaches higher",
     (4, "c"): "One animal is up first",
-    (4, "d"): "Female is still; male is travelling",
+    (4, "d"): "Female is still; male is traveling",
     (4, "e"): "Male is pursuing female",
     (4, "f"): "Female initiates displays",
     (4, "g"): "Female rears first; male mostly joins in",

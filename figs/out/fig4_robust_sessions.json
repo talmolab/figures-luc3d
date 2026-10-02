@@ -1,6 +1,6 @@
 {
- "generated_by": "figs/fig4_robust_sessions.mjs",
- "claim": "Per-session mean reprojection error in the kept views: the all-view DLT solution vs the same solve with the worst-fitting view dropped. Session capture of the same computation fig4.json pools into disagreement strata.",
+ "generated_by": "figs/fig2_solvers_robust_sessions.mjs",
+ "claim": "Per-session mean reprojection error in the kept views: the all-view DLT solution vs the same solve with the worst-fitting view dropped. Session capture of the same computation fig4.json pools into disagreement strata. refined_*: the same operation with the refined solver throughout (worst view chosen by the refined residual), added 2026-09-29.",
  "gate": {
   "passed": true,
   "clean": {
@@ -24,301 +24,451 @@
    "session": "20250827_141755",
    "n": 353453,
    "all_views_px": 1.5819286680479892,
-   "worst_dropped_px": 1.313769020672667
+   "worst_dropped_px": 1.313769020672667,
+   "n_refined": 353453,
+   "refined_all_views_px": 1.2795669186881875,
+   "refined_worst_dropped_px": 1.1906075903705722
   },
   {
    "session": "20250827_145223",
    "n": 350107,
    "all_views_px": 1.5198511053849975,
-   "worst_dropped_px": 1.2675903317634434
+   "worst_dropped_px": 1.2675903317634434,
+   "n_refined": 350107,
+   "refined_all_views_px": 1.2277773700073455,
+   "refined_worst_dropped_px": 1.1459826195571274
   },
   {
    "session": "20250827_152238",
    "n": 353817,
    "all_views_px": 1.5630043474345392,
-   "worst_dropped_px": 1.3080926788742873
+   "worst_dropped_px": 1.3080926788742873,
+   "n_refined": 353817,
+   "refined_all_views_px": 1.2692533776877672,
+   "refined_worst_dropped_px": 1.1845905546277191
   },
   {
    "session": "20250827_155244",
    "n": 347789,
    "all_views_px": 1.8784992696852258,
-   "worst_dropped_px": 1.5892132015001355
+   "worst_dropped_px": 1.5892132015001355,
+   "n_refined": 347789,
+   "refined_all_views_px": 1.5338585587997942,
+   "refined_worst_dropped_px": 1.4367932882761065
   },
   {
    "session": "20250827_162428",
    "n": 349693,
    "all_views_px": 1.7866948551784048,
-   "worst_dropped_px": 1.4951372715636524
+   "worst_dropped_px": 1.4951372715636524,
+   "n_refined": 349693,
+   "refined_all_views_px": 1.4450410148020982,
+   "refined_worst_dropped_px": 1.349166909491411
   },
   {
    "session": "20250827_165542",
    "n": 354659,
    "all_views_px": 1.8898906014506225,
-   "worst_dropped_px": 1.5983984870147647
+   "worst_dropped_px": 1.5983984870147647,
+   "n_refined": 354659,
+   "refined_all_views_px": 1.5344786813334441,
+   "refined_worst_dropped_px": 1.4396681237364426
   },
   {
    "session": "20250827_172440",
    "n": 347560,
    "all_views_px": 1.6651222383704056,
-   "worst_dropped_px": 1.3960974153402954
+   "worst_dropped_px": 1.3960974153402954,
+   "n_refined": 347560,
+   "refined_all_views_px": 1.3354643526503729,
+   "refined_worst_dropped_px": 1.2529263751852704
   },
   {
    "session": "20250829_124351",
    "n": 357851,
    "all_views_px": 1.6387558460847784,
-   "worst_dropped_px": 1.3532371436691433
+   "worst_dropped_px": 1.3532371436691433,
+   "n_refined": 357851,
+   "refined_all_views_px": 1.3013533737752958,
+   "refined_worst_dropped_px": 1.2175486654826626
   },
   {
    "session": "20250829_134647",
    "n": 333956,
    "all_views_px": 1.9062267564621589,
-   "worst_dropped_px": 1.563095008355887
+   "worst_dropped_px": 1.563095008355887,
+   "n_refined": 333956,
+   "refined_all_views_px": 1.5063174972242106,
+   "refined_worst_dropped_px": 1.4060094938132612
   },
   {
    "session": "20250829_141847",
    "n": 336580,
    "all_views_px": 1.8697201778410064,
-   "worst_dropped_px": 1.52631248200377
+   "worst_dropped_px": 1.52631248200377,
+   "n_refined": 336580,
+   "refined_all_views_px": 1.4738146806001988,
+   "refined_worst_dropped_px": 1.3758011104680592
   },
   {
    "session": "20250829_144840",
    "n": 350536,
    "all_views_px": 1.7170440159597729,
-   "worst_dropped_px": 1.4189454936474102
+   "worst_dropped_px": 1.4189454936474102,
+   "n_refined": 350536,
+   "refined_all_views_px": 1.3673533174018382,
+   "refined_worst_dropped_px": 1.2785604620647586
   },
   {
    "session": "20250829_151905",
    "n": 351374,
    "all_views_px": 1.7794090299167162,
-   "worst_dropped_px": 1.4704694543531764
+   "worst_dropped_px": 1.4704694543531764,
+   "n_refined": 351374,
+   "refined_all_views_px": 1.4151296291873288,
+   "refined_worst_dropped_px": 1.322969463498098
   },
   {
    "session": "20250829_155407",
    "n": 353088,
    "all_views_px": 1.6200555507180743,
-   "worst_dropped_px": 1.3380561885166984
+   "worst_dropped_px": 1.3380561885166984,
+   "n_refined": 353088,
+   "refined_all_views_px": 1.286050898660543,
+   "refined_worst_dropped_px": 1.2042549856010447
   },
   {
    "session": "20250829_162253",
    "n": 343796,
    "all_views_px": 1.717221743824184,
-   "worst_dropped_px": 1.417968801164323
+   "worst_dropped_px": 1.417968801164323,
+   "n_refined": 343796,
+   "refined_all_views_px": 1.3672496833176648,
+   "refined_worst_dropped_px": 1.2779652397664598
   },
   {
    "session": "20250829_164919",
    "n": 356894,
    "all_views_px": 1.59986275815322,
-   "worst_dropped_px": 1.3334186475842729
+   "worst_dropped_px": 1.3334186475842729,
+   "n_refined": 356894,
+   "refined_all_views_px": 1.2871182408552455,
+   "refined_worst_dropped_px": 1.2031164835257173
   },
   {
    "session": "20250829_171625",
    "n": 340217,
    "all_views_px": 1.813404851860297,
-   "worst_dropped_px": 1.5144826936089049
+   "worst_dropped_px": 1.5144826936089049,
+   "n_refined": 340217,
+   "refined_all_views_px": 1.4622968618567325,
+   "refined_worst_dropped_px": 1.367573379383731
   },
   {
    "session": "20250903_141046",
    "n": 334406,
    "all_views_px": 2.365803226866085,
-   "worst_dropped_px": 1.9858360113126743
+   "worst_dropped_px": 1.9858360113126743,
+   "n_refined": 334406,
+   "refined_all_views_px": 1.8642205949124944,
+   "refined_worst_dropped_px": 1.759006976654426
   },
   {
    "session": "20250903_143938",
    "n": 355542,
    "all_views_px": 2.3698823292224036,
-   "worst_dropped_px": 1.9439116921477584
+   "worst_dropped_px": 1.9439116921477584,
+   "n_refined": 355542,
+   "refined_all_views_px": 1.8031894639500778,
+   "refined_worst_dropped_px": 1.7101188856525995
   },
   {
    "session": "20250903_150657",
    "n": 345028,
    "all_views_px": 2.220042248103863,
-   "worst_dropped_px": 1.8831522734114092
+   "worst_dropped_px": 1.8831522734114092,
+   "n_refined": 345028,
+   "refined_all_views_px": 1.764367496723459,
+   "refined_worst_dropped_px": 1.667833269300973
   },
   {
    "session": "20250903_153433",
    "n": 346185,
    "all_views_px": 2.217547790093528,
-   "worst_dropped_px": 1.8165428828868813
+   "worst_dropped_px": 1.8165428828868813,
+   "n_refined": 346185,
+   "refined_all_views_px": 1.700953040716537,
+   "refined_worst_dropped_px": 1.6077465162837576
   },
   {
    "session": "20250904_131913",
    "n": 338143,
    "all_views_px": 2.149069619233323,
-   "worst_dropped_px": 1.817855472511961
+   "worst_dropped_px": 1.817855472511961,
+   "n_refined": 338143,
+   "refined_all_views_px": 1.7154580774358739,
+   "refined_worst_dropped_px": 1.6180730035028164
   },
   {
    "session": "20250904_140306",
    "n": 64792,
    "all_views_px": 2.407100772764003,
-   "worst_dropped_px": 1.991028960888298
+   "worst_dropped_px": 1.991028960888298,
+   "n_refined": 64792,
+   "refined_all_views_px": 1.8589024665083937,
+   "refined_worst_dropped_px": 1.7602879780721772
   },
   {
    "session": "20250904_143552",
    "n": 352175,
    "all_views_px": 2.1165283214157204,
-   "worst_dropped_px": 1.7733519693687392
+   "worst_dropped_px": 1.7733519693687392,
+   "n_refined": 352175,
+   "refined_all_views_px": 1.670199050273034,
+   "refined_worst_dropped_px": 1.5767862889515214
   },
   {
    "session": "20250904_150414",
    "n": 350829,
    "all_views_px": 2.175677164612794,
-   "worst_dropped_px": 1.8059028712597556
+   "worst_dropped_px": 1.8059028712597556,
+   "n_refined": 350829,
+   "refined_all_views_px": 1.6913337955901058,
+   "refined_worst_dropped_px": 1.5970549784134143
   },
   {
    "session": "20250904_153332",
    "n": 355867,
    "all_views_px": 2.1373085430442478,
-   "worst_dropped_px": 1.7709479834924697
+   "worst_dropped_px": 1.7709479834924697,
+   "n_refined": 355867,
+   "refined_all_views_px": 1.6457674782430847,
+   "refined_worst_dropped_px": 1.5569076013082648
   },
   {
    "session": "20250904_160014",
    "n": 351583,
    "all_views_px": 2.2019692836196816,
-   "worst_dropped_px": 1.826083093971781
+   "worst_dropped_px": 1.826083093971781,
+   "n_refined": 351583,
+   "refined_all_views_px": 1.718769732811822,
+   "refined_worst_dropped_px": 1.6190790666648713
   },
   {
    "session": "20250904_165017",
    "n": 354818,
    "all_views_px": 2.1740738613621433,
-   "worst_dropped_px": 1.7908896210979148
+   "worst_dropped_px": 1.7908896210979148,
+   "n_refined": 354818,
+   "refined_all_views_px": 1.6778997874946362,
+   "refined_worst_dropped_px": 1.5835821396724865
   },
   {
    "session": "20250904_174232",
    "n": 351670,
    "all_views_px": 2.2315439293282044,
-   "worst_dropped_px": 1.9030676379908908
+   "worst_dropped_px": 1.9030676379908908,
+   "n_refined": 351670,
+   "refined_all_views_px": 1.7853399866278408,
+   "refined_worst_dropped_px": 1.6877363650063988
   },
   {
    "session": "20250904_181215",
    "n": 348499,
    "all_views_px": 2.338536009831341,
-   "worst_dropped_px": 1.947174214171719
+   "worst_dropped_px": 1.947174214171719,
+   "n_refined": 348499,
+   "refined_all_views_px": 1.817905281010577,
+   "refined_worst_dropped_px": 1.7183072092141292
   },
   {
    "session": "20250904_183921",
    "n": 313070,
    "all_views_px": 2.1885393636301,
-   "worst_dropped_px": 1.792826934971354
+   "worst_dropped_px": 1.792826934971354,
+   "n_refined": 313070,
+   "refined_all_views_px": 1.6772207116571383,
+   "refined_worst_dropped_px": 1.585346393054208
   },
   {
    "session": "20250905_165151",
    "n": 350009,
    "all_views_px": 2.0622999572595493,
-   "worst_dropped_px": 1.7136679363688023
+   "worst_dropped_px": 1.7136679363688023,
+   "n_refined": 350009,
+   "refined_all_views_px": 1.6116787404687383,
+   "refined_worst_dropped_px": 1.5202015485235616
   },
   {
    "session": "20250905_171829",
    "n": 355247,
    "all_views_px": 2.079987276079144,
-   "worst_dropped_px": 1.7572046322348376
+   "worst_dropped_px": 1.7572046322348376,
+   "n_refined": 355247,
+   "refined_all_views_px": 1.6529851214279936,
+   "refined_worst_dropped_px": 1.5583756703925222
   },
   {
    "session": "20250905_174513",
    "n": 342949,
    "all_views_px": 2.064117989333667,
-   "worst_dropped_px": 1.7294332596248665
+   "worst_dropped_px": 1.7294332596248665,
+   "n_refined": 342949,
+   "refined_all_views_px": 1.6334928701367861,
+   "refined_worst_dropped_px": 1.5399174356892629
   },
   {
    "session": "20250905_181402",
    "n": 340022,
    "all_views_px": 2.131574485527757,
-   "worst_dropped_px": 1.7706724642362093
+   "worst_dropped_px": 1.7706724642362093,
+   "n_refined": 340022,
+   "refined_all_views_px": 1.677948182672623,
+   "refined_worst_dropped_px": 1.5777274900721712
   },
   {
    "session": "20250905_191445",
    "n": 349246,
    "all_views_px": 2.1443549460069673,
-   "worst_dropped_px": 1.7796832535528964
+   "worst_dropped_px": 1.7796832535528964,
+   "n_refined": 349246,
+   "refined_all_views_px": 1.670666434597236,
+   "refined_worst_dropped_px": 1.5776180370419168
   },
   {
    "session": "20250905_194049",
    "n": 344750,
    "all_views_px": 2.175850069329942,
-   "worst_dropped_px": 1.828480401555775
+   "worst_dropped_px": 1.828480401555775,
+   "n_refined": 344750,
+   "refined_all_views_px": 1.72264746854212,
+   "refined_worst_dropped_px": 1.6257294943341782
   },
   {
    "session": "20250905_200953",
    "n": 352837,
    "all_views_px": 2.1702967414759686,
-   "worst_dropped_px": 1.7815937997672175
+   "worst_dropped_px": 1.7815937997672175,
+   "n_refined": 352837,
+   "refined_all_views_px": 1.6622981015722116,
+   "refined_worst_dropped_px": 1.57279142686832
   },
   {
    "session": "20250905_203607",
    "n": 350365,
    "all_views_px": 2.1728153382576596,
-   "worst_dropped_px": 1.7964130422212734
+   "worst_dropped_px": 1.7964130422212734,
+   "n_refined": 350365,
+   "refined_all_views_px": 1.6956640646274612,
+   "refined_worst_dropped_px": 1.5981068561535432
   },
   {
    "session": "20250905_210254",
    "n": 348141,
    "all_views_px": 2.1709464213866085,
-   "worst_dropped_px": 1.7738339010017963
+   "worst_dropped_px": 1.7738339010017963,
+   "n_refined": 348141,
+   "refined_all_views_px": 1.6590728298950845,
+   "refined_worst_dropped_px": 1.567468309262699
   },
   {
    "session": "20250905_213215",
    "n": 347474,
    "all_views_px": 2.1643980439046366,
-   "worst_dropped_px": 1.8145671023935586
+   "worst_dropped_px": 1.8145671023935586,
+   "n_refined": 347474,
+   "refined_all_views_px": 1.7059030184580504,
+   "refined_worst_dropped_px": 1.6113069282700265
   },
   {
    "session": "20250907_143021",
    "n": 334625,
    "all_views_px": 2.2343042346579214,
-   "worst_dropped_px": 1.8468321334286115
+   "worst_dropped_px": 1.8468321334286115,
+   "n_refined": 334625,
+   "refined_all_views_px": 1.750714391315444,
+   "refined_worst_dropped_px": 1.646756497956436
   },
   {
    "session": "20250907_151901",
    "n": 334383,
    "all_views_px": 2.369385723985351,
-   "worst_dropped_px": 1.9977914476755285
+   "worst_dropped_px": 1.9977914476755285,
+   "n_refined": 334383,
+   "refined_all_views_px": 1.8810759611279648,
+   "refined_worst_dropped_px": 1.7721257754720856
   },
   {
    "session": "20250907_154801",
    "n": 338427,
    "all_views_px": 2.254223426114193,
-   "worst_dropped_px": 1.8635935341982726
+   "worst_dropped_px": 1.8635935341982726,
+   "n_refined": 338427,
+   "refined_all_views_px": 1.7472410736058985,
+   "refined_worst_dropped_px": 1.6510290077980123
   },
   {
    "session": "20250907_161657",
    "n": 345373,
    "all_views_px": 2.216796541557646,
-   "worst_dropped_px": 1.8626842205428837
+   "worst_dropped_px": 1.8626842205428837,
+   "n_refined": 345373,
+   "refined_all_views_px": 1.7519315263397242,
+   "refined_worst_dropped_px": 1.6532579733893829
   },
   {
    "session": "20250907_164826",
    "n": 348435,
    "all_views_px": 2.276618968448421,
-   "worst_dropped_px": 1.8787053715328257
+   "worst_dropped_px": 1.8787053715328257,
+   "n_refined": 348435,
+   "refined_all_views_px": 1.7739180811587192,
+   "refined_worst_dropped_px": 1.6740105074802722
   },
   {
    "session": "20250907_171538",
    "n": 344953,
    "all_views_px": 2.2242893708698728,
-   "worst_dropped_px": 1.869807667909866
+   "worst_dropped_px": 1.869807667909866,
+   "n_refined": 344953,
+   "refined_all_views_px": 1.7595310713741434,
+   "refined_worst_dropped_px": 1.6595289304025753
   },
   {
    "session": "20250907_174343",
    "n": 317345,
    "all_views_px": 2.3652761164465517,
-   "worst_dropped_px": 1.9760914243985137
+   "worst_dropped_px": 1.9760914243985137,
+   "n_refined": 317345,
+   "refined_all_views_px": 1.8759605033969342,
+   "refined_worst_dropped_px": 1.7663973665905972
   },
   {
    "session": "20250907_181225",
    "n": 344740,
    "all_views_px": 2.17683191674592,
-   "worst_dropped_px": 1.8240401495560599
+   "worst_dropped_px": 1.8240401495560599,
+   "n_refined": 344740,
+   "refined_all_views_px": 1.7277842798179797,
+   "refined_worst_dropped_px": 1.6263577241700615
   },
   {
    "session": "20250907_183823",
    "n": 329979,
    "all_views_px": 2.35283741891089,
-   "worst_dropped_px": 1.9077929068172719
+   "worst_dropped_px": 1.9077929068172719,
+   "n_refined": 329979,
+   "refined_all_views_px": 1.8075918201767402,
+   "refined_worst_dropped_px": 1.6970625299013897
   },
   {
    "session": "20250907_190610",
    "n": 350135,
    "all_views_px": 2.1722608936420182,
-   "worst_dropped_px": 1.8369870129896844
+   "worst_dropped_px": 1.8369870129896844,
+   "n_refined": 350135,
+   "refined_all_views_px": 1.7418823081194927,
+   "refined_worst_dropped_px": 1.640520330439666
   }
  ]
 }
