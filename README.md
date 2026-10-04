@@ -24,6 +24,11 @@ Supplementary Figure 2 in the manuscript is a GUI screenshot and is not built by
 this pipeline. The supplementary datasheet table is
 `figs/figures/datasheets/datasheet_combined.pdf`.
 
+The four supplementary videos are in `figs/figures/supp_videos/` (see the README
+there): 1, the SLAP-2M home-cage flythrough; 2, Mouse-Dyad-10M male and female 3D
+poses; 3, SLAP-2M difficulty across animal count and enrichment; 4, the full LUC3D
+walkthrough. They are rendered artwork, not rebuilt by `make_figures.py`.
+
 Each `figs/figures/figN/` also holds the per-panel PDFs and PNGs, and a 300 dpi
 PNG proof of the composite.
 
