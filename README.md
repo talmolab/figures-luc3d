@@ -19,9 +19,10 @@ Five main figures and two supplementary ones. The numbering in this repo is the
 | `figs/figures/fig5/fig5.pdf` | Figure 5 | SLAP-2M datasets: difficulty, IDF1, recovery |
 | `figs/figures/fig6/fig6.pdf` | Supplementary Figure 1 | Cross-view identity comparison and the fresh-anchor sweep |
 | `figs/figures/fig7/fig7.pdf` | Supplementary Figure 3 | Calibration accuracy of calibrat3 and Anipose on three camera rigs |
+| `figs/fig9.pdf` (+ 300 dpi `fig9.png`) | Supplementary Figure 4 | Panopticon: hardware-synchronized nine-camera acquisition, and its calibration solver against calibrat3 |
 
 Supplementary Figure 2 in the manuscript is a GUI screenshot and is not built by
-this pipeline. The supplementary datasheet table is
+this pipeline. Neither is Supplementary Figure 4, which is a finished PDF (`figs/fig9.pdf`). The supplementary datasheet table is
 `figs/figures/datasheets/datasheet_combined.pdf`.
 
 The four supplementary videos are in `figs/figures/supp_videos/` (see the README
