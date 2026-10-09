@@ -15,8 +15,8 @@ Five main figures and two supplementary ones. The numbering in this repo is the
 | `figs/figures/fig1/fig1.pdf` | Figure 1 | LUC3D overview: rigs, pipeline, re-identification, triangulation, tool table |
 | `figs/figures/fig2/fig2.pdf` | Figure 2 | Reprojection-aided labeling protocol and triangulation solvers |
 | `figs/figures/fig3/fig3.pdf` | Figure 3 | Cross-view tracking: greedy and exhaustive, accuracy, sweep |
-| `figs/figures/fig4/fig4.pdf` | Figure 4 | Social rearing, female-led leader-follower dynamics |
-| `figs/figures/fig5/fig5.pdf` | Figure 5 | SLAP-2M datasets: difficulty, IDF1, recovery |
+| `figs/figures/fig4/fig4.pdf` | Figure 4 | SLAP-2M datasets: difficulty, keypoints that cannot be triangulated, disagreement across cameras, identity tracking accuracy |
+| `figs/figures/fig5/fig5.pdf` | Figure 5 | Social rearing, female-led leader-follower dynamics |
 | `figs/figures/fig6/fig6.pdf` | Supplementary Figure 1 | Cross-view identity comparison and the fresh-anchor sweep |
 | `figs/figures/fig7/fig7.pdf` | Supplementary Figure 3 | Calibration accuracy of calibrat3 and Anipose on three camera rigs |
 | `figs/fig9.pdf` (+ 300 dpi `fig9.png`) | Supplementary Figure 4 | Panopticon: hardware-synchronized nine-camera acquisition, and its calibration solver against calibrat3 |
@@ -32,6 +32,11 @@ walkthrough. They are rendered artwork, not rebuilt by `make_figures.py`.
 
 Each `figs/figures/figN/` also holds the per-panel PDFs and PNGs, and a 300 dpi
 PNG proof of the composite.
+
+**SLAP-2M input (Figs 3, 4 and 6).** The SLAP-2M arms use SLEAP's pre-proofreading
+predictions with none of sleap-nn's instance filters, minus detections with fewer
+than five visible body keypoints, and the four tail nodes are excluded from all
+scoring. `figs/PANEL-SOURCES.md` lists the commands that produced each deposit.
 
 ## Rebuilding
 
@@ -57,7 +62,7 @@ system, because a fallback to DejaVu Sans is wider and fails the label-fit check
 and a machine-local Arial would produce slightly different glyphs.
 
 This has been verified: a clean build of all seven figures from the contents of
-this repo alone produces 54 panels with 0 failures, and all seven composites are
+this repo alone runs 57 panel scripts with 0 failures, and all seven composites are
 pixel-identical to the committed PDFs. The datasheets (`python dataset_sheets.py`)
 also reproduce pixel-identically, but read the Mouse-Dyad-10M corpus described in
 `DATA-LOCATIONS.md` to measure its values.

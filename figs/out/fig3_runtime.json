@@ -1,7 +1,7 @@
 {
   "generated_by": "figs/fig3_scale_runtime.py",
   "dataset": "both",
-  "detection_pool": "/root/vast/eric/luc3d-bench/outputs/keeptrack_h5s (SLAP-2M), /root/vast/eric/luc3d-bench/outputs/bmimica/det_h5 (BMimica)",
+  "detection_pool": "/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/out/tmp/lite_pools/bvis5 (SLAP-2M), /root/vast/eric/luc3d-bench/outputs/bmimica/det_h5 (BMimica)",
   "sessions": [
     "10072022131531",
     "10072022142111",
@@ -20,7 +20,7 @@
     {
       "cameras": 5,
       "animals": 2,
-      "seconds_per_frame": 0.000393,
+      "seconds_per_frame": 0.00040633333333333336,
       "frames": 3000,
       "session": "20250827_141755",
       "status": "ok"
@@ -28,7 +28,7 @@
     {
       "cameras": 2,
       "animals": 2,
-      "seconds_per_frame": 0.00022833333333333334,
+      "seconds_per_frame": 0.00021933333333333334,
       "frames": 3000,
       "session": "10072022131531",
       "status": "ok"
@@ -36,7 +36,7 @@
     {
       "cameras": 3,
       "animals": 2,
-      "seconds_per_frame": 0.000302,
+      "seconds_per_frame": 0.000297,
       "frames": 3000,
       "session": "10072022131531",
       "status": "ok"
@@ -44,7 +44,7 @@
     {
       "cameras": 4,
       "animals": 2,
-      "seconds_per_frame": 0.000343,
+      "seconds_per_frame": 0.000348,
       "frames": 3000,
       "session": "10072022131531",
       "status": "ok"
@@ -52,7 +52,7 @@
     {
       "cameras": 5,
       "animals": 2,
-      "seconds_per_frame": 0.00035533333333333337,
+      "seconds_per_frame": 0.00035833333333333333,
       "frames": 3000,
       "session": "10072022131531",
       "status": "ok"
@@ -60,7 +60,7 @@
     {
       "cameras": 6,
       "animals": 2,
-      "seconds_per_frame": 0.000402,
+      "seconds_per_frame": 0.000437,
       "frames": 3000,
       "session": "10072022131531",
       "status": "ok"
@@ -68,7 +68,7 @@
     {
       "cameras": 2,
       "animals": 3,
-      "seconds_per_frame": 0.00036533333333333334,
+      "seconds_per_frame": 0.0004116666666666667,
       "frames": 3000,
       "session": "10072022142111",
       "status": "ok"
@@ -76,7 +76,7 @@
     {
       "cameras": 3,
       "animals": 3,
-      "seconds_per_frame": 0.0004426666666666667,
+      "seconds_per_frame": 0.0004783333333333334,
       "frames": 3000,
       "session": "10072022142111",
       "status": "ok"
@@ -84,7 +84,7 @@
     {
       "cameras": 4,
       "animals": 3,
-      "seconds_per_frame": 0.0005253333333333334,
+      "seconds_per_frame": 0.000545,
       "frames": 3000,
       "session": "10072022142111",
       "status": "ok"
@@ -92,7 +92,7 @@
     {
       "cameras": 5,
       "animals": 3,
-      "seconds_per_frame": 0.0006093333333333334,
+      "seconds_per_frame": 0.0006433333333333333,
       "frames": 3000,
       "session": "10072022142111",
       "status": "ok"
@@ -100,7 +100,7 @@
     {
       "cameras": 6,
       "animals": 3,
-      "seconds_per_frame": 0.0007183333333333333,
+      "seconds_per_frame": 0.000785,
       "frames": 3000,
       "session": "10072022142111",
       "status": "ok"
@@ -108,7 +108,7 @@
     {
       "cameras": 2,
       "animals": 4,
-      "seconds_per_frame": 0.0004890000000000001,
+      "seconds_per_frame": 0.0005473333333333333,
       "frames": 3000,
       "session": "10072022145420",
       "status": "ok"
@@ -116,7 +116,7 @@
     {
       "cameras": 3,
       "animals": 4,
-      "seconds_per_frame": 0.00062,
+      "seconds_per_frame": 0.0006996666666666667,
       "frames": 3000,
       "session": "10072022145420",
       "status": "ok"
@@ -124,7 +124,7 @@
     {
       "cameras": 4,
       "animals": 4,
-      "seconds_per_frame": 0.0007559999999999999,
+      "seconds_per_frame": 0.0008013333333333333,
       "frames": 3000,
       "session": "10072022145420",
       "status": "ok"
@@ -132,7 +132,7 @@
     {
       "cameras": 5,
       "animals": 4,
-      "seconds_per_frame": 0.0009146666666666667,
+      "seconds_per_frame": 0.0009153333333333333,
       "frames": 3000,
       "session": "10072022145420",
       "status": "ok"
@@ -140,7 +140,7 @@
     {
       "cameras": 6,
       "animals": 4,
-      "seconds_per_frame": 0.001001,
+      "seconds_per_frame": 0.0010563333333333334,
       "frames": 3000,
       "session": "10072022145420",
       "status": "ok"
