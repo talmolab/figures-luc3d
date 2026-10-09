@@ -12,7 +12,7 @@ Five main figures and two supplementary ones. The numbering in this repo is the
 
 | This repo | Manuscript | Content |
 |---|---|---|
-| `figs/figures/fig1/fig1.pdf` | Figure 1 | LUC3D overview: rigs, pipeline, re-identification, triangulation, tool table |
+| `figs/figures/fig1/fig1.pdf` | Figure 1 | LUC3D overview: cross-view association, pipeline, triangulation, rigs |
 | `figs/figures/fig2/fig2.pdf` | Figure 2 | Reprojection-aided labeling protocol and triangulation solvers |
 | `figs/figures/fig3/fig3.pdf` | Figure 3 | Cross-view tracking: greedy and exhaustive, accuracy, sweep |
 | `figs/figures/fig4/fig4.pdf` | Figure 4 | SLAP-2M datasets: difficulty, keypoints that cannot be triangulated, disagreement across cameras, identity tracking accuracy |
@@ -20,6 +20,11 @@ Five main figures and two supplementary ones. The numbering in this repo is the
 | `figs/figures/fig6/fig6.pdf` | Supplementary Figure 1 | Cross-view identity comparison and the fresh-anchor sweep |
 | `figs/figures/fig7/fig7.pdf` | Supplementary Figure 3 | Calibration accuracy of calibrat3 and Anipose on three camera rigs |
 | `figs/fig9.pdf` (+ 300 dpi `fig9.png`) | Supplementary Figure 4 | Panopticon: hardware-synchronized nine-camera acquisition, and its calibration solver against calibrat3 |
+
+The tool capability table that used to be Fig 1e is held out of the first
+submission (it is meant to become a supplementary table later). It still builds,
+as `figs/figures/fig1/fig1s1_tool_table.pdf` with its CSV in `figs/data/fig1/`, but
+`assemble.py` does not place it.
 
 Supplementary Figure 2 in the manuscript is a GUI screenshot and is not built by
 this pipeline. Neither is Supplementary Figure 4, which is a finished PDF (`figs/fig9.pdf`). The supplementary datasheet table is
