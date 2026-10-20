@@ -45,7 +45,19 @@ session (when --slap-animals 0) never contributes a spurious "direction" -- with
 than two animals "animal 0 initiated" is one of several ordered pairs sharing that
 label, not a single relationship.
 
-    figs/.venv/bin/python figs/fig5_rear_coupling.py
+PER-ONSET LIST (2026-10-20). Next to the JSON, `<out stem>_onsets.csv` lists every
+rear onset that entered a curve, one row per (onset, other animal): session, which
+track reared and its animal ID (and sex, in BMimica), onset/end frame and time,
+separation at onset, which condition it fed (near_i0 / near_i1 / far), whether the
+other animal was already mid-rear, and `in_curve` -- whether that session cleared
+MIN_ONSETS for that condition, i.e. whether the onset is actually inside the plotted
+median. Fig 5g's onsets are the BMimica rows.
+
+    figs/.venv/bin/python figs/fig5_rear_coupling.py --slap-animals 2 \
+        --out figs/out/fig5_rear_coupling_2animal.json
+
+The data roots default to the analysis server's mounts; BMIMICA_ROOT and SLAP_ROOT
+override them (e.g. V:/eric/BMimica and T:/eric/slap_2m from a Salk workstation).
 """
 from __future__ import annotations
 
@@ -62,8 +74,8 @@ import pandas as pd
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
-BMIMICA = "/root/vast/eric/BMimica"
-SLAP = "/root/talmolab-smb/eric/slap_2m"
+BMIMICA = os.environ.get("BMIMICA_ROOT", "/root/vast/eric/BMimica")
+SLAP = os.environ.get("SLAP_ROOT", "/root/talmolab-smb/eric/slap_2m")
 
 NODES = ["Nose", "Ear_R", "Ear_L", "TTI", "TailTip", "Head", "Trunk", "Tail_0",
          "Tail_1", "Tail_2", "Shoulder_left", "Shoulder_right", "Haunch_left",
@@ -155,6 +167,7 @@ def session_coupling(tracks_mm, fps, seed=0):
     already_tot = {"i0": 0, "i1": 0}
     base_rates = []
     sep_bl = []          # separation at every onset, for the deposit
+    onset_rows = []      # one row per onset that entered a curve, for the onset list
     for i in range(A):
         for j in range(A):
             if i == j:
@@ -199,15 +212,31 @@ def session_coupling(tracks_mm, fps, seed=0):
             # in both, which is the comparison the question actually asks.
             s_on = sep[idx]
             fin = np.isfinite(s_on)
+            tert = np.full(len(idx), "", dtype=object)
             if fin.sum() >= 6:
                 lo, hi = np.percentile(s_on[fin], [33.3, 66.7])
                 q_near, q_far = fin & (s_on <= lo), fin & (s_on >= hi)
+                tert[q_near], tert[q_far] = "near_q", "far_q"
                 if q_near.any():
                     acc["near_q"].append(obs[q_near].mean(axis=0) / base)
                     n_on["near_q"] += int(q_near.sum())
                 if q_far.any():
                     acc["far_q"].append(obs[q_far].mean(axis=0) / base)
                     n_on["far_q"] += int(q_far.sum())
+            # PER-ONSET LIST: exactly the onsets in `idx`, each labelled with the
+            # condition it fed above. A NaN separation counts as far, as it does in
+            # the curves (`near` requires a finite separation).
+            near_key = ("near_i0" if i == 0 else "near_i1") if A == 2 else "near"
+            end_of = dict(bouts[i])
+            for k, s in enumerate(idx):
+                onset_rows.append({
+                    "track": i, "other_track": j,
+                    "onset_frame": int(s), "end_frame": int(end_of[s]),
+                    "sep_bl": float(s_on[k]) if fin[k] else None,
+                    "condition": near_key if near[k] else "far",
+                    "sep_tertile": tert[k],
+                    "other_already_rearing": any(bs < s < be for bs, be in bouts[j]),
+                })
             # CIRCULAR SHIFT of j only: keeps j's rate/durations/autocorrelation,
             # destroys only its alignment to i.
             for _ in range(N_SHIFTS):
@@ -220,10 +249,21 @@ def session_coupling(tracks_mm, fps, seed=0):
            "sep_bl_p33": float(np.percentile(sep_bl, 33.3)) if sep_bl else None,
            "sep_bl_p50": float(np.median(sep_bl)) if sep_bl else None,
            "sep_bl_p67": float(np.percentile(sep_bl, 66.7)) if sep_bl else None,
-           "already_mid_bout": already, "already_tot": already_tot}
+           "already_mid_bout": already, "already_tot": already_tot,
+           "onsets": onset_rows}
     for k, v in acc.items():
         out[k] = np.nanmean(np.asarray(v), axis=0).tolist() if v else None
     return out
+
+
+def _track_names(h, A):
+    """Animal IDs per track slot, or "" when the file does not carry them. The
+    "_<n>" suffix is dropped, as in fig5_upright.py, so IDs match Fig 5's other
+    deposits."""
+    if "track_names" not in h:
+        return [""] * A
+    return [(x.decode() if isinstance(x, bytes) else str(x)).split("_")[0]
+            for x in h["track_names"][:]]
 
 
 def _bmimica(sd):
@@ -236,8 +276,10 @@ def _bmimica(sd):
             raise SystemExit(f"{sd}: unexpected skeleton")
         t = h["tracks"][:] * 1000.0
         fps = float(h["recording_frame_rate"][()])
+        names = _track_names(h, t.shape[1])
     r = session_coupling(t, fps)
-    return None if r is None else {"session": os.path.basename(sd), **r}
+    return None if r is None else {"session": os.path.basename(sd),
+                                   "track_names": names, **r}
 
 
 def _slap(arg):
@@ -247,8 +289,36 @@ def _slap(arg):
         return None
     with h5py.File(f) as h:
         t = h["tracks"][:]
+        names = _track_names(h, t.shape[1])
     r = session_coupling(t, fps)
-    return None if r is None else {"session": rel, **r}
+    return None if r is None else {"session": rel, "track_names": names, **r}
+
+
+def onset_table(rows, corpus):
+    """Every onset that entered a curve, one row each. `in_curve` applies the same
+    MIN_ONSETS gate `summarise` does, so it says whether the onset's session counts
+    in the plotted median for that condition. Sex is known only in BMimica, where
+    track 0 is always male and track 1 always female (see fig5_10_leader.py)."""
+    sex = {0: "male", 1: "female"} if corpus == "BMimica" else {}
+    out = []
+    for r in rows:
+        fps, names = r["fps"], r["track_names"]
+        for o in r["onsets"]:
+            i, j = o["track"], o["other_track"]
+            out.append({
+                "corpus": corpus, "session": r["session"],
+                "track": i, "sex": sex.get(i, ""), "animal_id": names[i],
+                "other_track": j, "other_sex": sex.get(j, ""),
+                "other_animal_id": names[j],
+                "fps": fps, "onset_frame": o["onset_frame"],
+                "end_frame": o["end_frame"], "onset_s": o["onset_frame"] / fps,
+                "dur_s": (o["end_frame"] - o["onset_frame"]) / fps,
+                "sep_bl": o["sep_bl"], "condition": o["condition"],
+                "sep_tertile": o["sep_tertile"],
+                "other_already_rearing": o["other_already_rearing"],
+                "in_curve": r["n_onsets"].get(o["condition"], 0) >= MIN_ONSETS,
+            })
+    return out
 
 
 def slap_fps(m):
@@ -373,10 +443,15 @@ def main():
                     "onset: a social effect should be larger when near, a shared drive "
                     "should not."),
            "corpora": {}}
+    onsets_csv = args.out.with_name(args.out.stem + "_onsets.csv")
+    res["onsets_csv"] = onsets_csv.name
+    onsets = []
     for name, rows in (("BMimica", bm_rows), ("SLAP-2M", sl_rows)):
         res["corpora"][name] = summarise(rows, name)
+        onsets += onset_table(rows, name)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(res, indent=1))
+    pd.DataFrame(onsets).to_csv(onsets_csv, index=False)
 
     for name in ("BMimica", "SLAP-2M"):
         s = res["corpora"][name]
@@ -408,6 +483,7 @@ def main():
                           f"session median {a['median_session']:.1%} "
                           f"(n={a['n_sessions']} sessions)")
     print(f"\n[json] {args.out}")
+    print(f"[csv]  {onsets_csv} ({len(onsets):,} onsets)")
 
 
 if __name__ == "__main__":
