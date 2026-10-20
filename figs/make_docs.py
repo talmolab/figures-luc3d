@@ -37,37 +37,40 @@ OUT = FIGS / "PANEL-SOURCES.md"
 #: Measurement passes that write `figs/out/*.json`. A panel names the JSON it reads
 #: in its docstring; this maps that JSON back to the pass that produced it, which is
 #: the step a reader has to repeat to regenerate a panel from raw data.
+#:
+#: The JSON names keep the numbering they were written under and the SCRIPTS have
+#: since been renumbered, so a JSON named fig6_* can be produced by a fig4_* script.
+#: Every script below was checked on 2026-10-20 to exist and to write the JSON it
+#: is mapped from; entries for JSONs nothing writes any more (fig2_measure,
+#: fig3_scale_runtime, fig4_measure, fig4_time, fig6_measure, fig6_pose,
+#: fig6_session, fig6_app) were dropped then. The Blender scene scripts below live
+#: outside this repo (figs/blender-images/ here holds only their renders).
 PRODUCERS = {
-    "fig1.json": "figs/fig1_gui.mjs, figs/fig1_rig.mjs, figs/fig1_tracking.mjs",
-    "fig2.json": "figs/fig2_protocol.mjs",
-    "fig2_measure.json": "figs/fig2_measure.py",
+    "fig1.json": "figs/fig1_tracking.mjs",
+    "fig2.json": "figs/fig2_measure.py",
     "fig3_sweep.json": "figs/fig3_sweep.py",
     "fig3_headtohead.json": "figs/fig3_headtohead.py",
     "fig3_quality.json": "figs/fig3_quality.py",
     "fig3_continuity.json": "figs/fig3_continuity.py",
-    "fig3_scale_runtime.json": "figs/fig3_scale_runtime.py",
+    "fig3_scale.json": "figs/fig3_scale_runtime.py",
     "fig4_anipose.json": "figs/fig2_solvers_anipose.py",
     "fig4_by_views.json": "figs/fig2_solvers_by_views.mjs",
-    "fig4_measure.json": "figs/fig2_solvers_measure.mjs",
-    "fig4_time.json": "figs/fig2_solvers_time_luc3d.mjs",
-    "fig5_upright.json": "figs/fig4_upright.py",
-    "fig5_rear_coupling_2animal.json": "figs/fig4_rear_coupling.py --slap-animals 2",
-    "fig5_rear_coupling.json": "figs/fig4_rear_coupling.py",
-    "fig6_detections.json": "figs/fig5_detections.py",
-    "fig6_difficulty.json": "figs/fig5_difficulty.py",
-    "fig6_measure.json": "figs/fig5_measure.py",
-    "fig6_pose.json": "figs/fig5_pose.py",
-    "fig6_session.json": "figs/fig5_session.py",
-    "fig6_app.json": "figs/fig5_app.mjs",
-    "fig6-app.json": "figs/fig5_app.mjs",
+    "fig5_upright.json": "figs/fig5_upright.py",
+    "fig5_rear_coupling_2animal.json":
+        "figs/fig5_rear_coupling.py --slap-animals 2 "
+        "--out figs/out/fig5_rear_coupling_2animal.json",
+    "fig5_rear_coupling.json": "figs/fig5_rear_coupling.py",
+    "fig6_detections.json": "figs/fig4_detections.py",
+    "fig6_difficulty.json": "figs/fig4_difficulty.py",
+    "fig6-app.json": "figs/fig4_app.mjs",
     "fig7_sleap_scoped.json": "figs/fig6_sleap_scoped.py",
-    "fig9_slap2m.json": "figs/fig5_slap2m.py",
+    "fig9_slap2m.json": "figs/fig4_slap2m.py",
     "fig2-protocol.json": "figs/fig2_protocol.mjs",
     "fig3_runtime.json": "figs/fig3_scale_runtime.py",
     "fig3_trackers.json": "figs/fig3_trackers.py",
-    "fig4.json": "figs/fig4_measure.mjs (+ figs/fig4_anipose.py, figs/fig4_by_views.mjs)",
-    "fig6.json": "figs/fig5_measure.py (+ figs/fig5_pose.py, figs/fig5_app.mjs)",
-    "fig5_views.json": "figs/fig4_views.py",
+    "fig4.json": "figs/fig2_solvers_export.py, then figs/fig2_solvers_measure.mjs",
+    "fig6.json": "figs/fig4_measure.py (+ figs/fig4_pose.py)",
+    "fig5_views.json": "figs/fig5_views.py",
     # Not a figs/out JSON: Fig 1d is a Blender render, and the "measurement pass"
     # that produced it is the scene script that placed the session's calibration,
     # cage corners and tracked poses (see panels/fig1_00_render.py). Since

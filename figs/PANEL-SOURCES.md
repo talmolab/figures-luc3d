@@ -8,9 +8,9 @@ Build order for any figure is: run the measurement pass (column *measured by*) �
 
 | Panel | Title | Drawn by | Reads | Measured by | Deposits |
 |---|---|---|---|---|---|
-| **a** | Cross-view association | `panels/fig1_02_tracking.py` | `out/fig1.json` | `figs/fig1_gui.mjs, figs/fig1_rig.mjs, figs/fig1_tracking.mjs` | — |
+| **a** | Cross-view association | `panels/fig1_02_tracking.py` | `out/fig1.json` | `figs/fig1_tracking.mjs` | — |
 | **b** | Pipeline | `panels/fig1_01_pipeline.py` | — (drawn) | — | — |
-| **c** | Triangulated 3D | `panels/fig1_03_reconstruction.py` | `out/fig1.json`, `out/fig1_hardfight_scene.json`, `blender-images/renders/fig1d_pose.png` | `blender-images/fig1d_scene.py`, `figs/fig1_gui.mjs, figs/fig1_rig.mjs, figs/fig1_tracking.mjs`, `figs/fig1d_pose_export.mjs, figs/fig1_hardfight_scene.py` | — |
+| **c** | Triangulated 3D | `panels/fig1_03_reconstruction.py` | `out/fig1.json`, `out/fig1_hardfight_scene.json`, `blender-images/renders/fig1d_pose.png` | `blender-images/fig1d_scene.py`, `figs/fig1_tracking.mjs`, `figs/fig1d_pose_export.mjs, figs/fig1_hardfight_scene.py` | — |
 | **d** | Dataset arena visualizations with camera rigs and poses | `panels/fig1_00_render.py` | `blender-images/renders/fig1_renders/mouse-dyad_f55701.png`, `blender-images/renders/fig1_renders/slap2m-4mice_f06020.png` | `blender-images/cage_scene.py`, `figs/fig1_bmimica_scene.py (+ blender-images/bmimica_scene.py)` | — |
 
 ## Figure 2
@@ -18,9 +18,9 @@ Build order for any figure is: run the measurement pass (column *measured by*) �
 | Panel | Title | Drawn by | Reads | Measured by | Deposits |
 |---|---|---|---|---|---|
 | **a** | Protocol | `panels/fig2_01_protocol.py` | `out/fig2-protocol.json`, `out/fig2a_scene.json`, `blender-images/renders/fig2a_pose.png` | `blender-images/fig1d_scene.py`, `figs/fig2_protocol.mjs`, `figs/fig2_protocol.mjs, figs/fig2a_scene.py` | — |
-| **b** | Placements vs rig size | `panels/fig2_02_placements_vs_rig.py` | `out/fig2.json` | `figs/fig2_protocol.mjs` | `data/fig2/fig2b_placements_vs_rig.csv` |
-| **c** | Error vs cameras in the solve | `panels/fig2_03_reprojection_accuracy.py` | `out/fig2.json`, `out/fig4_by_views.json` | `figs/fig2_protocol.mjs`, `figs/fig2_solvers_by_views.mjs` | `data/fig2/fig2c_error_by_cameras.csv`, `data/fig2/fig2c_heldout_by_cameras.csv` |
-| **d** | Anchor-pair geometry | `panels/fig2_04_baseline_angle.py` | `out/fig2.json`, `out/fig5_views.json` | `figs/fig2_protocol.mjs`, `figs/fig5_views.py` | `data/fig2/fig2d_baseline_angle.csv` |
+| **b** | Placements vs rig size | `panels/fig2_02_placements_vs_rig.py` | `out/fig2.json` | `figs/fig2_measure.py` | `data/fig2/fig2b_placements_vs_rig.csv` |
+| **c** | Error vs cameras in the solve | `panels/fig2_03_reprojection_accuracy.py` | `out/fig2.json`, `out/fig4_by_views.json` | `figs/fig2_measure.py`, `figs/fig2_solvers_by_views.mjs` | `data/fig2/fig2c_error_by_cameras.csv`, `data/fig2/fig2c_heldout_by_cameras.csv` |
+| **d** | Anchor-pair geometry | `panels/fig2_04_baseline_angle.py` | `out/fig2.json`, `out/fig5_views.json` | `figs/fig2_measure.py`, `figs/fig5_views.py` | `data/fig2/fig2d_baseline_angle.csv` |
 | **e** | Accuracy vs cameras used | `panels/fig2_06_solver_accuracy.py` | `out/fig4_robust_sessions.json` | — | — |
 | **f** | Triangulation: LUC3D vs Anipose | `panels/fig2_07_per_session.py` | — (drawn) | — | — |
 | **g** | Time per keypoint | `panels/fig2_08_time_per_keypoint.py` | — (drawn) | — | — |
@@ -59,7 +59,7 @@ Build order for any figure is: run the measurement pass (column *measured by*) �
 | **d** | Female is still; male is traveling | `panels/fig5_09_upright_velocity.py` | `out/fig5_upright.json` | `figs/fig5_upright.py` | `data/fig5/fig5d_upright_velocity.csv` |
 | **e** | Male is pursuing female | `panels/fig5_07_upright_stats.py` | `out/fig5_upright.json` | `figs/fig5_upright.py` | `data/fig5/fig5e_upright_stats.csv` |
 | **f** | Female initiates displays | `panels/fig5_10_leader.py` | `out/fig5_upright.json` | `figs/fig5_upright.py` | — |
-| **g** | Female rears first; male mostly joins in | `panels/fig5_12_coupling.py` | `out/fig5_rear_coupling_2animal.json` | `figs/fig5_rear_coupling.py --slap-animals 2` | `data/fig5/fig5g_rear_coupling.csv` |
+| **g** | Female rears first; male mostly joins in | `panels/fig5_12_coupling.py` | `out/fig5_rear_coupling_2animal.json` | `figs/fig5_rear_coupling.py --slap-animals 2 --out figs/out/fig5_rear_coupling_2animal.json` | `data/fig5/fig5g_rear_coupling.csv` |
 
 ## Figure 6
 
