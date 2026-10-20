@@ -17,17 +17,17 @@ Five main figures and two supplementary ones. The numbering in this repo is the
 | `figs/figures/fig3/fig3.pdf` | Figure 3 | Cross-view tracking: greedy and exhaustive, accuracy, sweep |
 | `figs/figures/fig4/fig4.pdf` | Figure 4 | SLAP-2M datasets: difficulty, keypoints that cannot be triangulated, disagreement across cameras, identity tracking accuracy |
 | `figs/figures/fig5/fig5.pdf` | Figure 5 | Social rearing, female-led leader-follower dynamics |
-| `figs/figures/fig6/fig6.pdf` | Supplementary Figure 1 | Cross-view identity comparison and the fresh-anchor sweep |
-| `figs/figures/fig7/fig7.pdf` | Supplementary Figure 3 | Calibration accuracy of calibrat3 and Anipose on three camera rigs |
-| `figs/fig9.pdf` (+ 300 dpi `fig9.png`) | Supplementary Figure 4 | Panopticon: hardware-synchronized nine-camera acquisition, and its calibration solver against calibrat3 |
+| `figs/figures/fig6/fig6.pdf` | Supplementary Figure 4 | Within-view and cross-view identity against SLEAP and ByteTrack, the staleness (anchor eviction) sweep, and s-DANNCE |
+| `figs/figures/fig7/fig7.pdf` | Supplementary Figure 2 | Calibration accuracy of calibrat3 and Anipose on three camera rigs |
+| `figs/fig9.pdf` (+ 300 dpi `fig9.png`) | Supplementary Figure 1 | Panopticon: hardware-synchronized nine-camera acquisition, and its calibration solver against calibrat3 |
 
 The tool capability table that used to be Fig 1e is held out of the first
 submission (it is meant to become a supplementary table later). It still builds,
 as `figs/figures/fig1/fig1s1_tool_table.pdf` with its CSV in `figs/data/fig1/`, but
 `assemble.py` does not place it.
 
-Supplementary Figure 2 in the manuscript is a GUI screenshot and is not built by
-this pipeline. Neither is Supplementary Figure 4, which is a finished PDF (`figs/fig9.pdf`). The supplementary datasheet table is
+Supplementary Figure 3 in the manuscript is a GUI screenshot and is not built by
+this pipeline. Neither is Supplementary Figure 1, which is a finished PDF (`figs/fig9.pdf`). The supplementary datasheet table is
 `figs/figures/datasheets/datasheet_combined.pdf`.
 
 The four supplementary videos are in `figs/figures/supp_videos/` (see the README
@@ -72,6 +72,12 @@ pixel-identical to the committed PDFs. The datasheets (`python dataset_sheets.py
 also reproduce pixel-identically, but read the Mouse-Dyad-10M corpus described in
 `DATA-LOCATIONS.md` to measure its values.
 
+As of the 2026-10-20 sync, the composites and panels of Figs 2 to 7 and the CSVs in
+`figs/data/` come from `eric/figs` `a6752bc0` (every LUC3D number from LUC3D v1.0.5),
+but the panel scripts, `assemble.py` and the `figs/out/` deposits have not yet been
+re-synced, so a rebuild from this repo reproduces the previous versions of those
+figures until they are.
+
 ## What is here
 
 | Path | What it is |
@@ -93,7 +99,7 @@ video corpora described in `DATA-LOCATIONS.md`.
 
 ## A note on the calibration figure
 
-Supplementary Figure 3 compares calibrat3 with Anipose. Both tools are run on
+Supplementary Figure 2 compares calibrat3 with Anipose. Both tools are run on
 **OpenCV 4.13.0**, which is forced: calibrat3 vendors OpenCV.js 4.13.0 and cannot
 run another version, and OpenCV 5 moved the ChArUco corner origin by half a pixel
 in both axes. A calibration scored across the two conventions pays a penalty it
