@@ -75,7 +75,9 @@ also reproduce pixel-identically, but read the Mouse-Dyad-10M corpus described i
 As of the 2026-10-21 sync, the composites and panels of Figs 1 to 7 and the CSVs in
 `figs/data/` come from `eric/figs` `80371bd3`: every LUC3D number from LUC3D v1.0.5,
 and every 3D pose either the dataset's own or LUC3D's (no NumPy triangulation). Fig 1
-keeps the layout above (43cf946), rebuilt from those panels. The panel scripts, `assemble.py` and the `figs/out/` deposits have not yet been
+keeps the layout above (43cf946), rebuilt from those panels. Fig 3 and
+`figs/data/fig3/fig3e_head_to_head.csv` are from `9ae57dc7`, the J18 timing sitting
+(only panel F changes). The panel scripts, `assemble.py` and the `figs/out/` deposits have not yet been
 re-synced, so a rebuild from this repo reproduces the previous versions of those
 figures until they are.
 
