@@ -9,7 +9,7 @@ frame (commit f1bfe3e). The behavioral analysis uses all 56. Because the manuscr
 50 as "the 50 proofread sessions", a reader could infer the other six were not, so this script repeats
 every statistic in the social rearing Results on the 50 alone, on the six alone, and on all 56, and
 deposits the three side by side (data/fig5/fig5s_benchmark50_subset.csv). The 50 are read from
-data/fig2/fig2f_per_session.csv, the list every tracking figure uses.
+data/fig3/fig3f_per_session.csv, the list every tracking figure uses.
 
     python3 figs/fig5_benchmark_subset.py
 """
@@ -63,7 +63,7 @@ def main():
     ev = pd.DataFrame(d["events"])
     ids = {r["session"]: (r["per_track"][0]["animal"], r["per_track"][1]["animal"]) for r in d["per_session"]}
     ev["pair"] = ev.session.map(lambda s: ids[s][0] + "|" + ids[s][1])
-    p50 = set(re.findall(r"20\d{6}_\d{6}", open(FIGS / "data/fig2/fig2f_per_session.csv").read()))
+    p50 = set(re.findall(r"20\d{6}_\d{6}", open(FIGS / "data/fig3/fig3f_per_session.csv").read()))
     unproofread = sorted({s for s in ev.session.unique() if s not in p50})
     print("sessions outside the 50 with displays:", unproofread)
     rows = [stats_for(ev, "all_56"),

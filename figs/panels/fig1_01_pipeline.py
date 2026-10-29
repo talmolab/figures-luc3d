@@ -308,7 +308,7 @@ def main():
     ax.set_xlim(-XPAD, span + XPAD)
     ax.set_ylim(*YLIM)
     _check_text_fits(fig, ax, texts)
-    save(fig, 1, "b", "pipeline")
+    save(fig, 1, "c", "pipeline")
 
 
 if __name__ == "__main__":

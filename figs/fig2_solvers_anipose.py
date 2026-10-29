@@ -86,6 +86,9 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent
 OUT = HERE / "out"
+#: FIG2_SUFFIX=<v> (2026-10-14, md56 rerun) reads/writes out/fig4*_<v>.* instead of the base
+#: deposits, so a variant run never overwrites what the base figure reads.
+_SFX = ("_" + os.environ["FIG2_SUFFIX"]) if os.environ.get("FIG2_SUFFIX") else ""
 
 #: Populated per worker process by `_init`, so the memmap and the CameraGroups are
 #: built once per process rather than pickled per block.
@@ -255,14 +258,26 @@ def _block_optim(args):
     # from a 9,000-keypoint subsample cannot sit beside three columns drawn from
     # 85,000 without the reader silently comparing different keypoint sets.
     n = b["count"] if nf <= 0 else min(nf * joints, b["count"])
-    nf = n // joints                     # truncate to a whole number of "frames"
-    n = nf * joints
+    #: FIG2_OPTIM_PAD=1 (2026-10-15; opt-in, unset = unchanged): instead of TRUNCATING the
+    #: session to a whole number of `joints`-blocks (which drops up to joints-1 trailing
+    #: keypoints, so Fig 2F's optim arm was scored on fewer keypoints than the other three),
+    #: PAD the last block with all-NaN observations. They carry no residual in optim_points,
+    #: are NaN in every solve, and are excluded from every score, so all variants are scored
+    #: on exactly the session's real keypoints -- the same set as LUC3D (fig4.json).
+    pad = os.environ.get("FIG2_OPTIM_PAD") == "1"
+    n_real = n
+    nf = -(-n // joints) if pad else n // joints
+    n = nf * joints if pad else nf * joints
+    if not pad:
+        n_real = n
     if nf < 20:
         return None
     lo = b["offset"]
-    sl = np.ascontiguousarray(_G["obs"][lo:lo + n]).astype(np.float64)
+    sl = np.full((n, C, 2), np.nan)
+    sl[:n_real] = np.asarray(_G["obs"][lo:lo + n_real], dtype=np.float64)
     pts = np.ascontiguousarray(sl.transpose(1, 0, 2))
     pts[~np.isfinite(pts)] = np.nan
+    real = np.zeros(n, bool); real[:n_real] = True
 
     def solve(p, variant, kw):
         """3D for one variant on 2D array `p` (C, n, 2)."""
@@ -285,17 +300,22 @@ def _block_optim(args):
 
     variants = [("linear", {})] + OPTIM_VARIANTS
     row = {"session": b["session"], "calibration": b.get("calibration", 0),
-           "n_frames": int(nf), "n_joints": int(joints), "n": int(n)}
+           "n_frames": int(nf), "n_joints": int(joints), "n": int(n_real),
+           "padded": int(n - n_real)}
     seen = np.isfinite(pts[:, :, 0])
     nviews = seen.sum(axis=0)
     for name, kw in variants:
         X = solve(pts, name, kw)
         e = native_error(cg, X, pts)
+        if pad:
+            assert np.isfinite(e[real]).sum() == np.isfinite(e).sum(), "a padded keypoint was scored"
         e = e[np.isfinite(e)]
         # leave-one-camera-out, same protocol as the linear pass
         ho = []
         for h in range(C):
             use = seen[h] & ((nviews - 1) >= 2)
+            if pad:
+                use = use | ~real            # padded slots are empty, not a partial mask
             if not use.all():
                 # optim_points needs the (frames, joints) grid intact, so a partial
                 # mask cannot be compacted away as the linear path does. Every
@@ -311,7 +331,7 @@ def _block_optim(args):
             held = sub[h].copy()
             sub[h] = np.nan
             Xh = solve(sub, name, kw)
-            ok = np.isfinite(Xh).all(axis=1)
+            ok = np.isfinite(Xh).all(axis=1) & real
             if not ok.any():
                 continue
             proj = cg.cameras[h].project(Xh[ok].astype(np.float64)).reshape(-1, 2)
@@ -504,7 +524,7 @@ def main():
                          "timings and this sitting's re-timing before refusing")
     ap.add_argument("--no-check-luc3d", action="store_true")
     ap.add_argument("--assert-no-jax", action="store_true", default=True)
-    ap.add_argument("--out", type=Path, default=OUT / "fig4_anipose.json")
+    ap.add_argument("--out", type=Path, default=OUT / f"fig4_anipose{_SFX}.json")
     args = ap.parse_args()
 
     import aniposelib
@@ -518,7 +538,7 @@ def main():
             f"JAX rewrite and the newest `anipose` accepts). Install 0.7.2.")
     print(f"aniposelib {ver} (OpenCV/NumPy pipeline, no JAX)")
 
-    meta_path, bin_path = OUT / "fig4_input.json", None
+    meta_path, bin_path = OUT / f"fig4_input{_SFX}.json", None
     meta = json.loads(meta_path.read_text())
     bin_path = OUT / meta["bin"]
     K, C = meta["keypoints"], meta["n_cameras"]
@@ -547,12 +567,12 @@ def main():
     t_luc3d = None
     if not args.no_check_luc3d:
         p = subprocess.run(
-            ["node", str(HERE / "fig4_time_luc3d.mjs"),
+            ["node", str(HERE / "fig2_solvers_time_luc3d.mjs"),   # renamed from fig4_time_luc3d.mjs
              "--n", str(min(args.time_n, meta["blocks"][0]["count"])),
              "--repeats", str(args.repeats)],
             capture_output=True, text=True, cwd=str(HERE.parent))
         if p.returncode != 0:
-            raise SystemExit("fig4_time_luc3d.mjs failed:\n" + p.stderr[-3000:])
+            raise SystemExit("fig2_solvers_time_luc3d.mjs failed:\n" + p.stderr[-3000:])
         t_luc3d = json.loads(p.stdout)
         print(f"luc3d    dlt {t_luc3d['dlt_us_per_keypoint']:.2f}  "
               f"ba {t_luc3d['ba_us_per_keypoint']:.2f} us/kp "
@@ -592,6 +612,7 @@ def main():
 
     out = {
         "aniposelib_version": ver,
+        "opencv": __import__("cv2").__version__,   # recorded since 2026-10-14 (md56)
         "pipeline": "OpenCV undistortPoints + per-point numpy SVD DLT (no JAX)",
         "python": sys.executable,
         "input": {"keypoints": K, "cameras": C, "stride_export": meta["stride"],
@@ -628,7 +649,7 @@ def main():
 
     # --- the agreement gate ---------------------------------------------------
     if t_luc3d:
-        ref = json.loads((OUT / "fig4.json").read_text())["methods"]
+        ref = json.loads((OUT / f"fig4{_SFX}.json").read_text())["methods"]
         bad = []
         for key, meas in (("dlt", "dlt_us_per_keypoint"), ("ba", "ba_us_per_keypoint")):
             a, b = ref[key]["us_per_keypoint"], t_luc3d[meas]

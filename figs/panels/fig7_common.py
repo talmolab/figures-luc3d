@@ -29,7 +29,7 @@ its two halves: if calibrat3 wins because it detects more/better corners, this a
 moves with calibrat3; if it wins because it solves better, this arm stays with
 Anipose. It therefore wears Anipose's GREEN -- it is that library's solver -- and is
 distinguished by a DASH (curves) or an OPEN BOX (boxes), which is the convention
-`fig2_15_per_session.py` established for one library in two configurations.
+`fig3_15_per_session.py` established for one library in two configurations.
 """
 import sys
 from pathlib import Path

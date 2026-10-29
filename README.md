@@ -12,9 +12,9 @@ Five main figures and two supplementary ones. The numbering in this repo is the
 
 | This repo | Manuscript | Content |
 |---|---|---|
-| `figs/figures/fig1/fig1.pdf` | Figure 1 | LUC3D overview: cross-view association, pipeline, triangulation, rigs |
-| `figs/figures/fig2/fig2.pdf` | Figure 2 | Reprojection-aided labeling protocol and triangulation solvers |
-| `figs/figures/fig3/fig3.pdf` | Figure 3 | Cross-view tracking: greedy and exhaustive, accuracy, sweep |
+| `figs/figures/fig1/fig1.pdf` | Figure 1 | LUC3D overview: cross-view association and triangulated 3D, dataset arenas and camera rigs, pipeline |
+| `figs/figures/fig2/fig2.pdf` | Figure 2 | Cross-view tracking: greedy and exhaustive, accuracy, sweep |
+| `figs/figures/fig3/fig3.pdf` | Figure 3 | Reprojection-aided labeling protocol and triangulation solvers |
 | `figs/figures/fig4/fig4.pdf` | Figure 4 | SLAP-2M datasets: difficulty, keypoints that cannot be triangulated, disagreement across cameras, identity tracking accuracy |
 | `figs/figures/fig5/fig5.pdf` | Figure 5 | Social rearing, female-led leader-follower dynamics |
 | `figs/figures/fig6/fig6.pdf` | Supplementary Figure 4 | Within-view and cross-view identity against SLEAP and ByteTrack, the staleness (anchor eviction) sweep, and s-DANNCE |
@@ -38,7 +38,7 @@ walkthrough. They are rendered artwork, not rebuilt by `make_figures.py`.
 Each `figs/figures/figN/` also holds the per-panel PDFs and PNGs, and a 300 dpi
 PNG proof of the composite.
 
-**SLAP-2M input (Figs 3, 4 and 6).** The SLAP-2M arms use SLEAP's pre-proofreading
+**SLAP-2M input (Figs 2, 4 and 6).** The SLAP-2M arms use SLEAP's pre-proofreading
 predictions with none of sleap-nn's instance filters, minus detections with fewer
 than five visible body keypoints, and the four tail nodes are excluded from all
 scoring. `figs/PANEL-SOURCES.md` lists the commands that produced each deposit.
@@ -72,14 +72,14 @@ pixel-identical to the committed PDFs. The datasheets (`python dataset_sheets.py
 also reproduce pixel-identically, but read the Mouse-Dyad-10M corpus described in
 `DATA-LOCATIONS.md` to measure its values.
 
-As of the 2026-10-21 sync, the composites and panels of Figs 1 to 7 and the CSVs in
-`figs/data/` come from `eric/figs` `80371bd3`: every LUC3D number from LUC3D v1.0.5,
-and every 3D pose either the dataset's own or LUC3D's (no NumPy triangulation). Fig 1
-keeps the layout above (43cf946), rebuilt from those panels. Fig 3 and
-`figs/data/fig3/fig3e_head_to_head.csv` are from `9ae57dc7`, the J18 timing sitting
-(only panel F changes). The panel scripts, `assemble.py` and the `figs/out/` deposits have not yet been
-re-synced, so a rebuild from this repo reproduces the previous versions of those
-figures until they are.
+As of the 2026-10-29 sync, the repo follows the manuscript's new order: `fig2` is
+cross-view tracking and `fig3` is labeling and triangulation. Fig 1 is A, cross-view
+association and triangulated 3D; B, dataset arenas and camera rigs; C, the pipeline.
+Panel files carry the letters printed in the figures, and Figs 1, 2, 3 and 6 are
+placed by `composites.py`. The composites, panels, `figs/data/` CSVs, panel scripts,
+`assemble.py` and Supplementary Videos 2 and 4 come from `eric/figs` and match the
+project page. The `figs/out/` deposits have not been re-synced, so a rebuild from this
+repo reproduces Fig 7 exactly but Figs 1 to 6 only approximately until they are.
 
 ## What is here
 

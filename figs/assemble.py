@@ -95,34 +95,33 @@ TITLES = {
     # title is kept under s1 so restoring it is a one-line change there.
     # "association", not "re-identification", since 2026-10-09 (Talmo) -- the
     # same name as Fig 1b's stage tile, so panel and pipeline agree.
-    (1, "a"): "Cross-view association",
-    (1, "b"): "Pipeline",
-    (1, "c"): "Triangulated 3D",
-    (1, "d"): "Dataset arena visualizations with camera rigs and poses",
+    # 2026-10-29: Fig 1 is placed by composites.fig1 (the former fig1b layout);
+    # a = tracks / identities / 3D + reprojection block, b = arenas, c = pipeline.
+    (1, "a"): "Cross-view association and triangulated 3D",
+    (1, "b"): "Dataset arenas and camera rigs",
+    (1, "c"): "Pipeline",
     (1, "s1"): "Capability comparison",
-    (2, "a"): "Protocol",
-    (2, "b"): "Placements vs rig size",
-    (2, "c"): "Error vs cameras in the solve",
-    (2, "d"): "Anchor-pair geometry",
+    (3, "a"): "Protocol",
+    (3, "b"): "Placements vs rig size",
+    (3, "c"): "Error vs cameras in the solve",
+    (3, "d"): "Camera-pair geometry",
     # Row 3 added 2026-08-20 (Eric: "add 13 g i and j to fig 2 as the third
-    # column in that fig") -- see panels/fig2_06_solver_accuracy.py's docstring.
-    (2, "e"): "Accuracy vs cameras used",
-    (2, "f"): "Triangulation: LUC3D vs Anipose",
-    (2, "g"): "Time per keypoint",
-    # Fig 3 (cross-view tracking; the repo's fig13, itself the old fig3 + fig4
-    # combination). NO (3, "b") ENTRY, deliberately: b is stacked directly
-    # under a into ONE composite PDF (fig3_sync.build_stack), which draws b's
-    # LETTER only -- the shipped artwork carries no b title, and an entry here
-    # would make build_stack start drawing one. NO (3, "h") ENTRY: h (the
-    # sweep's IDF1 half, under g in the block's second column composite) is
-    # deliberately untitled -- g's title covers the stacked pair and h's y
-    # label names its metric.
-    (3, "a"): "Grouping strategies",
-    (3, "c"): "Visualization of ID grouping hypotheses in two camera views",
-    (3, "d"): "An identity switch in one camera view",
-    (3, "e"): "Grouping accuracy",
-    (3, "f"): "Time per frame",
-    (3, "g"): "3D term sweep",
+    # column in that fig") -- see panels/fig3_06_solver_accuracy.py's docstring.
+    (3, "e"): "Accuracy vs cameras used",
+    (3, "f"): "Triangulation: LUC3D vs Anipose",
+    (3, "g"): "Time per keypoint",
+    # Fig 2 (cross-view association; Fig 3 until the 2026-10-29 swap), placed by
+    # composites.fig2. NO (2, "i") ENTRY: i (the sweep's IDF1 half, under h) is
+    # deliberately untitled -- h's title covers the stacked pair and i's y label
+    # names its metric.
+    (2, "a"): "2D and 3D anchor correspondence",
+    (2, "b"): "Visualization of ID grouping hypotheses in two camera views",
+    (2, "c"): "Greedy per-view assignment in each frame",
+    (2, "d"): "Exhaustive hypotheses per frame",
+    (2, "e"): "An identity switch in one camera view",
+    (2, "f"): "Grouping accuracy",
+    (2, "g"): "Time per frame",
+    (2, "h"): "3D term sweep",
     # Fig 4 (social rearing; the repo's fig5).
     (5, "a"): "3D pose and 2D camera views for social rearing behavior",
     (5, "b"): "Both rise, noses converge — female reaches higher",
@@ -145,9 +144,11 @@ TITLES = {
     (6, "b"): "Within-view IDF1",
     (6, "c"): "Per-session paired difference",
     (6, "d"): "Error composition",
-    (6, "e"): "The tracker's 2D and 3D anchor correspondence",
-    (6, "f"): "Staleness horizon sweep on Mouse-Dyad-10M sessions",
-    (6, "g"): "Cross-View IDF1 for s-DANNCE rats",
+    # Eric 2026-10-19: the staleness sweep is back as f, now on SLAP-2M and drawn as
+    # % switch reduction from stale 0 (panels/fig6slapstale_reduction.py); the
+    # 2026-10-18 thirds layout is undone (patch kept outside the repo).
+    (6, "f"): "Staleness horizon sweep on SLAP-2M sessions",
+    (6, "e"): "Cross-View IDF1 for s-DANNCE rats",
     # Fig 7 (calibration benchmark; calibrat3 vs Anipose on two real rigs).
     (7, "a"): "Reprojection error, SLAP-2M rig",
     (7, "b"): "Per camera, SLAP-2M rig",
@@ -176,19 +177,19 @@ TITLE_PT = 7.5            # panel titles, below the 9 pt letter
 #: plate, a schematic, a rule-only table -- reports none and keeps the flush position,
 #: which is the right answer there: its ink already starts at the panel's left edge.
 #: Opt out by letter here if a particular title is better off flush.
-#: (3, "a"): the a/b stack composite carries BOTH panels' drawings on one page,
+#: (2, "a"): the a/b stack composite carries BOTH panels' drawings on one page,
 #: so axes_extent's spine scan would centre a's title on b's real (ticked) axes
 #: rather than a's own (a has none -- it is a blank schematic). Flush is the
 #: correct position for a anyway; this just avoids the ambiguous measurement.
-#: (2, "e"): same reasoning, for Fig 2's own merged accuracy/worst-camera panel
-#: (`panels/fig2_06_solver_accuracy.py`, moved here from the draft Fig 13's "g")
+#: (3, "e"): same reasoning, for Fig 2's own merged accuracy/worst-camera panel
+#: (`panels/fig3_06_solver_accuracy.py`, moved here from the draft Fig 13's "g")
 #: -- it has TWO real ticked axes on one page, so this is a genuine
 #: simplification (it would otherwise centre on the union of both axes'
 #: spines), not a no-op.
 #: (6, "a"): the entry is the pre-merged 2x2 block, whose axes_extent spans all
 #: four sub-panels -- centring drifted a's title onto b's (drawn flush by
 #: EXTRA_LETTERS, which axes_extent cannot serve either).
-TITLE_FLUSH: set[tuple[int, str]] = {(3, "a"), (2, "e"), (6, "a")}
+TITLE_FLUSH: set[tuple[int, str]] = {(3, "e"), (6, "a")}
 
 #: (figure, letter) -> extra mm to shift a title RIGHT of where the rules above
 #: put it. For a plate -- an image panel with no axes for `axes_extent` to find
@@ -223,7 +224,7 @@ TITLE_NUDGE_MM: dict[tuple[int, str], float] = {}
 #: ("move the 13c title over ... so it aligns with e and f"); the title then
 #: follows its own letter at the usual 4.4 mm, as on every other panel.
 LETTER_NUDGE_MM: dict[tuple[int, str], float] = {
-    (3, "c"): 2.6, (3, "e"): 2.6, (3, "g"): 2.6,
+    (2, "b"): 2.6, (2, "f"): 2.6, (2, "h"): 2.6,
 }
 
 #: (figure, entry letter) -> [(sub letter, dx_mm, dy_mm), ...]: extra letters the
@@ -243,7 +244,7 @@ LETTER_NUDGE_MM: dict[tuple[int, str], float] = {
 #: Fig 6a is the 2x2 a-d tracker block (fig6_sync.build_block, which PRINTS
 #: these offsets on every run -- copy them here after any geometry change).
 EXTRA_LETTERS: dict[tuple[int, str], list[tuple[str, float, float]]] = {
-    (6, "a"): [("b", 43.51, 0.0), ("c", 0.0, 29.95), ("d", 43.51, 29.95)],
+    (6, "a"): [("b", 43.51, 0.0), ("c", 0.0, 34.95), ("d", 43.51, 34.95)],
 }
 
 #: figure -> [row, ...] where a row is [(letter, slug), ...].
@@ -261,18 +262,20 @@ LAYOUTS = {
     # but is not placed: it is out of the first submission and headed for a
     # supplementary table. Restore it by appending [("s1", "tool_table")] here
     # (or re-lettering it in its script and here).
-    1: [[("a", "tracking")],
-        [("b", "pipeline")],
-        [("c", "reconstruction")],
-        [("d", "render")]],
-    2: [[("a", "protocol")],
+    # 2026-10-29: Figs 1, 2 and 6 are placed by composites.py; their rows here
+    # only list the placed panels (for stale() and make_docs) at their printed
+    # letters. Fig 1a is the tracking panel plus tiles cut from reconstruction.
+    1: [[("a", "tracking"), ("a", "reconstruction"), ("b", "render")],
+        [("c", "pipeline")]],
+    3: [[("a", "protocol")],
         [("b", "placements_vs_rig"), ("c", "reprojection_accuracy"),
          ("d", "baseline_angle")],
         [("e", "solver_accuracy"), ("f", "per_session"), ("g", "time_per_keypoint")]],
-    # a/b are pre-merged by fig3_sync.build_stack (b's letter/title drawn onto
-    # the composite); e/f and g/h are that sync's two column composites.
-    3: [[("a", "association"), ("c", "hyp_illustration")],
-        [("d", "idswitch"), ("e", "quality_col"), ("g", "sweep_col")]],
+    # a is the anchor diagram (PNG halves from fig_chen2020_style.py --split, no
+    # panel PDF); f/g and h/i are fig2_sync's two column composites.
+    2: [[("b", "hyp_illustration")],
+        [("c", "algorithm_strip"), ("d", "cost_model_third")],
+        [("e", "idswitch"), ("f", "quality_col"), ("h", "sweep_col")]],
     5: [[("a", "upright_views"), ("b", "upright_dynamics")],
         [("c", "upright_initiator"), ("d", "upright_velocity"),
          ("e", "upright_stats")],
@@ -288,8 +291,11 @@ LAYOUTS = {
     # added noise), restored from the deleted Fig 10. It shares f's row, which
     # was re-laid out at two-thirds width for it. The camera-count and contact
     # panels (fig6_10, fig6_11) still render and deposit but are not placed.
-    6: [[("a", "block"), ("e", "chen_style")],
-        [("f", "pr_switches"), ("g", "sdannce_survival")]],
+    # 2026-10-19: back to the pre-10-18 arrangement (Eric: "go back to how we used to
+    # have the figure layout wise"), with f now the SLAP-2M switch-reduction panel.
+    # 2026-10-29: the anchor diagram (old e) moved to Fig 2a; s-DANNCE is now e.
+    6: [[("a", "block"), ("e", "sdannce_survival")],
+        [("f", "switch_reduction")]],
     # Fig 7 (calibration benchmark, added 2026-09-15). Rows 1 and 2 are the SAME
     # two panels on two rigs -- pooled distribution at a third, per-camera boxes at
     # two-thirds -- so the reader can read straight down a camera column from the
@@ -397,7 +403,25 @@ VARIANT = os.environ.get("FIG_VARIANT", "")
 #: and 6 were retired and c became the base figures.
 TAG_LAYOUTS = {}
 TAG_TITLES = {}
-TAG_FOOTERS = {}
+#: nt (2026-10-12): the tail-free rerun proof. No footer, so the proof can stand in for
+#: the base figure once approved; the variant is named by the folder.
+TAG_FOOTERS = {(2, "nt"): None, (6, "nt"): None,
+               #: b (2026-10-14): the md56 proofs (all 56 Mouse-Dyad-10M sessions), same rule.
+               (3, "b"): None, (2, "b"): None, (6, "b"): None,
+               #: b again (2026-10-15 evening): the corrected v1.0.5 set (run_BUILD_B.sh), all of 2-6.
+               (4, "b"): None, (5, "b"): None,
+               #: c (2026-10-15): the complete corrected v1.0.5 set (run_FINALBUILD.sh), no footer.
+               (3, "c"): None, (2, "c"): None, (4, "c"): None, (5, "c"): None, (6, "c"): None,
+               #: x7 (2026-10-20): the single-input final set (LUC3D JS plan), published, no footer.
+               (3, "x7"): None, (2, "x7"): None, (4, "x7"): None, (5, "x7"): None, (6, "x7"): None, (7, "x7"): None,
+               #: b again (2026-10-20, run_B_numpyfree.sh): x7's inputs plus renders from LUC3D
+               #: v1.0.5 output, no NumPy triangulation anywhere (Figs 1, 2, 3, 5).
+               (1, "b"): None}
+
+
+#: Deposit sets the MAIN figures are built from (2026-10-15, b series promoted). A base build
+#: (no FIG_TAG) from one of these is the published figure, so it gets no variant footer.
+PUBLISHED_VARIANTS = {"md56", "v105", "final"}
 
 
 def layout(fig_no: int):
@@ -500,7 +524,7 @@ def assemble(fig_no: int) -> Path | None:
         if TAG_FOOTERS[(fig_no, TAG)] is not None:
             foot.append(f"Variant fig{fig_no}{TAG}: "
                         + TAG_FOOTERS[(fig_no, TAG)].format(v=VARIANT))
-    elif TAG or VARIANT:
+    elif (TAG or VARIANT) and not (not TAG and VARIANT in PUBLISHED_VARIANTS):
         note = "proofread per-camera 2D labels in place of the detector"
         if "notail" in VARIANT:
             note += ", tail nodes (TailTip, Tail_0-2) excluded"
@@ -580,10 +604,16 @@ def assemble(fig_no: int) -> Path | None:
 
 
 def main(argv):
-    figs = [int(a) for a in argv if a.isdigit()] or sorted(LAYOUTS)
+    # Figs 1, 2, 3 and 6 are placed by hand in composites.py (2026-10-29); their
+    # LAYOUTS entries stay for stale() and make_docs, but no longer build the figure.
+    import composites
+    figs = [int(a) for a in argv if a.isdigit()] or sorted(set(LAYOUTS) | set(composites.BUILDERS))
     for n in figs:
         print(f"fig{n}:")
-        assemble(n)
+        if n in composites.BUILDERS and not TAG:
+            composites.BUILDERS[n]()
+        else:
+            assemble(n)
 
 
 if __name__ == "__main__":
