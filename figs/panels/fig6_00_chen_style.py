@@ -42,7 +42,7 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from src.style import mm, save, use  # noqa: E402
-from fig3_10_hyp_illustration import content_crop  # noqa: E402
+from fig2_10_hyp_illustration import content_crop  # noqa: E402
 
 SRC = (Path(__file__).resolve().parent.parent / "figures" / "drafts" / "figs"
        / "lucid_chen2020_style.png")

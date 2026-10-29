@@ -34,7 +34,7 @@ starts at 6000 and the app exports that session's frame 20), so this render, Fig
 6a's 4-animal cage tile and Fig 6a's six camera views are all one instant. The
 colours are the renders' own tab10 in H5 TRACK ORDER, and the APP EXPORT was
 recoloured to match them rather than the reverse -- see
-blender-images/enrichment_scene.py TRACK_TO_IDENTITY and figs/fig5_app.mjs
+blender-images/enrichment_scene.py TRACK_TO_IDENTITY and figs/fig4_app.mjs
 PALETTE. Change the frame there, not here. Regenerate with (from
 figs/blender-images/):
 
@@ -72,7 +72,7 @@ the same Blender scene code (blender-images/bmimica_scene.py imports cage_scene.
 materials, lights, ortho camera, camera bodies, support rods, ball-and-stick
 animals) on Mouse-Dyad-10M session 20250827_152238. The five camera bodies are the REAL
 5-camera calibration, brought into the floor-aligned 3D frame by the alignment
-fig4_views.py already fitted and deposited (98.3 % inliers, 1.32 mm residual);
+fig5_views.py already fitted and deposited (98.3 % inliers, 1.32 mm residual);
 the two animals are that session's tracked 3D at one frame -- since 2026-08-17 a
 MUTUAL UPRIGHT DISPLAY, both animals rearing with their noses converging, chosen
 by fig1_bmimica_scene.py's stated rule (Eric: "a frame where it is more clear
@@ -108,7 +108,7 @@ import matplotlib.image as mpimg
 import matplotlib.pyplot as plt
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from src.style import INK, SPAN, mm, save, use  # noqa: E402
+from src.style import INK, SPAN, mm, save, tagged_render, use  # noqa: E402
 
 RENDERS = Path(__file__).resolve().parent.parent / "blender-images" / "renders"
 
@@ -125,7 +125,7 @@ RENDERS = Path(__file__).resolve().parent.parent / "blender-images" / "renders"
 #: changing either crop.
 TILES = [
     ("SLAP-2M", RENDERS / "fig1_renders" / "slap2m-4mice_f06020.png", (154, 0, 1126, 960)),
-    ("Mouse-Dyad-10M", RENDERS / "fig1_renders" / "mouse-dyad_f55701.png", (154, 0, 1126, 960)),
+    ("Mouse-Dyad-10M", tagged_render(RENDERS / "fig1_renders" / "mouse-dyad_f55701.png"), (154, 0, 1126, 960)),
 ]
 
 #: px of backdrop kept around the measured content box, and the mask thresholds.
@@ -244,7 +244,7 @@ def main():
         p = ax.get_position()
         fig.text((p.x0 + p.x1) / 2, (y / 72.0) / mm(h), label, color=INK,
                  fontsize=LABEL_PT, fontweight="bold", ha="center", va="baseline")
-    save(fig, 1, "d", "render")
+    save(fig, 1, "b", "render")
 
 
 if __name__ == "__main__":

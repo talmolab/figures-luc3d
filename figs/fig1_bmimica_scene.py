@@ -47,9 +47,9 @@ lives in the P-frame (`*points3d_translated_rotated_metric.h5`: metres, floor-
 aligned, z = height) and the calibration lives in its own frame (millimetres, origin
 at camera 0). To draw the cameras around the animals both have to be in ONE frame, so
 this reuses the recipe Fig 2, Fig 4 and Fig 5 already use -- triangulate the raw
-per-camera 2D with the calibration, then RANSAC-Procrustes the P-frame points onto
+per-camera 2D with the calibration (LUC3D v1.0.5's DLT, via figs/lucid_geom.mjs), then RANSAC-Procrustes the P-frame points onto
 that cloud -- and then INVERTS it to carry the camera centres and axes into the
-P-frame, exactly as `fig4_views.py` does. A second, differently-wrong alignment would
+P-frame, exactly as `fig5_views.py` does. A second, differently-wrong alignment would
 put Fig 1's cameras somewhere Fig 5's are not. The fitted scale, inlier fraction and
 residual are deposited so the alignment is checkable rather than hidden.
 
@@ -61,7 +61,7 @@ possible pair of skeletons and the least legible possible BEHAVIOUR, two horizon
 smears on the floor of the box. Rearing is the one configuration that reads as an
 action at 50 mm on the page, it is the behaviour Fig 5 is about, and it is what makes
 the box's height mean something. So the rule is Fig 5's own event definition
-(`fig4_upright.py`: neck above REAR_FRAC of the animal's own body length, tail bases
+(`fig5_upright.py`: neck above REAR_FRAC of the animal's own body length, tail bases
 within NEAR_BL of each other) plus two constraints -- every keypoint of both animals
 inside IN_BOX_FRAC of the fitted footprint, since a keypoint outside it would be drawn
 poking through the wall of the box, and tail bases at least MIN_SEP_BL apart so the
@@ -85,7 +85,7 @@ session Fig 5a's own upright-display render comes from (`out/fig5_views.json`), 
 Fig 1d and Fig 5a now show the same behaviour in the same arena -- a DIFFERENT frame
 of it (56,806 here against 93,021 there), so nothing is printed twice.
 
-Needs the bench env for cv2/toml/scipy (as `fig4_views.py` does):
+Needs the bench env for cv2/toml/scipy (as `fig5_views.py` does):
 
     /root/vast/eric/luc3d-bench/lp3d_env/bin/python figs/fig1_bmimica_scene.py
 
@@ -109,8 +109,12 @@ sys.path.insert(0, HERE)
 sys.path.insert(0, "/root/vast/eric/luc3d-bench/scripts/bartul")
 
 from build_gt_reproj import (SERIALS, load_calibration,             # noqa: E402
-                             load_sleap_2d, ransac_align, undistort)
-from fig2_measure import triangulate_batch                          # noqa: E402
+                             load_sleap_2d, ransac_align)
+# LUC3D-JS plan (2026-10-20): the alignment triangulation is LUC3D v1.0.5's own
+# JavaScript (lucid_geom: Camera.undistortPoint + triangulatePointDLT), exactly as
+# fig5_views.py does it, not fig2_measure.py's NumPy DLT.
+import lucid_geom                                                   # noqa: E402
+from lucid_v105 import lucid_pose                                   # noqa: E402
 
 BMIMICA = "/root/vast/eric/BMimica"
 #: a session of the Fig 3e / Fig 8 eight-session set with its own calibration (six of
@@ -127,7 +131,7 @@ NOSE, TTI, NECK = NODES.index("Nose"), NODES.index("TTI"), NODES.index("Neck")
 #: the arena-fit percentiles (see the docstring): robust to triangulation outliers,
 #: reproducible across sessions to ~5 mm.
 PCT_LO, PCT_HI = 0.1, 99.9
-#: frame-choice rule -- Fig 5's mutual-upright event definition (fig4_upright.py's
+#: frame-choice rule -- Fig 5's mutual-upright event definition (fig5_upright.py's
 #: REAR_FRAC / NEAR_BL, kept numerically identical so Fig 1 shows the same behaviour
 #: Fig 5 measures) plus the two legibility constraints.
 REAR_FRAC = 0.75         # neck above this fraction of the animal's own body length
@@ -263,13 +267,18 @@ def main():
     raw = {c: load_sleap_2d(glob.glob(os.path.join(sd, c, "*.analysis.h5"))[0])[:, :2]
            for c in serials}
     C = len(serials)
-    Ps = np.stack([cams_all[c]["P"] for c in serials], 0)
+    _, LUCID = lucid_pose()
+    # The arguments of LUC3D's Camera constructor, exactly as fig5_views.py builds them.
+    lcams = [dict(name=c, matrix=[[float(v) for v in row] for row in cams_all[c]["K"]],
+                  distortions=[float(v) for v in np.asarray(cams_all[c]["dist"]).ravel()[:5]],
+                  rvec=[float(v) for v in np.asarray(cams_all[c]["rvec"]).ravel()],
+                  tvec=[float(v) for v in np.asarray(cams_all[c]["t"]).ravel()],
+                  size=[1280, 1024]) for c in serials]
     Fm = min(F, min(v.shape[0] for v in raw.values()))
     samp = np.arange(0, Fm, max(1, Fm // 4000))
-    und = np.stack([undistort(raw[c][samp], cams_all[c]["K"], cams_all[c]["dist"])
-                    for c in serials], 0)
-    flat = und.reshape(C, -1, 2)
-    Xc = triangulate_batch(flat, Ps, ~np.isnan(flat).any(-1)).reshape(len(samp), A, -1, 3)
+    raw_s = np.stack([raw[c][samp] for c in serials], 0)       # (C, S, A, N, 2) raw px
+    Xc, _ = lucid_geom.triangulate(lcams, raw_s.reshape(C, -1, 2))
+    Xc = Xc.reshape(len(samp), A, -1, 3)
     Xp = X / 1000.0                                       # metres, as ransac_align wants
     both = (~np.isnan(Xc).any(-1)) & (~np.isnan(Xp[samp]).any(-1))
     (s_, R_, t_), err_mm, inl = ransac_align(Xp[samp][both], Xc[both], thresh=8.0)
@@ -293,7 +302,7 @@ def main():
             "name": c, "index": ci,
             "centre_mm": to_p(centre_cal)[0].tolist(),          # P-frame, mm
             # camera axes rotated into the P-frame -- same convention as
-            # fig4_views.py, so the two figures place these cameras identically
+            # fig5_views.py, so the two figures place these cameras identically
             "right": (R_.T @ R[0]).tolist(),
             "down": (R_.T @ R[1]).tolist(),
             "forward": (R_.T @ R[2]).tolist(),
@@ -305,6 +314,7 @@ def main():
               f"({cm['forward'][0]:+.3f}, {cm['forward'][1]:+.3f}, {cm['forward'][2]:+.3f})")
 
     out = {
+        "generated_by": "figs/fig1_bmimica_scene.py", "driver": "figs/lucid_geom.mjs", **LUCID,
         "corpus": "BMimica", "session": args.session, "calibration": calib[0],
         "points3d": fp, "fps": fps, "n_frames": int(F), "n_animals": int(A),
         "nodes": NODES, "frame": k,

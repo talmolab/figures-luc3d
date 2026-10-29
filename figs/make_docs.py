@@ -55,6 +55,8 @@ PRODUCERS = {
     "fig3_scale.json": "figs/fig3_scale_runtime.py",
     "fig4_anipose.json": "figs/fig2_solvers_anipose.py",
     "fig4_by_views.json": "figs/fig2_solvers_by_views.mjs",
+    "fig4_measure.json": "figs/fig2_solvers_measure.mjs",
+    "fig4_time.json": "figs/fig2_solvers_time_luc3d.mjs",
     "fig5_upright.json": "figs/fig5_upright.py",
     "fig5_rear_coupling_2animal.json":
         "figs/fig5_rear_coupling.py --slap-animals 2 "
@@ -62,6 +64,10 @@ PRODUCERS = {
     "fig5_rear_coupling.json": "figs/fig5_rear_coupling.py",
     "fig6_detections.json": "figs/fig4_detections.py",
     "fig6_difficulty.json": "figs/fig4_difficulty.py",
+    "fig6_measure.json": "figs/fig4_measure.py",
+    "fig6_pose.json": "figs/fig4_pose.py",
+    "fig6_session.json": "figs/fig4_session.py",
+    "fig6_app.json": "figs/fig4_app.mjs",
     "fig6-app.json": "figs/fig4_app.mjs",
     "fig7_sleap_scoped.json": "figs/fig6_sleap_scoped.py",
     "fig9_slap2m.json": "figs/fig4_slap2m.py",
@@ -162,7 +168,7 @@ def panel_script(letter: str, slug: str, fig_no: int) -> Path | None:
     """The script whose `save()` claims this (letter, slug).
 
     Assemble's own rule is the literal substring `"letter", "slug"`, which misses any
-    save() whose slug is an expression -- `save(fig, 3, "c", "quality_shipped" if
+    save() whose slug is an expression -- `save(fig, 2, "c", "quality_shipped" if
     as_shipped else "quality")` and Fig 7's `save(fig, 7, "b", slug("survival",
     variant, corrected))` both produced false MISSING rows here. The fallback regex
     accepts any save() call carrying this figure number and letter whose argument
@@ -206,7 +212,7 @@ def facts(src: Path) -> dict:
     # ending .csv inside each deposit() call (both branches of a conditional), then
     # keep only the names whose deposited file actually exists under data/figN/.
     # The existence filter is what drops retired variants -- fig2c's `--cdf` path
-    # still names `fig2c_reprojection_accuracy.csv`, a file no longer deposited,
+    # still names `fig3c_reprojection_accuracy.csv`, a file no longer deposited,
     # and listing it here pointed the provenance at a dead table.
     # Fig 7's corrected panels build the name as f"{slug('fig7b_survival', ...)}.csv"
     # -- a single-quoted stem inside the call -- so stems are candidates too, with
@@ -239,18 +245,26 @@ def render() -> str:
            ""]
     # Fig 6 pre-merges its a-d tracker panels into one block (fig6_sync); its
     # MAPPING is empty since the 2026-08-26 renumbering, and COMPOSITES is the
-    # letter table for the block, same role as fig3_sync.COMPOSITES.
+    # letter table for the block, same role as fig2_sync.COMPOSITES.
     import fig6_sync as F11
     sync_map = {ltr: (sf, sl, slug) for ltr, sf, sl, slug, _ in F11.MAPPING}
     # Fig 13 places three PRE-MERGED composites (assemble.py takes one PDF per
     # slot); no panel script saves those slugs, so each was a false MISSING row
     # that hid the scripts drawing its halves. fig13_sync.COMPOSITES is the
     # letter table, same role as fig11_sync.MAPPING above.
-    import fig3_sync as F13
+    import fig2_sync as F13
     placed = set()
+    import composites
     for fig_no in sorted(A.LAYOUTS):
         out.append(f"## Figure {fig_no}")
         out.append("")
+        if fig_no in composites.BUILDERS:
+            out.append(f"Placed by `figs/composites.py` (`fig{fig_no}()`); the rows "
+                       "below list its panels at their printed letters."
+                       + (" **a** (the 2D/3D anchor diagram) is the two PNG halves "
+                          "written by `figs/fig_chen2020_style.py --split`."
+                          if fig_no == 2 else ""))
+            out.append("")
         if fig_no == 6:
             out.append("Supplementary identity figure (the repo's fig11 before "
                        "the 2026-08-26 renumbering): the a-d tracker panels are "
@@ -270,7 +284,7 @@ def render() -> str:
                     src_fig, src_letter, _ = sync_map[letter]
                     via = (f" (fig{src_fig}{src_letter}, via "
                            f"`figs/fig6_sync.py`)")
-                comp = F13.COMPOSITES if fig_no == 3 else (
+                comp = F13.COMPOSITES if fig_no == 2 else (
                     getattr(F11, "COMPOSITES", {}) if fig_no == 6 else {})
                 if slug in comp:
                     for part_letter, part_slug in comp[slug]:

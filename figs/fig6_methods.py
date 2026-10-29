@@ -68,7 +68,7 @@ OUT_DIR = REPO / "figs" / "out"
 
 sys.path.insert(0, str(REPO / "figs"))
 import fig3_sweep as f3  # noqa: E402
-import fig8_param_sweeps as f8  # noqa: E402  (payload_digest, vslug)
+import fig6_param_sweeps as f8  # noqa: E402  (payload_digest, vslug; renamed from fig8_ in the renumbering)
 
 TMP_DIR = OUT_DIR / "tmp" / "fig8m"
 DEPOSIT = OUT_DIR / "fig8_methods.json"
@@ -91,8 +91,13 @@ REID = {"reidScale": 5, "reidWarm": 500, "reidEma": 0.01, "reidMaxDesc": 20}
 
 #: (name, method overrides, one-line rationale). `shipped` is the control.
 CONFIGS = [
-    ("shipped", {},
-     "control: pose/cross-view-tracker.js as it ships (Fig 8's default cell)"),
+    #: `shipped` is the PRE-#210 tracker (the "previous default" arm). Its 50 cached cells
+    #: (2026-08-12/13) got distanceThreshold 50 from scripts/bench/hooks.mjs; #210 changed
+    #: that default to 25, so since 2026-10-14 (md56) the value is PINNED here and new
+    #: sessions cannot silently inherit the new default. Cached cells exist by file, so
+    #: this changes nothing already computed; md56 gates it on old sessions.
+    ("shipped", {"thresholds": {"distanceThreshold": 50}},
+     "control: the pre-#210 tracker (distanceThreshold 50, no eviction)"),
     ("sync", {"sync": True},
      "M1: score every view against the frame-start 3D and re-triangulate once at "
      "frame end, so one ambiguous view cannot drag the other four with it"),
@@ -310,6 +315,12 @@ ROUND7 = [
     ("sync_stale30_dist25", {"method": {"sync": True, "stale": 30},
                              "thresholds": {"distanceThreshold": 25}},
      "30-frame horizon — one second at 30 fps"),
+    ("sync_stale40_dist25", {"method": {"sync": True, "stale": 40},
+                             "thresholds": {"distanceThreshold": 25}},
+     "40-frame horizon (2026-10-16, b3: the curve recovers toward stale 0 by 30; go past it)"),
+    ("sync_stale50_dist25", {"method": {"sync": True, "stale": 50},
+                             "thresholds": {"distanceThreshold": 25}},
+     "50-frame horizon (2026-10-16, b3)"),
     ("sync_stale100_dist25", {"method": {"sync": True, "stale": 100},
                               "thresholds": {"distanceThreshold": 25}},
      "100-frame horizon: only the extreme tail"),
@@ -373,8 +384,68 @@ def _as_params(ov):
     return {"method": ov, "thresholds": {}}
 
 
+#: md56 (2026-10-14): configs for the FIG8M_LUCID_ROOT mode only. origin/main's real tracker
+#: takes `stale` as a threshold (0 = no eviction) and always associates frame-synchronously,
+#: so "re-tuned without eviction" there is stale 0 WITH sync -- not the fork's
+#: dist25_corr36, which had neither.
+MAIN_ONLY = [
+    ("stale0_dist25_corr36", {"thresholds": {"stale": 0, "distanceThreshold": 25, "corr3dWeight": 36}},
+     "main: the best re-tune without eviction (stale 0, corr3dWeight 36), sync always on"),
+    ("stale0_dist25", {"thresholds": {"stale": 0, "distanceThreshold": 25}},
+     "main: eviction off (stale 0), otherwise the shipped settings, sync always on"),
+]
+
+
 def config_map():
-    return {name: (ov, why) for (name, ov, why) in CONFIGS + ROUND3 + ROUND4 + ROUND5 + ROUND6 + ROUND7 + ROUND8}
+    return {name: (ov, why) for (name, ov, why) in CONFIGS + ROUND3 + ROUND4 + ROUND5 + ROUND6 + ROUND7 + ROUND8 + MAIN_ONLY}
+
+
+#: FIG8M_LUCID_ROOT=<checkout> (md56, 2026-10-14): track with THAT checkout's REAL tracker
+#: (figs/fig3-bench/fig3_bench.mjs + LUCID_ROOT: its pose/ and its scripts/bench/hooks.mjs
+#: defaults) instead of fig6_bench.mjs + xv_experimental.js. Only `sync` (must be true; it is
+#: unconditional on main) and `stale` (moved into thresholds) are accepted from a method block.
+#: The cache moves to tmp/fig8m50_<commit8>/, each job gets its OWN params file (no shared-file
+#: race), and `shipped` -- the pre-#210 tracker, which no current checkout contains -- is
+#: symlinked from the fork's tmp/fig8m50/shipped/. Unset = unchanged.
+MAIN_ROOT = os.environ.get("FIG8M_LUCID_ROOT", "")
+#: MD_CFG=b3 (2026-10-15, Eric): Mouse-Dyad on the body>=5 pool (det_h5_bvis5/) with the tail
+#: INCLUDED in tracking (--no-exclude-tail), as mdb_experiment.py b3. Scoring stays tail-free.
+#: Needs FIG8M_LUCID_ROOT and FIG8M_SUFFIX=b3; cache tmp/fig8m50_<commit>_b3/, and no `shipped`
+#: cell (that one is the pre-#210 fork on det_h5). Unset = unchanged.
+MD_CFG = os.environ.get("MD_CFG", "")
+POOL, TAIL_ARGS = f3.DET, []
+if MD_CFG:
+    if MD_CFG != "b3":
+        raise SystemExit(f"MD_CFG={MD_CFG!r}: only b3 is defined")
+    if not MAIN_ROOT or not os.environ.get("FIG8M_SUFFIX", "").startswith("b3"):
+        raise SystemExit("MD_CFG=b3 needs FIG8M_LUCID_ROOT and a FIG8M_SUFFIX starting with b3")
+    POOL, TAIL_ARGS = f3.DET.parent / "det_h5_bvis5", ["--no-exclude-tail"]
+MAIN_COMMIT = None
+if MAIN_ROOT:
+    MAIN_ROOT = str(Path(MAIN_ROOT).resolve())
+    MAIN_COMMIT = subprocess.run(["git", "-C", MAIN_ROOT, "rev-parse", "HEAD"],
+                                 capture_output=True, text=True, check=True).stdout.strip()
+    if subprocess.run(["git", "-C", MAIN_ROOT, "status", "--porcelain", "--untracked-files=no"],
+                      capture_output=True, text=True, check=True).stdout.strip():
+        raise SystemExit(f"FIG8M_LUCID_ROOT {MAIN_ROOT} has local changes")
+
+
+def _main_params(cell, ov):
+    """A config's overrides as fig3_bench.mjs params for the real tracker on MAIN_ROOT."""
+    p = _as_params(ov)
+    th = dict(p["thresholds"])
+    for k, v in p["method"].items():
+        if k == "sync" and v is True:
+            continue
+        if k == "stale":
+            th["stale"] = v
+            continue
+        raise SystemExit(f"[fig8m] {cell}: method key {k}={v!r} has no equivalent in the "
+                         f"real tracker on {MAIN_ROOT}")
+    if not p["method"].get("sync") and cell not in dict((n, 0) for n, _o, _w in MAIN_ONLY):
+        raise SystemExit(f"[fig8m] {cell}: no sync in the fork config, but sync is always on "
+                         f"in the real tracker -- not the same method; add a MAIN_ONLY config")
+    return {"thresholds": th}
 
 
 
@@ -450,12 +521,16 @@ def run_one(cell, overrides, session):
     calib = f3.calib_for(session)
     if not calib:
         return (session, "failed", f"no calibration.toml for {session}")
-    det_dir = f3.DET / session
+    det_dir = POOL / session
     if not det_dir.exists():
         return (session, "failed", f"no det_h5 dir {det_dir}")
 
-    params_path = cell_dir / "params.json"
-    params_path.write_text(json.dumps(_as_params(overrides)))
+    if MAIN_ROOT:
+        params_path = cell_dir / f"params_{session}.json"     # per job: no shared-file race
+        params_path.write_text(json.dumps(_main_params(cell, overrides)))
+    else:
+        params_path = cell_dir / "params.json"
+        params_path.write_text(json.dumps(_as_params(overrides)))
 
     cmd = [
         "node", str(DRIVER),
@@ -465,7 +540,7 @@ def run_one(cell, overrides, session):
         "--out", str(out_path),
         "--cameras", ",".join(f3.CAMERAS),
         "--params", str(params_path),
-    ]
+    ] + TAIL_ARGS
     try:
         r = subprocess.run(cmd, capture_output=True, text=True, timeout=7200)
         if r.returncode != 0 or not out_path.exists():
@@ -485,7 +560,7 @@ def score_one(cell, session):
         return (session, "failed", "no result JSON (driver run failed)", None)
     import fig3_score as fs  # noqa: E402
     try:
-        s = fs.score_session(str(result_path), str(f3.DET / session),
+        s = fs.score_session(str(result_path), str(POOL / session),
                              str(f3.GT / session), f3.CAMERAS, f3.NUM_ANIMALS,
                              max_frames=None)
         return (session, "ok", s, f8.payload_digest(result_path))
@@ -579,7 +654,7 @@ def use_all_bmimica_sessions():
     """
     global TMP_DIR, DEPOSIT, SHIPPED_SRC
     from glob import glob as _glob
-    det, gt = f3.DET, f3.GT
+    det, gt = POOL, f3.GT
     sessions = []
     for s in sorted(os.listdir(det)):
         if not (det / s).is_dir() or not (gt / s).is_dir():
@@ -591,7 +666,25 @@ def use_all_bmimica_sessions():
             sessions.append(s)
     f3.SESSIONS = sessions
     TMP_DIR = OUT_DIR / "tmp" / "fig8m50"
-    DEPOSIT = OUT_DIR / "fig8_methods_50.json"
+    if MAIN_ROOT:
+        global DRIVER
+        fork_tmp = TMP_DIR
+        TMP_DIR = OUT_DIR / "tmp" / f"fig8m50_{MAIN_COMMIT[:8]}{'_b3' if MD_CFG else ''}"
+        DRIVER = REPO / "figs" / "fig3-bench" / "fig3_bench.mjs"
+        os.environ["LUCID_ROOT"] = MAIN_ROOT
+        if not MD_CFG:                           # b3: no paper-pool `shipped` cell linked in
+            (TMP_DIR / "shipped").mkdir(parents=True, exist_ok=True)
+        for s in (sessions if not MD_CFG else []):
+            src, dst = fork_tmp / "shipped" / f"{s}.json", TMP_DIR / "shipped" / f"{s}.json"
+            if src.exists() and not (dst.exists() or dst.is_symlink()):
+                dst.symlink_to(src)
+    # FIG8M_SUFFIX=bvis5nt (2026-10-12): tail-free re-scoring (SCORE_NOTAIL=1) of the same
+    # cached tracker outputs into a tagged deposit, so no tail-counted prior cell is merged.
+    _sfx = os.environ.get("FIG8M_SUFFIX", "")
+    if os.environ.get("SCORE_NOTAIL") == "1" and not _sfx:
+        raise SystemExit("SCORE_NOTAIL=1 needs FIG8M_SUFFIX, or it would merge into the "
+                         "tail-counted fig8_methods_50.json")
+    DEPOSIT = OUT_DIR / (f"fig8_methods_50_{_sfx}.json" if _sfx else "fig8_methods_50.json")
     # The 8-session `shipped` cell cannot be symlinked in for 50 sessions; track it.
     SHIPPED_SRC = OUT_DIR / "tmp" / "_nonexistent_so_shipped_is_tracked"
     print(f"[fig8m] ALL-SESSIONS mode: {len(sessions)} BMimica sessions, cache "
@@ -814,7 +907,7 @@ def main(names):
                   "measured on Fig 8's measurement. Not placed in any manuscript "
                   "figure.",
         "dataset": "BMimica",
-        "detection_pool": str(f3.DET),
+        "detection_pool": str(POOL), "tail_in_tracking": bool(TAIL_ARGS),
         "sessions": f3.SESSIONS,
         "cameras": f3.CAMERAS,
         "num_animals": f3.NUM_ANIMALS,
@@ -851,6 +944,18 @@ def main(names):
         ],
         "cells": ordered,
     }
+    if MAIN_ROOT:
+        # X6 (2026-10-20): under FIG8M_LUCID_ROOT the cells run that checkout's REAL tracker
+        # through fig3_bench.mjs, so the fork caveats above (the 8-session `shipped`
+        # symlink, the empty-method-block proof, the xv_experimental.js loader hook) do not
+        # describe this deposit. Record the checkout instead.
+        out["lucid_root"], out["lucid_commit"] = MAIN_ROOT, MAIN_COMMIT
+        out["experimental_tracker"] = None
+        out["caveats"][2:5] = [
+            f"Every cell runs the unmodified tracker of {MAIN_ROOT} at commit "
+            f"{MAIN_COMMIT} through figs/fig3-bench/fig3_bench.mjs, on all "
+            f"{len(f3.SESSIONS)} sessions. There is no `shipped` (pre-#210) cell and no "
+            "experimental fork in this deposit."]
     path.write_text(json.dumps(out, indent=2))
     print(f"[fig8m] wrote {path} ({time.time()-t0:.0f}s total)", flush=True)
 

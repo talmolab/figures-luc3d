@@ -59,7 +59,7 @@ def main(argv):
     if nums is None or 6 in nums:
         subprocess.run([sys.executable, str(PANELS / "fig6_05_within_vs_cross.py"),
                         "--variant"], check=False)
-    for fig, sync in ((3, "fig3_sync.py"), (6, "fig6_sync.py")):
+    for fig, sync in ((2, "fig2_sync.py"), (6, "fig6_sync.py")):
         if nums is None or fig in nums:
             subprocess.run([sys.executable, str(FIGS / sync)], check=False)
 
