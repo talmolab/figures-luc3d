@@ -48,11 +48,28 @@ scoring. `figs/PANEL-SOURCES.md` lists the commands that produced each deposit.
 
 ```bash
 cd figs
-python make_figures.py            # every figure
-python make_figures.py 3 7        # only these
-python make_figures.py --panels   # panels only, no assembly
-python lint_text.py 7             # check one figure for clipped or overlapping text
+FIG_VARIANT=x7 python make_figures.py            # every figure, from the published deposit set
+FIG_VARIANT=x7 python make_figures.py 3 7        # only these
+FIG_VARIANT=x7 python make_figures.py --panels   # panels only, no assembly
+python lint_text.py 7                            # check one figure for clipped or overlapping text
 ```
+
+**Set `FIG_VARIANT=x7`.** The published figures were built from the `x7` deposit set
+(2026-10-20, the single-input LUC3D v1.0.5 set). With `FIG_VARIANT=<v>`,
+`src/data_loader.load` reads `figs/out/<stem>_<v>.json` in place of
+`figs/out/<stem>.json` wherever the variant file exists. Without it, the panels read
+older base deposits: Fig 3b and 3d refuse to build, and Fig 3g and Supplementary
+Figure 4 come out with superseded numbers. `figs/out/` also holds the `_v105` and `_b`
+deposit sets and `out/b_app/` (captures shot on LUC3D v1.0.5, read via
+`FIG_APP_OUT=out/b_app`). These were copied on 2026-11-12 from the working tree the
+figures were built in.
+
+Known gap (checked 2026-11-12, clean build, 61 panels, 0 failures): an `x7` build
+reproduces Fig 4 and Supplementary Figure 2 pixel-identically. Fig 3 matches except
+its panel-a 3D render (0.26% of pixels), and Supplementary Figure 4 matches except the
+placement of panel e. Figs 1 and 5 differ by under 0.3% of pixels. Fig 2 comes out
+1 px shorter. The 3D renders, and possibly Fig 2, were built with per-figure settings
+(`run_B_numpyfree.sh`, `run_FINALBUILD.sh`) that are not yet in this repo.
 
 Each panel script runs in its own subprocess, because they set rcParams globally
 through `src/style.py` and a panel that leaves state behind must not be able to

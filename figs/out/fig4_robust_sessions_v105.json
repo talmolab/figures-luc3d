@@ -1,0 +1,528 @@
+{
+ "generated_by": "figs/fig2_solvers_robust_sessions.mjs",
+ "claim": "Per-session mean reprojection error in the kept views: the all-view DLT solution vs the same solve with the worst-fitting view dropped. Session capture of the same computation fig4.json pools into disagreement strata. refined_*: the same operation with the refined solver throughout (worst view chosen by the refined residual), added 2026-09-29.",
+ "gate": {
+  "passed": true,
+  "clean": {
+   "n_diff": 0,
+   "before_mean_diff": 8.193445921733655e-14,
+   "after_mean_diff": 2.886579864025407e-15
+  },
+  "mid": {
+   "n_diff": 0,
+   "before_mean_diff": 4.1744385725905886e-14,
+   "after_mean_diff": 5.149214388211476e-13
+  },
+  "outlier": {
+   "n_diff": 0,
+   "before_mean_diff": 3.019806626980426e-14,
+   "after_mean_diff": 1.2612133559741778e-13
+  }
+ },
+ "per_session": [
+  {
+   "session": "20250827_141755",
+   "n": 353453,
+   "all_views_px": 1.5819263875814111,
+   "worst_dropped_px": 1.3137008463502386,
+   "n_refined": 353453,
+   "refined_all_views_px": 1.2795670798873575,
+   "refined_worst_dropped_px": 1.1906076125018372
+  },
+  {
+   "session": "20250827_145223",
+   "n": 350107,
+   "all_views_px": 1.519805976720941,
+   "worst_dropped_px": 1.2675128090956904,
+   "n_refined": 350107,
+   "refined_all_views_px": 1.22777748871898,
+   "refined_worst_dropped_px": 1.145982710355892
+  },
+  {
+   "session": "20250827_152238",
+   "n": 353817,
+   "all_views_px": 1.5629997056248657,
+   "worst_dropped_px": 1.3080082084443363,
+   "n_refined": 353817,
+   "refined_all_views_px": 1.2692531836886343,
+   "refined_worst_dropped_px": 1.1845905980392692
+  },
+  {
+   "session": "20250827_155244",
+   "n": 347789,
+   "all_views_px": 1.8785129239517553,
+   "worst_dropped_px": 1.5890490730857867,
+   "n_refined": 347789,
+   "refined_all_views_px": 1.5338583406178208,
+   "refined_worst_dropped_px": 1.436792284353698
+  },
+  {
+   "session": "20250827_162428",
+   "n": 349693,
+   "all_views_px": 1.7866785997745558,
+   "worst_dropped_px": 1.4950236446990037,
+   "n_refined": 349693,
+   "refined_all_views_px": 1.4450404324240034,
+   "refined_worst_dropped_px": 1.3491669430170243
+  },
+  {
+   "session": "20250827_165542",
+   "n": 354659,
+   "all_views_px": 1.8898548709732401,
+   "worst_dropped_px": 1.5982159767411661,
+   "n_refined": 354659,
+   "refined_all_views_px": 1.5344784771653879,
+   "refined_worst_dropped_px": 1.439668040289843
+  },
+  {
+   "session": "20250827_172440",
+   "n": 347560,
+   "all_views_px": 1.6650477857509456,
+   "worst_dropped_px": 1.3959170379921895,
+   "n_refined": 347560,
+   "refined_all_views_px": 1.3354642495005495,
+   "refined_worst_dropped_px": 1.2529263539058317
+  },
+  {
+   "session": "20250829_124351",
+   "n": 357851,
+   "all_views_px": 1.638458216497231,
+   "worst_dropped_px": 1.3529154060573008,
+   "n_refined": 357851,
+   "refined_all_views_px": 1.3013560852494979,
+   "refined_worst_dropped_px": 1.2175472075899805
+  },
+  {
+   "session": "20250829_134647",
+   "n": 333956,
+   "all_views_px": 1.9055051496420297,
+   "worst_dropped_px": 1.562518653292452,
+   "n_refined": 333956,
+   "refined_all_views_px": 1.5063214468729473,
+   "refined_worst_dropped_px": 1.4060084921146514
+  },
+  {
+   "session": "20250829_141847",
+   "n": 336580,
+   "all_views_px": 1.8693326750741337,
+   "worst_dropped_px": 1.5259913567771979,
+   "n_refined": 336580,
+   "refined_all_views_px": 1.47381725515964,
+   "refined_worst_dropped_px": 1.3757982554313497
+  },
+  {
+   "session": "20250829_144840",
+   "n": 350536,
+   "all_views_px": 1.7168928280458018,
+   "worst_dropped_px": 1.4187015803333847,
+   "n_refined": 350536,
+   "refined_all_views_px": 1.367354200822007,
+   "refined_worst_dropped_px": 1.2785567422327853
+  },
+  {
+   "session": "20250829_151905",
+   "n": 351374,
+   "all_views_px": 1.7791565720100682,
+   "worst_dropped_px": 1.470074518551434,
+   "n_refined": 351374,
+   "refined_all_views_px": 1.4151318650467184,
+   "refined_worst_dropped_px": 1.3229653059699757
+  },
+  {
+   "session": "20250829_155407",
+   "n": 353088,
+   "all_views_px": 1.6196981327650692,
+   "worst_dropped_px": 1.337840514184713,
+   "n_refined": 353088,
+   "refined_all_views_px": 1.286052436879621,
+   "refined_worst_dropped_px": 1.2042513661594805
+  },
+  {
+   "session": "20250829_162253",
+   "n": 343796,
+   "all_views_px": 1.7169228836794572,
+   "worst_dropped_px": 1.4178053785392235,
+   "n_refined": 343796,
+   "refined_all_views_px": 1.3672504917656554,
+   "refined_worst_dropped_px": 1.2779707188152554
+  },
+  {
+   "session": "20250829_164919",
+   "n": 356894,
+   "all_views_px": 1.5996784745010948,
+   "worst_dropped_px": 1.3332031586447768,
+   "n_refined": 356894,
+   "refined_all_views_px": 1.287119562702865,
+   "refined_worst_dropped_px": 1.2031174515055836
+  },
+  {
+   "session": "20250829_171625",
+   "n": 340217,
+   "all_views_px": 1.8130337005044912,
+   "worst_dropped_px": 1.5141631695522035,
+   "n_refined": 340217,
+   "refined_all_views_px": 1.462300986143409,
+   "refined_worst_dropped_px": 1.3675735276036027
+  },
+  {
+   "session": "20250903_141046",
+   "n": 334406,
+   "all_views_px": 2.365675008314599,
+   "worst_dropped_px": 1.9853624051349863,
+   "n_refined": 334406,
+   "refined_all_views_px": 1.8642209152174587,
+   "refined_worst_dropped_px": 1.759006995178079
+  },
+  {
+   "session": "20250903_143938",
+   "n": 355542,
+   "all_views_px": 2.3694014665032945,
+   "worst_dropped_px": 1.9433737851795163,
+   "n_refined": 355542,
+   "refined_all_views_px": 1.8031893739374767,
+   "refined_worst_dropped_px": 1.710118747816913
+  },
+  {
+   "session": "20250903_150657",
+   "n": 345028,
+   "all_views_px": 2.2197719631653463,
+   "worst_dropped_px": 1.882769510352062,
+   "n_refined": 345028,
+   "refined_all_views_px": 1.7643675310877442,
+   "refined_worst_dropped_px": 1.667835337669805
+  },
+  {
+   "session": "20250903_153433",
+   "n": 346185,
+   "all_views_px": 2.217189470285654,
+   "worst_dropped_px": 1.8160807114610364,
+   "n_refined": 346185,
+   "refined_all_views_px": 1.7009529885361718,
+   "refined_worst_dropped_px": 1.6077470699202583
+  },
+  {
+   "session": "20250904_131913",
+   "n": 338143,
+   "all_views_px": 2.148906691802169,
+   "worst_dropped_px": 1.817484702348508,
+   "n_refined": 338143,
+   "refined_all_views_px": 1.715458738406598,
+   "refined_worst_dropped_px": 1.6180729856881326
+  },
+  {
+   "session": "20250904_140306",
+   "n": 64792,
+   "all_views_px": 2.406766160136346,
+   "worst_dropped_px": 1.9905214038490016,
+   "n_refined": 64792,
+   "refined_all_views_px": 1.8589023860397855,
+   "refined_worst_dropped_px": 1.7602889810609674
+  },
+  {
+   "session": "20250904_143552",
+   "n": 352175,
+   "all_views_px": 2.1162804424464032,
+   "worst_dropped_px": 1.7730491140062208,
+   "n_refined": 352175,
+   "refined_all_views_px": 1.670199529640926,
+   "refined_worst_dropped_px": 1.576785626141234
+  },
+  {
+   "session": "20250904_150414",
+   "n": 350829,
+   "all_views_px": 2.175362733358027,
+   "worst_dropped_px": 1.8055095742942384,
+   "n_refined": 350829,
+   "refined_all_views_px": 1.6913338665233173,
+   "refined_worst_dropped_px": 1.5970560195608978
+  },
+  {
+   "session": "20250904_153332",
+   "n": 355867,
+   "all_views_px": 2.1369358575274933,
+   "worst_dropped_px": 1.7704921182630755,
+   "n_refined": 355867,
+   "refined_all_views_px": 1.6457675740870752,
+   "refined_worst_dropped_px": 1.556906544232011
+  },
+  {
+   "session": "20250904_160014",
+   "n": 351583,
+   "all_views_px": 2.201640769282069,
+   "worst_dropped_px": 1.825722824015147,
+   "n_refined": 351583,
+   "refined_all_views_px": 1.718770169959869,
+   "refined_worst_dropped_px": 1.619078440425165
+  },
+  {
+   "session": "20250904_165017",
+   "n": 354818,
+   "all_views_px": 2.1737411215961417,
+   "worst_dropped_px": 1.7904446540207413,
+   "n_refined": 354818,
+   "refined_all_views_px": 1.6778997838483292,
+   "refined_worst_dropped_px": 1.5835816536194387
+  },
+  {
+   "session": "20250904_174232",
+   "n": 351670,
+   "all_views_px": 2.23131578113969,
+   "worst_dropped_px": 1.9027142575086686,
+   "n_refined": 351670,
+   "refined_all_views_px": 1.7853398690712932,
+   "refined_worst_dropped_px": 1.687737248679471
+  },
+  {
+   "session": "20250904_181215",
+   "n": 348499,
+   "all_views_px": 2.3381460801496137,
+   "worst_dropped_px": 1.9467021632269432,
+   "n_refined": 348499,
+   "refined_all_views_px": 1.8179050753574484,
+   "refined_worst_dropped_px": 1.718307431004966
+  },
+  {
+   "session": "20250904_183921",
+   "n": 313070,
+   "all_views_px": 2.188102740122248,
+   "worst_dropped_px": 1.7924490935182988,
+   "n_refined": 313070,
+   "refined_all_views_px": 1.6772210249067174,
+   "refined_worst_dropped_px": 1.5853459938385803
+  },
+  {
+   "session": "20250905_165151",
+   "n": 350009,
+   "all_views_px": 2.0620687602910888,
+   "worst_dropped_px": 1.7133541694686925,
+   "n_refined": 350009,
+   "refined_all_views_px": 1.6116786039180602,
+   "refined_worst_dropped_px": 1.5202019215615052
+  },
+  {
+   "session": "20250905_171829",
+   "n": 355247,
+   "all_views_px": 2.079777414400393,
+   "worst_dropped_px": 1.7568363677570045,
+   "n_refined": 355247,
+   "refined_all_views_px": 1.652984841253437,
+   "refined_worst_dropped_px": 1.5583758988793388
+  },
+  {
+   "session": "20250905_174513",
+   "n": 342949,
+   "all_views_px": 2.06399074521892,
+   "worst_dropped_px": 1.7291857818613388,
+   "n_refined": 342949,
+   "refined_all_views_px": 1.6334927417582852,
+   "refined_worst_dropped_px": 1.539921017841229
+  },
+  {
+   "session": "20250905_181402",
+   "n": 340022,
+   "all_views_px": 2.131342293878553,
+   "worst_dropped_px": 1.7704039539253378,
+   "n_refined": 340022,
+   "refined_all_views_px": 1.6779483184486623,
+   "refined_worst_dropped_px": 1.5777262675296415
+  },
+  {
+   "session": "20250905_191445",
+   "n": 349246,
+   "all_views_px": 2.14409650702056,
+   "worst_dropped_px": 1.7793642329258434,
+   "n_refined": 349246,
+   "refined_all_views_px": 1.6706663075257182,
+   "refined_worst_dropped_px": 1.577617803029882
+  },
+  {
+   "session": "20250905_194049",
+   "n": 344750,
+   "all_views_px": 2.175642467834813,
+   "worst_dropped_px": 1.8281263361550493,
+   "n_refined": 344750,
+   "refined_all_views_px": 1.7226478711403306,
+   "refined_worst_dropped_px": 1.6257294815311174
+  },
+  {
+   "session": "20250905_200953",
+   "n": 352837,
+   "all_views_px": 2.1699451495292013,
+   "worst_dropped_px": 1.7811344925811559,
+   "n_refined": 352837,
+   "refined_all_views_px": 1.6622984912415768,
+   "refined_worst_dropped_px": 1.5727913774203213
+  },
+  {
+   "session": "20250905_203607",
+   "n": 350365,
+   "all_views_px": 2.172577871906381,
+   "worst_dropped_px": 1.796127150053163,
+   "n_refined": 350365,
+   "refined_all_views_px": 1.69566473875884,
+   "refined_worst_dropped_px": 1.598107399165331
+  },
+  {
+   "session": "20250905_210254",
+   "n": 348141,
+   "all_views_px": 2.17061237438158,
+   "worst_dropped_px": 1.7734858991968407,
+   "n_refined": 348141,
+   "refined_all_views_px": 1.6590734329433312,
+   "refined_worst_dropped_px": 1.5674683494053983
+  },
+  {
+   "session": "20250905_213215",
+   "n": 347474,
+   "all_views_px": 2.1642050961099524,
+   "worst_dropped_px": 1.8142007471755472,
+   "n_refined": 347474,
+   "refined_all_views_px": 1.7059028846134048,
+   "refined_worst_dropped_px": 1.6113067903089255
+  },
+  {
+   "session": "20250907_143021",
+   "n": 334625,
+   "all_views_px": 2.2341079558195798,
+   "worst_dropped_px": 1.8464857297176784,
+   "n_refined": 334625,
+   "refined_all_views_px": 1.750714783633806,
+   "refined_worst_dropped_px": 1.6467544403856575
+  },
+  {
+   "session": "20250907_151901",
+   "n": 334383,
+   "all_views_px": 2.369116121867207,
+   "worst_dropped_px": 1.9973894333951612,
+   "n_refined": 334383,
+   "refined_all_views_px": 1.8810760468868626,
+   "refined_worst_dropped_px": 1.772124205811164
+  },
+  {
+   "session": "20250907_154801",
+   "n": 338427,
+   "all_views_px": 2.2539284564323077,
+   "worst_dropped_px": 1.8632098835833226,
+   "n_refined": 338427,
+   "refined_all_views_px": 1.7472416239524582,
+   "refined_worst_dropped_px": 1.6510285635506585
+  },
+  {
+   "session": "20250907_161657",
+   "n": 345373,
+   "all_views_px": 2.216543892068387,
+   "worst_dropped_px": 1.8622573257141752,
+   "n_refined": 345373,
+   "refined_all_views_px": 1.75193198603135,
+   "refined_worst_dropped_px": 1.6532579659359157
+  },
+  {
+   "session": "20250907_164826",
+   "n": 348435,
+   "all_views_px": 2.27635077056104,
+   "worst_dropped_px": 1.878308773076811,
+   "n_refined": 348435,
+   "refined_all_views_px": 1.7739183852549179,
+   "refined_worst_dropped_px": 1.6740117590441863
+  },
+  {
+   "session": "20250907_171538",
+   "n": 344953,
+   "all_views_px": 2.2240488889290173,
+   "worst_dropped_px": 1.8694675207919929,
+   "n_refined": 344953,
+   "refined_all_views_px": 1.759531033661669,
+   "refined_worst_dropped_px": 1.6595293751441051
+  },
+  {
+   "session": "20250907_174343",
+   "n": 317345,
+   "all_views_px": 2.365138437130483,
+   "worst_dropped_px": 1.9758106878772042,
+   "n_refined": 317345,
+   "refined_all_views_px": 1.8759610065280004,
+   "refined_worst_dropped_px": 1.7663962497435894
+  },
+  {
+   "session": "20250907_181225",
+   "n": 344740,
+   "all_views_px": 2.1766036164569647,
+   "worst_dropped_px": 1.8236185832172092,
+   "n_refined": 344740,
+   "refined_all_views_px": 1.7277843206911165,
+   "refined_worst_dropped_px": 1.6263585647058163
+  },
+  {
+   "session": "20250907_183823",
+   "n": 329979,
+   "all_views_px": 2.3526026450610975,
+   "worst_dropped_px": 1.9075078147667182,
+   "n_refined": 329979,
+   "refined_all_views_px": 1.807591835560897,
+   "refined_worst_dropped_px": 1.6970625555963113
+  },
+  {
+   "session": "20250907_190610",
+   "n": 350135,
+   "all_views_px": 2.172017268145634,
+   "worst_dropped_px": 1.836610430347159,
+   "n_refined": 350135,
+   "refined_all_views_px": 1.7418823232471004,
+   "refined_worst_dropped_px": 1.6405212565736527
+  },
+  {
+   "session": "20250908_152229",
+   "n": 352545,
+   "all_views_px": 1.9785977934505263,
+   "worst_dropped_px": 1.646688724694239,
+   "n_refined": 352545,
+   "refined_all_views_px": 1.562640845588823,
+   "refined_worst_dropped_px": 1.4697595283056986
+  },
+  {
+   "session": "20250908_154926",
+   "n": 341913,
+   "all_views_px": 2.16531593485277,
+   "worst_dropped_px": 1.812425841082589,
+   "n_refined": 341913,
+   "refined_all_views_px": 1.7177912856212985,
+   "refined_worst_dropped_px": 1.614525773761157
+  },
+  {
+   "session": "20250908_161812",
+   "n": 340491,
+   "all_views_px": 2.1561484357669993,
+   "worst_dropped_px": 1.803361753132942,
+   "n_refined": 340491,
+   "refined_all_views_px": 1.6952642927952242,
+   "refined_worst_dropped_px": 1.6000594908564687
+  },
+  {
+   "session": "20250908_164528",
+   "n": 349698,
+   "all_views_px": 2.085591778141264,
+   "worst_dropped_px": 1.7684380885954425,
+   "n_refined": 349698,
+   "refined_all_views_px": 1.6705705988445925,
+   "refined_worst_dropped_px": 1.5752366262653923
+  },
+  {
+   "session": "20250908_171240",
+   "n": 352369,
+   "all_views_px": 2.0637825814397996,
+   "worst_dropped_px": 1.7176634062219684,
+   "n_refined": 352369,
+   "refined_all_views_px": 1.6165362541267052,
+   "refined_worst_dropped_px": 1.5228204506197716
+  },
+  {
+   "session": "20250908_173928",
+   "n": 328705,
+   "all_views_px": 2.249473272173854,
+   "worst_dropped_px": 1.838416630324856,
+   "n_refined": 328705,
+   "refined_all_views_px": 1.7431856572959288,
+   "refined_worst_dropped_px": 1.638480440252392
+  }
+ ]
+}

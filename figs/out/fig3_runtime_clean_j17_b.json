@@ -1,0 +1,205 @@
+{
+ "generated_by": "figs/fig3f_timing_clean.py",
+ "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
+ "note": "Clean sitting (CONSISTENCY-PLAN T1): both arms on IDENTICAL frames per (configuration, session), one process at a time, interleaved, order flipped each round, 3 rounds, median over rounds; solve time only (exhaustive enumerationSeconds, greedy runCrossViewTracker); LUC3D 2dc001fe527c4dbaad17fa171da132cfdfe010e6; host 1-min load at call start median 6.2, max 20.2 (includes load from outside this container).",
+ "variant": "b3",
+ "seed": 20261019,
+ "k": {
+  "A2_C5_bmimica": 1000,
+  "A2_C6_slap2m": 1000,
+  "A3_C5_slap2m": 100,
+  "A4_C3_slap2m": 100
+ },
+ "measured": [
+  {
+   "key": "A2_C5_bmimica",
+   "animals": 2,
+   "cameras": 5,
+   "dataset": "BMimica",
+   "n_sessions": 56,
+   "frames_per_round": 56000,
+   "seconds_per_frame": 0.0002818571428571429,
+   "exhaustive_seconds_per_frame": 0.0039515178571428574,
+   "ratio": 14.01957678661936,
+   "hypotheses_per_frame": 32,
+   "exhaustive_seconds_per_hypothesis": 0.0001234849330357143,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 56000,
+     "greedy_spf": 0.0002924107142857143,
+     "exh_spf": 0.003944232142857143
+    },
+    {
+     "round": 1,
+     "frames": 56000,
+     "greedy_spf": 0.0002818571428571429,
+     "exh_spf": 0.0039515178571428574
+    },
+    {
+     "round": 2,
+     "frames": 56000,
+     "greedy_spf": 0.0002785535714285714,
+     "exh_spf": 0.003960214285714286
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A2_C6_slap2m",
+   "animals": 2,
+   "cameras": 6,
+   "dataset": "SLAP-2M",
+   "n_sessions": 35,
+   "frames_per_round": 33919,
+   "seconds_per_frame": 0.00028759692207907075,
+   "exhaustive_seconds_per_frame": 0.005369409475515198,
+   "ratio": 18.669912865197333,
+   "hypotheses_per_frame": 64,
+   "exhaustive_seconds_per_hypothesis": 8.389702305492497e-05,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 33919,
+     "greedy_spf": 0.0002837937439193372,
+     "exh_spf": 0.005386744892243285
+    },
+    {
+     "round": 1,
+     "frames": 33919,
+     "greedy_spf": 0.0002880391520976444,
+     "exh_spf": 0.005369409475515198
+    },
+    {
+     "round": 2,
+     "frames": 33919,
+     "greedy_spf": 0.00028759692207907075,
+     "exh_spf": 0.005367493145434712
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A3_C5_slap2m",
+   "animals": 3,
+   "cameras": 5,
+   "dataset": "SLAP-2M",
+   "n_sessions": 4,
+   "frames_per_round": 400,
+   "seconds_per_frame": 0.00048,
+   "exhaustive_seconds_per_frame": 0.872955,
+   "ratio": 1818.65625,
+   "hypotheses_per_frame": 7776,
+   "exhaustive_seconds_per_hypothesis": 0.00011226273148148148,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 400,
+     "greedy_spf": 0.00048,
+     "exh_spf": 0.8899750000000001
+    },
+    {
+     "round": 1,
+     "frames": 400,
+     "greedy_spf": 0.00046,
+     "exh_spf": 0.8723375
+    },
+    {
+     "round": 2,
+     "frames": 400,
+     "greedy_spf": 0.0005,
+     "exh_spf": 0.872955
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A4_C3_slap2m",
+   "animals": 4,
+   "cameras": 3,
+   "dataset": "SLAP-2M",
+   "n_sessions": 3,
+   "frames_per_round": 300,
+   "seconds_per_frame": 0.00045333333333333337,
+   "exhaustive_seconds_per_frame": 1.5350966666666666,
+   "ratio": 3386.242647058823,
+   "hypotheses_per_frame": 13824,
+   "exhaustive_seconds_per_hypothesis": 0.00011104576581790123,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 300,
+     "greedy_spf": 0.00043,
+     "exh_spf": 1.5636833333333333
+    },
+    {
+     "round": 1,
+     "frames": 300,
+     "greedy_spf": 0.00045333333333333337,
+     "exh_spf": 1.5350966666666666
+    },
+    {
+     "round": 2,
+     "frames": 300,
+     "greedy_spf": 0.00047666666666666674,
+     "exh_spf": 1.5256633333333331
+    }
+   ],
+   "frames_matched": true
+  }
+ ],
+ "sitting": {
+  "id": "J17 (LUC3D-JS-CONSISTENCY-PLAN-2026-10-20)",
+  "host": "eric-mimic2-0-6",
+  "cores": 64,
+  "valid": false,
+  "max_outside_cores": 0.578,
+  "bench_seen": [],
+  "median_1min_load": 6.28,
+  "max_1min_load": 20.47,
+  "precheck": {
+   "outside_cores": 0.098,
+   "load": [
+    "10.41",
+    "7.47",
+    "7.45"
+   ],
+   "busy": [
+    {
+     "pid": 2566648,
+     "cores": 0.075,
+     "cmd": "claude"
+    },
+    {
+     "pid": 2668135,
+     "cores": 0.0,
+     "cmd": "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-bash-1792466211606-972stn.sh 2>/dev/null || true && shopt -u extglob 2>/dev/null || true && { \\builti"
+    }
+   ],
+   "bench": []
+  },
+  "watch_log": "md56_logs/J17_watch_part1.jsonl + J17_watch.jsonl",
+  "samples_over_0p5_core": [
+   {
+    "t": "14:30:07",
+    "outside_cores": 0.57,
+    "busy": [
+     "/root/.vscode-server/code-4fe60c8b1cdac1c4c174f2fb180d0d7582",
+     "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174",
+     "claude"
+    ]
+   },
+   {
+    "t": "15:34:18",
+    "outside_cores": 0.578,
+    "busy": [
+     "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   }
+  ],
+  "parts": "part 1 14:29-15:34 UTC (stopped by the per-call gate at 1.2 cores, VS Code extension host); part 2 resumed with T_RESUME=1, gate now waits for quiet",
+  "idle_rule": "nothing of ours running, measured from /proc by figs/timing_watch.py (outside <= 0.5 core) and per call by fig3f_timing_clean.py other_cores (<= 1 core); host load from other containers logged, not removable",
+  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1"
+ }
+}
