@@ -1,0 +1,14 @@
+{
+ "frame": 6120,
+ "clearance_mm": 9.202526948064657,
+ "max_lift_mm": 50.03719311354798,
+ "session": "2022-10-07/10072022190807",
+ "span": 210,
+ "original": [
+  "2022-10-07/10072022190807",
+  13967
+ ],
+ "changed_session": false,
+ "changed_frame": true,
+ "note": "only session in this condition; no 210-frame on-floor window clears 20 mm of the 3-cube L. Best on-floor window (stride-15 scan, 126 windows): 9.2 mm conservative clearance (footprint = cube half-diagonal). Flag for the author."
+}

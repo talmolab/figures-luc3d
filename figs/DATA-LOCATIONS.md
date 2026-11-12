@@ -371,8 +371,10 @@ The figures never read raw data at draw time. Everything lands in `figs/out/` fi
 - **SLAP-2M is 30 fps, except 13 sessions at 60.** The `2022-10-19` sessions are
   60 fps (master sheet `frames / duration` and the mp4 containers agree). Any
   seconds↔frames conversion must use per-session fps. Checked 2026-11-12: no reported
-  number is affected. Supplementary Video 3 plays its four 60 fps segments at 4×, not
-  2×, and the corpus total is 17.45 h, not 18.1 h (`fig4_measure.py`) or 10.9 h
+  number is affected. Supplementary Video 3 v2/v3 (`slap2m_movie.py`, `DATA_STEP = 2`)
+  played its four 60 fps segments at 1× (real time), not the stated 2×; v4 (2026-11-12)
+  steps 4 data frames per output frame for those sessions, so every segment plays at 2×.
+  The corpus total is 17.45 h, not 18.1 h (`fig4_measure.py`) or 10.9 h
   (`fig6_measure.py`'s old `default_fps=50.0`).
 - **Every `.slp` in both corpora embeds a dead absolute video path** — a CI runner's,
   a Windows `G:` Drive mount, or `F:/Jinrun/Data/…`. Only SLAP-2M's
