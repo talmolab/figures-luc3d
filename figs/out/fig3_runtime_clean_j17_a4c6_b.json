@@ -1,0 +1,95 @@
+{
+ "generated_by": "figs/fig3f_timing_clean.py (T_A4C6=1)",
+ "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
+ "note": "Clean greedy-only sitting for A4_C6 (no exhaustive run exists at 4x6): K frames per session drawn (fixed seed) from the frames eligible at 4x6, one process at a time, 3 rounds, median over rounds; solve time only (runCrossViewTracker); LUC3D 2dc001fe527c4dbaad17fa171da132cfdfe010e6; host 1-min load at call start median 5.4, max 5.6 (includes load from outside this container).",
+ "variant": "b3",
+ "seed": 20261019,
+ "k": 100,
+ "measured": [
+  {
+   "key": "A4_C6_slap2m_hard",
+   "animals": 4,
+   "cameras": 6,
+   "dataset": "SLAP-2M",
+   "n_sessions": 3,
+   "eligible_frames": {
+    "10072022145420": 7578,
+    "10072022150448": 8892,
+    "10072022151549": 9448
+   },
+   "frames_per_round": 300,
+   "seconds_per_frame": 0.0007033333333333334,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 300,
+     "greedy_spf": 0.0007033333333333334
+    },
+    {
+     "round": 1,
+     "frames": 300,
+     "greedy_spf": 0.0007266666666666667
+    },
+    {
+     "round": 2,
+     "frames": 300,
+     "greedy_spf": 0.0006466666666666667
+    }
+   ]
+  }
+ ],
+ "sitting": {
+  "id": "J17 (LUC3D-JS-CONSISTENCY-PLAN-2026-10-20)",
+  "host": "eric-mimic2-0-6",
+  "cores": 64,
+  "valid": false,
+  "max_outside_cores": 0.578,
+  "bench_seen": [],
+  "median_1min_load": 6.28,
+  "max_1min_load": 20.47,
+  "precheck": {
+   "outside_cores": 0.098,
+   "load": [
+    "10.41",
+    "7.47",
+    "7.45"
+   ],
+   "busy": [
+    {
+     "pid": 2566648,
+     "cores": 0.075,
+     "cmd": "claude"
+    },
+    {
+     "pid": 2668135,
+     "cores": 0.0,
+     "cmd": "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-bash-1792466211606-972stn.sh 2>/dev/null || true && shopt -u extglob 2>/dev/null || true && { \\builti"
+    }
+   ],
+   "bench": []
+  },
+  "watch_log": "md56_logs/J17_watch_part1.jsonl + J17_watch.jsonl",
+  "samples_over_0p5_core": [
+   {
+    "t": "14:30:07",
+    "outside_cores": 0.57,
+    "busy": [
+     "/root/.vscode-server/code-4fe60c8b1cdac1c4c174f2fb180d0d7582",
+     "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174",
+     "claude"
+    ]
+   },
+   {
+    "t": "15:34:18",
+    "outside_cores": 0.578,
+    "busy": [
+     "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   }
+  ],
+  "parts": "part 1 14:29-15:34 UTC (stopped by the per-call gate at 1.2 cores, VS Code extension host); part 2 resumed with T_RESUME=1, gate now waits for quiet",
+  "idle_rule": "nothing of ours running, measured from /proc by figs/timing_watch.py (outside <= 0.5 core) and per call by fig3f_timing_clean.py other_cores (<= 1 core); host load from other containers logged, not removable",
+  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1"
+ }
+}

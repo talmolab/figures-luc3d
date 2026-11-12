@@ -1,0 +1,104 @@
+{
+ "generated_by": "figs/fig2g_retime_all.py",
+ "rounds": 5,
+ "aniposelib": "0.7.2",
+ "opencv": "4.13.0",
+ "numba_threads": 1,
+ "pose_dir": "/root/vast/eric/lucid-main-md56/pose",
+ "node": "v26.10.0",
+ "n_linear": 200010,
+ "n_optim": 200010,
+ "runs_us_per_keypoint": {
+  "anipose_linear": [
+   28.83970430136192,
+   29.750842604599715,
+   29.62959704280025,
+   28.799845464592796,
+   28.947741966635924
+  ],
+  "anipose_optim_nosmooth": [
+   160.9414938458633,
+   139.2062083106477,
+   155.91559142379438,
+   143.58534358494353,
+   146.96301162558777
+  ],
+  "anipose_optim_default": [
+   137.95246475696874,
+   137.46543828442503,
+   133.58356260423702,
+   148.4781776168729,
+   141.33759630432093
+  ],
+  "luc3d_dlt": [
+   1.0640662466876685,
+   1.2352208339583008,
+   1.8445295935203236,
+   1.067382225888705,
+   1.9833678966051695
+  ],
+  "luc3d_refined": [
+   27.01516438678066,
+   28.829482870856463,
+   27.49688712064397,
+   26.861743112844355,
+   27.69238761061947
+  ],
+  "luc3d_undistort": [
+   1.8435287435628205,
+   1.4029154242287893,
+   1.5653904854757257,
+   2.5268186090695486,
+   1.4747362081895898
+  ]
+ },
+ "best_us_per_keypoint": {
+  "anipose_linear": 28.799845464592796,
+  "anipose_optim_nosmooth": 139.2062083106477,
+  "anipose_optim_default": 133.58356260423702,
+  "luc3d_dlt": 1.0640662466876685,
+  "luc3d_refined": 26.861743112844355,
+  "luc3d_undistort": 1.4029154242287893,
+  "anipose_undistort": 0.41089862589537873,
+  "anipose_ransac": 2208.8620729744434
+ },
+ "speedup_dlt_vs_anipose_linear": 27.065838761678446,
+ "speedup_refined_vs_anipose_optim_nosmooth": 5.182322224058651,
+ "speedup_refined_vs_anipose_optim_default": 4.973004247827908,
+ "published": {
+  "anipose_linear": 29.03,
+  "anipose_optim": 228.77,
+  "luc3d_dlt": 6.316,
+  "luc3d_refined": 43.997,
+  "speedups": [
+   4.6,
+   5.2
+  ]
+ },
+ "n_undistort": 200010,
+ "anipose_undistort_runs": [
+  0.4203968403083218,
+  0.41475969623621745,
+  0.41089862589537873,
+  0.4126985589180414,
+  0.41352882873272334
+ ],
+ "anipose_ransac_runs": [
+  2225.6936244666576,
+  2218.3821819722652,
+  2208.8620729744434,
+  2233.0212883651257,
+  2222.261606156826
+ ],
+ "ransac_over_linear": 76.69701129785818,
+ "sitting": {
+  "start_1min_load": 6.51,
+  "max_1min_load": 28.54,
+  "max_threads_timing_process": 1,
+  "cores": 64,
+  "thread_env": "NUMBA/OMP/OPENBLAS/MKL/VECLIB/NUMEXPR_NUM_THREADS=1, UV_THREADPOOL_SIZE=1",
+  "code": "LUC3D v1.0.5 (2dc001fe)",
+  "keypoints": "every solver on the same first 13,334 frames x 15 joints = 200,010",
+  "note": "md56 Q2d, 2026-10-15"
+ }
+}

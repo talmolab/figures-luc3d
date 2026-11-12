@@ -1,0 +1,801 @@
+{
+ "generated_by": "figs/tailnan_check.py",
+ "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
+ "driver": "/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/fig3-bench/fig3_bench.mjs",
+ "summary": {
+  "Mouse-Dyad-10M": {
+   "IDENTICAL": 56,
+   "DIFFERENT": 0,
+   "FAILED": 0,
+   "NO_REFERENCE": 0
+  },
+  "SLAP-2M": {
+   "IDENTICAL": 74,
+   "DIFFERENT": 0,
+   "FAILED": 0,
+   "NO_REFERENCE": 0
+  }
+ },
+ "per_session": [
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250827_141755",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250827_145223",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250827_152238",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250827_155244",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250827_162428",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250827_165542",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250827_172440",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_124351",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_134647",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_141847",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_144840",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_151905",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_155407",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_162253",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_164919",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250829_171625",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250903_141046",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250903_143938",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250903_150657",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250903_153433",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_131913",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_140306",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_143552",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_150414",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_153332",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_160014",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_165017",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_174232",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_181215",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250904_183921",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_165151",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_171829",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_174513",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_181402",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_191445",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_194049",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_200953",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_203607",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_210254",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250905_213215",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_143021",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_151901",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_154801",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_161657",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_164826",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_171538",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_174343",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_181225",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_183823",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250907_190610",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250908_152229",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250908_154926",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250908_161812",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250908_164528",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250908_171240",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "Mouse-Dyad-10M",
+   "session": "20250908_173928",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022120554",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022121750",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022122913",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022124146",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022125259",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022130420",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022131531",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022132603",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022133702",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022134804",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022135851",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022140918",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022142111",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022143153",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022144215",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022145420",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022150448",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022151549",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022161055",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022162233",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022163346",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022164619",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022170913",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022172040",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022173152",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022175009",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022180149",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022181300",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022183527",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022184618",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022190807",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022193448",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022194521",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022200754",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10072022205445",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022174304",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022174609",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022174949",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022175248",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022175658",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022180019",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022180303",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022180545",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022181152",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022181735",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022183334",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022183808",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10192022184226",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10202022145302",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10202022152641",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10202022155850",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10202022163211",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10202022170717",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10212022155401",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10212022165516",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10212022175626",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10212022181154",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022010116",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022013209",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022020456",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022023536",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022030623",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022031312",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022031841",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022032406",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022033021",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022033652",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022034217",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022034810",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022035407",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022035936",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022040455",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022041220",
+   "result": "IDENTICAL",
+   "note": ""
+  },
+  {
+   "dataset": "SLAP-2M",
+   "session": "10302022044354",
+   "result": "IDENTICAL",
+   "note": ""
+  }
+ ]
+}

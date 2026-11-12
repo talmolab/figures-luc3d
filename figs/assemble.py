@@ -421,7 +421,7 @@ TAG_FOOTERS = {(2, "nt"): None, (6, "nt"): None,
 
 #: Deposit sets the MAIN figures are built from (2026-10-15, b series promoted). A base build
 #: (no FIG_TAG) from one of these is the published figure, so it gets no variant footer.
-PUBLISHED_VARIANTS = {"md56", "v105", "final"}
+PUBLISHED_VARIANTS = {"md56", "v105", "final", "x7"}
 
 
 def layout(fig_no: int):
