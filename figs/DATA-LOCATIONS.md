@@ -9,7 +9,7 @@ Two roots, on two different mounts:
 
 | Corpus | Root | Sessions | Frames | Cameras | fps | Animals | On-disk |
 |---|---|---|---|---|---|---|---|
-| **SLAP-2M** | `/root/talmolab-smb/eric/slap_2m` | 74 (84 dirs) | 1,954,440 | 8 | 30 | 1–4 | ~450 GB |
+| **SLAP-2M** | `/root/talmolab-smb/eric/slap_2m` | 74 (84 dirs) | 1,954,440 | 8 | 30 (13 sessions at 60) | 1–4 | ~450 GB |
 | **Mouse-Dyad-10M** | `/root/vast/eric/BMimica` | 56 | 10,084,734 | 5 | 150.1 | 2 | 205 GB |
 
 The corpus names are frame counts: 1.95 M and 10.08 M reconstructed frames. Both
@@ -83,12 +83,15 @@ of the four variants carry an absolute path from the machine that wrote them:
 So: read poses from the `.analysis.h5` twins where they exist (no video needed), and
 when you do need the `.slp` with pixels, prefer `.static.externals.slp` or re-link.
 
-**The fps trap.** The mp4 container reports 30 fps and the master sheet's own
-`frames / duration` gives exactly 30.0 fps on every session — but
-`figs/fig6_measure.py` falls back to a hard-coded `default_fps=50.0` because
-`points3d.h5` carries no `recording_frame_rate` dataset. So `fig6.json`'s SLAP-2M
-`fps: 50.0` and `hours: 10.86` are wrong; at 30 fps it is **18.1 h**. Fig 6's corpus
-panel prints that number. See [Known traps](#known-traps).
+**The fps trap.** SLAP-2M is **30 fps except the 13 `2022-10-19` sessions
+(`10192022*`), which are 60 fps.** The master sheet's `frames / duration` gives exactly
+60.0 for those 13 and 30.0 for the rest (6 rows have no duration), and their mp4
+containers report 60 fps (`500000/8333`). `points3d.h5` carries no
+`recording_frame_rate` dataset, so code must take fps per session from the master sheet
+(as `fig5_rear_coupling.py`'s `slap_fps()` does). The corpus duration is **17.45 h**,
+not the 18.1 h a single 30 fps gives (`fig4_measure.py`) or the 10.86 h of
+`fig6_measure.py`'s old `default_fps=50.0`. No figure or manuscript number uses this
+total. See [Known traps](#known-traps).
 
 ### File contents
 
@@ -365,11 +368,12 @@ The figures never read raw data at draw time. Everything lands in `figs/out/` fi
 
 ## Known traps
 
-- **SLAP-2M is 30 fps, not 50.** `fig6_measure.py`'s hard-coded `default_fps=50.0`
-  reaches `fig6.json` and Fig 6's corpus panel, which prints `10.9 @50 fps` where the
-  data says **18.1 h @30 fps**. Three independent sources agree on 30: the mp4
-  container, `master_sheet.xlsx`'s `frames / duration`, and RESULTS.md's own
-  "11 frames at 30 fps". Not yet fixed.
+- **SLAP-2M is 30 fps, except 13 sessions at 60.** The `2022-10-19` sessions are
+  60 fps (master sheet `frames / duration` and the mp4 containers agree). Any
+  seconds↔frames conversion must use per-session fps. Checked 2026-11-12: no reported
+  number is affected. Supplementary Video 3 plays its four 60 fps segments at 4×, not
+  2×, and the corpus total is 17.45 h, not 18.1 h (`fig4_measure.py`) or 10.9 h
+  (`fig6_measure.py`'s old `default_fps=50.0`).
 - **Every `.slp` in both corpora embeds a dead absolute video path** — a CI runner's,
   a Windows `G:` Drive mount, or `F:/Jinrun/Data/…`. Only SLAP-2M's
   `*.static.externals.slp` carries a relative path. Read poses from the
