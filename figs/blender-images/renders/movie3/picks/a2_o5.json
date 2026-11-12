@@ -1,0 +1,13 @@
+{
+ "frame": 3660,
+ "clearance_mm": 91.01467248065052,
+ "max_lift_mm": 49.366117168501745,
+ "session": "2022-10-07/10072022163346",
+ "span": 210,
+ "original": [
+  "2022-10-07/10072022161055",
+  5345
+ ],
+ "changed_session": true,
+ "changed_frame": true
+}
