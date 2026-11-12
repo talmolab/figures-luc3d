@@ -1,9 +1,10 @@
 # figures-luc3d
 
 The figures of the LUC3D manuscript, with every generation script, plot-ready
-table, and measurement deposit needed to rebuild them. Mirrored from
-`talmolab/luc3d` branch `eric/figs`, plus the `figs/out/` deposit subset the panel
-scripts read, which the source repo keeps machine-local.
+table, and measurement deposit needed to rebuild them. **This repository is the
+canonical source of the manuscript's figures.** It began as a mirror of
+`talmolab/luc3d` branch `eric/figs` (plus the `figs/out/` deposit subset the panel
+scripts read); that branch is superseded by this repo.
 
 ## The seven figures
 
@@ -108,3 +109,8 @@ run another version, and OpenCV 5 moved the ChArUco corner origin by half a pixe
 in both axes. A calibration scored across the two conventions pays a penalty it
 does not owe. Anything that re-runs this benchmark must keep both detectors on one
 OpenCV or the comparison is invalid.
+
+## License
+
+Code is released under the BSD 3-Clause License (see `LICENSE`). The bundled
+Liberation Sans fonts in `figs/src/fonts/` are under the SIL Open Font License 1.1.
