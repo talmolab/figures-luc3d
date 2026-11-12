@@ -110,6 +110,9 @@ repo reproduces Fig 7 exactly but Figs 1 to 6 only approximately until they are.
 | `figs/data/figN/` | the plot-ready numbers each panel deposits as it draws, one CSV per panel |
 | `figs/assemble.py` | lays panels out into composites; holds the layout grid and the panel titles |
 | `figs/*.py`, `*.mjs`, `*.sh` | the measurement pipeline that produced `figs/out/` |
+| `figs/fig3-bench/`, `figs/fig6-bench/` | the headless Node benchmark drivers for cross-view tracking and exhaustive enumeration (Figs 2, 4, Supp Fig 4) |
+| `figs/blender-images/` | the Blender (`bpy`) scene scripts behind every 3D render |
+| `figs/legacy/` | the earlier figure scripts that a few current scripts still import helpers from |
 | `figs/DATA-LOCATIONS.md` | where the raw corpora live |
 | `figs/PANEL-SOURCES.md` | which script produced which panel |
 
@@ -117,6 +120,22 @@ repo reproduces Fig 7 exactly but Figs 1 to 6 only approximately until they are.
 scripts at the top level are kept for provenance: they document how those deposits
 were produced, but they cannot be re-run from this repo because they need the raw
 video corpora described in `DATA-LOCATIONS.md`.
+
+The benchmark drivers (`fig3-bench/`, `fig6-bench/`, and anything that loads
+`lucid_v105.mjs`) run the LUC3D application modules themselves. Point them at a clean
+checkout of [talmolab/luc3d](https://github.com/talmolab/luc3d) at tag `v1.0.5`
+(commit `2dc001fe527c4dbaad17fa171da132cfdfe010e6`) with `LUCID_ROOT=<checkout>` (or
+`POSE_DIR=<checkout>/pose`). `lucid_v105.mjs` refuses any other commit, and every
+deposit records the commit it was measured on. `fig6-bench/hooks6.mjs` also loads that
+checkout's `scripts/bench/hooks.mjs`, and `fig6-bench/xv_experimental.js` is meant to
+sit beside the app's `pose/triangulation.js` and `pose/pose-data.js`.
+
+The bench drivers, the Blender scene scripts, and the other producer scripts these
+reference (48 files) were copied on 2026-11-12 from the working tree the figures were
+built in. Some were last edited after the 2026-10-20/21 figure build, so they are the
+latest versions, not guaranteed to be byte-identical to what produced every deposit.
+The per-figure build wrappers (`run_FINALBUILD.sh`, `run_B_numpyfree.sh`) are not yet
+included.
 
 ## A note on the calibration figure
 
