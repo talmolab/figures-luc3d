@@ -1,0 +1,32 @@
+[serve] started server on 8312
+[app] booted
+[load] 1999 ms  {"hasSession":true,"cameras":["Camera0_mid","Camera1_topB","Camera2_topC","Camera3_sideC","Camera4_topR","Camera5_topL","Camera6_sideL","Camera7_sideR"],"totalFrames":300,"tracks":320}
+[overlayStyle] {"predNodeSize":5,"predEdgeWeight":3,"userNodeSize":5,"userEdgeWeight":3,"userLabelSize":0,"reprojNodeSize":6,"reprojEdgeWeight":3,"reprojLabelSize":null}
+[skeletonEdges] {"ok":true,"nNodes":15,"edgesBefore":16,"edgesAfter":26}
+[colorMode] id (colorByIdentity=true)
+[trackAll] 1166 ms  {"identities":3,"fim":7200}
+[identityPalette] {"palette":8,"identities":[{"id":0,"name":"id_0","color":"#00b478"},{"id":1,"name":"id_1","color":"#e69f00"},{"id":2,"name":"id_2","color":"#56b4e9"}]}
+[triangulateAll] 318 ms  {"groups":900,"with3d":900}
+[reprojErrors] [{"identity":0,"meanError":3.27,"perView":{"Camera0_mid":2.7,"Camera1_topB":2.55,"Camera2_topC":2.62,"Camera3_sideC":3.11,"Camera4_topR":3.7,"Camera5_topL":3.34,"Camera6_sideL":5.28,"Camera7_sideR":2.88},"nViews":8},{"identity":1,"meanError":3.19,"perView":{"Camera0_mid":3.04,"Camera1_topB":3.04,"Camera2_topC":2.88,"Camera3_sideC":3.78,"Camera4_topR":2.72,"Camera5_topL":3.05,"Camera6_sideL":2.64,"Camera7_sideR":4.37},"nViews":8},{"identity":2,"meanError":12.05,"perView":{"Camera0_mid":8.87,"Camera1_topB":10.57,"Camera2_topC":12.41,"Camera3_sideC":12.08,"Camera4_topR":16.87,"Camera5_topL":9.22,"Camera6_sideL":10.44,"Camera7_sideR":15.98},"nViews":8}]
+[anchorViews] {"weights":{"Camera0_mid":0,"Camera2_topC":0,"Camera3_sideC":0,"Camera4_topR":0,"Camera5_topL":0,"Camera7_sideR":0},"included":["Camera1_topB","Camera6_sideL"]}
+[triangulateAll] 99 ms  {"groups":900,"with3d":900}
+[reprojErrors] [{"identity":0,"meanError":4.34,"perView":{"Camera0_mid":4.59,"Camera1_topB":2.13,"Camera2_topC":2.85,"Camera3_sideC":8.88,"Camera4_topR":3.96,"Camera5_topL":4.89,"Camera6_sideL":1.75,"Camera7_sideR":5.67},"nViews":8},{"identity":1,"meanError":3.47,"perView":{"Camera0_mid":2.61,"Camera1_topB":1.76,"Camera2_topC":3.9,"Camera3_sideC":7.31,"Camera4_topR":2.55,"Camera5_topL":3.01,"Camera6_sideL":1.44,"Camera7_sideR":5.14},"nViews":8},{"identity":2,"meanError":11.07,"perView":{"Camera0_mid":6.86,"Camera1_topB":4.45,"Camera2_topC":8.8,"Camera3_sideC":24.63,"Camera4_topR":17.82,"Camera5_topL":12.28,"Camera6_sideL":4.38,"Camera7_sideR":9.36},"nViews":8}]
+  [pose2] id_0 #00b478: 15/15 nodes, 8 cameras
+  [pose2] id_1 #e69f00: 15/15 nodes, 8 cameras
+  [pose2] id_2 #56b4e9: 15/15 nodes, 8 cameras
+[manifest] figs/out/b_app/fig2a_pose.json
+[visibility] {"user":true,"predicted":true,"reprojections":false,"errors":false}
+[exportViews] frame 150: 2 views at native res -> fig2p-anchor-f150-*.png
+[visibility] {"user":false,"predicted":false,"reprojections":true,"errors":false}
+[exportViews] frame 150: 3 views at native res -> fig2p-reproj-f150-*.png
+[visibility] {"user":true,"predicted":true,"reprojections":true,"errors":true}
+[overlayStyle] {"predNodeSize":5,"predEdgeWeight":3,"userNodeSize":5,"userEdgeWeight":3,"userLabelSize":0,"reprojNodeSize":6,"reprojEdgeWeight":3,"reprojLabelSize":0}
+[exportViews] frame 150: 3 views at native res -> fig2p-check-f150-*.png
+[layout] {"threeD":[0,1280]}
+[rigFit] {"n":45,"nCams":8,"zsign":-1,"radius":832.3,"dist":2048.2,"azimuth_deg":42.2,"elevation_deg":20,"startCam":"Camera1_topB","startCamElevation_deg":69.3,"pane":[1400,1280],"camScreen":[{"name":"Camera0_mid","x":1075.2,"y":113.4,"behind":false},{"name":"Camera1_topB","x":969,"y":204.1,"behind":false},{"name":"Camera2_topC","x":597.4,"y":516.1,"behind":false},{"name":"Camera3_sideC","x":184.8,"y":1016,"behind":false},{"name":"Camera4_topR","x":1157.3,"y":104.5,"behind":false},{"name":"Camera5_topL","x":752.3,"y":109.8,"behind":false},{"name":"Camera6_sideL","x":800.7,"y":708.1,"behind":false},{"name":"Camera7_sideR","x":565,"y":557.2,"behind":false}],"animalsScreen":{"x":906.4,"y":676.5,"behind":false}}
+[shot] figs/out/b_app/fig2p-3d.png  273 KB
+[showCameraView] {"ok":true,"camera":"Camera6_sideL","fov":70.9066063408367}
+[zoomOnAnimals] {"n":45,"centroid":[-153.7,9.7,769.4],"aspect":1.094,"fov0":70.91,"fov":39.06,"zoom":1.82,"pad":1.18}
+[shot] figs/out/b_app/fig2p-3d-animals.png  27 KB
+[manifest] figs/out/b_app/fig2-protocol.json
+[summary] frame 150: 2-anchor mean reproj err [4.34, 3.47, 11.07] px vs all-views [3.27, 3.19, 12.05] px

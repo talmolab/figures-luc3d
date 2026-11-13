@@ -1,0 +1,38 @@
+override fig5_views.json: fig5_views.json -> fig5_views_js.json
+override fig2g_retime_all.json: fig2g_retime_all_md56T2.json -> fig2g_retime_all_jsb.json
+32 x7 links
+fig2x7 exit=0 failed_panels=0 11 panels built, 0 failed
+fig3x7 exit=0 failed_panels=0 11 panels built, 0 failed
+fig4x7 exit=0 failed_panels=0 7 panels built, 0 failed
+fig5x7 exit=0 failed_panels=0 7 panels built, 0 failed
+fig6x7 exit=0 failed_panels=0 11 panels built, 0 failed
+fig7x7 exit=0 failed_panels=0 7 panels built, 0 failed
+--- loads that did NOT come from an x7 link:
+      1 fig4_recovery_proofread2d.json	fig4_recovery_proofread2d.json
+      1 fig6_detections_proofread_notail.json	fig6_detections_proofread_notail.json
+      1 fig9_slap2m_lite_bvis5_notailscore.json	fig9_slap2m_lite_bvis5_notailscore.json
+S4 exit=0 {"generated_by": "figs/s4_frame_gate.py", "source": "fig6_slap2m_fair_sleapnt_percam.csv", "arms": ["bytetrack", "luc3d", "sleap"], "sessions": 74, "camera_sessions": 444, "camera_frames_by_arm": {"bytetrack": 11726640, "luc3d": 11726640, "sleap": 11726640}, "expected": {"sessions": 74, "camera_sessions": 444, "camera_frames": 11726640}, "passed": true} mismatches: 0
+M6 exit=0 {"generated_by": "figs/m6_frame_gate.py", "n_sessions": 56, "n_camera_sessions": 280, "totals": {"luc3d": 50423670, "sleap": 50423670, "bytetrack": 50423670}, "passed": true} mismatches: 0
+=== fig2: data/fig2x7 vs data/fig2c
+Files data/fig2c/fig2g_time_per_keypoint.csv and data/fig2x7/fig2g_time_per_keypoint.csv differ
+=== fig3: data/fig3x7 vs data/fig3c
+=== fig4: data/fig4x7 vs data/fig4
+Files data/fig4/fig4b_idf1_by_difficulty.csv and data/fig4x7/fig4b_idf1_by_difficulty.csv differ
+Only in data/fig4: fig4e_detection_quality.csv
+Only in data/fig4: fig4e_percam_quality.csv
+=== fig5: data/fig5x7 vs data/fig5
+Files data/fig5/fig5a_camera_gaps.csv and data/fig5x7/fig5a_camera_gaps.csv differ
+Only in data/fig5: fig5g_rear_coupling.csv
+Only in data/fig5x7: fig5g_rear_coupling_perdir.csv
+Only in data/fig5: fig5s_benchmark50_subset.csv
+Only in data/fig5: fig5s_controls.csv
+Only in data/fig5: fig5s_slot_swap_control.csv
+=== fig6: data/fig6x7 vs data/fig6c
+Only in data/fig6c: fig6f_sdannce_survival.csv
+Files data/fig6c/fig6h_sdannce_cameras.csv and data/fig6x7/fig6h_sdannce_cameras.csv differ
+=== fig7: data/fig7x7 vs data/fig7
+Only in data/fig7: fig7s3_equal_frames.csv
+Only in data/fig7: fig7s3_equal_frames_opencv5.csv
+Only in data/fig7: fig7s4_opencv_unified.csv
+Only in data/fig7: fig7s5_anipose_divergence.csv
+X7 BUILD DONE

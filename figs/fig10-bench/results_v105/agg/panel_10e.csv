@@ -1,0 +1,5 @@
+dataset,input,sigma,idf1_mean,idf1_min,n
+bedding,keypoints,0,0.9950,0.9697,6
+soc1,keypoints,0,0.9749,0.6482,14
+soc3,keypoints,0,0.9982,0.9724,15
+triads,keypoints,0,0.9654,0.7922,6

@@ -73,7 +73,7 @@ Supplementary identity figure (the repo's fig11 before the 2026-08-26 renumberin
 
 | Panel | Title | Drawn by | Reads | Measured by | Deposits |
 |---|---|---|---|---|---|
-| **a** | Within vs cross IDF1 | `panels/fig6_05_within_vs_cross.py` | `out/fig3_trackers.json`, `out/fig7_sleap_scoped.json`, `out/fig7_variant_best.json` | `figs/fig3_trackers.py`, `figs/fig6_sleap_scoped.py` | `data/fig6/fig6a_within_vs_cross.csv`, `data/fig6/fig6a_within_vs_cross_variant.csv` |
+| **a** | Within vs cross IDF1 | `panels/fig6_05_within_vs_cross.py` | `out/fig3_trackers.json`, `out/fig7_sleap_scoped.json`, `out/fig7_variant_best.json` | `figs/fig3_trackers.py`, `figs/fig6_sleap_scoped.py` | `data/fig6/fig6a_within_vs_cross_variant.csv` (the `--variant` run; `make_figures.py` no longer makes the default run, whose 50-session table was never placed) |
 | **b** | Within-view IDF1 | `panels/fig6_01_survival.py` (drawn inside **a**'s composite) | `out/fig3_trackers.json`, `out/fig7_variant_best.json` | `figs/fig3_trackers.py` | `data/fig6/fig6b_survival.csv` |
 | **c** | Per-session paired difference | `panels/fig6_02_by_animals.py` (drawn inside **a**'s composite) | `out/fig3_trackers.json`, `out/fig7_variant_best.json` | `figs/fig3_trackers.py` | `data/fig6/fig6c_by_animals.csv` |
 | **d** | Error composition | `panels/fig6_03_error_decomposition.py` (drawn inside **a**'s composite) | `out/fig3_trackers.json`, `out/fig7_variant_best.json` | `figs/fig3_trackers.py` | `data/fig6/fig6d_error_decomposition.csv` |

@@ -1,0 +1,14 @@
+fig4b exit=0 failed_panels=0 7 panels built, 0 failed
+fig6b exit=0 failed_panels=0 11 panels built, 0 failed
+fig7b exit=0 failed_panels=0 7 panels built, 0 failed
+--- loads that did NOT come from a b link:
+      1 fig4_recovery_proofread2d.json	fig4_recovery_proofread2d.json
+      1 fig6_detections_proofread_notail.json	fig6_detections_proofread_notail.json
+      1 fig9_slap2m_lite_bvis5_notailscore.json	fig9_slap2m_lite_bvis5_notailscore.json
+=== data/fig4b vs data/fig4
+DIFF fig4b_idf1_by_difficulty.csv
+=== data/fig6b vs data/fig6
+DIFF fig6h_sdannce_cameras.csv
+=== data/fig7b vs data/fig7
+ M figs/figures/fig6/fig6f_axes.json
+B467 FAILED: main figures changed

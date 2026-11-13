@@ -1,0 +1,25 @@
+[serve] started server on 8313
+[app] booted
+[load] 1978 ms  {"hasSession":true,"cameras":["Camera0_mid","Camera1_topB","Camera2_topC","Camera3_sideC","Camera4_topR","Camera5_topL","Camera6_sideL","Camera7_sideR"],"totalFrames":300,"tracks":320}
+[overlayStyle] {"predNodeSize":5,"predEdgeWeight":3,"userNodeSize":5,"userEdgeWeight":3,"userLabelSize":1,"reprojNodeSize":5,"reprojEdgeWeight":3,"reprojLabelSize":null}
+[skeletonEdges] {"ok":true,"nNodes":15,"edgesBefore":16,"edgesAfter":26}
+[colorMode] tracks (colorByIdentity=false)
+[timelineMode] {"mode":"tracks","active":"tracks"}
+[exportViews] frame 198: 8 views at native res -> before-f198-*.png
+[shot] figs/out/b_app/before-timeline.png  105 KB
+[trackAll] 659 ms  {"identities":3,"fim":7200}
+[identityPalette] {"palette":8,"identities":[{"id":0,"name":"id_0","color":"#00b478"},{"id":1,"name":"id_1","color":"#e69f00"},{"id":2,"name":"id_2","color":"#56b4e9"}]}
+[colorMode] id (colorByIdentity=true)
+[timelineMode] {"mode":"identities","active":"identities"}
+[exportViews] frame 198: 8 views at native res -> after-f198-*.png
+[shot] SKIP after-timeline (#timelineContainer not visible)
+[triangulateAll] 251 ms  {"groups":900,"with3d":900}
+[colorMode] id (colorByIdentity=true)
+[layout] {"threeD":[0,1280]}
+[showCameraView] {"ok":true,"camera":"Camera0_mid","fov":63.6893432921922}
+[shot] figs/out/b_app/tri3d-camview.png  104 KB
+[layout] {"threeD":[1600,450]}
+[rigFit] {"n":45,"nCams":8,"zsign":-1,"radius":832.2,"dist":2047.8,"azimuth_deg":29.3,"elevation_deg":22,"startCam":"Camera4_topR","startCamElevation_deg":55.6,"pane":[800,450],"camScreen":[{"name":"Camera0_mid","x":577.5,"y":32.9,"behind":false},{"name":"Camera1_topB","x":520.3,"y":74.3,"behind":false},{"name":"Camera2_topC","x":331,"y":207.1,"behind":false},{"name":"Camera3_sideC","x":141,"y":398.2,"behind":false},{"name":"Camera4_topR","x":589,"y":33.1,"behind":false},{"name":"Camera5_topL","x":436.4,"y":30.8,"behind":false},{"name":"Camera6_sideL","x":390.7,"y":304.6,"behind":false},{"name":"Camera7_sideR","x":341.2,"y":215.7,"behind":false}],"animalsScreen":{"x":502.4,"y":268,"behind":false}}
+[shot] figs/out/b_app/tri3d-rig.png  93 KB
+[manifest] figs/out/b_app/fig1.json
+[summary] frame 198: 25 detections / per-camera track labels across 8 views (21 distinct names; 3 name(s) reused by >1 camera) -> 3 identities, 24 assigned, 1 unassigned [Camera3_sideC/track_229]; views missing an identity: 0; 900/900 groups with 3D

@@ -1,0 +1,20 @@
+37 b links (7 overrides)
+fig1b exit=0 failed_panels=0 5 panels built, 0 failed
+fig2b exit=0 failed_panels=0 11 panels built, 0 failed
+fig3b exit=0 failed_panels=0 11 panels built, 0 failed
+fig5b exit=0 failed_panels=0 7 panels built, 0 failed
+--- renders used:
+      1   [render b] fig1d_pose.png -> fig1d_pose_b.png
+      1   [render b] fig1d_rig.png -> fig1d_rig_b.png
+      1   [render b] fig2a_pose.png -> fig2a_pose_b.png
+      1 [render b] fig5a_upright.png -> fig5a_upright_b.png
+      1 [render b] lucid_idswitch_style_hardfight.png -> lucid_idswitch_style_hardfight_b.png
+      1 [render b] mouse-dyad_f55701.png -> mouse-dyad_f55701_b.png
+--- loads that did NOT come from a b link:
+=== data/fig1b vs data/fig1
+=== data/fig2b vs data/fig2
+=== data/fig3b vs data/fig3
+DIFF fig3e_head_to_head.csv
+=== data/fig5b vs data/fig5
+MAIN INPUTS UNCHANGED
+B BUILD DONE
