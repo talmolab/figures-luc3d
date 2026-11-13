@@ -1,0 +1,62 @@
+== Fig 3D idswitch prep 20:52:39
+(node:787146) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:787157) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:787168) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:787179) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+  animal A: 3 pre + anchor + 1 post (frames 20560..21244, 11.4s)
+  animal B: 3 pre + anchor + 2 post (frames 20596..21184, 9.8s)
+floor bounds (mm): x [-253, -2]  y [-171, 217]
+wrote /root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/blender-images/renders/idswitch_photo_Camera6_sideL_hardfight_b.png /root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/blender-images/renders/idswitch_photo_Camera0_mid_hardfight_b.png
+wrote /root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/blender-images/renders/idswitch_fig_data_hardfight_b.json
+== Fig 3D idswitch 20:52:43
+/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/blender-images/idswitch_fig_scene.py:73: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+00:01.070  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+00:07.350  render           | Saved: '/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/blender-images/renders/idswitch_render_hardfight_b.png'
+wrote /root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/blender-images/renders/idswitch_render_hardfight_b.png
+== Fig 3D style 20:52:51
+wrote /root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs/figures/drafts/figs/lucid_idswitch_style_hardfight_b.png figsize [6.4        6.52813164]
+== Fig 1d pose 20:52:54
+00:00.963  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+00:10.058  render           | Saved: 'renders/fig1d_pose_b.png'
+20260605_133431 frame 24749 (pose): arena 494 x 321 x 321 mm, 8 cameras, 3 animals ['#00b478', '#e69f00', '#56b4e9']
+framing: ortho 0.327 m, res 2000x1026, focus (-0.063, 0.007, 0.024)
+wrote renders/fig1d_pose_b.png
+== Fig 1d rig 20:53:04
+00:00.961  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+00:08.951  render           | Saved: 'renders/fig1d_rig_b.png'
+20260605_133431 frame 24749 (rig): arena 494 x 321 x 321 mm, 8 cameras, 3 animals ['#00b478', '#e69f00', '#56b4e9']
+framing: ortho 1.272 m, res 2000x1333, focus (0.163, -0.017, 0.231)
+wrote renders/fig1d_rig_b.png
+== Fig 2A pose az=282.72477757297133 el=19.384076899601776 20:53:14
+00:00.909  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+00:09.748  render           | Saved: 'renders/fig2a_pose_b.png'
+20260605_133431 frame 150 (pose): arena 494 x 321 x 321 mm, 0 cameras, 3 animals ['#00b478', '#e69f00', '#56b4e9']
+framing: ortho 0.340 m, res 2000x1681, focus (-0.075, -0.027, 0.044)
+wrote renders/fig2a_pose_b.png
+== Fig 1a Mouse-Dyad 20:53:24
+00:00.860  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+00:04.098  render           | Saved: 'renders/fig1_renders/mouse-dyad_f55701_b.png'
+20250827_152238 frame 55701: arena 650.4 mm square x 650.4 mm, 5 cameras, 2 animals
+framing: ortho 2.150 m, res 1280x960 (aspect 0.750), focus (0.167, 0.131, 0.526)
+wrote renders/fig1_renders/mouse-dyad_f55701_b.png
+== Fig 5A 20:53:29
+00:00.847  cycles           | WARNING HIPEW initialization failed: Error opening HIP dynamic library
+00:12.578  render           | Saved: 'renders/fig5a_upright_b.png'
+wrote renders/fig5a_upright_b.png
+== main series untouched? 20:53:43
+out/fig1_hardfight_scene.json: OK
+out/fig2a_scene.json: OK
+out/fig1_bmimica_scene.json: OK
+blender-images/renders/hardfight_alignment.json: OK
+blender-images/renders/fig1d_pose.png: OK
+blender-images/renders/fig1d_rig.png: OK
+blender-images/renders/fig2a_pose.png: OK
+blender-images/renders/fig5a_upright.png: OK
+blender-images/renders/fig1_renders/mouse-dyad_f55701.png: OK
+figures/drafts/figs/lucid_idswitch_style_hardfight.png: OK
+== done 20:53:43

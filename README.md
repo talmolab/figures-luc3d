@@ -47,29 +47,39 @@ scoring. `figs/PANEL-SOURCES.md` lists the commands that produced each deposit.
 ## Rebuilding
 
 ```bash
-cd figs
-FIG_VARIANT=x7 python make_figures.py            # every figure, from the published deposit set
-FIG_VARIANT=x7 python make_figures.py 3 7        # only these
-FIG_VARIANT=x7 python make_figures.py --panels   # panels only, no assembly
-python lint_text.py 7                            # check one figure for clipped or overlapping text
+bash figs/build/run_FINALBUILD.sh            # rebuild the seven placed figures in place
+bash figs/build/run_FINALBUILD.sh --verify   # rebuild a clean copy and pixel-compare it to this checkout
+PYTHON=/path/to/python3.12 bash figs/build/run_FINALBUILD.sh   # pick the interpreter
+python figs/lint_text.py 7                   # check one figure for clipped or overlapping text
 ```
 
-**Set `FIG_VARIANT=x7`.** The published figures were built from the `x7` deposit set
-(2026-10-20, the single-input LUC3D v1.0.5 set). With `FIG_VARIANT=<v>`,
-`src/data_loader.load` reads `figs/out/<stem>_<v>.json` in place of
-`figs/out/<stem>.json` wherever the variant file exists. Without it, the panels read
-older base deposits: Fig 3b and 3d refuse to build, and Fig 3g and Supplementary
-Figure 4 come out with superseded numbers. `figs/out/` also holds the `_v105` and `_b`
-deposit sets and `out/b_app/` (captures shot on LUC3D v1.0.5, read via
-`FIG_APP_OUT=out/b_app`). These were copied on 2026-11-12 from the working tree the
-figures were built in.
+**Use the wrapper, not a bare `make_figures.py`.** The published figures are the
+**b series** (2026-10-20/21), not plain `x7`. A plain `FIG_VARIANT=x7` build reproduces
+Fig 4 and Supplementary Figure 2 but not the 3D renders, Fig 2, or Supplementary Figure 4e.
+b is x7's deposit set plus eight overrides, listed in `figs/build/B_links.tsv` (every name
+required):
 
-Known gap (checked 2026-11-12, clean build, 61 panels, 0 failures): an `x7` build
-reproduces Fig 4 and Supplementary Figure 2 pixel-identically. Fig 3 matches except
-its panel-a 3D render (0.26% of pixels), and Supplementary Figure 4 matches except the
-placement of panel e. Figs 1 and 5 differ by under 0.3% of pixels. Fig 2 comes out
-1 px shorter. The 3D renders, and possibly Fig 2, were built with per-figure settings
-(`run_B_numpyfree.sh`, `run_FINALBUILD.sh`) that are not yet in this repo.
+- the LUC3D v1.0.5 app captures in `out/b_app/`;
+- the LUC3D-triangulated HardFight and two-anchor scenes;
+- the J18 timing sitting for Fig 2g;
+- the NumPy-free Fig 4 detection deposit.
+
+It is built with `FIG_TAG=b`, so `src/style.tagged_render` places the `*_b.png` Blender
+renders made from LUC3D v1.0.5 output. The panels are then promoted into `figures/figN/`.
+
+Two figures keep the settings they were placed with:
+
+- **Fig 3a** was redrawn at the Fig 2/3 swap with `FIG_VARIANT=x7`, so its reprojection
+  overlays come from the August app export `out/fig2-protocol.json`.
+- **Supplementary Figure 2** (`fig7`) keeps its x7 build.
+
+`figs/build/run_FINALBUILD.sh` encodes all of this. Its header is the reference. The
+original launch scripts, link manifests and handoff notes are in `figs/build/provenance/`.
+Of those, `run_FINALBUILD.sh` (the 2026-10-15 c series) and `run_B_numpyfree.sh` (an aborted
+first try at b) produced no placed figure.
+
+The 3D renders are inputs, not rebuilt. Re-rendering them needs Blender 5.2 (bpy) and
+the recipes in `provenance/run_B_luc3d_renders.sh`.
 
 Each panel script runs in its own subprocess, because they set rcParams globally
 through `src/style.py` and a panel that leaves state behind must not be able to
@@ -84,11 +94,14 @@ designed in, so layout is identical. It is loaded explicitly, not left to the
 system, because a fallback to DejaVu Sans is wider and fails the label-fit checks,
 and a machine-local Arial would produce slightly different glyphs.
 
-This has been verified: a clean build of all seven figures from the contents of
-this repo alone runs 57 panel scripts with 0 failures, and all seven composites are
-pixel-identical to the committed PDFs. The datasheets (`python dataset_sheets.py`)
-also reproduce pixel-identically, but read the Mouse-Dyad-10M corpus described in
-`DATA-LOCATIONS.md` to measure its values.
+This has been verified (2026-11-12): `run_FINALBUILD.sh --verify` copies this checkout,
+empties every `figs/figures/fig[1-7]/` so no committed panel can stand in, rebuilds, and
+compares the result with the checkout. All seven composites come out pixel-identical, and
+every `figs/data/` CSV the panel build writes is byte-identical. The CSVs it does not
+write (`fig5s_*`, `fig7s*`, `fig4e_*`) come from the measurement scripts. The composites
+also match the figures placed in the manuscript. The datasheets (`python dataset_sheets.py`)
+reproduce pixel-identically too, but they read the Mouse-Dyad-10M corpus described in
+`DATA-LOCATIONS.md` to measure their values.
 
 As of the 2026-10-29 sync, the repo follows the manuscript's new order: `fig2` is
 cross-view tracking and `fig3` is labeling and triangulation. Fig 1 is A, cross-view
@@ -96,8 +109,9 @@ association and triangulated 3D; B, dataset arenas and camera rigs; C, the pipel
 Panel files carry the letters printed in the figures, and Figs 1, 2, 3 and 6 are
 placed by `composites.py`. The composites, panels, `figs/data/` CSVs, panel scripts,
 `assemble.py` and Supplementary Videos 2 and 4 come from `eric/figs` and match the
-project page. The `figs/out/` deposits have not been re-synced, so a rebuild from this
-repo reproduces Fig 7 exactly but Figs 1 to 6 only approximately until they are.
+project page. The `figs/out/` deposits, the `_b` renders and the v1.0.5 s-DANNCE aggregate
+(`fig10-bench/results_v105/agg`) were completed on 2026-11-12, so `run_FINALBUILD.sh`
+reproduces all seven figures.
 
 ## What is here
 

@@ -25,8 +25,16 @@ FIGS = Path(__file__).resolve().parent
 PANELS = FIGS / "panels"
 
 
+#: Run only in a special form after the panel loop. Within vs cross's default run
+#: deposits data/fig6/fig6a_within_vs_cross.csv, an old 50-session table (3D-MuPPET
+#: included) that no figure places; Supp Fig 4 shows the `--variant` panel only.
+SPECIAL_RUN = {"fig6_05_within_vs_cross.py"}
+
+
 def panel_scripts(only: set[int] | None):
     for p in sorted(PANELS.glob("fig*_*.py")):
+        if p.name in SPECIAL_RUN:
+            continue
         m = re.match(r"fig(\d+)_", p.name)
         if m and (only is None or int(m.group(1)) in only):
             yield int(m.group(1)), p
