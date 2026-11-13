@@ -5,8 +5,9 @@ A ~2 min tour of the 14 (animals, obstacle_rating) combinations that exist in
 slap_2m/master_sheet.xlsx, rendered in enrichment_scene.py's cage aesthetic
 (itself cage_scene.py's). Each combination plays that combo's representative
 session (enrichment_scene.COMBOS) from its representative frame onward with the
-REAL tracked 3D poses (aligned_points3d.h5, 1 data frame per output frame =
-real time at the 30 fps acquisition rate) while the camera orbits the cage.
+REAL tracked 3D poses (aligned_points3d.h5) at SPEED x real time while the camera
+orbits the cage. Sessions are 30 fps except the 13 recorded on 2022-10-19 (60 fps);
+step_for() picks the data step per session so every segment plays at the same speed.
 
 Reuse, not copies: the cage, animals, lights, Cycles setup and wall-opening
 logic come from cage_scene.py; the session table, the enrichment-object
@@ -266,8 +267,8 @@ def video_window(res):
 def frame_pts(vid):
     """Presentation timestamps of every frame, sorted (= display order). The
     containers are NOT consistent: some tick 1/30 s per frame, others 1/60 s
-    (r_frame_rate 500000/8333) although acquisition was 30 fps everywhere
-    (master_sheet frames/duration = 30.0). Seeking by an assumed rate therefore
+    (r_frame_rate 500000/8333) whatever the acquisition rate (30 fps, or 60 fps
+    for the 2022-10-19 sessions; master_sheet frames/duration). Seeking by an assumed rate therefore
     lands on the wrong frame (a 2x error found by the overlay check); the h5
     frame index is the DISPLAY index, so look its pts up from the packets."""
     out = subprocess.run([FFMPEG.replace("ffmpeg", "ffprobe"), "-v", "error",
