@@ -87,6 +87,27 @@ change how the next one renders. One broken panel reports and the rest still bui
 
 Needs Python 3.12 with numpy, pandas, scipy, matplotlib, seaborn and PyMuPDF.
 
+**The q series (this branch): Mouse-Dyad session 20250904_183921 left out.** That
+session's reference 3D is corrupted over frames ~42k-115k: camera 21369048's identities
+are swapped in the lab's SLEAP predictions and were triangulated into the 3D. The
+exclusion list is `figs/src/qc_exclude.py`. `FIG_SERIES=q bash figs/build/run_FINALBUILD.sh`
+builds the figures from `out/<stem>_q.*`, which are the b deposits with that session
+dropped and every cross-session value recomputed. No LUC3D was re-run:
+
+- Fig 2 tracking (`figs/qc/reagg_fig2.py`), Fig 3 triangulation (`figs/qc/reagg_fig3.py`)
+  and Supp Fig 4 (`figs/qc/reagg_supp4.py`) re-aggregate the per-session values the b
+  deposits already hold, with the producers' own formulas. Each script's `--check` re-runs
+  it with nothing excluded and requires it to reproduce the b deposit exactly. In
+  `fig4_q.json` the blocks pooled over individual LUC3D keypoints can't be recomputed
+  (the keypoints aren't stored) and are `null`; no placed panel reads them.
+  `figs/qc/anipose_linear_rerun.py` recovers the pooled Anipose samples (aniposelib only).
+- Fig 5 re-runs its Python measurement scripts (`fig5_upright.py`, `fig5_rear_coupling.py`,
+  `fig5_controls.py`, `fig5_slot_swap_control.py`) with `QC_EXCLUDE=1`. Without it they
+  reproduce the b deposits exactly.
+
+Figs 1 and 4 and Supp Fig 2 come out pixel-identical to b. Figs 2, 3 and 5 and Supp Fig 4
+change. The b build is unaffected: `run_FINALBUILD.sh --verify` still passes.
+
 Unit tests (seconds, no rebuild): `python -m pytest figs/tests` (needs pytest). They cover
 `build/compare.py` (what `--verify` fails on and what it only reports), `build/promote.py`,
 and the checkout itself: every input and `B_links.tsv`/`X7_links.tsv` deposit the wrapper

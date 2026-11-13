@@ -47,6 +47,16 @@ from src.style import deposit  # noqa: E402
 MIN_DISPLAYS = int(os.environ.get("FIG5_MIN_DISPLAYS", "5"))
 
 
+def _qc_filter(sds):
+    """q SERIES (opt-in): QC_EXCLUDE=1 drops the sessions on src/qc_exclude.py's list.
+    Unset, the session list is returned untouched."""
+    if os.environ.get("QC_EXCLUDE") != "1":
+        return sds
+    from src.qc_exclude import excluded
+    print(f"QC_EXCLUDE=1: dropped {[os.path.basename(d) for d in sds if excluded(os.path.basename(d))]}")
+    return [d for d in sds if not excluded(os.path.basename(d))]
+
+
 def _init(mode):
     U.REAR_MODE = mode
 
@@ -66,7 +76,7 @@ def one(sd):
 
 
 def run(mode):
-    sds = [d for d in sorted(glob.glob(f"{U.BMIMICA}/*")) if os.path.isdir(d)]
+    sds = _qc_filter([d for d in sorted(glob.glob(f"{U.BMIMICA}/*")) if os.path.isdir(d)])
     with ProcessPoolExecutor(max_workers=14, initializer=_init, initargs=(mode,)) as ex:
         rows = [r for r in ex.map(one, sds) if r]
     df = pd.DataFrame(rows)

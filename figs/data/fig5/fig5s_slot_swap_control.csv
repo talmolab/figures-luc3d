@@ -13,7 +13,6 @@ session,n_events,n_events_swapped,same_frames,initiator_flipped,max_abs_diff_pai
 20250904_150414,1,1,True,True,0.0
 20250904_174232,7,7,True,True,0.0
 20250904_181215,1,1,True,True,0.0
-20250904_183921,42,42,True,True,0.0
 20250905_165151,4,4,True,True,0.0
 20250905_171829,8,8,True,True,0.0
 20250905_174513,51,51,True,True,0.0
@@ -36,4 +35,4 @@ session,n_events,n_events_swapped,same_frames,initiator_flipped,max_abs_diff_pai
 20250908_164528,3,3,True,True,0.0
 20250908_171240,18,18,True,True,0.0
 20250908_173928,8,8,True,True,0.0
-SUMMARY,539,539,True,True,0.0
+SUMMARY,497,497,True,True,0.0

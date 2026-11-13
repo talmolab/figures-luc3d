@@ -35,6 +35,16 @@ PAIRED = [("speed_bl_s_t0", "speed_bl_s_t1"), ("speed_rel_t0", "speed_rel_t1"),
           ("pursuit_rel_t0", "pursuit_rel_t1"), ("peak_mm_t0", "peak_mm_t1")]
 
 
+def _qc_filter(sds):
+    """q SERIES (opt-in): QC_EXCLUDE=1 drops the sessions on src/qc_exclude.py's list.
+    Unset, the session list is returned untouched."""
+    if os.environ.get("QC_EXCLUDE") != "1":
+        return sds
+    from src.qc_exclude import excluded
+    print(f"QC_EXCLUDE=1: dropped {[os.path.basename(d) for d in sds if excluded(os.path.basename(d))]}")
+    return [d for d in sds if not excluded(os.path.basename(d))]
+
+
 def one(sd):
     ld = U._load(sd)
     if ld is None:
@@ -72,7 +82,7 @@ def one(sd):
 
 
 def main():
-    sds = [d for d in sorted(glob.glob(f"{U.BMIMICA}/*")) if os.path.isdir(d)]
+    sds = _qc_filter([d for d in sorted(glob.glob(f"{U.BMIMICA}/*")) if os.path.isdir(d)])
     with ProcessPoolExecutor(max_workers=14) as ex:
         rows = [r for r in ex.map(one, sds) if r]
     df = pd.DataFrame(rows)
