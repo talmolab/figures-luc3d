@@ -6,7 +6,8 @@
 #                                                # temp dir and pixel-compare it to this checkout
 #
 # FIG_SERIES=q builds the same figures from the q deposits (out/<stem>_q.*), the b series
-# with the sessions in src/qc_exclude.py left out (figs/qc/). Default b. --verify is for b.
+# with the sessions in src/qc_exclude.py left out (figs/qc/). Default b. --verify checks
+# whichever series FIG_SERIES names against the figures in this checkout.
 #
 # PYTHON=/path/to/python overrides the interpreter (3.12 with numpy, pandas, scipy,
 # matplotlib, seaborn, PyMuPDF). Verified 2026-11-12: every placed composite and panel is

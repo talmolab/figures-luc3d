@@ -106,7 +106,10 @@ dropped and every cross-session value recomputed. No LUC3D was re-run:
   reproduce the b deposits exactly.
 
 Figs 1 and 4 and Supp Fig 2 come out pixel-identical to b. Figs 2, 3 and 5 and Supp Fig 4
-change. The b build is unaffected: `run_FINALBUILD.sh --verify` still passes.
+change. On this branch `figs/figures/fig1`-`fig7` hold the q series; the published b
+composites are kept in `figs/figures/published-b/`, and the b deposits are unchanged, so
+the default (b) build still reproduces them exactly. Check this branch with
+`FIG_SERIES=q bash figs/build/run_FINALBUILD.sh --verify`.
 
 Unit tests (seconds, no rebuild): `python -m pytest figs/tests` (needs pytest). They cover
 `build/compare.py` (what `--verify` fails on and what it only reports), `build/promote.py`,
