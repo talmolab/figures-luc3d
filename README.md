@@ -87,6 +87,12 @@ change how the next one renders. One broken panel reports and the rest still bui
 
 Needs Python 3.12 with numpy, pandas, scipy, matplotlib, seaborn and PyMuPDF.
 
+Unit tests (seconds, no rebuild): `python -m pytest figs/tests` (needs pytest). They cover
+`build/compare.py` (what `--verify` fails on and what it only reports), `build/promote.py`,
+and the checkout itself: every input and `B_links.tsv`/`X7_links.tsv` deposit the wrapper
+needs is present, the wrapper parses, and the stale `fig6a_within_vs_cross.csv` stays gone.
+They do not rebuild anything; `run_FINALBUILD.sh --verify` is the end-to-end check.
+
 No fonts need installing. The figures are set in Liberation Sans 2.1.5, which is
 bundled in `figs/src/fonts/` (SIL Open Font License 1.1) and registered by
 `src/style.py`. It has the same advance widths as Arial, which the panels were
