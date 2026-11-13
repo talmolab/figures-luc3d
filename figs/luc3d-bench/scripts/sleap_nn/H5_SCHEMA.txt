@@ -1,0 +1,17 @@
+H5 schema for outputs/predictions_h5s/back_predictions.h5
+Inspected: 2026-05-20
+
+Datasets:
+  tracks: shape=(74, 108133, 4, 15, 2), dtype=float64
+    Dimensions: (n_sessions=74, n_frames=108133, n_animals=4, n_nodes=15, xy=2)
+
+File-level attributes:
+  camera: 'back'
+  source: 'raw .predictions.slp (non-proofread)'
+
+Notes:
+  - No 'sessions' dataset (session ordering is implicit by row in the master sheet)
+  - No 'scores' dataset
+  - NaN used for missing/invisible keypoints
+  - All cam H5s have identical layout; only 'camera' attr differs
+  - n_frames=108133 is the max across all sessions (shorter sessions zero/NaN padded)
