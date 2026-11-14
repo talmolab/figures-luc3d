@@ -59,6 +59,11 @@ import fitz
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_JSON = os.path.join(HERE, "out", "dataset_sheets.json")
 OUT_DIR = os.path.join(HERE, "figures", "datasheets")
+#: FIG_SERIES=q measures Mouse-Dyad-10M without the sessions in src/qc_exclude.py and
+#: deposits to out/dataset_sheets_q.json. The b deposit and sheets are left alone.
+SERIES = os.environ.get("FIG_SERIES", "b")
+if SERIES == "q":
+    OUT_JSON = os.path.join(HERE, "out", "dataset_sheets_q.json")
 BMIMICA = "/root/vast/eric/BMimica"
 
 MM = 72.0 / 25.4
@@ -125,6 +130,11 @@ def measure_mousedyad():
     import numpy as np
     sessions = sorted(d for d in glob.glob(os.path.join(BMIMICA, "*/"))
                       if os.path.basename(d.rstrip("/")) != "scratch")
+    extra = {}
+    if SERIES == "q":
+        from src.qc_exclude import excluded, provenance
+        sessions = [d for d in sessions if not excluded(os.path.basename(d.rstrip("/")))]
+        extra = {"measured": "2026-11-14", "qc_excluded": provenance()}
     frames = poses3d = 0
     animals = set()
     nodes = None
@@ -151,6 +161,7 @@ def measure_mousedyad():
         "poses_3d": poses3d,
         "poses_2d_reproj": poses3d * views,
         "keypoints": len(nodes),
+        **extra,
     }
 
 

@@ -1,0 +1,15 @@
+{
+ "mousedyad10m": {
+  "measured": "2026-11-14",
+  "n_sessions": 55,
+  "views": 5,
+  "frames_per_view": 9904676,
+  "frames_total": 49523380,
+  "poses_3d": 19809352,
+  "poses_2d_reproj": 99046760,
+  "keypoints": 15,
+  "qc_excluded": {
+   "20250904_183921": "reference 3D corrupted over frames ~42k-115k: camera 21369048's identities are swapped in the lab's SLEAP predictions and were triangulated into the 3D (preflight QC, 2026-11-12)"
+  }
+ }
+}

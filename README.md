@@ -117,6 +117,11 @@ dropped and every cross-session value recomputed. No LUC3D was re-run:
   `valid: false` under `timing_watch.py` (7 of 1,760 samples at 0.50-0.66 core, mostly the
   VS Code server), and it ran on a different, busier host, which on its own moved every
   bar (exhaustive ~5% slower in each cell).
+- The datasheet lists Mouse-Dyad-10M as 55 sessions: `cd figs && FIG_SERIES=q python
+  dataset_sheets.py --measure` measures the corpus without the `src/qc_exclude.py` sessions
+  into `out/dataset_sheets_q.json` (49.52 M frames, 9.9 M per view, 19.81 M 3D poses,
+  99.05 M 2D poses) and renders `figs/figures/datasheets/`. The 56-session b sheets are kept
+  in `figs/figures/published-b/datasheets/`, and the b render reproduces them pixel-identically.
 - `figs/qc/crossview_mismatch.py` (read-only QC, not a figure) finds the stretches where one
   camera's proofread identities are swapped relative to the other four and the reference
   3D was triangulated through the swap. It writes `figs/data/qc/crossview_mismatch.csv`
