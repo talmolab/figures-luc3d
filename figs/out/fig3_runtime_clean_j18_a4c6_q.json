@@ -123,6 +123,10 @@
   },
   "watch_log": "md56_logs/J18_watch.jsonl + J18_redo1_watch.jsonl",
   "idle_rule": "host load from other containers logged, not removable",
-  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1"
+  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1",
+  "derived": "q series: no session of this sitting is on src/qc_exclude.py's list, numbers unchanged. build/provenance/run_QJ18_fig3f_from_calls.sh"
+ },
+ "qc_excluded": {
+  "20250904_183921": "reference 3D corrupted over frames ~42k-115k: camera 21369048's identities are swapped in the lab's SLEAP predictions and were triangulated into the 3D (preflight QC, 2026-11-12)"
  }
 }

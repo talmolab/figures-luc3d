@@ -134,7 +134,7 @@
    "animals": 2,
    "hypotheses": 32,
    "status": "ok",
-   "seconds_per_frame_exhaustive": 0.003948,
+   "seconds_per_frame_exhaustive": 0.003952363636363637,
    "dataset": "BMimica",
    "session": null,
    "n_sessions": 55,
@@ -1857,9 +1857,9 @@
     }
    ],
    "seconds_per_frame_exhaustive_previous": 0.003896233490882493,
-   "seconds_per_frame_greedy_clean": 0.0002802142857142857,
-   "clean_frames_per_round": 56000,
-   "clean_sessions": 56
+   "seconds_per_frame_greedy_clean": 0.00028050909090909093,
+   "clean_frames_per_round": 55000,
+   "clean_sessions": 55
   },
   {
    "key": "A2_C6_slap2m",
@@ -3292,6 +3292,9 @@
  "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
  "stamp_source": "run_B3Q.sh:20-21 asserts clean 2dc001fe before writing; SLAP-2M cells copied from headtohead_md56 (run_OVERNIGHT3.sh, no assert). ALL 196 cached greedy runs re-derived identical at clean 2dc001fe by figs/provenance_rederive.py (out/provenance_rederive_b3.json, 2026-10-20)",
  "stamp_added": "2026-10-20 (LUC3D-JS plan J12), metadata only",
+ "qc_excluded": {
+  "20250904_183921": "reference 3D corrupted over frames ~42k-115k: camera 21369048's identities are swapped in the lab's SLEAP predictions and were triangulated into the 3D (preflight QC, 2026-11-12)"
+ },
  "clean_timing_note": "Clean sitting (CONSISTENCY-PLAN T1): both arms on IDENTICAL frames per (configuration, session), one process at a time, interleaved, order flipped each round, 3 rounds, median over rounds; solve time only (exhaustive enumerationSeconds, greedy runCrossViewTracker); LUC3D 2dc001fe527c4dbaad17fa171da132cfdfe010e6; host 1-min load at call start median 6.0, max 13.2 (includes load from outside this container).",
  "sitting": {
   "id": "J18 (rerun of J17, 2026-10-21)",
@@ -3378,9 +3381,7 @@
   },
   "watch_log": "md56_logs/J18_watch.jsonl + J18_redo1_watch.jsonl",
   "idle_rule": "host load from other containers logged, not removable",
-  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1"
- },
- "qc_excluded": {
-  "20250904_183921": "reference 3D corrupted over frames ~42k-115k: camera 21369048's identities are swapped in the lab's SLEAP predictions and were triangulated into the 3D (preflight QC, 2026-11-12)"
+  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1",
+  "derived": "q series: J18's calls re-aggregated by fig3f_timing_clean.py T_FROM_CALLS with the sessions in src/qc_exclude.py left out (both arms of each dropped call); nothing re-timed. build/provenance/run_QJ18_fig3f_from_calls.sh"
  }
 }

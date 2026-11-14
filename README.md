@@ -103,7 +103,20 @@ dropped and every cross-session value recomputed. No LUC3D was re-run:
   `figs/qc/anipose_linear_rerun.py` recovers the pooled Anipose samples (aniposelib only).
 - Fig 5 re-runs its Python measurement scripts (`fig5_upright.py`, `fig5_rear_coupling.py`,
   `fig5_controls.py`, `fig5_slot_swap_control.py`) with `QC_EXCLUDE=1`. Without it they
-  reproduce the b deposits exactly.
+  reproduce the b deposits exactly. `fig5_benchmark_subset.py` with `QC_EXCLUDE=1` writes
+  the q subset table (`all_55`, `benchmark_49`, `outside_49_only`).
+- Fig 2g timing is the J18 sitting (the b timing) with that session's calls left out, both
+  arms, so both still run on the same frames:
+  `figs/build/provenance/run_QJ18_fig3f_from_calls.sh` re-aggregates J18's per-call log
+  (kept in `figs/build/provenance/j18_calls/`) through `fig3f_timing_clean.py`
+  `T_FROM_CALLS`, which with nothing excluded reproduces J18's deposits exactly. Mouse-Dyad
+  2x5 goes from 0.2802 to 0.2805 ms (greedy) and from 3.948 to 3.952 ms (exhaustive); the
+  SLAP-2M cells don't change. Run `figs/qc/reagg_fig2.py` first; it leaves
+  `fig3_headtohead_clean_j18_q.json` to this script. A fresh re-time (Q19,
+  `run_Q19_fig3f_timing.sh`, logs in `q19_logs/`) is kept but not used. It was
+  `valid: false` under `timing_watch.py` (7 of 1,760 samples at 0.50-0.66 core, mostly the
+  VS Code server), and it ran on a different, busier host, which on its own moved every
+  bar (exhaustive ~5% slower in each cell).
 
 Figs 1 and 4 and Supp Fig 2 come out pixel-identical to b. Figs 2, 3 and 5 and Supp Fig 4
 change. On this branch `figs/figures/fig1`-`fig7` hold the q series; the published b

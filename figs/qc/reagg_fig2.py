@@ -25,6 +25,12 @@ over all 56 Mouse-Dyad-10M sessions. They are not scored against the reference, 
 with fig3_runtime_clean_j18.json's LUC3D times (which name no session and are not part of
 this re-aggregation), and dropping one session's 1000 frames from one arm only would make
 Fig 2g compare two different frame sets. They are carried over unchanged.
+
+2026-11-14: fig3_headtohead_clean_j18_q.json is no longer written here (still identity-
+checked). build/provenance/run_QJ18_fig3f_from_calls.sh writes it, with
+fig3_runtime_clean_j18{,_a4c6}_q.json, by re-aggregating the J18 sitting's calls without the
+excluded sessions -- both arms of each dropped call, so the frame sets stay matched -- from
+this script's fig3_headtohead_q.json. Run this script first, then that one.
 """
 from __future__ import annotations
 
@@ -342,6 +348,8 @@ JOBS = [
      lambda d, ex, done: reagg_sweep_framematched(d, ex, done[SWEEP_FULL])),
     ("fig8_methods_50", lambda d, ex, _: reagg_sweep(d, ex)),
 ]
+#: identity-checked here, but the q deposit is written by another script (module docstring)
+WRITTEN_ELSEWHERE = {"fig3_headtohead_clean_j18": "build/provenance/run_QJ18_fig3f_from_calls.sh"}
 #: fields whose producer summed in an order the deposit does not record exactly
 TOLERANT: set = set()
 
@@ -398,6 +406,9 @@ def main(argv):
     if check_only:
         return
     for stem, _ in JOBS:
+        if stem in WRITTEN_ELSEWHERE:
+            print(f"[reagg] {stem}_q.json: written by {WRITTEN_ELSEWHERE[stem]}, skipped")
+            continue
         q = done_q[stem]
         if names_session(q):
             sys.exit(f"[reagg] {stem}: an excluded session is still named in the q deposit")
