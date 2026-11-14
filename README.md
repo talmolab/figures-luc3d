@@ -117,6 +117,11 @@ dropped and every cross-session value recomputed. No LUC3D was re-run:
   `valid: false` under `timing_watch.py` (7 of 1,760 samples at 0.50-0.66 core, mostly the
   VS Code server), and it ran on a different, busier host, which on its own moved every
   bar (exhaustive ~5% slower in each cell).
+- `figs/qc/crossview_mismatch.py` (read-only QC, not a figure) finds the stretches where one
+  camera's proofread identities are swapped relative to the other four and the reference
+  3D was triangulated through the swap. It writes `figs/data/qc/crossview_mismatch.csv`
+  (one row per run) and `figs/out/qc_crossview_mismatch.json`. In the 55 kept sessions
+  they cover 0.23% of frames in 20 sessions, the longest 44 s; the tex quotes these.
 
 Figs 1 and 4 and Supp Fig 2 come out pixel-identical to b. Figs 2, 3 and 5 and Supp Fig 4
 change. On this branch `figs/figures/fig1`-`fig7` hold the q series; the published b
