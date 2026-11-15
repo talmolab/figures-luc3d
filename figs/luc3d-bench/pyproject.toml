@@ -1,0 +1,24 @@
+[project]
+name = "luc3d-bench"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.11"
+dependencies = [
+    "h5py>=3.16.0",
+    "matplotlib>=3.10.9",
+    "motmetrics>=1.4.0",
+    "numpy>=2.4.4",
+    "pandas>=3.0.3",
+    "scipy>=1.17.1",
+    "seaborn>=0.13.2",
+    "sleap-io>=0.7.0",
+    "supervision>=0.28.0,<0.30",
+    "tabulate>=0.10.0",
+    "tomli>=2.4.1",
+    "tqdm>=4.67.3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]

@@ -180,6 +180,11 @@ reproduces all seven figures.
 | `figs/fig3-bench/`, `figs/fig6-bench/` | the headless Node benchmark drivers for cross-view tracking and exhaustive enumeration (Figs 2, 4, Supp Fig 4) |
 | `figs/blender-images/` | the Blender (`bpy`) scene scripts behind every 3D render |
 | `figs/legacy/` | the earlier figure scripts that a few current scripts still import helpers from |
+| `figs/fig10-bench/` | the s-DANNCE benchmark (Supp Fig 4e): prep, run, scoring, aggregation and panel data |
+| `figs/luc3d-bench/` | the benchmark-workspace scripts that built the Mouse-Dyad-10M and SLAP-2M tracker inputs, ground truth and baselines |
+| `figs/offbox/` | the parallel per-session launcher, merge and report for `fig2_measure.py` |
+| `figs/build/` | `run_FINALBUILD.sh`, the link manifests, and `provenance/` (the original launch scripts and logs) |
+| `figs/figures/drafts/qc-2026-11-12/` | the 2026-11-12 QC diagnostics of the three flagged Mouse-Dyad-10M sessions |
 | `figs/DATA-LOCATIONS.md` | where the raw corpora live |
 | `figs/PANEL-SOURCES.md` | which script produced which panel |
 
@@ -198,10 +203,14 @@ checkout's `scripts/bench/hooks.mjs`, and `fig6-bench/xv_experimental.js` is mea
 sit beside the app's `pose/triangulation.js` and `pose/pose-data.js`.
 
 The bench drivers, the Blender scene scripts, and the other producer scripts these
-reference (48 files) were copied on 2026-11-12 from the working tree the figures were
-built in. Some were last edited after the 2026-10-20/21 figure build, so they are the
-latest versions, not guaranteed to be byte-identical to what produced every deposit.
-The per-figure build wrappers (`run_FINALBUILD.sh`, `run_B_numpyfree.sh`) are not yet
+reference were copied on 2026-11-12 and 2026-11-13 from the working tree the figures
+were built in, along with the `luc3d-bench` scripts that built the benchmark inputs
+(`figs/luc3d-bench/`, see its README). Every script that produced a deposit, a figure
+or a reported analysis is here. Some were last edited after the 2026-10-20/21 figure
+build, so they are the latest versions, not guaranteed to be byte-identical to what
+produced every deposit. Two scripts named in `DATA-LOCATIONS.md`
+(`triangulate_and_reproj.py`, `build_padded_h5s.py`) belong to the lab's separate
+re-triangulation in `BMimica/scratch/`, which the paper does not use, and are not
 included.
 
 ## A note on the calibration figure

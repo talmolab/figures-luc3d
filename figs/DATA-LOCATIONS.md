@@ -140,7 +140,7 @@ BMimica/
 ├── <session>/                            <- 56, named YYYYMMDD_HHMMSS
 │   ├── <ts>_points3d_translated_rotated_metric.h5   <- PROOFREAD 3D, METRES
 │   ├── calibration/
-│   │   ├── <ts>_calibration.toml         <- 5 cameras (absent in 6 sessions)
+│   │   ├── <ts>_calibration.toml         <- 5 cameras (copied in for the 6 sessions of 2025-09-08)
 │   │   └── <ts>_calibration.metadata.h5
 │   └── <serial>/                         <- 21241563, 21369048, 21372315,
 │       │                                    21372316, 22085397
@@ -154,10 +154,11 @@ BMimica/
 One session is ~3.0 GB. The camera **serials are the camera names** everywhere in the
 code (`SERIALS` in `luc3d-bench/scripts/bartul/build_gt_reproj.py`), in that order.
 
-**Six sessions have an empty `calibration/`**: `20250908_152229`, `_154926`,
-`_161812`, `_164528`, `_171240`, `_173928` — the whole 2025-09-08 day. Anything that
-needs calibration either skips them or runs on an inherited rig; Fig 2 does the
-latter and says so.
+**Six sessions shipped with an empty `calibration/`**: `20250908_152229`, `_154926`,
+`_161812`, `_164528`, `_171240`, `_173928` — the whole 2025-09-08 day. On 2026-10-14
+`20250904115349_calibration.toml`, the rig file of every session from 2025-09-03 to
+09-07, was copied into those six folders (RANSAC alignment on 09-08: inliers ~0.977),
+so all 56 sessions now carry a calibration.
 
 ### File contents
 
@@ -383,7 +384,8 @@ The figures never read raw data at draw time. Everything lands in `figs/out/` fi
 - The `CRF30` in every SLAP-2M `.slp` filename is a stale label — the embedded
   reference and the file on disk are both CRF12.
 - **84 SLAP-2M session directories, 74-session corpus.** Read the sheet.
-- **6 Mouse-Dyad-10M sessions have no calibration** (all of 2025-09-08).
+- **6 Mouse-Dyad-10M sessions shipped without a calibration** (all of 2025-09-08); the
+  2025-09-04 rig file was copied in on 2026-10-14.
 - **Mouse-Dyad-10M 3D is metres, SLAP-2M 3D is millimetres.**
 - **`alignment.toml`'s `data_path` points off this machine** (`cage_data/…`); use
   `aligned_cage_points3d.h5`.
