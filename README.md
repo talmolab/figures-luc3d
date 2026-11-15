@@ -101,6 +101,14 @@ dropped and every cross-session value recomputed. No LUC3D was re-run:
   `fig4_q.json` the blocks pooled over individual LUC3D keypoints can't be recomputed
   (the keypoints aren't stored) and are `null`; no placed panel reads them.
   `figs/qc/anipose_linear_rerun.py` recovers the pooled Anipose samples (aniposelib only).
+- The Methods camera-subset paragraph (identity with 2, 3 and 4 of the five Mouse-Dyad-10M
+  cameras) is text only, so it is not a build input. Its b deposit,
+  `out/fig2_cams_identity_b.json`, is the LUC3D v1.0.5 run `run_B3Q.sh` wrote to
+  `<lucid>/figs/out/fig2_cams_identity_b3.json`, copied in unchanged. `reagg_fig2.py`
+  re-aggregates it to `out/fig2_cams_identity_q.json` with `fig2_cams_identity.py`'s
+  summary formula and re-takes the k = 5 gate (55/55 sessions, passed). Within-view IDF1
+  0.92 / 0.96 / 0.97 / 0.97 for 2 / 3 / 4 / 5 cameras; switches 158-250 (k = 2), 86-298
+  (k = 3), 92-128 (k = 4) and 130 (full rig).
 - Fig 5 re-runs its Python measurement scripts (`fig5_upright.py`, `fig5_rear_coupling.py`,
   `fig5_controls.py`, `fig5_slot_swap_control.py`) with `QC_EXCLUDE=1`. Without it they
   reproduce the b deposits exactly. `fig5_benchmark_subset.py` with `QC_EXCLUDE=1` writes

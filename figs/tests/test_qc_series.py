@@ -118,3 +118,33 @@ def test_benchmark_subset_table_is_the_q_corpus():
     assert int(rows["all_55"]["displays"]) == len(ev)
     assert int(rows["all_55"]["sessions"]) == len({e["session"] for e in ev})
     assert int(rows["benchmark_49"]["displays"]) + int(rows["outside_49_only"]["displays"]) == len(ev)
+
+
+# --- Methods camera subsets (text only, not in B_links.tsv) ----------------------------
+# The paper's camera-subset paragraph quotes out/fig2_cams_identity_q.json. It is not a
+# build input, so the B_links-driven checks above do not see it.
+
+def test_cams_identity_q_is_the_b_run_without_the_excluded_sessions():
+    from qc.reagg_fig2 import reagg_cams_identity, reagg_sweep
+    b = json.loads(series_file("fig2_cams_identity.json", "b").read_text())
+    q = json.loads(series_file("fig2_cams_identity.json", "q").read_text())
+    fig8_q = reagg_sweep(json.loads(series_file("fig8_methods_50.json", "b").read_text()), excluded)
+    assert {k: v for k, v in q.items() if k not in ("qc_excluded", "generated_by")} == \
+        {k: v for k, v in reagg_cams_identity(b, excluded, fig8_q).items() if k != "generated_by"}
+    assert q["qc_excluded"] == provenance()
+    assert not PATTERN.search(json.dumps({k: v for k, v in q.items() if k != "qc_excluded"}))
+    assert PATTERN.search(json.dumps(b["per_run"])), "b deposit should be the 56-session run"
+    assert q["gate"]["passed"] and q["lucid_commit"].startswith("2dc001fe")
+
+
+def test_cams_identity_q_matches_the_methods_paragraph():
+    q = json.loads(series_file("fig2_cams_identity.json", "q").read_text())["summary"]
+    by_k = {}
+    for s in q.values():
+        assert s["n_sessions"] == 55
+        by_k.setdefault(s["k"], []).append(s)
+    idf1 = {k: round(sum(s["within_idf1_mean"] for s in v) / len(v), 2) for k, v in by_k.items()}
+    sw = {k: (min(s["within_switches_total"] for s in v), max(s["within_switches_total"] for s in v))
+          for k, v in by_k.items()}
+    assert idf1 == {2: 0.92, 3: 0.96, 4: 0.97, 5: 0.97}
+    assert sw == {2: (158, 250), 3: (86, 298), 4: (92, 128), 5: (130, 130)}

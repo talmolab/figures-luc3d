@@ -329,6 +329,44 @@ def reagg_sweep_framematched(d, ex, full_q):
     return d
 
 
+# --------------------------------------------------------------------------- camera subsets
+CAMS_GATE_CONFIG = "sync_stale20_dist25"   # fig2_cams_identity.py GATE_CONFIG
+
+
+def reagg_cams_identity(d, ex, fig8):
+    """fig2_cams_identity.py main(), score stage (lines 190-240). The Methods paragraph on
+    camera subsets (k = 2, 3, 4 of the five Mouse-Dyad-10M cameras) quotes this deposit.
+    `per_run` rows keep the producer's order. The k = 5 gate is re-taken over the kept
+    sessions against the same fig8_methods_50 cell the producer read (`fig8` is that
+    deposit, already re-aggregated with the same exclusion, so its per-session rows are the
+    b rows of the kept sessions); the gate's `reference` label is unchanged."""
+    d = copy.deepcopy(d)
+    rows = _keep(d["per_run"], ex, "session")
+    d["per_run"] = rows
+    shipped = next(c for c in fig8["cells"] if c["config"] == CAMS_GATE_CONFIG)
+    ref = {r["session"]: r for r in shipped["per_session"]}
+    k5 = [r for r in rows if r["subset"] == "k5_full" and r["session"] in ref]
+    dmax = max(abs(r["within_idf1"] - ref[r["session"]]["within_idf1"]) for r in k5)
+    d["gate"]["passed"] = bool(dmax < 1e-9)
+    d["gate"]["max_abs_diff_idf1"] = dmax
+    summary = {}
+    for tag in d["subsets"]:
+        g = [r for r in rows if r["subset"] == tag]
+        if not g:
+            continue
+        summary[tag] = {
+            "k": len(g[0]["cameras"]), "n_sessions": len(g),
+            "within_idf1_mean": float(np.mean([r["within_idf1"] for r in g])),
+            "cross_idf1_mean": float(np.mean([r["cross_idf1"] for r in g])),
+            "within_switches_total": int(sum(r["within_switches"] for r in g)),
+        }
+    d["summary"] = summary
+    n = len({r["session"] for r in rows})
+    d["stamp_source"] = re.sub(r"on \d+/\d+ sessions", f"on {len(k5)}/{n} sessions",
+                               d["stamp_source"])
+    return d
+
+
 # --------------------------------------------------------------------------- driver
 SWEEP_FULL = "fig3_sweep50__distanceThreshold25-stale20-sync_e508a7ab"
 JOBS = [
@@ -347,6 +385,11 @@ JOBS = [
     (SWEEP_FULL + "_framematched",
      lambda d, ex, done: reagg_sweep_framematched(d, ex, done[SWEEP_FULL])),
     ("fig8_methods_50", lambda d, ex, _: reagg_sweep(d, ex)),
+    # text only (Methods, camera subsets); not a build input, so not in B_links.tsv.
+    # out/fig2_cams_identity_b.json is <lucid>/figs/out/fig2_cams_identity_b3.json (run_B3Q.sh
+    # stage A2, LUC3D v1.0.5 2dc001fe), copied in unchanged.
+    ("fig2_cams_identity",
+     lambda d, ex, done: reagg_cams_identity(d, ex, done["fig8_methods_50"])),
 ]
 #: identity-checked here, but the q deposit is written by another script (module docstring)
 WRITTEN_ELSEWHERE = {"fig3_headtohead_clean_j18": "build/provenance/run_QJ18_fig3f_from_calls.sh"}
