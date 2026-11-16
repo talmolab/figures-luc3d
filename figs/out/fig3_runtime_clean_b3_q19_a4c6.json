@@ -1,0 +1,173 @@
+{
+ "generated_by": "figs/fig3f_timing_clean.py (T_A4C6=1)",
+ "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
+ "note": "Clean greedy-only sitting for A4_C6 (no exhaustive run exists at 4x6): K frames per session drawn (fixed seed) from the frames eligible at 4x6, one process at a time, 3 rounds, median over rounds; solve time only (runCrossViewTracker); LUC3D 2dc001fe527c4dbaad17fa171da132cfdfe010e6; host 1-min load at call start median 25.9, max 28.1 (includes load from outside this container).",
+ "variant": "b3",
+ "seed": 20261019,
+ "k": 100,
+ "measured": [
+  {
+   "key": "A4_C6_slap2m_hard",
+   "animals": 4,
+   "cameras": 6,
+   "dataset": "SLAP-2M",
+   "n_sessions": 3,
+   "eligible_frames": {
+    "10072022145420": 7578,
+    "10072022150448": 8892,
+    "10072022151549": 9448
+   },
+   "frames_per_round": 300,
+   "seconds_per_frame": 0.0006966666666666666,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 300,
+     "greedy_spf": 0.0006966666666666666
+    },
+    {
+     "round": 1,
+     "frames": 300,
+     "greedy_spf": 0.0005933333333333333
+    },
+    {
+     "round": 2,
+     "frames": 300,
+     "greedy_spf": 0.0007233333333333334
+    }
+   ]
+  }
+ ],
+ "qc_excluded": {
+  "20250904_183921": "reference 3D corrupted over frames ~42k-115k: camera 21369048's identities are swapped in the lab's SLEAP predictions and were triangulated into the 3D (preflight QC, 2026-11-12)"
+ },
+ "sitting": {
+  "id": "Q19 (q series: J18 protocol, sessions in src/qc_exclude.py left out, 2026-11-13)",
+  "host": "eric-mimicc-0-1",
+  "cores": 64,
+  "valid": false,
+  "max_outside_cores": 0.662,
+  "bench_seen": [],
+  "median_1min_load": 23.77,
+  "max_1min_load": 37.84,
+  "precheck": {
+   "outside_cores": 0.037,
+   "load": [
+    "21.76",
+    "20.72",
+    "20.71"
+   ],
+   "busy": [
+    {
+     "pid": 801303,
+     "cores": 0.001,
+     "cmd": "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/pty/16fe54a2.sock 100 37 -- /root/.local/share/claude/versions/2.1.305 --session-id 16fe54a2-99bd-428"
+    },
+    {
+     "pid": 801330,
+     "cores": 0.008,
+     "cmd": "/root/.local/share/claude/versions/2.1.305 --session-id 16fe54a2-99bd-428f-a6c0-051c0a8cfeca --fork-session --resume /root/.claude/projects/-root-vast-eric-slea"
+    },
+    {
+     "pid": 3701504,
+     "cores": 0.001,
+     "cmd": "/root/.local/bin/claude daemon run --origin transient --spawned-by {\"label\":\"claude\",\"cwd\":\"/root/vast/eric/sleap-3d-gui/scratch/repos/lucid/figs\",\"pid\":786069}"
+    },
+    {
+     "pid": 3949663,
+     "cores": 0.0,
+     "cmd": "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-bash-1794523892447-04whbs.sh 2>/dev/null || true && shopt -u extglob 2>/dev/null || true && { \\builti"
+    }
+   ],
+   "bench": []
+  },
+  "watch_log": "build/provenance/q19_logs/Q19_watch.jsonl",
+  "samples_over_0p5_core": [
+   {
+    "t": "16:14:53",
+    "outside_cores": 0.604,
+    "busy": [
+     "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/p",
+     "/root/.local/share/claude/versions/2.1.305 --session-id 16fe",
+     "claude",
+     "/root/.local/bin/claude daemon run --origin transient --spaw",
+     "/root/.vscode-server/cli/servers/Stable-e646868227c3e3a9e3f2",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   },
+   {
+    "t": "16:20:59",
+    "outside_cores": 0.506,
+    "busy": [
+     "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/p",
+     "/root/.local/share/claude/versions/2.1.305 --session-id 16fe",
+     "claude",
+     "/root/.local/bin/claude daemon run --origin transient --spaw",
+     "/root/.vscode-server/cli/servers/Stable-e646868227c3e3a9e3f2",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   },
+   {
+    "t": "16:27:00",
+    "outside_cores": 0.556,
+    "busy": [
+     "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/p",
+     "/root/.local/share/claude/versions/2.1.305 --session-id 16fe",
+     "/root/.local/bin/claude daemon run --origin transient --spaw",
+     "/root/.vscode-server/cli/servers/Stable-e646868227c3e3a9e3f2",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   },
+   {
+    "t": "16:33:06",
+    "outside_cores": 0.532,
+    "busy": [
+     "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/p",
+     "/root/.local/share/claude/versions/2.1.305 --session-id 16fe",
+     "/root/.local/bin/claude daemon run --origin transient --spaw",
+     "/root/.vscode-server/cli/servers/Stable-e646868227c3e3a9e3f2",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   },
+   {
+    "t": "16:39:07",
+    "outside_cores": 0.504,
+    "busy": [
+     "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/p",
+     "/root/.local/share/claude/versions/2.1.305 --session-id 16fe",
+     "/root/.local/bin/claude daemon run --origin transient --spaw",
+     "/root/.vscode-server/cli/servers/Stable-e646868227c3e3a9e3f2",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   },
+   {
+    "t": "17:17:11",
+    "outside_cores": 0.662,
+    "busy": [
+     "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/p",
+     "/root/.local/share/claude/versions/2.1.305 --session-id 16fe",
+     "claude",
+     "/root/.local/bin/claude daemon run --origin transient --spaw",
+     "/root/.vscode-server/code-e646868227c3e3a9e3f24277c8c7220be4",
+     "/root/.vscode-server/cli/servers/Stable-e646868227c3e3a9e3f2",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   },
+   {
+    "t": "18:02:32",
+    "outside_cores": 0.51,
+    "busy": [
+     "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/p",
+     "/root/.local/share/claude/versions/2.1.305 --session-id 16fe",
+     "/root/.local/bin/claude daemon run --origin transient --spaw",
+     "/root/.vscode-server/cli/servers/Stable-e646868227c3e3a9e3f2",
+     "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-b"
+    ]
+   }
+  ],
+  "parts": "one part, no resume; per-call gate T_MAX_OTHER_CORES=0.5",
+  "watch_allow_extra": "TW_ALLOW=claude daemon run --origin transient (name match only; its CPU counted)",
+  "idle_rule": "nothing of ours running, measured from /proc by figs/timing_watch.py (outside <= 0.5 core) and per call by fig3f_timing_clean.py other_cores (<= 0.5 core); host load from other containers logged, not removable",
+  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1"
+ }
+}

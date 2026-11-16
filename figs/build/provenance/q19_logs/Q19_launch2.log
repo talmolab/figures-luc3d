@@ -1,0 +1,9 @@
+[16:10:28] precheck passed: {"outside_cores": 0.037, "load": ["21.76", "20.72", "20.71"], "busy": [{"pid": 801303, "cores": 0.001, "cmd": "claude bg-pty-host --bg-pty-host /tmp/cc-daemon-0/addcfb49/pty/16fe54a2.sock 100 37 -- /r
+frames identical to J18: 100/100
+     A2_C5_bmimica 55 sessions  greedy 0.2423 ms (J18 0.2802, 56)  exhaustive 4.134 ms (J18 3.948)
+      A2_C6_slap2m 35 sessions  greedy 0.2818 ms (J18 0.2802, 35)  exhaustive 5.694 ms (J18 5.383)
+      A3_C5_slap2m 4 sessions  greedy 0.5100 ms (J18 0.5000, 4)  exhaustive 917.632 ms (J18 873.623)
+      A4_C3_slap2m 3 sessions  greedy 0.4367 ms (J18 0.4700, 3)  exhaustive 1603.443 ms (J18 1522.857)
+ A4_C6_slap2m_hard 3 sessions  greedy 0.6967 ms (J18 0.6867, 3)
+valid False max_outside_cores 0.662 load median/max 23.77 37.84
+[18:37:27] Q19 DONE {"summary": true, "max_outside_cores": 0.662, "bench_seen": [], "valid": false}

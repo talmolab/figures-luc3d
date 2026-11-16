@@ -1,0 +1,86 @@
+{
+ "generated_by": "figs/qc/eviction_wilcoxon.py",
+ "test": "two-sided Wilcoxon signed-rank on per-session differences, zeros dropped, exact",
+ "slap2m": [
+  {
+   "label": "N = 20 vs no eviction",
+   "a": "sync_stale20_dist25",
+   "b": "stale0_dist25",
+   "statistic": "cross_idf1, a minus b",
+   "n_sessions": 42,
+   "a_better": 20,
+   "b_better": 6,
+   "unchanged": 16,
+   "p_exact": 0.011045306921005249,
+   "p_method": "exact",
+   "p_scipy_default_approx": 0.01235983439208636
+  },
+  {
+   "label": "N = 20 vs N = 1",
+   "a": "sync_stale20_dist25",
+   "b": "sync_stale1_dist25",
+   "statistic": "cross_idf1, a minus b",
+   "n_sessions": 42,
+   "a_better": 21,
+   "b_better": 9,
+   "unchanged": 12,
+   "p_exact": 0.0023674946278333664,
+   "p_method": "exact",
+   "p_scipy_default_approx": 0.00316176493665549
+  },
+  {
+   "label": "N = 20 vs N = 10",
+   "a": "sync_stale20_dist25",
+   "b": "sync_stale10_dist25",
+   "statistic": "cross_idf1, a minus b",
+   "n_sessions": 42,
+   "a_better": 11,
+   "b_better": 12,
+   "unchanged": 19,
+   "p_exact": 0.7313888072967529,
+   "p_method": "exact",
+   "p_scipy_default_approx": 0.7151267545585855
+  },
+  {
+   "label": "N = 20 vs N = 30",
+   "a": "sync_stale20_dist25",
+   "b": "sync_stale30_dist25",
+   "statistic": "cross_idf1, a minus b",
+   "n_sessions": 42,
+   "a_better": 13,
+   "b_better": 9,
+   "unchanged": 20,
+   "p_exact": 0.5028400421142578,
+   "p_method": "exact",
+   "p_scipy_default_approx": 0.48517001465180276
+  }
+ ],
+ "mousedyad10m": {
+  "b": {
+   "label": "no eviction vs N = 20",
+   "a": "stale0_dist25",
+   "b": "sync_stale20_dist25",
+   "statistic": "cross_idf1, a minus b",
+   "n_sessions": 56,
+   "a_better": 12,
+   "b_better": 4,
+   "unchanged": 40,
+   "p_exact": 0.0155029296875,
+   "p_method": "exact",
+   "p_scipy_default_approx": 0.017378363446698287
+  },
+  "q": {
+   "label": "no eviction vs N = 20",
+   "a": "stale0_dist25",
+   "b": "sync_stale20_dist25",
+   "statistic": "cross_idf1, a minus b",
+   "n_sessions": 55,
+   "a_better": 11,
+   "b_better": 4,
+   "unchanged": 40,
+   "p_exact": 0.0301513671875,
+   "p_method": "exact",
+   "p_scipy_default_approx": 0.030908013652429556
+  }
+ }
+}

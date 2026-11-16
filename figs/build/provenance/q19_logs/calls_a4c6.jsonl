@@ -1,0 +1,9 @@
+{"round": 0, "session": "10072022145420", "frames": 100, "greedy_s": 0.066, "load_before": [27.87, 27.63, 26.97], "load_after": [25.88, 27.22, 26.84], "other_cores_before": 0.05, "wall_s": 2.7153642177581787}
+{"round": 0, "session": "10072022150448", "frames": 100, "greedy_s": 0.054, "load_before": [25.88, 27.22, 26.84], "load_after": [24.05, 26.82, 26.71], "other_cores_before": 0.05, "wall_s": 2.7061820030212402}
+{"round": 0, "session": "10072022151549", "frames": 100, "greedy_s": 0.089, "load_before": [24.05, 26.82, 26.71], "load_after": [27.89, 27.57, 26.95], "other_cores_before": 0.02, "wall_s": 2.6303274631500244}
+{"round": 1, "session": "10072022145420", "frames": 100, "greedy_s": 0.055, "load_before": [27.89, 27.57, 26.95], "load_after": [28.06, 27.61, 26.97], "other_cores_before": 0.025, "wall_s": 2.626364231109619}
+{"round": 1, "session": "10072022150448", "frames": 100, "greedy_s": 0.063, "load_before": [28.06, 27.61, 26.97], "load_after": [26.21, 27.23, 26.85], "other_cores_before": 0.03, "wall_s": 2.611323356628418}
+{"round": 1, "session": "10072022151549", "frames": 100, "greedy_s": 0.06, "load_before": [26.21, 27.23, 26.85], "load_after": [26.21, 27.23, 26.85], "other_cores_before": 0.025, "wall_s": 2.532846689224243}
+{"round": 2, "session": "10072022145420", "frames": 100, "greedy_s": 0.066, "load_before": [24.27, 26.81, 26.72], "load_after": [24.27, 26.81, 26.72], "other_cores_before": 0.05, "wall_s": 2.5554869174957275}
+{"round": 2, "session": "10072022150448", "frames": 100, "greedy_s": 0.069, "load_before": [22.49, 26.4, 26.59], "load_after": [22.49, 26.4, 26.59], "other_cores_before": 0.045, "wall_s": 2.622061252593994}
+{"round": 2, "session": "10072022151549", "frames": 100, "greedy_s": 0.082, "load_before": [20.85, 26.0, 26.45], "load_after": [20.85, 26.0, 26.45], "other_cores_before": 0.02, "wall_s": 2.609011173248291}

@@ -12,7 +12,15 @@ deposits the three side by side (data/fig5/fig5s_benchmark50_subset.csv). The 50
 data/fig3/fig3f_per_session.csv, the list every tracking figure uses.
 
     python3 figs/fig5_benchmark_subset.py
+
+`QC_EXCLUDE=1` (2026-11-13, the q series): read out/fig5_upright_q.json (the sessions on
+src/qc_exclude.py's list already left out) and split by recording date instead -- the six
+sessions recorded on 2025-09-08 against the rest -- because fig3f_per_session.csv now lists
+every scored session, not the original 50. On the b deposit this split reproduces the
+committed b table byte for byte. Rows are labelled with their session counts. Unset,
+nothing changes.
 """
+import os
 import json
 import re
 import sys
@@ -59,6 +67,8 @@ def stats_for(ev, label):
 
 
 def main():
+    if os.environ.get("QC_EXCLUDE") == "1":
+        return main_qc()
     d = json.load(open(FIGS / "out/fig5_upright.json"))
     ev = pd.DataFrame(d["events"])
     ids = {r["session"]: (r["per_track"][0]["animal"], r["per_track"][1]["animal"]) for r in d["per_session"]}
@@ -69,6 +79,28 @@ def main():
     rows = [stats_for(ev, "all_56"),
             stats_for(ev[ev.session.isin(p50)], "benchmark_50"),
             stats_for(ev[~ev.session.isin(p50)], "outside_50_only")]
+    df = pd.DataFrame(rows)
+    deposit(df, 5, "fig5s_benchmark50_subset.csv")
+    with pd.option_context("display.width", 250, "display.max_columns", 40):
+        print(df.set_index("subset").T)
+
+
+def main_qc():
+    from src.qc_exclude import excluded
+    d = json.load(open(FIGS / "out/fig5_upright_q.json"))
+    ev = pd.DataFrame(d["events"])
+    assert not any(excluded(s) for s in ev.session.unique()), "q deposit names an excluded session"
+    ids = {r["session"]: (r["per_track"][0]["animal"], r["per_track"][1]["animal"]) for r in d["per_session"]}
+    ev["pair"] = ev.session.map(lambda s: ids[s][0] + "|" + ids[s][1])
+    out = ev.session.str.startswith("20250908")
+    # session counts in the labels are of the scored corpus (fig3f_per_session.csv), not
+    # of the sessions that happen to have displays
+    corpus = set(re.findall(r"20\d{6}_\d{6}", open(FIGS / "data/fig3/fig3f_per_session.csv").read()))
+    assert not any(excluded(s) for s in corpus)
+    n_all, n_out = len(corpus), sum(s.startswith("20250908") for s in corpus)
+    rows = [stats_for(ev, f"all_{n_all}"),
+            stats_for(ev[~out], f"benchmark_{n_all - n_out}"),
+            stats_for(ev[out], f"outside_{n_all - n_out}_only")]
     df = pd.DataFrame(rows)
     deposit(df, 5, "fig5s_benchmark50_subset.csv")
     with pd.option_context("display.width", 250, "display.max_columns", 40):

@@ -490,6 +490,14 @@ def main():
         os.environ["FIG5G_PERDIR"] = "1"      # inherited by the worker processes
 
     bm = [d for d in sorted(glob.glob(f"{BMIMICA}/*")) if os.path.isdir(d)]
+    # q SERIES (opt-in): QC_EXCLUDE=1 drops the BMimica sessions on
+    # src/qc_exclude.py's list and records why in the deposit. Unset, untouched.
+    qc = os.environ.get("QC_EXCLUDE") == "1"
+    if qc:
+        from src.qc_exclude import excluded, provenance
+        dropped = [os.path.basename(d) for d in bm if excluded(os.path.basename(d))]
+        bm = [d for d in bm if not excluded(os.path.basename(d))]
+        print(f"QC_EXCLUDE=1: dropped {dropped}")
     if args.skip_slap:
         sl = []
     else:
@@ -517,6 +525,8 @@ def main():
                     "onset: a social effect should be larger when near, a shared drive "
                     "should not."),
            "corpora": {}}
+    if qc:
+        res["qc_excluded"] = provenance()
     onsets_csv = args.out.with_name(args.out.stem + "_onsets.csv")
     res["onsets_csv"] = onsets_csv.name
     onsets = []

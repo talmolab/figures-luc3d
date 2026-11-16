@@ -30,7 +30,11 @@ BENCH = ("fig2_solvers", "fig2g_retime", "fig3_bench", "fig3_exhaustive", "fig6_
          "make_figures", "sleap", "bytetrack", "blender", "ffmpeg", "playwright",
          "chromium", "bfs", "find /", "run_J", "run_X7", "timed_b", "calib")
 #: Allowed outside processes (Eric's editor, the idle static server).
-ALLOW = (".vscode-server", "http.server")
+#: TW_ALLOW=<a>,<b> (2026-11-13, Q19) adds command-line substrings to this name allowance
+#: only -- e.g. the Claude Code daemon, whose command line carries the "sleap-3d-gui" path
+#: and so matched the "sleap" marker. Their CPU still counts toward MAX_OUTSIDE_CORES.
+ALLOW = (".vscode-server", "http.server") + tuple(
+    x for x in os.environ.get("TW_ALLOW", "").split(",") if x)
 
 
 def procs():

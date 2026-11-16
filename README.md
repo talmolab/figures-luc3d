@@ -49,11 +49,15 @@ scoring. `figs/PANEL-SOURCES.md` lists the commands that produced each deposit.
 ```bash
 bash figs/build/run_FINALBUILD.sh            # rebuild the seven placed figures in place
 bash figs/build/run_FINALBUILD.sh --verify   # rebuild a clean copy and pixel-compare it to this checkout
+FIG_SERIES=b bash figs/build/run_FINALBUILD.sh   # the earlier 56-session figures (figures/published-b/)
 PYTHON=/path/to/python3.12 bash figs/build/run_FINALBUILD.sh   # pick the interpreter
 python figs/lint_text.py 7                   # check one figure for clipped or overlapping text
 ```
 
-**Use the wrapper, not a bare `make_figures.py`.** The published figures are the
+The build's default is the **q series**, the figures in the manuscript, with Mouse-Dyad-10M
+at 55 sessions (see "The q series" below). q is the b series with one session left out.
+
+**Use the wrapper, not a bare `make_figures.py`.** The figures are built on the
 **b series** (2026-10-20/21), not plain `x7`. A plain `FIG_VARIANT=x7` build reproduces
 Fig 4 and Supplementary Figure 2 but not the 3D renders, Fig 2, or Supplementary Figure 4e.
 b is x7's deposit set plus eight overrides, listed in `figs/build/B_links.tsv` (every name
@@ -86,6 +90,70 @@ through `src/style.py` and a panel that leaves state behind must not be able to
 change how the next one renders. One broken panel reports and the rest still build.
 
 Needs Python 3.12 with numpy, pandas, scipy, matplotlib, seaborn and PyMuPDF.
+
+**The q series (this branch): Mouse-Dyad session 20250904_183921 left out.** That
+session's reference 3D is corrupted over frames ~42k-115k: camera 21369048's identities
+are swapped in the lab's SLEAP predictions and were triangulated into the 3D. The
+exclusion list is `figs/src/qc_exclude.py`. `bash figs/build/run_FINALBUILD.sh` (default
+`FIG_SERIES=q`) builds the figures from `out/<stem>_q.*`, which are the b deposits with that session
+dropped and every cross-session value recomputed. No LUC3D was re-run:
+
+- Fig 2 tracking (`figs/qc/reagg_fig2.py`), Fig 3 triangulation (`figs/qc/reagg_fig3.py`)
+  and Supp Fig 4 (`figs/qc/reagg_supp4.py`) re-aggregate the per-session values the b
+  deposits already hold, with the producers' own formulas. Each script's `--check` re-runs
+  it with nothing excluded and requires it to reproduce the b deposit exactly. In
+  `fig4_q.json` the blocks pooled over individual LUC3D keypoints can't be recomputed
+  (the keypoints aren't stored) and are `null`; no placed panel reads them.
+  `figs/qc/anipose_linear_rerun.py` recovers the pooled Anipose samples (aniposelib only).
+- The Methods camera-subset paragraph (identity with 2, 3 and 4 of the five Mouse-Dyad-10M
+  cameras) is text only, so it is not a build input. Its b deposit,
+  `out/fig2_cams_identity_b.json`, is the LUC3D v1.0.5 run `run_B3Q.sh` wrote to
+  `<lucid>/figs/out/fig2_cams_identity_b3.json`, copied in unchanged. `reagg_fig2.py`
+  re-aggregates it to `out/fig2_cams_identity_q.json` with `fig2_cams_identity.py`'s
+  summary formula and re-takes the k = 5 gate (55/55 sessions, passed). Within-view IDF1
+  0.92 / 0.96 / 0.97 / 0.97 for 2 / 3 / 4 / 5 cameras; switches 158-250 (k = 2), 86-298
+  (k = 3), 92-128 (k = 4) and 130 (full rig).
+- **Exact Wilcoxon P values (2026-11-16).** `scipy.stats.wilcoxon`'s default
+  `method="auto"` silently switches to the normal approximation when the differences
+  have ties or zeros. Fig 5f (female share, ties) now uses an exact tie-aware P,
+  4.8e-7 over 22 sessions (was 4.0e-5), deposited in `fig5f_leader_by_session.csv` as
+  row `TEST_SESSION_ge6`. The panel is unchanged (still ***). The Supplementary
+  eviction-sweep P values (zeros) had no producer here. `figs/qc/eviction_wilcoxon.py`
+  now writes them to `out/eviction_wilcoxon_q.json`, exact: 0.011, 0.002, 0.73 and
+  0.50 on SLAP-2M, and 0.030 on MouseDyad-10M (were 0.012, 0.003, 0.72, 0.49 and
+  0.031). Figs 5d and 5e, the sign tests, and the Mann-Whitney tests were already exact.
+- Fig 5 re-runs its Python measurement scripts (`fig5_upright.py`, `fig5_rear_coupling.py`,
+  `fig5_controls.py`, `fig5_slot_swap_control.py`) with `QC_EXCLUDE=1`. Without it they
+  reproduce the b deposits exactly. `fig5_benchmark_subset.py` with `QC_EXCLUDE=1` writes
+  the q subset table (`all_55`, `benchmark_49`, `outside_49_only`).
+- Fig 2g timing is the J18 sitting (the b timing) with that session's calls left out, both
+  arms, so both still run on the same frames:
+  `figs/build/provenance/run_QJ18_fig3f_from_calls.sh` re-aggregates J18's per-call log
+  (kept in `figs/build/provenance/j18_calls/`) through `fig3f_timing_clean.py`
+  `T_FROM_CALLS`, which with nothing excluded reproduces J18's deposits exactly. Mouse-Dyad
+  2x5 goes from 0.2802 to 0.2805 ms (greedy) and from 3.948 to 3.952 ms (exhaustive); the
+  SLAP-2M cells don't change. Run `figs/qc/reagg_fig2.py` first; it leaves
+  `fig3_headtohead_clean_j18_q.json` to this script. A fresh re-time (Q19,
+  `run_Q19_fig3f_timing.sh`, logs in `q19_logs/`) is kept but not used. It was
+  `valid: false` under `timing_watch.py` (7 of 1,760 samples at 0.50-0.66 core, mostly the
+  VS Code server), and it ran on a different, busier host, which on its own moved every
+  bar (exhaustive ~5% slower in each cell).
+- The datasheet lists Mouse-Dyad-10M as 55 sessions: `cd figs && python dataset_sheets.py
+  --measure` (default `FIG_SERIES=q`) measures the corpus without the `src/qc_exclude.py` sessions
+  into `out/dataset_sheets_q.json` (49.52 M frames, 9.9 M per view, 19.81 M 3D poses,
+  99.05 M 2D poses) and renders `figs/figures/datasheets/`. The 56-session b sheets are kept
+  in `figs/figures/published-b/datasheets/`, and the b render reproduces them pixel-identically.
+- `figs/qc/crossview_mismatch.py` (read-only QC, not a figure) finds the stretches where one
+  camera's proofread identities are swapped relative to the other four and the reference
+  3D was triangulated through the swap. It writes `figs/data/qc/crossview_mismatch.csv`
+  (one row per run) and `figs/out/qc_crossview_mismatch.json`. In the 55 kept sessions
+  they cover 0.23% of frames in 20 sessions, the longest 44 s; the tex quotes these.
+
+Figs 1 and 4 and Supp Fig 2 come out pixel-identical to b. Figs 2, 3 and 5 and Supp Fig 4
+change. On this branch `figs/figures/fig1`-`fig7` hold the q series; the earlier 56-session b
+composites are kept in `figs/figures/published-b/`, and the b deposits are unchanged, so
+`FIG_SERIES=b bash figs/build/run_FINALBUILD.sh` still reproduces them exactly. Check this
+branch with `bash figs/build/run_FINALBUILD.sh --verify` (q is the default).
 
 Unit tests (seconds, no rebuild): `python -m pytest figs/tests` (needs pytest). They cover
 `build/compare.py` (what `--verify` fails on and what it only reports), `build/promote.py`,

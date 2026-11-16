@@ -1,0 +1,50 @@
+[timing] container quiet: other processes 0.07 cores
+[timing] QC_EXCLUDE=1: A2_C5_bmimica drops ['20250904_183921']
+[timing] 97 (config, session) cells, 3 round(s), LUC3D 2dc001fe, load [22.66, 21.31, 20.91]
+[timing] round 0 1/97 load [18.33, 20.4, 20.62]
+[timing] round 0 11/97 load [18.14, 21.29, 21.15]
+[timing] round 0 cell 20: waiting for quiet (bench [], other cores 0.835)
+[timing] round 0 21/97 load [22.29, 23.14, 22.02]
+[timing] round 0 cell 26: waiting for quiet (bench [], other cores 1.065)
+[timing] round 0 31/97 load [36.43, 28.6, 24.45]
+[timing] round 0 cell 32: waiting for quiet (bench [], other cores 1.18)
+[timing] round 0 cell 38: waiting for quiet (bench [], other cores 0.765)
+[timing] round 0 41/97 load [17.58, 22.02, 22.72]
+[timing] round 0 cell 44: waiting for quiet (bench [], other cores 1.21)
+[timing] round 0 cell 50: waiting for quiet (bench [], other cores 0.585)
+[timing] round 0 51/97 load [23.64, 22.22, 22.59]
+[timing] round 0 61/97 load [19.24, 21.22, 22.18]
+[timing] round 0 71/97 load [17.44, 20.3, 21.73]
+[timing] round 0 81/97 load [22.48, 20.68, 21.66]
+[timing] round 0 91/97 load [18.53, 20.83, 21.58]
+[timing] round 1 1/97 load [24.2, 24.27, 23.56]
+[timing] round 1 11/97 load [20.34, 21.38, 22.5]
+[timing] round 1 21/97 load [28.88, 25.09, 23.66]
+[timing] round 1 31/97 load [20.35, 22.66, 23.03]
+[timing] round 1 41/97 load [19.09, 22.25, 22.97]
+[timing] round 1 51/97 load [29.33, 24.02, 23.36]
+[timing] round 1 61/97 load [22.31, 22.43, 22.82]
+[timing] round 1 71/97 load [23.47, 23.7, 23.31]
+[timing] round 1 81/97 load [25.4, 23.46, 23.21]
+[timing] round 1 91/97 load [26.57, 25.61, 24.11]
+[timing] round 2 1/97 load [26.38, 25.31, 24.31]
+[timing] round 2 11/97 load [22.93, 23.68, 23.77]
+[timing] round 2 cell 12: waiting for quiet (bench [], other cores 1.01)
+[timing] round 2 cell 18: waiting for quiet (bench [], other cores 0.8)
+[timing] round 2 21/97 load [19.93, 22.9, 23.43]
+[timing] round 2 cell 24: waiting for quiet (bench [], other cores 1.04)
+[timing] round 2 cell 30: waiting for quiet (bench [], other cores 0.915)
+[timing] round 2 31/97 load [20.64, 22.34, 23.22]
+[timing] round 2 cell 36: waiting for quiet (bench [], other cores 0.745)
+[timing] round 2 41/97 load [13.14, 20.0, 22.26]
+[timing] round 2 cell 42: waiting for quiet (bench [], other cores 0.72)
+[timing] round 2 51/97 load [23.71, 23.37, 23.16]
+[timing] round 2 61/97 load [28.64, 25.91, 24.18]
+[timing] round 2 71/97 load [31.26, 28.18, 25.26]
+[timing] round 2 81/97 load [33.32, 30.13, 26.34]
+[timing] round 2 91/97 load [32.98, 30.38, 27.14]
+     A2_C5_bmimica: 55 sessions x 55,000 frames  greedy 0.2423 ms (spread 8.6%)  exhaustive 4.134 ms (spread 1.1%)  ratio 17.1x
+      A2_C6_slap2m: 35 sessions x 33,919 frames  greedy 0.2818 ms (spread 7.0%)  exhaustive 5.694 ms (spread 1.5%)  ratio 20.2x
+      A3_C5_slap2m: 4 sessions x 400 frames  greedy 0.5100 ms (spread 6.4%)  exhaustive 917.632 ms (spread 1.0%)  ratio 1,799.3x
+      A4_C3_slap2m: 3 sessions x 300 frames  greedy 0.4367 ms (spread 14.5%)  exhaustive 1603.443 ms (spread 1.1%)  ratio 3,672.0x
+[timing] wrote fig3_runtime_clean_b3_q19.json and fig3_headtohead_clean_b3_q19.json

@@ -1,0 +1,132 @@
+{
+ "generated_by": "figs/fig3f_timing_clean.py (T_A4C6=1)",
+ "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
+ "note": "Clean greedy-only sitting for A4_C6 (no exhaustive run exists at 4x6): K frames per session drawn (fixed seed) from the frames eligible at 4x6, one process at a time, 3 rounds, median over rounds; solve time only (runCrossViewTracker); LUC3D 2dc001fe527c4dbaad17fa171da132cfdfe010e6; host 1-min load at call start median 7.6, max 8.8 (includes load from outside this container).",
+ "variant": "b3",
+ "seed": 20261019,
+ "k": 100,
+ "measured": [
+  {
+   "key": "A4_C6_slap2m_hard",
+   "animals": 4,
+   "cameras": 6,
+   "dataset": "SLAP-2M",
+   "n_sessions": 3,
+   "eligible_frames": {
+    "10072022145420": 7578,
+    "10072022150448": 8892,
+    "10072022151549": 9448
+   },
+   "frames_per_round": 300,
+   "seconds_per_frame": 0.0006866666666666667,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 300,
+     "greedy_spf": 0.0007066666666666667
+    },
+    {
+     "round": 1,
+     "frames": 300,
+     "greedy_spf": 0.0006866666666666667
+    },
+    {
+     "round": 2,
+     "frames": 300,
+     "greedy_spf": 0.0006366666666666667
+    }
+   ]
+  }
+ ],
+ "sitting": {
+  "id": "J18 (rerun of J17, 2026-10-21)",
+  "host": "eric-mimic2-0-6",
+  "cores": 64,
+  "valid": true,
+  "rule": "every kept call timed with nothing of ours over 0.5 core outside the sitting (figs/timing_watch.py, 5 s samples) and the per-call gate at 0.5 core",
+  "main": {
+   "window": "02:44-05:06 UTC",
+   "samples": 1707,
+   "samples_over_0p5_core": [
+    {
+     "t": "03:27:58",
+     "outside_cores": 0.71,
+     "busy": [
+      "claude"
+     ]
+    },
+    {
+     "t": "03:28:03",
+     "outside_cores": 0.8,
+     "busy": [
+      "claude"
+     ]
+    },
+    {
+     "t": "03:36:09",
+     "outside_cores": 0.554,
+     "busy": [
+      "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174",
+      "claude"
+     ]
+    },
+    {
+     "t": "03:39:10",
+     "outside_cores": 0.674,
+     "busy": [
+      "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174",
+      "claude"
+     ]
+    },
+    {
+     "t": "03:52:56",
+     "outside_cores": 0.548,
+     "busy": [
+      "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174"
+     ]
+    },
+    {
+     "t": "04:32:25",
+     "outside_cores": 0.504,
+     "busy": [
+      "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174"
+     ]
+    }
+   ],
+   "max_outside_cores_other_samples": 0.498
+  },
+  "redo1": {
+   "window": "05:07:54-05:14:44 UTC",
+   "why": "the 8 calls overlapping a sample over 0.5 core (+/-10 s) were dropped from calls.jsonl and re-timed with T_RESUME=1; list in md56_logs/J18_redo1_calls.json; calls matched to the watch log by their recorded load averages",
+   "samples": 83,
+   "max_outside_cores": 0.162,
+   "valid": true
+  },
+  "max_outside_cores_kept_calls": 0.498,
+  "median_1min_load": 6.07,
+  "max_1min_load": 13.8,
+  "precheck": {
+   "outside_cores": 0.016,
+   "load": [
+    "7.07",
+    "6.09",
+    "5.85"
+   ],
+   "busy": [
+    {
+     "pid": 2760859,
+     "cores": 0.0,
+     "cmd": "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-bash-1792547217943-8ppljk.sh 2>/dev/null || true && shopt -u extglob 2>/dev/null || true && { \\builti"
+    }
+   ],
+   "bench": []
+  },
+  "watch_log": "md56_logs/J18_watch.jsonl + J18_redo1_watch.jsonl",
+  "idle_rule": "host load from other containers logged, not removable",
+  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1",
+  "derived": "q series: no session of this sitting is on src/qc_exclude.py's list, numbers unchanged. build/provenance/run_QJ18_fig3f_from_calls.sh"
+ },
+ "qc_excluded": {
+  "20250904_183921": "reference 3D corrupted over frames ~42k-115k: camera 21369048's identities are swapped in the lab's SLEAP predictions and were triangulated into the 3D (preflight QC, 2026-11-12)"
+ }
+}

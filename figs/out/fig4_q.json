@@ -1,0 +1,1090 @@
+{
+ "session": null,
+ "sessions": [
+  "20250827_141755",
+  "20250827_145223",
+  "20250827_152238",
+  "20250827_155244",
+  "20250827_162428",
+  "20250827_165542",
+  "20250827_172440",
+  "20250829_124351",
+  "20250829_134647",
+  "20250829_141847",
+  "20250829_144840",
+  "20250829_151905",
+  "20250829_155407",
+  "20250829_162253",
+  "20250829_164919",
+  "20250829_171625",
+  "20250903_141046",
+  "20250903_143938",
+  "20250903_150657",
+  "20250903_153433",
+  "20250904_131913",
+  "20250904_140306",
+  "20250904_143552",
+  "20250904_150414",
+  "20250904_153332",
+  "20250904_160014",
+  "20250904_165017",
+  "20250904_174232",
+  "20250904_181215",
+  "20250905_165151",
+  "20250905_171829",
+  "20250905_174513",
+  "20250905_181402",
+  "20250905_191445",
+  "20250905_194049",
+  "20250905_200953",
+  "20250905_203607",
+  "20250905_210254",
+  "20250905_213215",
+  "20250907_143021",
+  "20250907_151901",
+  "20250907_154801",
+  "20250907_161657",
+  "20250907_164826",
+  "20250907_171538",
+  "20250907_174343",
+  "20250907_181225",
+  "20250907_183823",
+  "20250907_190610",
+  "20250908_152229",
+  "20250908_154926",
+  "20250908_161812",
+  "20250908_164528",
+  "20250908_171240",
+  "20250908_173928"
+ ],
+ "n_sessions": 55,
+ "n_calibrations": 3,
+ "keypoints": 18766062,
+ "cameras": 5,
+ "stride": 15,
+ "limit": null,
+ "poseDir": "/root/vast/eric/lucid-main-md56/pose",
+ "lucid_root": "/root/vast/eric/lucid-main-md56",
+ "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
+ "pose_dir": "/root/vast/eric/lucid-main-md56/pose",
+ "driver": "figs/fig2_solvers_measure.mjs",
+ "methods": {
+  "dlt": {
+   "reproj_px": null,
+   "err3d_mm": null,
+   "us_per_keypoint": 1.0369249488790293
+  },
+  "ba": {
+   "reproj_px": null,
+   "err3d_mm": null,
+   "us_per_keypoint": 27.059796823235445
+  },
+  "ba_legacy": {
+   "reproj_px": null,
+   "err3d_mm": null,
+   "us_per_keypoint": 2.676420912198567
+  }
+ },
+ "worse_than_dlt": {
+  "ba": 0,
+  "ba_legacy": 4611082,
+  "of": 18766062
+ },
+ "reference_reproj_px": null,
+ "distortion_px": null,
+ "legacy_regression_px": null,
+ "diff_vs_dlt_px": {
+  "ba": null,
+  "ba_legacy": null
+ },
+ "heldout_reproj_px": {
+  "dlt": null,
+  "ba": null
+ },
+ "heldout_paired": {
+  "n": 93830310,
+  "ba_better": 49863817,
+  "dlt_better": 43966493,
+  "tie": 0,
+  "ba_better_frac": 0.5314254743483209,
+  "diff_px": null,
+  "median_diff_px": null
+ },
+ "heldout_by_views": {
+  "n_keypoints": 18766062,
+  "subsample_every": 1,
+  "by_k": null,
+  "note": "leave-one-camera-out with only k of the remaining views given to the solve, scored against the raw detection in the held-out view; needs no reference 3D, so it carries none of its bias"
+ },
+ "guard": {
+  "returned_seed": 0,
+  "of": 18766062,
+  "frac": 0.0,
+  "note": "Fraction of keypoints where the refined solve came back bit-identical to its DLT seed, i.e. the backtracking guard found no non-worsening step. This is the contingent quantity; 'never worse than DLT' itself is enforced by that guard and is not a measurement."
+ },
+ "per_session": [
+  {
+   "session": "20250827_141755",
+   "calibration": 0,
+   "n_keypoints": 353453,
+   "reproj_p50": {
+    "dlt": 1.6757089580923548,
+    "ba": 1.5746917847304078,
+    "ba_legacy": 1.659934919936633
+   },
+   "heldout_p50": {
+    "dlt": 2.2734928688038405,
+    "ba": 2.3477258665827723
+   },
+   "heldout_n": 1767265,
+   "heldout_ba_better_frac": 0.45228304753390125,
+   "legacy_worse_frac": 0.3910816996885017
+  },
+  {
+   "session": "20250827_145223",
+   "calibration": 0,
+   "n_keypoints": 350107,
+   "reproj_p50": {
+    "dlt": 1.618476789113768,
+    "ba": 1.517893999377716,
+    "ba_legacy": 1.5986161299821242
+   },
+   "heldout_p50": {
+    "dlt": 2.209745718227347,
+    "ba": 2.2697710398976647
+   },
+   "heldout_n": 1750535,
+   "heldout_ba_better_frac": 0.46078256075999624,
+   "legacy_worse_frac": 0.36458282753558197
+  },
+  {
+   "session": "20250827_152238",
+   "calibration": 0,
+   "n_keypoints": 353817,
+   "reproj_p50": {
+    "dlt": 1.648532620399554,
+    "ba": 1.5501284939710867,
+    "ba_legacy": 1.6323763043031878
+   },
+   "heldout_p50": {
+    "dlt": 2.254452160908193,
+    "ba": 2.3186493048564696
+   },
+   "heldout_n": 1769085,
+   "heldout_ba_better_frac": 0.4606132548746951,
+   "legacy_worse_frac": 0.391908811617305
+  },
+  {
+   "session": "20250827_155244",
+   "calibration": 0,
+   "n_keypoints": 347789,
+   "reproj_p50": {
+    "dlt": 1.9997277018687896,
+    "ba": 1.8795914082848941,
+    "ba_legacy": 1.9751485051531894
+   },
+   "heldout_p50": {
+    "dlt": 2.7818512918920844,
+    "ba": 2.813639591161785
+   },
+   "heldout_n": 1738945,
+   "heldout_ba_better_frac": 0.48172023842042155,
+   "legacy_worse_frac": 0.36944239179502514
+  },
+  {
+   "session": "20250827_162428",
+   "calibration": 0,
+   "n_keypoints": 349693,
+   "reproj_p50": {
+    "dlt": 1.8543365616305671,
+    "ba": 1.7394302607751828,
+    "ba_legacy": 1.82882166718759
+   },
+   "heldout_p50": {
+    "dlt": 2.5804936002428462,
+    "ba": 2.6353821071594745
+   },
+   "heldout_n": 1748465,
+   "heldout_ba_better_frac": 0.4683668246147335,
+   "legacy_worse_frac": 0.3464467404266028
+  },
+  {
+   "session": "20250827_165542",
+   "calibration": 0,
+   "n_keypoints": 354659,
+   "reproj_p50": {
+    "dlt": 2.0292800976280576,
+    "ba": 1.8978706206801643,
+    "ba_legacy": 1.9937240206389355
+   },
+   "heldout_p50": {
+    "dlt": 2.8302911550926377,
+    "ba": 2.8500212568895607
+   },
+   "heldout_n": 1773295,
+   "heldout_ba_better_frac": 0.48945268553737536,
+   "legacy_worse_frac": 0.3234712780445442
+  },
+  {
+   "session": "20250827_172440",
+   "calibration": 0,
+   "n_keypoints": 347560,
+   "reproj_p50": {
+    "dlt": 1.7932917295064335,
+    "ba": 1.6674586500244342,
+    "ba_legacy": 1.7542387019813017
+   },
+   "heldout_p50": {
+    "dlt": 2.512198896524334,
+    "ba": 2.51917242581856
+   },
+   "heldout_n": 1737800,
+   "heldout_ba_better_frac": 0.49625330878121765,
+   "legacy_worse_frac": 0.2907267809874554
+  },
+  {
+   "session": "20250829_124351",
+   "calibration": 1,
+   "n_keypoints": 357851,
+   "reproj_p50": {
+    "dlt": 1.7422931868733813,
+    "ba": 1.6167674839215251,
+    "ba_legacy": 1.7040087206245207
+   },
+   "heldout_p50": {
+    "dlt": 2.439887860954437,
+    "ba": 2.453575059564865
+   },
+   "heldout_n": 1789255,
+   "heldout_ba_better_frac": 0.49725891502329184,
+   "legacy_worse_frac": 0.2910513034754688
+  },
+  {
+   "session": "20250829_134647",
+   "calibration": 1,
+   "n_keypoints": 333956,
+   "reproj_p50": {
+    "dlt": 1.9051099582544169,
+    "ba": 1.7809867108737567,
+    "ba_legacy": 1.8755692351540474
+   },
+   "heldout_p50": {
+    "dlt": 2.6297436879505565,
+    "ba": 2.680615382378174
+   },
+   "heldout_n": 1669780,
+   "heldout_ba_better_frac": 0.47910922396962474,
+   "legacy_worse_frac": 0.3141491693516511
+  },
+  {
+   "session": "20250829_141847",
+   "calibration": 1,
+   "n_keypoints": 336580,
+   "reproj_p50": {
+    "dlt": 1.916949726717019,
+    "ba": 1.7853839349151044,
+    "ba_legacy": 1.8813920100673767
+   },
+   "heldout_p50": {
+    "dlt": 2.684371588516539,
+    "ba": 2.7205231719290346
+   },
+   "heldout_n": 1682900,
+   "heldout_ba_better_frac": 0.4822871234179096,
+   "legacy_worse_frac": 0.3122586012240775
+  },
+  {
+   "session": "20250829_144840",
+   "calibration": 1,
+   "n_keypoints": 350536,
+   "reproj_p50": {
+    "dlt": 1.8165041193421914,
+    "ba": 1.6889367055952775,
+    "ba_legacy": 1.7817504153943369
+   },
+   "heldout_p50": {
+    "dlt": 2.5206106793597947,
+    "ba": 2.550626751144976
+   },
+   "heldout_n": 1752680,
+   "heldout_ba_better_frac": 0.49096184129447473,
+   "legacy_worse_frac": 0.314777940068923
+  },
+  {
+   "session": "20250829_151905",
+   "calibration": 1,
+   "n_keypoints": 351374,
+   "reproj_p50": {
+    "dlt": 1.8889789905334673,
+    "ba": 1.75499839037106,
+    "ba_legacy": 1.8495760221407687
+   },
+   "heldout_p50": {
+    "dlt": 2.6557178822642906,
+    "ba": 2.677469482920008
+   },
+   "heldout_n": 1756870,
+   "heldout_ba_better_frac": 0.4928566143197846,
+   "legacy_worse_frac": 0.2947969969320439
+  },
+  {
+   "session": "20250829_155407",
+   "calibration": 1,
+   "n_keypoints": 353088,
+   "reproj_p50": {
+    "dlt": 1.7344690494597554,
+    "ba": 1.6091054715642463,
+    "ba_legacy": 1.6960599192259878
+   },
+   "heldout_p50": {
+    "dlt": 2.423193502021998,
+    "ba": 2.436081240962277
+   },
+   "heldout_n": 1765440,
+   "heldout_ba_better_frac": 0.49794555464926593,
+   "legacy_worse_frac": 0.2801312987130687
+  },
+  {
+   "session": "20250829_162253",
+   "calibration": 1,
+   "n_keypoints": 343796,
+   "reproj_p50": {
+    "dlt": 1.7813569364606103,
+    "ba": 1.6610146142427422,
+    "ba_legacy": 1.7507814832933644
+   },
+   "heldout_p50": {
+    "dlt": 2.4977232200606414,
+    "ba": 2.5358915178392567
+   },
+   "heldout_n": 1718980,
+   "heldout_ba_better_frac": 0.4826548301899964,
+   "legacy_worse_frac": 0.32286588558331103
+  },
+  {
+   "session": "20250829_164919",
+   "calibration": 1,
+   "n_keypoints": 356894,
+   "reproj_p50": {
+    "dlt": 1.7033849908197838,
+    "ba": 1.5920387894978087,
+    "ba_legacy": 1.6756647109578657
+   },
+   "heldout_p50": {
+    "dlt": 2.3772006063274573,
+    "ba": 2.4226594602834304
+   },
+   "heldout_n": 1784470,
+   "heldout_ba_better_frac": 0.4791786917123852,
+   "legacy_worse_frac": 0.3177021748754532
+  },
+  {
+   "session": "20250829_171625",
+   "calibration": 1,
+   "n_keypoints": 340217,
+   "reproj_p50": {
+    "dlt": 1.900619730743076,
+    "ba": 1.780156221200113,
+    "ba_legacy": 1.8746739643543164
+   },
+   "heldout_p50": {
+    "dlt": 2.6240699096745863,
+    "ba": 2.6697555986132113
+   },
+   "heldout_n": 1701085,
+   "heldout_ba_better_frac": 0.47889023770123185,
+   "legacy_worse_frac": 0.3548205997936611
+  },
+  {
+   "session": "20250903_141046",
+   "calibration": 2,
+   "n_keypoints": 334406,
+   "reproj_p50": {
+    "dlt": 2.487525167620165,
+    "ba": 2.3006626881227,
+    "ba_legacy": 2.413615717891048
+   },
+   "heldout_p50": {
+    "dlt": 3.575262947979927,
+    "ba": 3.4268578936851624
+   },
+   "heldout_n": 1672030,
+   "heldout_ba_better_frac": 0.5551999665077779,
+   "legacy_worse_frac": 0.22585420118060082
+  },
+  {
+   "session": "20250903_143938",
+   "calibration": 2,
+   "n_keypoints": 355542,
+   "reproj_p50": {
+    "dlt": 2.6504027370149066,
+    "ba": 2.3912542702587016,
+    "ba_legacy": 2.52413722976666
+   },
+   "heldout_p50": {
+    "dlt": 3.7171156174572304,
+    "ba": 3.3725892939834448
+   },
+   "heldout_n": 1777710,
+   "heldout_ba_better_frac": 0.6101298862019114,
+   "legacy_worse_frac": 0.1306146671841864
+  },
+  {
+   "session": "20250903_150657",
+   "calibration": 2,
+   "n_keypoints": 345028,
+   "reproj_p50": {
+    "dlt": 2.4383097743625295,
+    "ba": 2.2497267030940957,
+    "ba_legacy": 2.36018134301632
+   },
+   "heldout_p50": {
+    "dlt": 3.4531035339138567,
+    "ba": 3.2932943985224314
+   },
+   "heldout_n": 1725140,
+   "heldout_ba_better_frac": 0.5570133438445576,
+   "legacy_worse_frac": 0.2141449389614756
+  },
+  {
+   "session": "20250903_153433",
+   "calibration": 2,
+   "n_keypoints": 346185,
+   "reproj_p50": {
+    "dlt": 2.445329225190842,
+    "ba": 2.21848926309667,
+    "ba_legacy": 2.340102908099278
+   },
+   "heldout_p50": {
+    "dlt": 3.442832934718975,
+    "ba": 3.2117431532694702
+   },
+   "heldout_n": 1730925,
+   "heldout_ba_better_frac": 0.5814792668659821,
+   "legacy_worse_frac": 0.15077198607680864
+  },
+  {
+   "session": "20250904_131913",
+   "calibration": 2,
+   "n_keypoints": 338143,
+   "reproj_p50": {
+    "dlt": 2.3451731730977228,
+    "ba": 2.1690888725776323,
+    "ba_legacy": 2.2790658982758267
+   },
+   "heldout_p50": {
+    "dlt": 3.299664897500243,
+    "ba": 3.1974130038469886
+   },
+   "heldout_n": 1690715,
+   "heldout_ba_better_frac": 0.5379280363633138,
+   "legacy_worse_frac": 0.2484599710773253
+  },
+  {
+   "session": "20250904_140306",
+   "calibration": 2,
+   "n_keypoints": 64792,
+   "reproj_p50": {
+    "dlt": 2.5940923285300364,
+    "ba": 2.366832072512328,
+    "ba_legacy": 2.4902089492352713
+   },
+   "heldout_p50": {
+    "dlt": 3.6601713639805946,
+    "ba": 3.4312629015332052
+   },
+   "heldout_n": 323960,
+   "heldout_ba_better_frac": 0.5727034201753303,
+   "legacy_worse_frac": 0.18510001234720336
+  },
+  {
+   "session": "20250904_143552",
+   "calibration": 2,
+   "n_keypoints": 352175,
+   "reproj_p50": {
+    "dlt": 2.319286640811433,
+    "ba": 2.1309191075934946,
+    "ba_legacy": 2.244227875448648
+   },
+   "heldout_p50": {
+    "dlt": 3.2811182126255356,
+    "ba": 3.1518444618404984
+   },
+   "heldout_n": 1760875,
+   "heldout_ba_better_frac": 0.5497766735287855,
+   "legacy_worse_frac": 0.22595300631788173
+  },
+  {
+   "session": "20250904_150414",
+   "calibration": 2,
+   "n_keypoints": 350829,
+   "reproj_p50": {
+    "dlt": 2.399825113318721,
+    "ba": 2.189947746410938,
+    "ba_legacy": 2.307245901934312
+   },
+   "heldout_p50": {
+    "dlt": 3.3877632650469764,
+    "ba": 3.1908682605281293
+   },
+   "heldout_n": 1754145,
+   "heldout_ba_better_frac": 0.5677717634517101,
+   "legacy_worse_frac": 0.17921551525101972
+  },
+  {
+   "session": "20250904_153332",
+   "calibration": 2,
+   "n_keypoints": 355867,
+   "reproj_p50": {
+    "dlt": 2.375451309560399,
+    "ba": 2.1529698691583325,
+    "ba_legacy": 2.2717510769575666
+   },
+   "heldout_p50": {
+    "dlt": 3.345068700040598,
+    "ba": 3.0957423971906306
+   },
+   "heldout_n": 1779335,
+   "heldout_ba_better_frac": 0.5847735249404974,
+   "legacy_worse_frac": 0.15496238763358222
+  },
+  {
+   "session": "20250904_160014",
+   "calibration": 2,
+   "n_keypoints": 351583,
+   "reproj_p50": {
+    "dlt": 2.4167135909329915,
+    "ba": 2.2095155142847505,
+    "ba_legacy": 2.3285395341036725
+   },
+   "heldout_p50": {
+    "dlt": 3.418553338279701,
+    "ba": 3.273430195737287
+   },
+   "heldout_n": 1757915,
+   "heldout_ba_better_frac": 0.5523111185694416,
+   "legacy_worse_frac": 0.18921278901425836
+  },
+  {
+   "session": "20250904_165017",
+   "calibration": 2,
+   "n_keypoints": 354818,
+   "reproj_p50": {
+    "dlt": 2.397784747308872,
+    "ba": 2.179312886554159,
+    "ba_legacy": 2.297358019469313
+   },
+   "heldout_p50": {
+    "dlt": 3.3742384005634483,
+    "ba": 3.1578869675991528
+   },
+   "heldout_n": 1774090,
+   "heldout_ba_better_frac": 0.5699615013894447,
+   "legacy_worse_frac": 0.16925296912783455
+  },
+  {
+   "session": "20250904_174232",
+   "calibration": 2,
+   "n_keypoints": 351670,
+   "reproj_p50": {
+    "dlt": 2.4571581179587043,
+    "ba": 2.2679927617390105,
+    "ba_legacy": 2.380669186134683
+   },
+   "heldout_p50": {
+    "dlt": 3.4726128788128374,
+    "ba": 3.3264243391735926
+   },
+   "heldout_n": 1758350,
+   "heldout_ba_better_frac": 0.5498808542099127,
+   "legacy_worse_frac": 0.22747746466858135
+  },
+  {
+   "session": "20250904_181215",
+   "calibration": 2,
+   "n_keypoints": 348499,
+   "reproj_p50": {
+    "dlt": 2.5890342055196256,
+    "ba": 2.3629874066007024,
+    "ba_legacy": 2.4853288552758164
+   },
+   "heldout_p50": {
+    "dlt": 3.645836770826598,
+    "ba": 3.410864555619855
+   },
+   "heldout_n": 1742495,
+   "heldout_ba_better_frac": 0.5769709525708826,
+   "legacy_worse_frac": 0.16567335917750123
+  },
+  {
+   "session": "20250905_165151",
+   "calibration": 2,
+   "n_keypoints": 350009,
+   "reproj_p50": {
+    "dlt": 2.230013754915249,
+    "ba": 2.0443671810373045,
+    "ba_legacy": 2.1520063309789634
+   },
+   "heldout_p50": {
+    "dlt": 3.156180723811105,
+    "ba": 3.0221442328463284
+   },
+   "heldout_n": 1750045,
+   "heldout_ba_better_frac": 0.5505527000734267,
+   "legacy_worse_frac": 0.1985206094700422
+  },
+  {
+   "session": "20250905_171829",
+   "calibration": 2,
+   "n_keypoints": 355247,
+   "reproj_p50": {
+    "dlt": 2.2816350967613843,
+    "ba": 2.102345976517811,
+    "ba_legacy": 2.2109759436924064
+   },
+   "heldout_p50": {
+    "dlt": 3.2150256311759806,
+    "ba": 3.1066808396724883
+   },
+   "heldout_n": 1776235,
+   "heldout_ba_better_frac": 0.5429979704262105,
+   "legacy_worse_frac": 0.2237119525288039
+  },
+  {
+   "session": "20250905_174513",
+   "calibration": 2,
+   "n_keypoints": 342934,
+   "reproj_p50": {
+    "dlt": 2.215067937749367,
+    "ba": 2.0434516365776285,
+    "ba_legacy": 2.148236539902373
+   },
+   "heldout_p50": {
+    "dlt": 3.1497292886530874,
+    "ba": 3.0440906532703833
+   },
+   "heldout_n": 1714670,
+   "heldout_ba_better_frac": 0.5390279179084022,
+   "legacy_worse_frac": 0.23649740183242257
+  },
+  {
+   "session": "20250905_181402",
+   "calibration": 2,
+   "n_keypoints": 340022,
+   "reproj_p50": {
+    "dlt": 2.2665322411392292,
+    "ba": 2.0886527233696315,
+    "ba_legacy": 2.200099370093535
+   },
+   "heldout_p50": {
+    "dlt": 3.226529463356974,
+    "ba": 3.1419120658359647
+   },
+   "heldout_n": 1700110,
+   "heldout_ba_better_frac": 0.5338401632835522,
+   "legacy_worse_frac": 0.24733399603555065
+  },
+  {
+   "session": "20250905_191445",
+   "calibration": 2,
+   "n_keypoints": 349246,
+   "reproj_p50": {
+    "dlt": 2.317736897492371,
+    "ba": 2.1200313528138945,
+    "ba_legacy": 2.232481654377114
+   },
+   "heldout_p50": {
+    "dlt": 3.2955569098679627,
+    "ba": 3.1168433187871165
+   },
+   "heldout_n": 1746230,
+   "heldout_ba_better_frac": 0.5642710295894584,
+   "legacy_worse_frac": 0.18354684090870046
+  },
+  {
+   "session": "20250905_194049",
+   "calibration": 2,
+   "n_keypoints": 344750,
+   "reproj_p50": {
+    "dlt": 2.3597905797462757,
+    "ba": 2.1808542707288323,
+    "ba_legacy": 2.2902340318229006
+   },
+   "heldout_p50": {
+    "dlt": 3.3501900373827516,
+    "ba": 3.2363923627375186
+   },
+   "heldout_n": 1723750,
+   "heldout_ba_better_frac": 0.540427556200145,
+   "legacy_worse_frac": 0.23318926758520667
+  },
+  {
+   "session": "20250905_200953",
+   "calibration": 2,
+   "n_keypoints": 352837,
+   "reproj_p50": {
+    "dlt": 2.3924052065748693,
+    "ba": 2.1687494333239195,
+    "ba_legacy": 2.288384078202048
+   },
+   "heldout_p50": {
+    "dlt": 3.365953413788505,
+    "ba": 3.107577895955258
+   },
+   "heldout_n": 1764185,
+   "heldout_ba_better_frac": 0.5897045944728019,
+   "legacy_worse_frac": 0.15620243908660372
+  },
+  {
+   "session": "20250905_203607",
+   "calibration": 2,
+   "n_keypoints": 350365,
+   "reproj_p50": {
+    "dlt": 2.348543554845123,
+    "ba": 2.151137499655582,
+    "ba_legacy": 2.266279867513081
+   },
+   "heldout_p50": {
+    "dlt": 3.340702430327395,
+    "ba": 3.202368183538216
+   },
+   "heldout_n": 1751825,
+   "heldout_ba_better_frac": 0.5504579509939634,
+   "legacy_worse_frac": 0.20540293693719408
+  },
+  {
+   "session": "20250905_210254",
+   "calibration": 2,
+   "n_keypoints": 348141,
+   "reproj_p50": {
+    "dlt": 2.3512166171926023,
+    "ba": 2.1322128551547768,
+    "ba_legacy": 2.251347518673536
+   },
+   "heldout_p50": {
+    "dlt": 3.3410527776440078,
+    "ba": 3.1024951704743198
+   },
+   "heldout_n": 1740705,
+   "heldout_ba_better_frac": 0.5812317423113049,
+   "legacy_worse_frac": 0.16941986149290086
+  },
+  {
+   "session": "20250905_213215",
+   "calibration": 2,
+   "n_keypoints": 347474,
+   "reproj_p50": {
+    "dlt": 2.3473991939049896,
+    "ba": 2.15813081802247,
+    "ba_legacy": 2.2706075441879614
+   },
+   "heldout_p50": {
+    "dlt": 3.345242184821276,
+    "ba": 3.2049061221389348
+   },
+   "heldout_n": 1737370,
+   "heldout_ba_better_frac": 0.5507876848339732,
+   "legacy_worse_frac": 0.21504054979653153
+  },
+  {
+   "session": "20250907_143021",
+   "calibration": 2,
+   "n_keypoints": 334625,
+   "reproj_p50": {
+    "dlt": 2.3518453421288266,
+    "ba": 2.1603867591019243,
+    "ba_legacy": 2.2764886821675967
+   },
+   "heldout_p50": {
+    "dlt": 3.349824317969729,
+    "ba": 3.247823057780035
+   },
+   "heldout_n": 1673125,
+   "heldout_ba_better_frac": 0.5350789689951438,
+   "legacy_worse_frac": 0.2330997385132611
+  },
+  {
+   "session": "20250907_151901",
+   "calibration": 2,
+   "n_keypoints": 334383,
+   "reproj_p50": {
+    "dlt": 2.55002470356015,
+    "ba": 2.3535834056137745,
+    "ba_legacy": 2.4727945561550584
+   },
+   "heldout_p50": {
+    "dlt": 3.6415504845134214,
+    "ba": 3.504131540134237
+   },
+   "heldout_n": 1671915,
+   "heldout_ba_better_frac": 0.5431825182500306,
+   "legacy_worse_frac": 0.23206622346231717
+  },
+  {
+   "session": "20250907_154801",
+   "calibration": 2,
+   "n_keypoints": 338427,
+   "reproj_p50": {
+    "dlt": 2.421708609746264,
+    "ba": 2.2090836538745515,
+    "ba_legacy": 2.3270567028133566
+   },
+   "heldout_p50": {
+    "dlt": 3.4456264989425733,
+    "ba": 3.2330982545520737
+   },
+   "heldout_n": 1692135,
+   "heldout_ba_better_frac": 0.569971072048034,
+   "legacy_worse_frac": 0.1902241842406191
+  },
+  {
+   "session": "20250907_161657",
+   "calibration": 2,
+   "n_keypoints": 345373,
+   "reproj_p50": {
+    "dlt": 2.4067976767092407,
+    "ba": 2.2140379921210447,
+    "ba_legacy": 2.3279936414976037
+   },
+   "heldout_p50": {
+    "dlt": 3.4036444077384327,
+    "ba": 3.2752720922258365
+   },
+   "heldout_n": 1726865,
+   "heldout_ba_better_frac": 0.545590419633266,
+   "legacy_worse_frac": 0.21564800954330535
+  },
+  {
+   "session": "20250907_164826",
+   "calibration": 2,
+   "n_keypoints": 348435,
+   "reproj_p50": {
+    "dlt": 2.446959448862307,
+    "ba": 2.2415983555005643,
+    "ba_legacy": 2.359296436760131
+   },
+   "heldout_p50": {
+    "dlt": 3.492436134849472,
+    "ba": 3.32025117792357
+   },
+   "heldout_n": 1742175,
+   "heldout_ba_better_frac": 0.5612237576592478,
+   "legacy_worse_frac": 0.1899694347582763
+  },
+  {
+   "session": "20250907_171538",
+   "calibration": 2,
+   "n_keypoints": 344953,
+   "reproj_p50": {
+    "dlt": 2.3944064129434985,
+    "ba": 2.2088801929083113,
+    "ba_legacy": 2.322800296448615
+   },
+   "heldout_p50": {
+    "dlt": 3.3976661355033015,
+    "ba": 3.2665548803834
+   },
+   "heldout_n": 1724765,
+   "heldout_ba_better_frac": 0.5459120517867652,
+   "legacy_worse_frac": 0.2379802465843173
+  },
+  {
+   "session": "20250907_174343",
+   "calibration": 2,
+   "n_keypoints": 317345,
+   "reproj_p50": {
+    "dlt": 2.461800822570543,
+    "ba": 2.282146739674464,
+    "ba_legacy": 2.4001235543452824
+   },
+   "heldout_p50": {
+    "dlt": 3.513280334961108,
+    "ba": 3.424273775220155
+   },
+   "heldout_n": 1586725,
+   "heldout_ba_better_frac": 0.530601080842616,
+   "legacy_worse_frac": 0.26634735067513277
+  },
+  {
+   "session": "20250907_181225",
+   "calibration": 2,
+   "n_keypoints": 344740,
+   "reproj_p50": {
+    "dlt": 2.361917008864881,
+    "ba": 2.179934693904481,
+    "ba_legacy": 2.293199819089585
+   },
+   "heldout_p50": {
+    "dlt": 3.3355072390716862,
+    "ba": 3.2483122659662858
+   },
+   "heldout_n": 1723700,
+   "heldout_ba_better_frac": 0.5328386610198991,
+   "legacy_worse_frac": 0.24296571329117597
+  },
+  {
+   "session": "20250907_183823",
+   "calibration": 2,
+   "n_keypoints": 329993,
+   "reproj_p50": {
+    "dlt": 2.4017091309542606,
+    "ba": 2.199286145852761,
+    "ba_legacy": 2.3205527876241643
+   },
+   "heldout_p50": {
+    "dlt": 3.4258389112623555,
+    "ba": 3.295319704443637
+   },
+   "heldout_n": 1649965,
+   "heldout_ba_better_frac": 0.5445982187500947,
+   "legacy_worse_frac": 0.21855312082377504
+  },
+  {
+   "session": "20250907_190610",
+   "calibration": 2,
+   "n_keypoints": 350135,
+   "reproj_p50": {
+    "dlt": 2.3350055535960417,
+    "ba": 2.1661974538551503,
+    "ba_legacy": 2.2736374281260208
+   },
+   "heldout_p50": {
+    "dlt": 3.290679449353848,
+    "ba": 3.2384235138031925
+   },
+   "heldout_n": 1750675,
+   "heldout_ba_better_frac": 0.5163585474174247,
+   "legacy_worse_frac": 0.2466962742942008
+  },
+  {
+   "session": "20250908_152229",
+   "calibration": 2,
+   "n_keypoints": 352545,
+   "reproj_p50": {
+    "dlt": 2.09774074791462,
+    "ba": 1.9333658506983773,
+    "ba_legacy": 2.0359527508383826
+   },
+   "heldout_p50": {
+    "dlt": 2.9900308822907635,
+    "ba": 2.9064171390571483
+   },
+   "heldout_n": 1762725,
+   "heldout_ba_better_frac": 0.5340169340084244,
+   "legacy_worse_frac": 0.2406699853919358
+  },
+  {
+   "session": "20250908_154926",
+   "calibration": 2,
+   "n_keypoints": 341913,
+   "reproj_p50": {
+    "dlt": 2.3221924116416237,
+    "ba": 2.146672166984241,
+    "ba_legacy": 2.2546014214339882
+   },
+   "heldout_p50": {
+    "dlt": 3.288100927235534,
+    "ba": 3.216605346235229
+   },
+   "heldout_n": 1709565,
+   "heldout_ba_better_frac": 0.5255705398741786,
+   "legacy_worse_frac": 0.23357111311941928
+  },
+  {
+   "session": "20250908_161812",
+   "calibration": 2,
+   "n_keypoints": 340491,
+   "reproj_p50": {
+    "dlt": 2.306859935708059,
+    "ba": 2.122900922016439,
+    "ba_legacy": 2.2316396994765677
+   },
+   "heldout_p50": {
+    "dlt": 3.2818486562327425,
+    "ba": 3.14203210791086
+   },
+   "heldout_n": 1702455,
+   "heldout_ba_better_frac": 0.5505384870672059,
+   "legacy_worse_frac": 0.21516868287267504
+  },
+  {
+   "session": "20250908_164528",
+   "calibration": 2,
+   "n_keypoints": 349698,
+   "reproj_p50": {
+    "dlt": 2.263802426149802,
+    "ba": 2.0970486511455904,
+    "ba_legacy": 2.2033479084256458
+   },
+   "heldout_p50": {
+    "dlt": 3.203223319158865,
+    "ba": 3.1097617783997076
+   },
+   "heldout_n": 1748490,
+   "heldout_ba_better_frac": 0.5345846987972479,
+   "legacy_worse_frac": 0.25347013708971744
+  },
+  {
+   "session": "20250908_171240",
+   "calibration": 2,
+   "n_keypoints": 352369,
+   "reproj_p50": {
+    "dlt": 2.2637979470022103,
+    "ba": 2.0722115451039103,
+    "ba_legacy": 2.1821904670026204
+   },
+   "heldout_p50": {
+    "dlt": 3.196483901414172,
+    "ba": 3.0486686839545167
+   },
+   "heldout_n": 1761845,
+   "heldout_ba_better_frac": 0.5552253461570116,
+   "legacy_worse_frac": 0.2093146672947961
+  },
+  {
+   "session": "20250908_173928",
+   "calibration": 2,
+   "n_keypoints": 328705,
+   "reproj_p50": {
+    "dlt": 2.34510166204576,
+    "ba": 2.151472739806256,
+    "ba_legacy": 2.2685977189439503
+   },
+   "heldout_p50": {
+    "dlt": 3.3425071987853254,
+    "ba": 3.2423906190417204
+   },
+   "heldout_n": 1643525,
+   "heldout_ba_better_frac": 0.5373985792732086,
+   "legacy_worse_frac": 0.22437139684519555
+  }
+ ],
+ "triage": null,
+ "robust": null,
+ "by_worst_view": null,
+ "qc_unreproducible": {
+  "methods.dlt.reproj_px": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "methods.dlt.err3d_mm": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "methods.ba.reproj_px": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "methods.ba.err3d_mm": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "methods.ba_legacy.reproj_px": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "methods.ba_legacy.err3d_mm": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "reference_reproj_px": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "distortion_px": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "legacy_regression_px": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "diff_vs_dlt_px.ba": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "diff_vs_dlt_px.ba_legacy": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "heldout_reproj_px.dlt": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "heldout_reproj_px.ba": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "heldout_paired.diff_px": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "heldout_paired.median_diff_px": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "heldout_by_views.by_k": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "triage": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "robust": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)",
+  "by_worst_view": "pooled over individual keypoints of the whole LUC3D run; the per-keypoint values are not deposited and LUC3D may not be re-run, so this cannot be recomputed without the excluded session(s)"
+ },
+ "generated_by": "figs/fig2_solvers_measure.mjs + figs/qc/reagg_fig3.py (qc_exclude)",
+ "qc_excluded": {
+  "20250904_183921": "reference 3D corrupted over frames ~42k-115k: camera 21369048's identities are swapped in the lab's SLEAP predictions and were triangulated into the 3D (preflight QC, 2026-11-12)"
+ }
+}

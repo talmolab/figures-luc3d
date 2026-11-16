@@ -1,0 +1,368 @@
+{
+ "summary": {
+  "sessions": 56,
+  "kept_sessions": 55,
+  "kept_frames": 9904676,
+  "kept_corrupted_frames": 22444,
+  "kept_corrupted_pct": 0.227,
+  "kept_sessions_affected": 20,
+  "kept_sessions_over_1s": 10,
+  "kept_longest_span_frames": 6561,
+  "kept_longest_span_s": 43.7,
+  "kept_longest_session": "20250907_183823",
+  "mismatch_runs": 207,
+  "mismatch_runs_corrupting_3d": 108,
+  "excluded": {
+   "20250904_183921": {
+    "session": "20250904_183921",
+    "frames": 180058,
+    "corrupted_frames": 33890,
+    "longest_span": 6095
+   }
+  },
+  "params": {
+   "min_run_frames": 15,
+   "px": 20,
+   "min_cams": 3,
+   "fps": 150
+  }
+ },
+ "sessions": [
+  {
+   "session": "20250827_141755",
+   "frames": 180199,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250827_145223",
+   "frames": 180197,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250827_152238",
+   "frames": 180056,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250827_155244",
+   "frames": 180054,
+   "corrupted_frames": 582,
+   "longest_span": 582
+  },
+  {
+   "session": "20250827_162428",
+   "frames": 180057,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250827_165542",
+   "frames": 180055,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250827_172440",
+   "frames": 180058,
+   "corrupted_frames": 2596,
+   "longest_span": 2581
+  },
+  {
+   "session": "20250829_124351",
+   "frames": 180056,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250829_134647",
+   "frames": 180194,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250829_141847",
+   "frames": 180054,
+   "corrupted_frames": 15,
+   "longest_span": 15
+  },
+  {
+   "session": "20250829_144840",
+   "frames": 180045,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250829_151905",
+   "frames": 180057,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250829_155407",
+   "frames": 180195,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250829_162253",
+   "frames": 180058,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250829_164919",
+   "frames": 180056,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250829_171625",
+   "frames": 180056,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250903_141046",
+   "frames": 180056,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250903_143938",
+   "frames": 180059,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250903_150657",
+   "frames": 180056,
+   "corrupted_frames": 43,
+   "longest_span": 26
+  },
+  {
+   "session": "20250903_153433",
+   "frames": 180057,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250904_131913",
+   "frames": 180203,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250904_140306",
+   "frames": 180199,
+   "corrupted_frames": 42,
+   "longest_span": 42
+  },
+  {
+   "session": "20250904_143552",
+   "frames": 180193,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250904_150414",
+   "frames": 180053,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250904_153332",
+   "frames": 180055,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250904_160014",
+   "frames": 180053,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250904_165017",
+   "frames": 180197,
+   "corrupted_frames": 16,
+   "longest_span": 16
+  },
+  {
+   "session": "20250904_174232",
+   "frames": 180201,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250904_181215",
+   "frames": 180058,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250904_183921",
+   "frames": 180058,
+   "corrupted_frames": 33890,
+   "longest_span": 6095
+  },
+  {
+   "session": "20250905_165151",
+   "frames": 180055,
+   "corrupted_frames": 15,
+   "longest_span": 15
+  },
+  {
+   "session": "20250905_171829",
+   "frames": 180055,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250905_174513",
+   "frames": 180057,
+   "corrupted_frames": 865,
+   "longest_span": 685
+  },
+  {
+   "session": "20250905_181402",
+   "frames": 180054,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250905_191445",
+   "frames": 180057,
+   "corrupted_frames": 20,
+   "longest_span": 20
+  },
+  {
+   "session": "20250905_194049",
+   "frames": 180055,
+   "corrupted_frames": 15,
+   "longest_span": 15
+  },
+  {
+   "session": "20250905_200953",
+   "frames": 180053,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250905_203607",
+   "frames": 180060,
+   "corrupted_frames": 195,
+   "longest_span": 98
+  },
+  {
+   "session": "20250905_210254",
+   "frames": 180052,
+   "corrupted_frames": 720,
+   "longest_span": 720
+  },
+  {
+   "session": "20250905_213215",
+   "frames": 180053,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250907_143021",
+   "frames": 180252,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250907_151901",
+   "frames": 180198,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250907_154801",
+   "frames": 180053,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250907_161657",
+   "frames": 180058,
+   "corrupted_frames": 2725,
+   "longest_span": 2327
+  },
+  {
+   "session": "20250907_164826",
+   "frames": 180056,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250907_171538",
+   "frames": 180057,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250907_174343",
+   "frames": 180055,
+   "corrupted_frames": 4246,
+   "longest_span": 3473
+  },
+  {
+   "session": "20250907_181225",
+   "frames": 180057,
+   "corrupted_frames": 15,
+   "longest_span": 15
+  },
+  {
+   "session": "20250907_183823",
+   "frames": 180055,
+   "corrupted_frames": 7566,
+   "longest_span": 6561
+  },
+  {
+   "session": "20250907_190610",
+   "frames": 180055,
+   "corrupted_frames": 50,
+   "longest_span": 50
+  },
+  {
+   "session": "20250908_152229",
+   "frames": 180056,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250908_154926",
+   "frames": 180056,
+   "corrupted_frames": 1680,
+   "longest_span": 1249
+  },
+  {
+   "session": "20250908_161812",
+   "frames": 180057,
+   "corrupted_frames": 926,
+   "longest_span": 297
+  },
+  {
+   "session": "20250908_164528",
+   "frames": 180055,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250908_171240",
+   "frames": 180059,
+   "corrupted_frames": 0,
+   "longest_span": 0
+  },
+  {
+   "session": "20250908_173928",
+   "frames": 180059,
+   "corrupted_frames": 112,
+   "longest_span": 63
+  }
+ ]
+}

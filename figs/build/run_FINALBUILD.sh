@@ -5,12 +5,18 @@
 #   bash figs/build/run_FINALBUILD.sh --verify   # rebuild a clean copy of this checkout in a
 #                                                # temp dir and pixel-compare it to this checkout
 #
+# The default series is q, the figures in the manuscript: they are built from the q deposits
+# (out/<stem>_q.*), the b series with the sessions in src/qc_exclude.py left out (figs/qc/),
+# so Mouse-Dyad-10M is 55 sessions. FIG_SERIES=b rebuilds the earlier 56-session figures
+# (kept in figures/published-b/). --verify checks whichever series FIG_SERIES names against
+# the figures in this checkout.
+#
 # PYTHON=/path/to/python overrides the interpreter (3.12 with numpy, pandas, scipy,
 # matplotlib, seaborn, PyMuPDF). Verified 2026-11-12: every placed composite and panel is
 # pixel-identical to the committed PDFs (compare.py), and every plotted data/ CSV is
 # byte-identical.
 #
-# What the published figures are. They are the "b" series (2026-10-20/21, promoted to the
+# What the figures are built on. The "b" series (2026-10-20/21, promoted to the
 # main figures in luc3d eric/figs 9f25344b8), not plain x7:
 #   * deposits: x7's link set plus 8 overrides (build/B_links.tsv, every name REQUIRED):
 #     LUC3D v1.0.5 app captures (out/b_app/) for Fig 1 and the labeling protocol, the
@@ -33,6 +39,8 @@
 set -euo pipefail
 FIGS="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="${PYTHON:-python3}"
+SERIES="${FIG_SERIES:-q}"
+case "$SERIES" in b|q) ;; *) echo "FIG_SERIES must be b or q" >&2; exit 1 ;; esac
 BUILD="$FIGS/build"
 
 if [ "${1:-}" = "--verify" ]; then
@@ -62,7 +70,7 @@ for f in blender-images/renders/fig1d_pose_b.png blender-images/renders/fig1d_ri
 done
 while IFS=$'\t' read -r name _ _; do
     stem="${name%.*}"; ext="${name##*.}"
-    [ -e "out/${stem}_b.${ext}" ] || fail "missing b link out/${stem}_b.${ext}"
+    [ -e "out/${stem}_${SERIES}.${ext}" ] || fail "missing $SERIES link out/${stem}_${SERIES}.${ext}"
 done < "$BUILD/B_links.tsv"
 for n in 1 2 3 4 5 6; do rm -rf "figures/fig${n}b" "data/fig${n}b"; done
 
@@ -74,10 +82,10 @@ X7_REQUIRE="$(cut -f1 "$BUILD/X7_links.tsv" | paste -sd, -)"
 
 # --- 1. Supp Fig 4 f first: it writes the axes json that the s-DANNCE panel aligns to
 mkdir -p figures/fig6b
-FIG_TAG=b FIG_VARIANT=b "$PY" panels/fig6slapstale_reduction.py
+FIG_TAG=b FIG_VARIANT="$SERIES" "$PY" panels/fig6slapstale_reduction.py
 
 # --- 2. Figs 1-6 panels as the b series (written to figures/fig{N}b, data/fig{N}b)
-FIG_TAG=b FIG_RENDER_REQUIRE=1 FIG_APP_OUT=out/b_app FIG_VARIANT=b \
+FIG_TAG=b FIG_RENDER_REQUIRE=1 FIG_APP_OUT=out/b_app FIG_VARIANT="$SERIES" \
 FIG_VARIANT_REQUIRE="$B_REQUIRE" "$PY" make_figures.py --panels 1 2 3 4 5 6 | tee "$BUILD/last_b.log"
 grep -q " 0 failed" "$BUILD/last_b.log" || fail "a b panel failed (see build/last_b.log)"
 

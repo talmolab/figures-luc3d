@@ -1,0 +1,151 @@
+{
+ "generated_by": "figs/fig3f_timing_clean.py",
+ "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
+ "note": "Clean sitting (CONSISTENCY-PLAN T1): both arms on IDENTICAL frames per (configuration, session), one process at a time, interleaved, order flipped each round, 3 rounds, median over rounds; solve time only (exhaustive enumerationSeconds, greedy runCrossViewTracker); LUC3D 2dc001fe527c4dbaad17fa171da132cfdfe010e6; host 1-min load at call start median 13.1, max 21.8 (includes load from outside this container).",
+ "variant": "b3",
+ "seed": 20261019,
+ "k": {
+  "A2_C5_bmimica": 1000,
+  "A2_C6_slap2m": 1000,
+  "A3_C5_slap2m": 100,
+  "A4_C3_slap2m": 100
+ },
+ "measured": [
+  {
+   "key": "A2_C5_bmimica",
+   "animals": 2,
+   "cameras": 5,
+   "dataset": "BMimica",
+   "n_sessions": 56,
+   "frames_per_round": 56000,
+   "seconds_per_frame": 0.00023823214285714284,
+   "exhaustive_seconds_per_frame": 0.003998892857142857,
+   "ratio": 16.785698223521475,
+   "hypotheses_per_frame": 32,
+   "exhaustive_seconds_per_hypothesis": 0.00012496540178571428,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 56000,
+     "greedy_spf": 0.000233,
+     "exh_spf": 0.0040181607142857146
+    },
+    {
+     "round": 1,
+     "frames": 56000,
+     "greedy_spf": 0.00023823214285714284,
+     "exh_spf": 0.00399
+    },
+    {
+     "round": 2,
+     "frames": 56000,
+     "greedy_spf": 0.00024107142857142857,
+     "exh_spf": 0.003998892857142857
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A2_C6_slap2m",
+   "animals": 2,
+   "cameras": 6,
+   "dataset": "SLAP-2M",
+   "n_sessions": 35,
+   "frames_per_round": 33919,
+   "seconds_per_frame": 0.00027612842359739376,
+   "exhaustive_seconds_per_frame": 0.005450602906925322,
+   "ratio": 19.73937646807602,
+   "hypotheses_per_frame": 64,
+   "exhaustive_seconds_per_hypothesis": 8.516567042070815e-05,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 33919,
+     "greedy_spf": 0.00027945988973731537,
+     "exh_spf": 0.005595447979008815
+    },
+    {
+     "round": 1,
+     "frames": 33919,
+     "greedy_spf": 0.00026044399893864796,
+     "exh_spf": 0.005437188596361922
+    },
+    {
+     "round": 2,
+     "frames": 33919,
+     "greedy_spf": 0.00027612842359739376,
+     "exh_spf": 0.005450602906925322
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A3_C5_slap2m",
+   "animals": 3,
+   "cameras": 5,
+   "dataset": "SLAP-2M",
+   "n_sessions": 4,
+   "frames_per_round": 400,
+   "seconds_per_frame": 0.0005,
+   "exhaustive_seconds_per_frame": 0.8870574999999999,
+   "ratio": 1774.1149999999998,
+   "hypotheses_per_frame": 7776,
+   "exhaustive_seconds_per_hypothesis": 0.00011407632458847736,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 400,
+     "greedy_spf": 0.000635,
+     "exh_spf": 0.9003375
+    },
+    {
+     "round": 1,
+     "frames": 400,
+     "greedy_spf": 0.0005,
+     "exh_spf": 0.8870574999999999
+    },
+    {
+     "round": 2,
+     "frames": 400,
+     "greedy_spf": 0.00047,
+     "exh_spf": 0.8846925
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A4_C3_slap2m",
+   "animals": 4,
+   "cameras": 3,
+   "dataset": "SLAP-2M",
+   "n_sessions": 3,
+   "frames_per_round": 300,
+   "seconds_per_frame": 0.0004733333333333333,
+   "exhaustive_seconds_per_frame": 1.5385633333333333,
+   "ratio": 3250.4859154929577,
+   "hypotheses_per_frame": 13824,
+   "exhaustive_seconds_per_hypothesis": 0.0001112965374228395,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 300,
+     "greedy_spf": 0.00047333333333333336,
+     "exh_spf": 1.6363866666666667
+    },
+    {
+     "round": 1,
+     "frames": 300,
+     "greedy_spf": 0.0004733333333333333,
+     "exh_spf": 1.5385633333333333
+    },
+    {
+     "round": 2,
+     "frames": 300,
+     "greedy_spf": 0.0004566666666666667,
+     "exh_spf": 1.5267533333333332
+    }
+   ],
+   "frames_matched": true
+  }
+ ]
+}

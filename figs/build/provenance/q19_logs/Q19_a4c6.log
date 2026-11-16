@@ -1,0 +1,8 @@
+[timing] container quiet: other processes 0.04 cores
+[a4c6] 10072022145420: 7,578 eligible, timing 100
+[a4c6] 10072022150448: 8,892 eligible, timing 100
+[a4c6] 10072022151549: 9,448 eligible, timing 100
+[a4c6] round 0: 0.6967 ms/frame, load [27.89, 27.57, 26.95]
+[a4c6] round 1: 0.5933 ms/frame, load [26.21, 27.23, 26.85]
+[a4c6] round 2: 0.7233 ms/frame, load [20.85, 26.0, 26.45]
+[a4c6] greedy 0.6967 ms/frame -> fig3_runtime_clean_b3_q19_a4c6.json

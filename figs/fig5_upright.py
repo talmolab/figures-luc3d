@@ -470,6 +470,14 @@ def main():
     ap.add_argument("--out", type=Path, default=OUT / "fig5_upright.json")
     args = ap.parse_args()
     sds = [d for d in sorted(glob.glob(f"{BMIMICA}/*")) if os.path.isdir(d)]
+    # q SERIES (opt-in): QC_EXCLUDE=1 drops the sessions on src/qc_exclude.py's list
+    # and records why in the deposit. Unset, the session list is untouched.
+    qc = os.environ.get("QC_EXCLUDE") == "1"
+    if qc:
+        from src.qc_exclude import excluded, provenance
+        dropped = [os.path.basename(d) for d in sds if excluded(os.path.basename(d))]
+        sds = [d for d in sds if not excluded(os.path.basename(d))]
+        print(f"QC_EXCLUDE=1: dropped {dropped}")
     with ProcessPoolExecutor(max_workers=args.jobs) as ex:
         rows = [r for r in ex.map(_session, sds) if r]
 
@@ -521,6 +529,8 @@ def main():
         "events": allev,
         "examples": [e for r in rows for e in r["examples"]],
     }
+    if qc:
+        res["qc_excluded"] = provenance()
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(res))
 

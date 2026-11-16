@@ -1,0 +1,242 @@
+{
+ "generated_by": "figs/fig3f_timing_clean.py",
+ "lucid_commit": "2dc001fe527c4dbaad17fa171da132cfdfe010e6",
+ "note": "Clean sitting (CONSISTENCY-PLAN T1): both arms on IDENTICAL frames per (configuration, session), one process at a time, interleaved, order flipped each round, 3 rounds, median over rounds; solve time only (exhaustive enumerationSeconds, greedy runCrossViewTracker); LUC3D 2dc001fe527c4dbaad17fa171da132cfdfe010e6; host 1-min load at call start median 6.0, max 13.2 (includes load from outside this container).",
+ "variant": "b3",
+ "seed": 20261019,
+ "k": {
+  "A2_C5_bmimica": 1000,
+  "A2_C6_slap2m": 1000,
+  "A3_C5_slap2m": 100,
+  "A4_C3_slap2m": 100
+ },
+ "measured": [
+  {
+   "key": "A2_C5_bmimica",
+   "animals": 2,
+   "cameras": 5,
+   "dataset": "BMimica",
+   "n_sessions": 55,
+   "frames_per_round": 55000,
+   "seconds_per_frame": 0.00028050909090909093,
+   "exhaustive_seconds_per_frame": 0.003952363636363637,
+   "ratio": 14.089966295047965,
+   "hypotheses_per_frame": 32,
+   "exhaustive_seconds_per_hypothesis": 0.00012351136363636365,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 55000,
+     "greedy_spf": 0.00028050909090909093,
+     "exh_spf": 0.003963054545454545
+    },
+    {
+     "round": 1,
+     "frames": 55000,
+     "greedy_spf": 0.0002773090909090909,
+     "exh_spf": 0.003952363636363637
+    },
+    {
+     "round": 2,
+     "frames": 55000,
+     "greedy_spf": 0.00028329090909090906,
+     "exh_spf": 0.003938272727272727
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A2_C6_slap2m",
+   "animals": 2,
+   "cameras": 6,
+   "dataset": "SLAP-2M",
+   "n_sessions": 35,
+   "frames_per_round": 33919,
+   "seconds_per_frame": 0.0002802264217695097,
+   "exhaustive_seconds_per_frame": 0.005383413426103364,
+   "ratio": 19.210941609679118,
+   "hypotheses_per_frame": 64,
+   "exhaustive_seconds_per_hypothesis": 8.411583478286506e-05,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 33919,
+     "greedy_spf": 0.0002671069312184911,
+     "exh_spf": 0.005391137710427783
+    },
+    {
+     "round": 1,
+     "frames": 33919,
+     "greedy_spf": 0.0002802264217695097,
+     "exh_spf": 0.005383413426103364
+    },
+    {
+     "round": 2,
+     "frames": 33919,
+     "greedy_spf": 0.00028314513989209585,
+     "exh_spf": 0.005377369615849524
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A3_C5_slap2m",
+   "animals": 3,
+   "cameras": 5,
+   "dataset": "SLAP-2M",
+   "n_sessions": 4,
+   "frames_per_round": 400,
+   "seconds_per_frame": 0.0005,
+   "exhaustive_seconds_per_frame": 0.8736225000000001,
+   "ratio": 1747.2450000000001,
+   "hypotheses_per_frame": 7776,
+   "exhaustive_seconds_per_hypothesis": 0.0001123485725308642,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 400,
+     "greedy_spf": 0.0005175000000000001,
+     "exh_spf": 0.8736225000000001
+    },
+    {
+     "round": 1,
+     "frames": 400,
+     "greedy_spf": 0.0005,
+     "exh_spf": 0.8739175
+    },
+    {
+     "round": 2,
+     "frames": 400,
+     "greedy_spf": 0.00048,
+     "exh_spf": 0.872045
+    }
+   ],
+   "frames_matched": true
+  },
+  {
+   "key": "A4_C3_slap2m",
+   "animals": 4,
+   "cameras": 3,
+   "dataset": "SLAP-2M",
+   "n_sessions": 3,
+   "frames_per_round": 300,
+   "seconds_per_frame": 0.00046999999999999993,
+   "exhaustive_seconds_per_frame": 1.5228566666666665,
+   "ratio": 3240.120567375887,
+   "hypotheses_per_frame": 13824,
+   "exhaustive_seconds_per_hypothesis": 0.00011016034915123455,
+   "rounds": [
+    {
+     "round": 0,
+     "frames": 300,
+     "greedy_spf": 0.00045000000000000004,
+     "exh_spf": 1.5209366666666666
+    },
+    {
+     "round": 1,
+     "frames": 300,
+     "greedy_spf": 0.00047666666666666674,
+     "exh_spf": 1.5228566666666665
+    },
+    {
+     "round": 2,
+     "frames": 300,
+     "greedy_spf": 0.00046999999999999993,
+     "exh_spf": 1.5282233333333333
+    }
+   ],
+   "frames_matched": true
+  }
+ ],
+ "qc_excluded": {
+  "20250904_183921": "reference 3D corrupted over frames ~42k-115k: camera 21369048's identities are swapped in the lab's SLEAP predictions and were triangulated into the 3D (preflight QC, 2026-11-12)"
+ },
+ "sitting": {
+  "id": "J18 (rerun of J17, 2026-10-21)",
+  "host": "eric-mimic2-0-6",
+  "cores": 64,
+  "valid": true,
+  "rule": "every kept call timed with nothing of ours over 0.5 core outside the sitting (figs/timing_watch.py, 5 s samples) and the per-call gate at 0.5 core",
+  "main": {
+   "window": "02:44-05:06 UTC",
+   "samples": 1707,
+   "samples_over_0p5_core": [
+    {
+     "t": "03:27:58",
+     "outside_cores": 0.71,
+     "busy": [
+      "claude"
+     ]
+    },
+    {
+     "t": "03:28:03",
+     "outside_cores": 0.8,
+     "busy": [
+      "claude"
+     ]
+    },
+    {
+     "t": "03:36:09",
+     "outside_cores": 0.554,
+     "busy": [
+      "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174",
+      "claude"
+     ]
+    },
+    {
+     "t": "03:39:10",
+     "outside_cores": 0.674,
+     "busy": [
+      "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174",
+      "claude"
+     ]
+    },
+    {
+     "t": "03:52:56",
+     "outside_cores": 0.548,
+     "busy": [
+      "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174"
+     ]
+    },
+    {
+     "t": "04:32:25",
+     "outside_cores": 0.504,
+     "busy": [
+      "/root/.vscode-server/cli/servers/Stable-4fe60c8b1cdac1c4c174"
+     ]
+    }
+   ],
+   "max_outside_cores_other_samples": 0.498
+  },
+  "redo1": {
+   "window": "05:07:54-05:14:44 UTC",
+   "why": "the 8 calls overlapping a sample over 0.5 core (+/-10 s) were dropped from calls.jsonl and re-timed with T_RESUME=1; list in md56_logs/J18_redo1_calls.json; calls matched to the watch log by their recorded load averages",
+   "samples": 83,
+   "max_outside_cores": 0.162,
+   "valid": true
+  },
+  "max_outside_cores_kept_calls": 0.498,
+  "median_1min_load": 6.07,
+  "max_1min_load": 13.8,
+  "precheck": {
+   "outside_cores": 0.016,
+   "load": [
+    "7.07",
+    "6.09",
+    "5.85"
+   ],
+   "busy": [
+    {
+     "pid": 2760859,
+     "cores": 0.0,
+     "cmd": "/bin/bash -c source /root/.claude/shell-snapshots/snapshot-bash-1792547217943-8ppljk.sh 2>/dev/null || true && shopt -u extglob 2>/dev/null || true && { \\builti"
+    }
+   ],
+   "bench": []
+  },
+  "watch_log": "md56_logs/J18_watch.jsonl + J18_redo1_watch.jsonl",
+  "idle_rule": "host load from other containers logged, not removable",
+  "thread_env": "NUMBA/OMP/OPENBLAS/MKL_NUM_THREADS=1, UV_THREADPOOL_SIZE=1",
+  "derived": "q series: J18's calls re-aggregated by fig3f_timing_clean.py T_FROM_CALLS with the sessions in src/qc_exclude.py left out (both arms of each dropped call); nothing re-timed. build/provenance/run_QJ18_fig3f_from_calls.sh"
+ }
+}

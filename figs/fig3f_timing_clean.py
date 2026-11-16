@@ -29,6 +29,16 @@ K frames are drawn the same way from the frames eligible at 4x6 (every camera ho
 4 detections), found by the exhaustive driver's `--eligible-only` scan (untimed, nothing
 enumerated). Writes figs/out/fig3_runtime_clean<_variant>_a4c6.json only.
 
+`QC_EXCLUDE=1` (2026-11-13, the q series): drop the sessions on src/qc_exclude.py's list
+from every cell, read the head-to-head from out/fig3_headtohead_q.json (its accuracy
+already re-aggregated without them, figs/qc/reagg_fig2.py) and record `qc_excluded` in
+every deposit. Unset, nothing changes.
+
+`T_FROM_CALLS=<dir>` (2026-11-14, the q series): time nothing. Re-aggregate the calls an
+earlier sitting logged in <dir>/calls.jsonl (J18's, for the q series) through the same
+code a sitting uses, keeping only the sessions QC_EXCLUDE=1 keeps. Writes under T_TAG and
+refuses to overwrite. With no QC_EXCLUDE it reproduces that sitting's deposits exactly.
+
 Writes (new files only) figs/out/fig3_runtime_clean<_variant>.json,
 figs/out/fig3_headtohead_clean<_variant>.json and a per-call log
 figs/out/tmp/timing_clean<_variant>/calls.jsonl.
@@ -56,6 +66,9 @@ TAG = os.environ.get("T_TAG", "")
 SFX = hh.SUFFIX
 TMP = OUT / "tmp" / f"timing_clean{SFX}{TAG}"
 ROUNDS = int(os.environ.get("T_ROUNDS", "3"))
+QC = os.environ.get("QC_EXCLUDE") == "1"
+if QC:
+    from src.qc_exclude import excluded, provenance  # noqa: E402
 #: frames per session: cheap cells get more, A>=3 cells (seconds per frame) fewer
 K = {"A2_C5_bmimica": 1000, "A2_C6_slap2m": 1000, "A3_C5_slap2m": 100, "A4_C3_slap2m": 100}
 SEED = 20261019
@@ -154,6 +167,32 @@ def load():
     return [float(x) for x in open("/proc/loadavg").read().split()[:3]]
 
 
+def timed_sessions(cfg):
+    """hh.sessions_for(cfg)[0], minus the qc_exclude list under QC_EXCLUDE=1."""
+    sessions = hh.sessions_for(cfg)[0]
+    if QC:
+        dropped = [s["session"] for s in sessions if excluded(s["session"])]
+        sessions = [s for s in sessions if not excluded(s["session"])]
+        if dropped:
+            print(f"[timing] QC_EXCLUDE=1: {cfg['key']} drops {dropped}", flush=True)
+    return sessions
+
+
+def calls_from(path):
+    """An earlier sitting's calls.jsonl as main()'s `res`, minus the qc_exclude list under
+    QC_EXCLUDE=1."""
+    res, dropped = {}, set()
+    for line in open(path):
+        r = json.loads(line)
+        if QC and excluded(r["session"]):
+            dropped.add((r["config"], r["session"]))
+            continue
+        res.setdefault((r["config"], r["session"]), []).append(r)
+    print(f"[timing] from {path}: {sum(map(len, res.values()))} calls kept, "
+          f"dropped {sorted(dropped)}", flush=True)
+    return res
+
+
 def frames_for(cfg, sess, k):
     exh = json.loads((hh.cell_dir(cfg, sess) / "exhaustive.json").read_text())
     pool = sorted(f["frame"] for f in exh["frames"])
@@ -192,6 +231,12 @@ def main():
                             capture_output=True, text=True, check=True).stdout.strip()
     if not commit.startswith("2dc001fe"):
         sys.exit(f"LUCID_ROOT is at {commit[:8]}, not v1.0.5 (2dc001fe)")
+    if os.environ.get("T_FROM_CALLS"):
+        for name in (f"fig3_headtohead_clean{SFX}{TAG}.json", f"fig3_runtime_clean{SFX}{TAG}.json"):
+            if (OUT / name).exists():
+                sys.exit(f"[timing] T_FROM_CALLS: {name} exists, refusing to overwrite")
+        return write_deposits(calls_from(Path(os.environ["T_FROM_CALLS"]) / "calls.jsonl"),
+                              ROUNDS, commit)
     print(f"[timing] container quiet: other processes {require_quiet('start'):.2f} cores", flush=True)
     TMP.mkdir(parents=True, exist_ok=True)
     if os.environ.get("T_A4C6") == "1":
@@ -202,7 +247,7 @@ def main():
     for cfg in hh.CONFIGS:
         if cfg["key"] not in K:
             continue
-        sessions = hh.sessions_for(cfg)[0]
+        sessions = timed_sessions(cfg)
         if SMOKE:
             sessions = sessions[:1]
         for sess in sessions:
@@ -277,8 +322,12 @@ def main():
     if SMOKE:
         print("[timing] smoke OK:", json.dumps(list(res.values())[0][0])[:400])
         return
+    write_deposits(res, rounds, commit)
 
-    h = json.loads((OUT / f"fig3_headtohead{SFX}.json").read_text())
+
+def write_deposits(res, rounds, commit):
+    """The per-round rates, medians and deposits from `res` ((key, session) -> calls)."""
+    h = json.loads((OUT / ("fig3_headtohead_q.json" if QC else f"fig3_headtohead{SFX}.json")).read_text())
     measured, all_loads = [], []
     for c in h["configs"]:
         key = c["key"]
@@ -323,10 +372,12 @@ def main():
             f"{commit}; host 1-min load at call start median {st.median(all_loads):.1f}, "
             f"max {max(all_loads):.1f} (includes load from outside this container).")
     h["clean_timing_note"] = note
+    qc = {"qc_excluded": provenance()} if QC else {}
+    h.update(qc)
     (OUT / f"fig3_headtohead_clean{SFX}{TAG}.json").write_text(json.dumps(h, indent=1))
     (OUT / f"fig3_runtime_clean{SFX}{TAG}.json").write_text(json.dumps(
         {"generated_by": "figs/fig3f_timing_clean.py", "lucid_commit": commit, "note": note,
-         "variant": hh.VARIANT, "seed": SEED, "k": K, "measured": measured}, indent=1))
+         "variant": hh.VARIANT, "seed": SEED, "k": K, "measured": measured, **qc}, indent=1))
     print(f"[timing] wrote fig3_runtime_clean{SFX}{TAG}.json and fig3_headtohead_clean{SFX}{TAG}.json")
 
 
@@ -336,7 +387,7 @@ def main_a4c6(commit, k=100):
     assert not hh.tail_in_tracking(cfg)   # SLAP-2M: tail-free
     log = (TMP / "calls_a4c6.jsonl").open("a")
     cells = []
-    for sess in hh.sessions_for(cfg)[0]:
+    for sess in timed_sessions(cfg):
         d = TMP / cfg["key"] / sess["session"]
         d.mkdir(parents=True, exist_ok=True)
         pool = eligible_frames(cfg, sess, d)
@@ -390,7 +441,8 @@ def main_a4c6(commit, k=100):
                        "n_sessions": len(cells),
                        "eligible_frames": {s["session"]: n for s, _, _, n in cells},
                        "frames_per_round": per_round[0]["frames"],
-                       "seconds_per_frame": g, "rounds": per_round}]}, indent=1))
+                       "seconds_per_frame": g, "rounds": per_round}],
+         **({"qc_excluded": provenance()} if QC else {})}, indent=1))
     print(f"[a4c6] greedy {g * 1e3:.4f} ms/frame -> fig3_runtime_clean{SFX}{TAG}_a4c6.json")
 
 

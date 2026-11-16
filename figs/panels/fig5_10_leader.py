@@ -27,14 +27,24 @@ the same thing more directly: they are complementary (male_share = 1 - female_sh
 within a session), so putting both on the panel shows the asymmetry as two real
 distributions rather than one real distribution against a simulation.
 
-STATS: paired Wilcoxon signed-rank, female share vs male share, on the 23 sessions
-with >= MIN_DISPLAYS displays (mathematically the same test as female share vs 0.5,
+STATS: paired Wilcoxon signed-rank, female share vs male share, on the sessions
+with >= MIN_DISPLAYS displays (22 in the q series, 23 in b) (mathematically the same test as female share vs 0.5,
 since the two shares sum to 1 within a session). Restricting to >= 6 displays is the
 same choice the surrogate-comparison version made and for the same reason: under a
 fair coin the 95th percentile of the larger share is 1.0 for every n up to and
 including 5 (a clean 5/5 sweep still has probability 2/32 = 0.0625), so a
 five-display session cannot register at all, and exactly one session in the corpus
 has five displays.
+
+THE P IS EXACT (2026-11-16). `stats.wilcoxon`'s default `method="auto"` uses the
+exact null only when the |differences| have no ties, and the shares here tie (17
+distinct |d| in 22 sessions, since shares are ratios of small counts), so it silently
+switched to the normal approximation and gave P = 4.0e-5 (2.7e-5 in the b series).
+`exact_signed_rank_p` computes the exact sign-flip null of the tied ranks instead.
+Every session leads female, so the result is 2 / 2^22 = 4.8e-7 (b: 2 / 2^23 =
+2.4e-7), the same as scipy's full permutation test. Figs 5d and 5e were already
+exact (no ties). The stars are unchanged (***). The P is deposited as the
+TEST_SESSION_ge6 row of fig5f_leader_by_session.csv.
 
 STAR CONVENTION. `STARS` is drawn as given -- currently mapped from the Wilcoxon P
 by the usual convention (Nature journals among them): * P<0.05, ** P<0.01,
@@ -62,6 +72,29 @@ CM = "#4393C3"       # male
 MIN_DISPLAYS = 6
 
 
+def exact_signed_rank_p(d):
+    """Two-sided exact Wilcoxon signed-rank P, correct with tied |d|.
+
+    Enumerates the sign-flip null of the observed (average) ranks. Doubled, tied ranks
+    are integers, so the null of the positive-rank sum is a convolution over the 2^n
+    flips. Zeros are dropped (scipy's zero_method="wilcox"). Equals
+    stats.wilcoxon(d, method="exact") when nothing ties, and
+    stats.wilcoxon(d, method=stats.PermutationMethod(n_resamples=np.inf)) always.
+    """
+    d = np.asarray(d, dtype=float)
+    d = d[d != 0]
+    r2 = np.rint(2 * stats.rankdata(np.abs(d))).astype(int)
+    dist = np.zeros(r2.sum() + 1)
+    dist[0] = 1.0
+    for r in r2:
+        nxt = dist.copy()
+        nxt[r:] += dist[:-r]
+        dist = nxt
+    dist /= dist.sum()
+    t = r2[d > 0].sum()
+    return float(min(1.0, 2 * min(dist[:t + 1].sum(), dist[t:].sum())))
+
+
 def main():
     use()
     d = load("fig5_upright.json")
@@ -83,7 +116,7 @@ def main():
     big = df[df["displays"] >= MIN_DISPLAYS]
     obs_f = big["female_share"].to_numpy()
     obs_m = big["male_share"].to_numpy()
-    w = stats.wilcoxon(obs_f - obs_m)
+    p_share = exact_signed_rank_p(obs_f - obs_m)
     pooled = df["female_lead"].sum() / df["displays"].sum()
 
     # NOT A SIZE ARTEFACT: male is structurally longer, not female.
@@ -100,13 +133,16 @@ def main():
         {"session": "BODY_LENGTH_MM_MEDIAN", "displays": len(df),
          "female_share": float(np.median(L_female)),
          "male_lead": float(np.median(L_male))},
+        {"session": f"TEST_SESSION_ge{MIN_DISPLAYS}", "displays": len(obs_f),
+         "female_share": float(np.median(obs_f)), "male_share": float(np.median(obs_m)),
+         "wilcoxon_p": p_share},
     ])], ignore_index=True), 5, "fig5f_leader_by_session.csv")
     print(f"  female leads {n_female_leader}/{len(df)} sessions outright "
           f"(male {n_male_leader}, tie {n_tie})")
     print(f"  pooled female share {pooled:.4f} ({int(df.female_lead.sum())}/"
           f"{int(df.displays.sum())}); median female {np.median(obs_f):.3f} vs "
           f"male {np.median(obs_m):.3f}; paired Wilcoxon n={len(obs_f)} "
-          f"P={w.pvalue:.3g}")
+          f"P={p_share:.3g} (exact)")
     print(f"  body length (mm): male {np.median(L_male):.1f}  female "
           f"{np.median(L_female):.1f}  (male longer in "
           f"{int((L_male > L_female).sum())}/{len(L_male)}, Wilcoxon "
@@ -137,7 +173,7 @@ def main():
     y = top + 0.055
     ax.plot([0, 0, 1, 1], [y - 0.018, y, y, y - 0.018], color=INK, lw=0.9,
             solid_joinstyle="miter", clip_on=False)
-    stars = "***" if w.pvalue < 1e-3 else ("**" if w.pvalue < 1e-2 else "*")
+    stars = "***" if p_share < 1e-3 else ("**" if p_share < 1e-2 else "*")
     ax.text(0.5, y + 0.008, stars, ha="center", va="bottom", color=INK,
             fontsize=8.5, fontweight="bold", clip_on=False)
 
