@@ -109,6 +109,15 @@ dropped and every cross-session value recomputed. No LUC3D was re-run:
   summary formula and re-takes the k = 5 gate (55/55 sessions, passed). Within-view IDF1
   0.92 / 0.96 / 0.97 / 0.97 for 2 / 3 / 4 / 5 cameras; switches 158-250 (k = 2), 86-298
   (k = 3), 92-128 (k = 4) and 130 (full rig).
+- **Exact Wilcoxon P values (2026-11-16).** `scipy.stats.wilcoxon`'s default
+  `method="auto"` silently switches to the normal approximation when the differences
+  have ties or zeros. Fig 5f (female share, ties) now uses an exact tie-aware P,
+  4.8e-7 over 22 sessions (was 4.0e-5), deposited in `fig5f_leader_by_session.csv` as
+  row `TEST_SESSION_ge6`. The panel is unchanged (still ***). The Supplementary
+  eviction-sweep P values (zeros) had no producer here. `figs/qc/eviction_wilcoxon.py`
+  now writes them to `out/eviction_wilcoxon_q.json`, exact: 0.011, 0.002, 0.73 and
+  0.50 on SLAP-2M, and 0.030 on MouseDyad-10M (were 0.012, 0.003, 0.72, 0.49 and
+  0.031). Figs 5d and 5e, the sign tests, and the Mann-Whitney tests were already exact.
 - Fig 5 re-runs its Python measurement scripts (`fig5_upright.py`, `fig5_rear_coupling.py`,
   `fig5_controls.py`, `fig5_slot_swap_control.py`) with `QC_EXCLUDE=1`. Without it they
   reproduce the b deposits exactly. `fig5_benchmark_subset.py` with `QC_EXCLUDE=1` writes
