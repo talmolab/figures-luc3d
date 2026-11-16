@@ -59,9 +59,9 @@ import fitz
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT_JSON = os.path.join(HERE, "out", "dataset_sheets.json")
 OUT_DIR = os.path.join(HERE, "figures", "datasheets")
-#: FIG_SERIES=q measures Mouse-Dyad-10M without the sessions in src/qc_exclude.py and
-#: deposits to out/dataset_sheets_q.json. The b deposit and sheets are left alone.
-SERIES = os.environ.get("FIG_SERIES", "b")
+#: The default, q, measures Mouse-Dyad-10M without the sessions in src/qc_exclude.py (55
+#: sessions) and deposits to out/dataset_sheets_q.json. FIG_SERIES=b is the 56-session sheet.
+SERIES = os.environ.get("FIG_SERIES", "q")
 if SERIES == "q":
     OUT_JSON = os.path.join(HERE, "out", "dataset_sheets_q.json")
 BMIMICA = "/root/vast/eric/BMimica"

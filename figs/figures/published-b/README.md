@@ -7,4 +7,4 @@ The seven composites as placed in the manuscript, copied from `eric/build-wrappe
 Figs 2, 3 and 5 and Supp Fig 4 differ.
 
 The b deposits (`out/*_b.*`) are unchanged on this branch, so the b figures can still be
-rebuilt here: `bash figs/build/run_FINALBUILD.sh` (default `FIG_SERIES=b`).
+rebuilt here: `FIG_SERIES=b bash figs/build/run_FINALBUILD.sh` (the default is q).

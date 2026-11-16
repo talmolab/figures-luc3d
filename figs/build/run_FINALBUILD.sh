@@ -5,16 +5,18 @@
 #   bash figs/build/run_FINALBUILD.sh --verify   # rebuild a clean copy of this checkout in a
 #                                                # temp dir and pixel-compare it to this checkout
 #
-# FIG_SERIES=q builds the same figures from the q deposits (out/<stem>_q.*), the b series
-# with the sessions in src/qc_exclude.py left out (figs/qc/). Default b. --verify checks
-# whichever series FIG_SERIES names against the figures in this checkout.
+# The default series is q, the figures in the manuscript: they are built from the q deposits
+# (out/<stem>_q.*), the b series with the sessions in src/qc_exclude.py left out (figs/qc/),
+# so Mouse-Dyad-10M is 55 sessions. FIG_SERIES=b rebuilds the earlier 56-session figures
+# (kept in figures/published-b/). --verify checks whichever series FIG_SERIES names against
+# the figures in this checkout.
 #
 # PYTHON=/path/to/python overrides the interpreter (3.12 with numpy, pandas, scipy,
 # matplotlib, seaborn, PyMuPDF). Verified 2026-11-12: every placed composite and panel is
 # pixel-identical to the committed PDFs (compare.py), and every plotted data/ CSV is
 # byte-identical.
 #
-# What the published figures are. They are the "b" series (2026-10-20/21, promoted to the
+# What the figures are built on. The "b" series (2026-10-20/21, promoted to the
 # main figures in luc3d eric/figs 9f25344b8), not plain x7:
 #   * deposits: x7's link set plus 8 overrides (build/B_links.tsv, every name REQUIRED):
 #     LUC3D v1.0.5 app captures (out/b_app/) for Fig 1 and the labeling protocol, the
@@ -37,7 +39,7 @@
 set -euo pipefail
 FIGS="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="${PYTHON:-python3}"
-SERIES="${FIG_SERIES:-b}"
+SERIES="${FIG_SERIES:-q}"
 case "$SERIES" in b|q) ;; *) echo "FIG_SERIES must be b or q" >&2; exit 1 ;; esac
 BUILD="$FIGS/build"
 

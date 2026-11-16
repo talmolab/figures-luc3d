@@ -49,11 +49,15 @@ scoring. `figs/PANEL-SOURCES.md` lists the commands that produced each deposit.
 ```bash
 bash figs/build/run_FINALBUILD.sh            # rebuild the seven placed figures in place
 bash figs/build/run_FINALBUILD.sh --verify   # rebuild a clean copy and pixel-compare it to this checkout
+FIG_SERIES=b bash figs/build/run_FINALBUILD.sh   # the earlier 56-session figures (figures/published-b/)
 PYTHON=/path/to/python3.12 bash figs/build/run_FINALBUILD.sh   # pick the interpreter
 python figs/lint_text.py 7                   # check one figure for clipped or overlapping text
 ```
 
-**Use the wrapper, not a bare `make_figures.py`.** The published figures are the
+The build's default is the **q series**, the figures in the manuscript, with Mouse-Dyad-10M
+at 55 sessions (see "The q series" below). q is the b series with one session left out.
+
+**Use the wrapper, not a bare `make_figures.py`.** The figures are built on the
 **b series** (2026-10-20/21), not plain `x7`. A plain `FIG_VARIANT=x7` build reproduces
 Fig 4 and Supplementary Figure 2 but not the 3D renders, Fig 2, or Supplementary Figure 4e.
 b is x7's deposit set plus eight overrides, listed in `figs/build/B_links.tsv` (every name
@@ -90,8 +94,8 @@ Needs Python 3.12 with numpy, pandas, scipy, matplotlib, seaborn and PyMuPDF.
 **The q series (this branch): Mouse-Dyad session 20250904_183921 left out.** That
 session's reference 3D is corrupted over frames ~42k-115k: camera 21369048's identities
 are swapped in the lab's SLEAP predictions and were triangulated into the 3D. The
-exclusion list is `figs/src/qc_exclude.py`. `FIG_SERIES=q bash figs/build/run_FINALBUILD.sh`
-builds the figures from `out/<stem>_q.*`, which are the b deposits with that session
+exclusion list is `figs/src/qc_exclude.py`. `bash figs/build/run_FINALBUILD.sh` (default
+`FIG_SERIES=q`) builds the figures from `out/<stem>_q.*`, which are the b deposits with that session
 dropped and every cross-session value recomputed. No LUC3D was re-run:
 
 - Fig 2 tracking (`figs/qc/reagg_fig2.py`), Fig 3 triangulation (`figs/qc/reagg_fig3.py`)
@@ -134,8 +138,8 @@ dropped and every cross-session value recomputed. No LUC3D was re-run:
   `valid: false` under `timing_watch.py` (7 of 1,760 samples at 0.50-0.66 core, mostly the
   VS Code server), and it ran on a different, busier host, which on its own moved every
   bar (exhaustive ~5% slower in each cell).
-- The datasheet lists Mouse-Dyad-10M as 55 sessions: `cd figs && FIG_SERIES=q python
-  dataset_sheets.py --measure` measures the corpus without the `src/qc_exclude.py` sessions
+- The datasheet lists Mouse-Dyad-10M as 55 sessions: `cd figs && python dataset_sheets.py
+  --measure` (default `FIG_SERIES=q`) measures the corpus without the `src/qc_exclude.py` sessions
   into `out/dataset_sheets_q.json` (49.52 M frames, 9.9 M per view, 19.81 M 3D poses,
   99.05 M 2D poses) and renders `figs/figures/datasheets/`. The 56-session b sheets are kept
   in `figs/figures/published-b/datasheets/`, and the b render reproduces them pixel-identically.
@@ -146,10 +150,10 @@ dropped and every cross-session value recomputed. No LUC3D was re-run:
   they cover 0.23% of frames in 20 sessions, the longest 44 s; the tex quotes these.
 
 Figs 1 and 4 and Supp Fig 2 come out pixel-identical to b. Figs 2, 3 and 5 and Supp Fig 4
-change. On this branch `figs/figures/fig1`-`fig7` hold the q series; the published b
+change. On this branch `figs/figures/fig1`-`fig7` hold the q series; the earlier 56-session b
 composites are kept in `figs/figures/published-b/`, and the b deposits are unchanged, so
-the default (b) build still reproduces them exactly. Check this branch with
-`FIG_SERIES=q bash figs/build/run_FINALBUILD.sh --verify`.
+`FIG_SERIES=b bash figs/build/run_FINALBUILD.sh` still reproduces them exactly. Check this
+branch with `bash figs/build/run_FINALBUILD.sh --verify` (q is the default).
 
 Unit tests (seconds, no rebuild): `python -m pytest figs/tests` (needs pytest). They cover
 `build/compare.py` (what `--verify` fails on and what it only reports), `build/promote.py`,
